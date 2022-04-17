@@ -37,15 +37,15 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const theme = {
-  text: '#FFFFFF',
+  light: '#FFFFFF',
   neutral: '#757575',
-  dark: '#000000',
-  blueSuperman: '#10548c',
-  greyBatman: '#56688a',
-  orangeWonder: '#e47711',
-  redFlash: '#c01518',
-  greenLantern: '#09a609',
-  greenArrow: '#0d5f0f',
-  yellowAquaman: '#df9a1a',
-  redCyborg: '#9e0306',
+  dark: '#282828',
+  blue: '#10548c',
+  grey: '#56688a',
+  orange: '#e47711',
+  red: '#c01518',
+  greenLight: '#09a609',
+  greenDark: '#0d5f0f',
+  yellow: '#df9a1a',
+  redDark: '#6a0608',
 };

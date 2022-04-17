@@ -1,9 +1,10 @@
 import styled, { keyframes } from 'styled-components';
-import classicLogoPath from '@/assets/svg/dc-classic-logo.svg';
+import classicLogoPath from '@/assets/svg/classic-dc-logo.svg';
 
-const rotate = keyframes`
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+const beat = keyframes`
+  0% {  transform: scale(1); opacity: 1 }
+  50% {  transform: scale(0.95); opacity: 0.7 }
+  100% { transform: scale(1); opacity: 1 }
 `;
 
 const StyledLoaderWrapper = styled.div`
@@ -15,8 +16,8 @@ const StyledLoaderWrapper = styled.div`
 `;
 
 const StyledLoader = styled.img`
-  will-change: transform;
-  animation: ${rotate} 1.5s linear infinite;
+  will-change: transform, opacity;
+  animation: ${beat} 1.8s ease-in-out infinite;
 `;
 
 const Loader = () => (
