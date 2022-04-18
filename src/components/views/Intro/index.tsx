@@ -12,10 +12,9 @@ export const StyledIntro = styled.div<{ bgColor: string }>`
   display: flex;
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
   position: absolute;
   width: 100%;
-  z-index: 1;
+  z-index: 4;
 `;
 
 const Intro: React.FC = () => {

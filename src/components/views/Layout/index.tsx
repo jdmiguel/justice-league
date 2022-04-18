@@ -12,10 +12,12 @@ export const StyledLayout = styled.div`
 `;
 
 export const StyledHeader = styled.header`
+  align-items: center;
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  z-index: 3;
 `;
 
 export const StyledFooter = styled.footer`
@@ -25,6 +27,7 @@ export const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   padding: 24px 40px;
+  z-index: 3;
 `;
 
 export const StyledFooterLink = styled.a`

@@ -35,6 +35,9 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  body {
+    overflow: hidden;
+  },
   img {
     display: inline-block;
     height: auto;
@@ -50,6 +53,7 @@ export const neutralTheme = {
   neutral: '#757575',
   lightNeutral: '#BCBCBC',
   dark: '#282828',
+  alphaDark: 'rgba(0,0,0,0.6)',
 };
 
 export const colorTheme = {
