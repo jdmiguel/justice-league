@@ -1,0 +1,274 @@
+[
+  {
+    "name": "Superman",
+    "alias": "The man of steel",
+    "description":
+      "Faster than a speeding bullet, more powerful than a locomotive… Rocketed to Earth as an infant from the doomed planet Krypton, Kal-El was adopted by the loving Kent family and raised in America´s heartland as Clark Kent. Using his immense solar-fueled powers, he became Superman to defend mankind against all manner of threats while championing truth, justice and freedom.",
+    "profile": [
+      { "fullName": "Clark Kent" },
+      { "birthPlace": "Krypton" },
+      { "occupation": "Reporter" },
+      { "base": "Metropolis" },
+      { "firstAppearance": "Action Comics #1" }
+    ],
+    "appearance": [
+      { "race": "Kryptonian" },
+      { "height": "6.3 / 191 cm" },
+      { "weight": "225 lb / 101 kg" },
+      { "eyeColor": "Blue" },
+      { "hairColor": "Black" }
+    ],
+    "skills": [
+      { "intelligence": 50 },
+      { "strength": 100 },
+      { "speed": 90 },
+      { "power": 90 },
+      { "combat": 50 }
+    ],
+    "powers": [
+      "Super strength",
+      "Flight",
+      "Invulnerability",
+      "Vision - X-Ray",
+      "Vision - Heat"
+    ]
+  },
+  {
+    "name": "Batman",
+    "alias": "The dark night",
+    "description":
+      "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary dark night of Gotham.",
+    "profile": [
+      { "fullName": "Bruce Wayne" },
+      { "birthPlace": "Gotham City" },
+      { "occupation": "Businessman" },
+      { "base": "Gotham City" },
+      { "firstAppearance": "Detective Comics #27" }
+    ],
+    "appearance": [
+      { "race": "Human" },
+      { "height": "6.2 / 188 cm" },
+      { "weight": "210 lb / 95 kg" },
+      { "eyeColor": "Blue" },
+      { "hairColor": "Black" }
+    ],
+    "skills": [
+      { "intelligence": 100 },
+      { "strength": 15 },
+      { "speed": 15 },
+      { "power": 24 },
+      { "combat": 100 }
+    ],
+    "powers": [
+      "Gadgets",
+      "Detective skills",
+      "Agility",
+      "Reflexes",
+      "Fear creation"
+    ]
+  },
+  {
+    "name": "WonderWoman",
+    "alias": "Princess of the amazons",
+    "description":
+      "Armed with superpowers of a god, Wonder Woman is one of Earth´s most powerful defenders of peace, justice, and equality in addition to be a member of the Justice League. Her original origin allegorically depicted her as a clay figure brought to life by the gods, but in recent years she has been depicted more literally as the daughter of Zeus and the Amazon queen Hippolyta.",
+    "profile": [
+      { "fullName": "Diana Prince" },
+      { "birthPlace": "Themyscira" },
+      { "occupation": "Adventurer" },
+      { "base": "Paradise Island" },
+      { "firstAppearance": "All-Star Comics #8" }
+    ],
+    "appearance": [
+      { "race": "Amazon" },
+      { "height": "6.0 / 183 cm" },
+      { "weight": "165 lb / 74 kg" },
+      { "eyeColor": "Blue" },
+      { "hairColor": "Black" }
+    ],
+    "skills": [
+      { "intelligence": 70 },
+      { "strength": 90 },
+      { "speed": 80 },
+      { "power": 80 },
+      { "combat": 70 }
+    ],
+    "powers": [
+      "Super healing",
+      "Super strength",
+      "Flight",
+      "Invulnerability",
+      "Telepathy"
+    ]
+  },
+  {
+    "name": "TheFlash",
+    "alias": "The fastest man alive",
+    "description":
+      "Having discovered his mother murdered and his father blamed for the act, forensic scientist Barry Allen sought conscientiously to clear his father´s alias and find the real killer. After being doused in chemicals and struck by lightning, Barry was granted the gift of super-speed. Nowadays he protects his hometown of Central City as The Flash, the scarlet speedster.",
+    "profile": [
+      { "fullName": "Barry Allen" },
+      { "birthPlace": "Fallville, Iowa" },
+      { "occupation": "Forensic Scientist" },
+      { "base": "Central City" },
+      { "firstAppearance": "Showcase #4" }
+    ],
+    "appearance": [
+      { "race": "Human" },
+      { "height": "6.0 / 183 cm" },
+      { "weight": "195 lb / 88 kg" },
+      { "eyeColor": "Blue" },
+      { "hairColor": "Blond" }
+    ],
+    "skills": [
+      { "intelligence": 80 },
+      { "strength": 35 },
+      { "speed": 100 },
+      { "power": 80 },
+      { "combat": 60 }
+    ],
+    "powers": [
+      "Super speed",
+      "Super reflexes",
+      "Super healing",
+      "Time travel",
+      "Enhanced senses"
+    ]
+  },
+  {
+    "name": "GreenLantern",
+    "alias": "God of light",
+    "description":
+      "Gifted with the ability to overcome great fear and harness the power of will, test-pilot Hal Jordan was chosen to be the Green Lantern of Sector 2814 inheriting the ring of the dying alien Green Lantern, Abin Sur. Through sheer will power and determination, Hal has established an impressive record of heroism across the galaxy with the help of his fellow Green Lanterns.",
+    "profile": [
+      { "fullName": "Hal Jordan" },
+      { "birthPlace": "Coast City, California" },
+      { "occupation": "Air Force Pilot" },
+      { "base": "Oa Planet" },
+      { "firstAppearance": "Showcase #22" }
+    ],
+    "appearance": [
+      { "race": "Human" },
+      { "height": "6.2 / 188 cm" },
+      { "weight": "200 lb / 90 kg" },
+      { "eyeColor": "Brown" },
+      { "hairColor": "Brown" }
+    ],
+    "skills": [
+      { "intelligence": 50 },
+      { "strength": 10 },
+      { "speed": 30 },
+      { "power": 100 },
+      { "combat": 60 }
+    ],
+    "powers": [
+      "Energy blasts",
+      "Psionic powers",
+      "Invisiblity",
+      "Phasing",
+      "Flight"
+    ]
+  },
+  {
+    "name": "Aquaman",
+    "alias": "The king of the seven seas",
+    "description":
+      "The son of an Atlantean queen and a lighthouse keeper from the town of Amnesty Bay, Arthur Curry would grow up to become the powerful superhero Aquaman, and later take on his birthright as the King of Atlantis. He is the bridge between the surface world and his tumultuous realm of the sea in addition to being an important founding member of the Justice League.",
+    "profile": [
+      { "fullName": "Arthur Curry" },
+      { "birthPlace": "Amnesty Bay, Massachusetts" },
+      { "occupation": "Adventurer" },
+      { "base": "Atlantis" },
+      { "firstAppearance": "More Fun Comics #73" }
+    ],
+    "appearance": [
+      { "race": "Atlantean" },
+      { "height": "6.1 / 185 cm" },
+      { "weight": "325 lb / 146 kg" },
+      { "eyeColor": "Blue" },
+      { "hairColor": "Blond" }
+    ],
+    "skills": [
+      { "intelligence": 64 },
+      { "strength": 74 },
+      { "speed": 30 },
+      { "power": 90 },
+      { "combat": 64 }
+    ],
+    "powers": [
+      "Animal control",
+      "Cold resistence",
+      "Super healing",
+      "Super strength",
+      "Enhanced senses"
+    ]
+  },
+  {
+    "name": "GreenArrow",
+    "alias": "The hood",
+    "description":
+      "Oliver Jonas 'Ollie' Queen was a spoiled, thrill-seeking playboy, until he was left stranded on a deserted island for several years. There, he trained tirelessly to become the both, a master archer and a powerful fighter, in order to survive. After his return home, he used his new-found skills, his wealth and his will to became the costumed vigilante known as Green Arrow.",
+    "profile": [
+      { "fullName": "Oliver Queen" },
+      { "birthPlace": "Starling City" },
+      { "occupation": "Businessman" },
+      { "base": "Star City" },
+      { "firstAppearance": "Arrow Season 1" }
+    ],
+    "appearance": [
+      { "race": "Human" },
+      { "height": "6.1 / 185 cm" },
+      { "weight": "182 lb / 82 kg" },
+      { "eyeColor": "Blue" },
+      { "hairColor": "Brown" }
+    ],
+    "skills": [
+      { "intelligence": 78 },
+      { "strength": 12 },
+      { "speed": 16 },
+      { "power": 20 },
+      { "combat": 90 }
+    ],
+    "powers": [
+      "Perfect aim",
+      "Dexterity",
+      "Agility",
+      "Reflexes",
+      "Stamina"
+    ]
+  },
+  {
+    "name": "Cyborg",
+    "alias": "Cyberion Technis",
+    "description":
+      "Half man, half machine - all hero! After a near fatal incident, Victor Stone was cybernetically enhanced by his father. He now possesses the ability to communicate, manipulate, and interface with nearly all forms of technology. As he is constantly upgrading, he promises to defend the future from any threat. Furthermore, he is a founding member of the Justice League.",
+    "profile": [
+      { "fullName": "Victor Stone" },
+      { "birthPlace": "New York City, New Yor" },
+      { "occupation": "Adventurer" },
+      { "base": "San Francisco" },
+      { "firstAppearance": "DC Comics Presents #26" }
+    ],
+    "appearance": [
+      { "race": "Cyborg" },
+      { "height": "6.6 / 198 cm" },
+      { "weight": "385 lb / 173 kg" },
+      { "eyeColor": "Brown" },
+      { "hairColor": "Black" }
+    ],
+    "skills": [
+      { "intelligence": 60 },
+      { "strength": 88 },
+      { "speed": 34 },
+      { "power": 84 },
+      { "combat": 60 }
+    ],
+    "powers": [
+      "Energy Blast",
+      "Biokinesis",
+      "Super strength",
+      "Flight",
+      "Shapeshifting"
+    ]
+  }
+]
