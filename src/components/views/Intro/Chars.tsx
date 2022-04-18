@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { theme } from '@/helpers/theme';
 import J from '@/components/views/Intro/chars/justice/J';
@@ -15,9 +16,15 @@ import G from '@/components/views/Intro/chars/league/G';
 import U2 from '@/components/views/Intro/chars/league/U';
 import E3 from '@/components/views/Intro/chars/league/LastE';
 
+const posY = gsap.utils.wrap([20, -20, 30, -30, 40, -40, 50, 60, -65, 70, -75, 80, -85]);
+
+export const StyledChars = styled.svg`
+  position: absolute;
+  width: 45vw;
+`;
+
 const Chars: React.FC = () => {
   const tlRef = useRef<GSAPTimeline>();
-
   const jRef = useRef<SVGPathElement>(null);
   const uRef = useRef<SVGPathElement>(null);
   const sRef = useRef<SVGPathElement>(null);
@@ -34,8 +41,6 @@ const Chars: React.FC = () => {
 
   useEffect(() => {
     tlRef.current = gsap.timeline();
-
-    const posY = gsap.utils.wrap([20, -20, 30, -30, 40, -40, 50, 60, -65, 70, -75, 80, -85]);
 
     tlRef.current.fromTo(
       [
@@ -55,17 +60,15 @@ const Chars: React.FC = () => {
       ],
       {
         y: posY,
-        opacity: 0,
-        fill: theme.light,
         strokeDasharray: 1300,
         strokeDashoffset: 0,
-        delay: 1.9,
       },
       {
+        delay: 1,
+        duration: 3,
         y: 0,
         opacity: 1,
         fill: theme.dark,
-        duration: 3,
         strokeDashoffset: 1300,
         ease: 'power1.inOut',
         stagger: 0.02,
@@ -78,7 +81,7 @@ const Chars: React.FC = () => {
   }, []);
 
   return (
-    <svg
+    <StyledChars
       width="700"
       height="563.287"
       viewBox="0 0 700 563.287"
@@ -98,7 +101,7 @@ const Chars: React.FC = () => {
       <G ref={gRef} />
       <U2 ref={u2Ref} />
       <E3 ref={e3Ref} />
-    </svg>
+    </StyledChars>
   );
 };
 

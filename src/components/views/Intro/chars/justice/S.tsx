@@ -1,8 +1,13 @@
 import { forwardRef } from 'react';
+import styled from 'styled-components';
 import { theme } from '@/helpers/theme';
 
+export const StyledChar = styled.path`
+  opacity: 0;
+`;
+
 export default forwardRef<SVGPathElement>((_, ref) => (
-  <path
+  <StyledChar
     ref={ref}
     fill={theme.light}
     stroke={theme.light}

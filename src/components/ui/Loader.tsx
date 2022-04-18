@@ -8,6 +8,7 @@ const beat = keyframes`
 `;
 
 const StyledLoaderWrapper = styled.div`
+  background-color: ${({ theme }) => theme.dark};
   display: flex;
   justify-content: center;
   align-items: center;
