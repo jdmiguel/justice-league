@@ -1,4 +1,4 @@
-import { useRef, useEffect, useContext } from 'react';
+import { useRef, useEffect, useContext, useCallback } from 'react';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { getRandomHeroColor } from '@/helpers/theme';
@@ -23,8 +23,7 @@ const Intro: React.FC = () => {
   const introRef = useRef<HTMLDivElement>(null);
 
   const { setDisplayedIntro } = useContext(IntroContext);
-
-  const randomHeroColor = getRandomHeroColor();
+  const getMemoizedRandomHeroColor = useCallback(() => getRandomHeroColor(), []);
 
   useEffect(() => {
     tlRef.current = gsap.timeline({
@@ -44,7 +43,7 @@ const Intro: React.FC = () => {
   }, [setDisplayedIntro]);
 
   return (
-    <StyledIntro ref={introRef} bgColor={randomHeroColor}>
+    <StyledIntro ref={introRef} bgColor={getMemoizedRandomHeroColor()}>
       <Logo />
       <Chars />
     </StyledIntro>

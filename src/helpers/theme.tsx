@@ -15,6 +15,9 @@ export const GlobalStyles = createGlobalStyle`
     text-size-adjust: 100%;
   }
   body,
+  header,
+  footer,
+  main,
   h1,
   h2,
   h3,
@@ -27,6 +30,7 @@ export const GlobalStyles = createGlobalStyle`
   ul {
     background: none;
     border: 0;
+    box-sizing: border-box;
     color: inherit;
     margin: 0;
     padding: 0;
@@ -36,11 +40,15 @@ export const GlobalStyles = createGlobalStyle`
     height: auto;
     vertical-align: middle;
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const neutralTheme = {
   light: '#FFFFFF',
   neutral: '#757575',
+  lightNeutral: '#BCBCBC',
   dark: '#282828',
 };
 
