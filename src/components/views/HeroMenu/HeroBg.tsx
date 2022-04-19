@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-export const StyledHeroBgWrapper = styled.div``;
+import { HeroMenuData as Hero } from '@/helpers/types';
 
 export const StyledHeroBg = styled.div<{ bgPath: string; active: boolean }>`
   opacity: 0.35;
@@ -20,13 +19,13 @@ export const StyledHeroBg = styled.div<{ bgPath: string; active: boolean }>`
 `;
 
 type Props = {
-  heroes: any[];
+  heroes: Hero[];
 };
 
 const HeroBg: React.FC<Props> = ({ heroes }) => (
   <>
     {heroes.map((hero) => (
-      <StyledHeroBg key={hero.id} bgPath={hero.path} active={hero.active} />
+      <StyledHeroBg key={hero.id} bgPath={hero.bgPath} active={hero.active} />
     ))}
   </>
 );

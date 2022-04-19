@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import justiceLeagueLogoPath from '@/assets/svg/justice-league-logo.svg';
+import justiceLeagueLogoPath from '@/assets/logo/justice-league.svg';
 import Corner from '@/components/views/Layout/Corner';
 
 export const StyledLayout = styled.div`

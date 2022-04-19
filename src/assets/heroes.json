@@ -2,7 +2,6 @@
   {
     "id": "superman",
     "name": "Superman",
-    "bgPath": "src/assets/heroBg/superman.jpg",
     "alias": "The man of steel",
     "description":
       "Faster than a speeding bullet, more powerful than a locomotive… Rocketed to Earth as an infant from the doomed planet Krypton, Kal-El was adopted by the loving Kent family and raised in America´s heartland as Clark Kent. Using his immense solar-fueled powers, he became Superman to defend mankind against all manner of threats while championing truth, justice and freedom.",
@@ -33,12 +32,17 @@
       "Invulnerability",
       "Vision - X-Ray",
       "Vision - Heat"
-    ]
+    ],
+    "logoPath": "src/assets/logo/superman.svg",
+    "bgPath": "src/assets/heroBg/superman.jpg",
+    "iconSize": {
+      "width": 32,
+      "height": 24
+    }
   },
   {
     "id": "batman",
     "name": "Batman",
-    "bgPath": "src/assets/heroBg/batman.jpg",
     "alias": "The dark night",
     "description":
       "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary dark night of Gotham.",
@@ -69,12 +73,17 @@
       "Agility",
       "Reflexes",
       "Fear creation"
-    ]
+    ],
+    "logoPath": "src/assets/logo/batman.svg",
+    "bgPath": "src/assets/heroBg/batman.jpg",
+    "iconSize": {
+      "width": 40,
+      "height": 14
+    }
   },
   {
     "id": "wonderwoman",
     "name": "WonderWoman",
-    "bgPath": "src/assets/heroBg/wonderwoman.jpg",
     "alias": "Princess of the amazons",
     "description":
       "Armed with superpowers of a god, Wonder Woman is one of Earth´s most powerful defenders of peace, justice, and equality in addition to be a member of the Justice League. Her original origin allegorically depicted her as a clay figure brought to life by the gods, but in recent years she has been depicted more literally as the daughter of Zeus and the Amazon queen Hippolyta.",
@@ -105,12 +114,17 @@
       "Flight",
       "Invulnerability",
       "Telepathy"
-    ]
+    ],
+    "logoPath": "src/assets/logo/wonderwoman.svg",
+    "bgPath": "src/assets/heroBg/wonderwoman.jpg",
+    "iconSize": {
+      "width": 40,
+      "height": 19
+    }
   },
   {
     "id": "flash",
     "name": "TheFlash",
-    "bgPath": "src/assets/heroBg/flash.jpg",
     "alias": "The fastest man alive",
     "description":
       "Having discovered his mother murdered and his father blamed for the act, forensic scientist Barry Allen sought conscientiously to clear his father´s alias and find the real killer. After being doused in chemicals and struck by lightning, Barry was granted the gift of super-speed. Nowadays he protects his hometown of Central City as The Flash, the scarlet speedster.",
@@ -141,12 +155,17 @@
       "Super healing",
       "Time travel",
       "Enhanced senses"
-    ]
+    ],
+    "logoPath": "src/assets/logo/flash.svg",
+    "bgPath": "src/assets/heroBg/flash.jpg",
+    "iconSize": {
+      "width": 24,
+      "height": 33
+    }
   },
   {
     "id": "greenlantern",
     "name": "GreenLantern",
-    "bgPath": "src/assets/heroBg/greenlantern.jpg",
     "alias": "God of light",
     "description":
       "Gifted with the ability to overcome great fear and harness the power of will, test-pilot Hal Jordan was chosen to be the Green Lantern of Sector 2814 inheriting the ring of the dying alien Green Lantern, Abin Sur. Through sheer will power and determination, Hal has established an impressive record of heroism across the galaxy with the help of his fellow Green Lanterns.",
@@ -177,12 +196,17 @@
       "Invisiblity",
       "Phasing",
       "Flight"
-    ]
+    ],
+    "logoPath": "src/assets/logo/greenlantern.svg",
+    "bgPath": "src/assets/heroBg/greenlantern.jpg",
+    "iconSize": {
+      "width": 26,
+      "height": 26
+    }
   },
   {
     "id": "aquaman",
     "name": "Aquaman",
-    "bgPath": "src/assets/heroBg/aquaman.jpg",
     "alias": "The king of the seven seas",
     "description":
       "The son of an Atlantean queen and a lighthouse keeper from the town of Amnesty Bay, Arthur Curry would grow up to become the powerful superhero Aquaman, and later take on his birthright as the King of Atlantis. He is the bridge between the surface world and his tumultuous realm of the sea in addition to being an important founding member of the Justice League.",
@@ -213,12 +237,17 @@
       "Super healing",
       "Super strength",
       "Enhanced senses"
-    ]
+    ],
+    "logoPath": "src/assets/logo/aquaman.svg",
+    "bgPath": "src/assets/heroBg/aquaman.jpg",
+    "iconSize": {
+      "width": 24,
+      "height": 28
+    }
   },
   {
     "id": "greenarrow",
     "name": "GreenArrow",
-    "bgPath": "src/assets/heroBg/greenarrow.jpg",
     "alias": "The hood",
     "description":
       "Oliver Jonas 'Ollie' Queen was a spoiled, thrill-seeking playboy, until he was left stranded on a deserted island for several years. There, he trained tirelessly to become the both, a master archer and a powerful fighter, in order to survive. After his return home, he used his new-found skills, his wealth and his will to became the costumed vigilante known as Green Arrow.",
@@ -249,12 +278,17 @@
       "Agility",
       "Reflexes",
       "Stamina"
-    ]
+    ],
+    "logoPath": "src/assets/logo/greenarrow.svg",
+    "bgPath": "src/assets/heroBg/greenarrow.jpg",
+    "iconSize": {
+      "width": 26,
+      "height": 26
+    }
   },
   {
     "id": "cyborg",
     "name": "Cyborg",
-    "bgPath": "src/assets/heroBg/cyborg.jpg",
     "alias": "Cyberion Technis",
     "description":
       "Half man, half machine - all hero! After a near fatal incident, Victor Stone was cybernetically enhanced by his father. He now possesses the ability to communicate, manipulate, and interface with nearly all forms of technology. As he is constantly upgrading, he promises to defend the future from any threat. Furthermore, he is a founding member of the Justice League.",
@@ -285,6 +319,12 @@
       "Super strength",
       "Flight",
       "Shapeshifting"
-    ]
+    ],
+    "logoPath": "src/assets/logo/cyborg.svg",
+    "bgPath": "src/assets/heroBg/cyborg.jpg",
+    "iconSize": {
+      "width": 26,
+      "height": 26
+    }
   }
 ]

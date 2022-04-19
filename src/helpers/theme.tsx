@@ -38,7 +38,10 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     overflow: hidden;
-  },
+  }
+  button {
+    cursor: pointer;
+  }
   img {
     display: inline-block;
     height: auto;

@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import noiseTexturePath from '@/assets/heroBg/noise-texture.png';
 import { animation } from '@/helpers/theme';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
+import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
 
 export const StyledGrainedBg = styled.div`
   animation: ${animation.noise} 5s infinite;
@@ -26,19 +26,8 @@ const HeroMenu: React.FC = () => {
 
   return (
     <>
-      <button
-        style={{ position: 'absolute', zIndex: 4, top: 20, left: 200, cursor: 'pointer' }}
-        onClick={setActivePrevHero}
-      >
-        PREV
-      </button>
-      <button
-        style={{ position: 'absolute', zIndex: 4, top: 20, left: 250, cursor: 'pointer' }}
-        onClick={setActiveNextHero}
-      >
-        NEXT
-      </button>
       <HeroBg heroes={heroes} />
+      <Sidedrawer heroes={heroes} />
       <StyledGrainedBg />
     </>
   );

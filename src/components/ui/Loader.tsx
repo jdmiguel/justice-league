@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import classicLogoPath from '@/assets/svg/classic-dc-logo.svg';
+import classicLogoPath from '@/assets/logo/classic-dc.svg';
 import { animation } from '@/helpers/theme';
 
 const StyledLoaderWrapper = styled.div`

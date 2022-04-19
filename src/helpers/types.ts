@@ -9,9 +9,12 @@ export type HeroColor = {
   cyborg: string;
 };
 
-export type HeroBasicData = {
+export type HeroMenuData = {
   id: string;
   name: string;
-  path: string;
+  bgPath: string;
+  logoPath: string;
+  iconWidth: number;
+  iconHeight: number;
   active: boolean;
 };

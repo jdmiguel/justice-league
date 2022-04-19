@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import heroesData from '@/assets/heroes.json';
-import { HeroBasicData as Hero } from '@/helpers/types';
+import { HeroMenuData as Hero } from '@/helpers/types';
 
 const useHeroMenu = () => {
   const fetchedHeroes: Hero[] = useMemo(
@@ -8,7 +8,10 @@ const useHeroMenu = () => {
       heroesData.map((hero, index) => ({
         id: hero.id,
         name: hero.name,
-        path: hero.bgPath,
+        bgPath: hero.bgPath,
+        logoPath: hero.logoPath,
+        iconWidth: hero.iconSize.width,
+        iconHeight: hero.iconSize.height,
         active: index === 0,
       })),
     [],
@@ -18,16 +21,16 @@ const useHeroMenu = () => {
 
   const lastHeroIndex = heroesData.length - 1;
 
-  const getActiveHero = () => heroes.findIndex((hero: any) => hero.active);
-
   const setActiveHero = (id: string) => {
-    setHeroes((prevHeroes: any) =>
-      prevHeroes.map((hero: any) => ({
+    setHeroes((prevHeroes) =>
+      prevHeroes.map((hero) => ({
         ...hero,
         active: id === hero.id,
       })),
     );
   };
+
+  const getActiveHero = () => heroes.findIndex((hero) => hero.active);
 
   const setActivePrevHero = () => {
     const activeHeroIndex = getActiveHero();
