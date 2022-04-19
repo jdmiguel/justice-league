@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
+import { HeroColor } from './types';
 
 export const GlobalStyles = createGlobalStyle`
   html {
@@ -50,8 +51,8 @@ export const GlobalStyles = createGlobalStyle`
 
 export const neutralTheme = {
   light: '#FFFFFF',
+  neutralLight: '#BCBCBC',
   neutral: '#757575',
-  lightNeutral: '#BCBCBC',
   dark: '#282828',
   alphaDark: 'rgba(0,0,0,0.6)',
 };
@@ -61,10 +62,10 @@ export const colorTheme = {
   grey: '#56688a',
   orange: '#e47711',
   red: '#c01518',
-  greenLight: '#09a609',
-  greenDark: '#0d5f0f',
+  green: '#09a609',
   yellow: '#df9a1a',
-  redDark: '#6a0608',
+  darkGreen: '#0d5f0f',
+  darkRed: '#6a0608',
 };
 
 export const theme = {
@@ -72,9 +73,48 @@ export const theme = {
   ...colorTheme,
 };
 
-export const getRandomHeroColor = () => {
+const heroColors: HeroColor = {
+  superman: theme.blue,
+  batman: theme.grey,
+  wonderwoman: theme.orange,
+  flash: theme.red,
+  greenlantern: theme.green,
+  aquaman: theme.yellow,
+  greenarrow: theme.darkGreen,
+  cyborg: theme.darkRed,
+};
+
+export const getHeroColor = (id: string): string => heroColors[id as keyof HeroColor];
+
+export const getRandomHeroColor = (): string => {
   const colorsList = Object.values(colorTheme);
   const randomColorIndex = Math.floor(Math.random() * (colorsList.length - 1));
 
   return colorsList[randomColorIndex];
+};
+
+export const animation = {
+  beat: keyframes`
+    0% { transform: scale(1); opacity: 1 }
+    50% { transform: scale(0.95); opacity: 0.7 }
+    100% { transform: scale(1); opacity: 1 }
+  `,
+  greet: keyframes`
+    0%,100% { transform: rotate(0) }
+    20%,60% { transform: rotate(-25deg) }
+    40%,80% { transform: rotate(10deg) }
+  `,
+  noise: keyframes`
+    0% { transform: translate(-10%, 10%); }
+    10% { transform: translate(-25%); }
+    20% { transform: translate(-30%, 10%); }
+    30% { transform: translate(-30%, 30%); }
+    40% { transform: translate(); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(-20%, 20%); }
+    70% { transform: translate(-5%, 20%); }
+    80% { transform: translate(-25%, 5%); }
+    90% { transform: translate(-30%, 25%); }
+    100% { transform: translate(-10%, 10%); }
+`,
 };

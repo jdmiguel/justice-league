@@ -1,11 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import classicLogoPath from '@/assets/svg/classic-dc-logo.svg';
-
-const beat = keyframes`
-  0% {  transform: scale(1); opacity: 1 }
-  50% {  transform: scale(0.95); opacity: 0.7 }
-  100% { transform: scale(1); opacity: 1 }
-`;
+import { animation } from '@/helpers/theme';
 
 const StyledLoaderWrapper = styled.div`
   background-color: ${({ theme }) => theme.dark};
@@ -18,7 +13,7 @@ const StyledLoaderWrapper = styled.div`
 
 const StyledLoader = styled.img`
   will-change: transform, opacity;
-  animation: ${beat} 1.8s ease-in-out infinite;
+  animation: ${animation.beat} 1.8s ease-in-out infinite;
 `;
 
 const Loader = () => (

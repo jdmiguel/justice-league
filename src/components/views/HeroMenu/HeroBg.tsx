@@ -1,76 +1,33 @@
-import styled, { keyframes } from 'styled-components';
-import superman from '@/assets/heroBg/superman.jpg';
-import noiseTexturePath from '@/assets/heroBg/noise-texture.png';
-
-const noise = keyframes`
-  0% {
-    transform: translate(-10%, 10%);
-  }
-  10% {
-    transform: translate(-25%);
-  }
-  20% {
-    transform: translate(-30%, 10%);
-  }
-  30% {
-    transform: translate(-30%, 30%);
-  }
-  40% {
-    transform: translate();
-  }
-  50% {
-    transform: translate(-15%, 10%);
-  }
-  60% {
-    transform: translate(-20%, 20%);
-  }
-  70% {
-    transform: translate(-5%, 20%);
-  }
-  80% {
-    transform: translate(-25%, 5%);
-  }
-  90% {
-    transform: translate(-30%, 25%);
-  }
-  100% {
-    transform: translate(-10%, 10%);
-  }
-`;
+import styled from 'styled-components';
 
 export const StyledHeroBgWrapper = styled.div``;
 
-export const StyledHeroBg = styled.div<{ bgPath: string }>`
+export const StyledHeroBg = styled.div<{ bgPath: string; active: boolean }>`
+  opacity: 0.35;
   background-image: ${({ bgPath }) => `url(${bgPath})`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
   height: 100%;
+  opacity: ${({ active }) => (active ? 1 : 0)};
   position: absolute;
+  transform: ${({ active }) => (active ? 'scale(1)' : 'scale(1.3)')};
+  transform-origin: 50%;
+  transition: all 0.9s cubic-bezier(0.39, 0.575, 0.565, 1);
+  visibility: ${({ active }) => (active ? 'visible' : 'hidden')};
+  width: 100%;
   z-index: 1;
 `;
 
-export const StyledNoiseBg = styled.div`
-  animation: ${noise} 5s infinite;
-  animation-timing-function: steps(10);
-  backface-visibility: hidden;
-  background-image: url(${noiseTexturePath});
-  background-color: ${({ theme }) => theme.alphaDark};
-  height: 300%;
-  left: -100%;
-  position: absolute;
-  top: -100%;
-  transform: translateZ(0);
-  width: 300%;
-  will-change: transform;
-  z-index: 2;
-`;
+type Props = {
+  heroes: any[];
+};
 
-const HeroBg: React.FC = () => (
+const HeroBg: React.FC<Props> = ({ heroes }) => (
   <>
-    <StyledHeroBg bgPath={superman} />
-    <StyledNoiseBg />
+    {heroes.map((hero) => (
+      <StyledHeroBg key={hero.id} bgPath={hero.path} active={hero.active} />
+    ))}
   </>
 );
 

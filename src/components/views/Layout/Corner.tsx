@@ -1,10 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-
-const greetAnimation = keyframes`
-  0%,100% { transform: rotate(0) }
-  20%,60% { transform: rotate(-25deg) }
-  40%,80% { transform: rotate(10deg) }
-`;
+import styled from 'styled-components';
+import { animation } from '@/helpers/theme';
 
 export const StyledCorner = styled.a`
   svg {
@@ -21,11 +16,11 @@ export const StyledCorner = styled.a`
   }
   &:hover {
     svg {
-      fill: ${({ theme }) => theme.lightNeutral};
+      fill: ${({ theme }) => theme.neutralLight};
     }
     path {
       &:nth-of-type(2) {
-        animation: ${greetAnimation} 560ms ease-in-out;
+        animation: ${animation.greet} 560ms ease-in-out;
       }
     }
   }

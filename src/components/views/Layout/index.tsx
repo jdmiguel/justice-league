@@ -26,7 +26,7 @@ export const StyledFooter = styled.footer`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 24px 40px;
+  padding: 24px 44px;
   z-index: 3;
 `;
 

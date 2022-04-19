@@ -17,7 +17,7 @@ const Document: React.FC = () => {
 
   return (
     <StyledHero>
-      {isIntroDisplayed && <Intro />}
+      {isIntroDisplayed && <Intro idParam={id} />}
       <h2>{`${id} page`}</h2>
       <Link to="/">GO TO ROOT</Link>
     </StyledHero>

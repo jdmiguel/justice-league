@@ -1,7 +1,7 @@
 import { useRef, useEffect, useContext, useCallback } from 'react';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
-import { getRandomHeroColor } from '@/helpers/theme';
+import { getHeroColor, getRandomHeroColor } from '@/helpers/theme';
 import IntroContext from '@/contexts/IntroContext';
 import Logo from '@/components/views/Intro/Logo';
 import Chars from '@/components/views/Intro/Chars';
@@ -17,12 +17,19 @@ export const StyledIntro = styled.div<{ bgColor: string }>`
   z-index: 4;
 `;
 
-const Intro: React.FC = () => {
+type Props = {
+  idParam?: string;
+};
+
+const Intro: React.FC<Props> = ({ idParam }) => {
   const tlRef = useRef<GSAPTimeline>();
   const introRef = useRef<HTMLDivElement>(null);
 
   const { setDisplayedIntro } = useContext(IntroContext);
+  const getMemoizedHeroColor = useCallback((idParam: string) => getHeroColor(idParam), []);
   const getMemoizedRandomHeroColor = useCallback(() => getRandomHeroColor(), []);
+
+  const getBgColor = () => (idParam ? getMemoizedHeroColor(idParam) : getMemoizedRandomHeroColor());
 
   useEffect(() => {
     tlRef.current = gsap.timeline({
@@ -42,7 +49,7 @@ const Intro: React.FC = () => {
   }, [setDisplayedIntro]);
 
   return (
-    <StyledIntro ref={introRef} bgColor={getMemoizedRandomHeroColor()}>
+    <StyledIntro ref={introRef} bgColor={getBgColor()}>
       <Logo />
       <Chars />
     </StyledIntro>
