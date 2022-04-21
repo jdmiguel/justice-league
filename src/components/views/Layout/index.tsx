@@ -17,7 +17,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  z-index: 3;
+  z-index: 4;
 `;
 
 export const StyledFooter = styled.footer`
@@ -27,7 +27,7 @@ export const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   padding: 24px 44px;
-  z-index: 3;
+  z-index: 4;
 `;
 
 export const StyledFooterLink = styled.a`

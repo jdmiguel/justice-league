@@ -14,7 +14,7 @@ export const StyledIntro = styled.div<{ bgColor: string }>`
   height: 100vh;
   position: absolute;
   width: 100%;
-  z-index: 4;
+  z-index: 5;
 `;
 
 type Props = {

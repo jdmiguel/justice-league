@@ -27,17 +27,24 @@ export const GlobalStyles = createGlobalStyle`
   h6,
   button,
   p,
+  span,
   a,
-  ul {
+  ul,
+  li {
     background: none;
     border: 0;
     box-sizing: border-box;
     color: inherit;
+    font-family: inherit;
+    font-size: inherit;
     margin: 0;
     padding: 0;
   }
   body {
     overflow: hidden;
+  }
+  ul {
+    list-style: none;
   }
   button {
     cursor: pointer;
@@ -68,7 +75,7 @@ export const colorTheme = {
   green: '#09a609',
   yellow: '#df9a1a',
   darkGreen: '#0d5f0f',
-  darkRed: '#6a0608',
+  darkRed: '#820e10',
 };
 
 export const theme = {

@@ -10,8 +10,6 @@ const useHeroMenu = () => {
         name: hero.name,
         bgPath: hero.bgPath,
         logoPath: hero.logoPath,
-        iconWidth: hero.iconSize.width,
-        iconHeight: hero.iconSize.height,
         active: index === 0,
       })),
     [],

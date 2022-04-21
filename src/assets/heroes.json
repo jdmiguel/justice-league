@@ -34,11 +34,7 @@
       "Vision - Heat"
     ],
     "logoPath": "src/assets/logo/superman.svg",
-    "bgPath": "src/assets/heroBg/superman.jpg",
-    "iconSize": {
-      "width": 32,
-      "height": 24
-    }
+    "bgPath": "src/assets/heroBg/superman.jpg"
   },
   {
     "id": "batman",
@@ -75,11 +71,7 @@
       "Fear creation"
     ],
     "logoPath": "src/assets/logo/batman.svg",
-    "bgPath": "src/assets/heroBg/batman.jpg",
-    "iconSize": {
-      "width": 40,
-      "height": 14
-    }
+    "bgPath": "src/assets/heroBg/batman.jpg"
   },
   {
     "id": "wonderwoman",
@@ -116,11 +108,7 @@
       "Telepathy"
     ],
     "logoPath": "src/assets/logo/wonderwoman.svg",
-    "bgPath": "src/assets/heroBg/wonderwoman.jpg",
-    "iconSize": {
-      "width": 40,
-      "height": 19
-    }
+    "bgPath": "src/assets/heroBg/wonderwoman.jpg"
   },
   {
     "id": "flash",
@@ -157,11 +145,7 @@
       "Enhanced senses"
     ],
     "logoPath": "src/assets/logo/flash.svg",
-    "bgPath": "src/assets/heroBg/flash.jpg",
-    "iconSize": {
-      "width": 24,
-      "height": 33
-    }
+    "bgPath": "src/assets/heroBg/flash.jpg"
   },
   {
     "id": "greenlantern",
@@ -198,11 +182,7 @@
       "Flight"
     ],
     "logoPath": "src/assets/logo/greenlantern.svg",
-    "bgPath": "src/assets/heroBg/greenlantern.jpg",
-    "iconSize": {
-      "width": 26,
-      "height": 26
-    }
+    "bgPath": "src/assets/heroBg/greenlantern.jpg"
   },
   {
     "id": "aquaman",
@@ -239,11 +219,7 @@
       "Enhanced senses"
     ],
     "logoPath": "src/assets/logo/aquaman.svg",
-    "bgPath": "src/assets/heroBg/aquaman.jpg",
-    "iconSize": {
-      "width": 24,
-      "height": 28
-    }
+    "bgPath": "src/assets/heroBg/aquaman.jpg"
   },
   {
     "id": "greenarrow",
@@ -280,11 +256,7 @@
       "Stamina"
     ],
     "logoPath": "src/assets/logo/greenarrow.svg",
-    "bgPath": "src/assets/heroBg/greenarrow.jpg",
-    "iconSize": {
-      "width": 26,
-      "height": 26
-    }
+    "bgPath": "src/assets/heroBg/greenarrow.jpg"
   },
   {
     "id": "cyborg",
@@ -321,10 +293,6 @@
       "Shapeshifting"
     ],
     "logoPath": "src/assets/logo/cyborg.svg",
-    "bgPath": "src/assets/heroBg/cyborg.jpg",
-    "iconSize": {
-      "width": 26,
-      "height": 26
-    }
+    "bgPath": "src/assets/heroBg/cyborg.jpg"
   }
 ]

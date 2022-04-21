@@ -22,12 +22,12 @@ export const StyledGrainedBg = styled.div`
 `;
 
 const HeroMenu: React.FC = () => {
-  const { heroes, setActivePrevHero, setActiveNextHero } = useHeroMenu();
+  const { heroes, setActiveHero, setActivePrevHero, setActiveNextHero } = useHeroMenu();
 
   return (
     <>
       <HeroBg heroes={heroes} />
-      <Sidedrawer heroes={heroes} />
+      <Sidedrawer heroes={heroes} onClick={setActiveHero} />
       <StyledGrainedBg />
     </>
   );
