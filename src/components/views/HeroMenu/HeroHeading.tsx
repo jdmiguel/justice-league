@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import { debounce, splitHeadingIntoChars } from '@/helpers';
 import { HeroMenuData as Hero } from '@/helpers/types';
 
-const posX = gsap.utils.wrap([-15, -10, -7, -5, 0, 5, 7, 10, 15, 22, 30, 40]);
+const cycles = {
+  distanceX: gsap.utils.wrap([-15, -10, -7, -5, 0, 5, 7, 10, 15, 22, 30, 40]),
+  leftX: gsap.utils.wrap([-320, -280, -240, -210, -170, -135, -115, -90, -70, -50, -35, -20]),
+  rightX: gsap.utils.wrap([20, 35, 50, 70, 90, 115, 135, 170, 210, 240, 280, 320]),
+};
 
 export const StyledHeroHeading = styled.nav`
   font-size: 6.5rem;
@@ -29,9 +33,8 @@ export const StyledHeroHeadingList = styled.ul`
   width: 100%;
 `;
 
-export const StyledHeroHeadingItem = styled.li<{ isActive: boolean }>`
-  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
-  visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
+export const StyledHeroHeadingItem = styled.li`
+  visibility: hidden;
   position: absolute;
 `;
 
@@ -43,8 +46,14 @@ type Props = {
 
 const HeroHeading: React.FC<Props> = ({ heroes }) => {
   const [withSplittedHeadings, setWithSplittedHeadings] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
 
-  const tlRef = useRef<GSAPTimeline>();
+  const initTweenRef = useRef<GSAPTween>();
+  const moveTweenRef = useRef<GSAPTween>();
+  const enterTweenRef = useRef<GSAPTween>();
+  const leaveTweenRef = useRef<GSAPTween>();
   const charsRef = useRef<any>([]);
   const supermanRef = useRef<HTMLHeadingElement>(null);
   const batmanRef = useRef<HTMLHeadingElement>(null);
@@ -70,6 +79,22 @@ const HeroHeading: React.FC<Props> = ({ heroes }) => {
   );
 
   useEffect(() => {
+    const tweens = [
+      initTweenRef.current,
+      moveTweenRef.current,
+      leaveTweenRef.current,
+      enterTweenRef.current,
+    ];
+
+    return () => {
+      tweens[0]?.kill();
+      tweens[1]?.kill();
+      tweens[2]?.kill();
+      tweens[3]?.kill();
+    };
+  }, []);
+
+  useEffect(() => {
     if (!heroRefs.every((heroRef) => heroRef) || charsRef.current.length > 0) {
       return;
     }
@@ -83,53 +108,109 @@ const HeroHeading: React.FC<Props> = ({ heroes }) => {
       return;
     }
 
-    tlRef.current = gsap.timeline();
-
-    tlRef.current.startTime(5).fromTo(
-      charsRef.current[0],
-      {
-        opacity: 0,
-        rotationY: -120,
-        scaleX: 0,
-      },
-      {
-        duration: 0.7,
-        opacity: 1,
-        rotationY: 0,
-        scaleX: 1,
-        ease: 'power1.out',
-        stagger: 0.05,
-      },
-    );
-
-    return () => {
-      tlRef.current?.kill();
-    };
+    initTweenRef.current = gsap
+      .fromTo(
+        charsRef.current[0],
+        {
+          opacity: 0,
+          rotationY: -120,
+          scaleX: 0,
+          visibility: 'visible',
+        },
+        {
+          duration: 0.7,
+          opacity: 1,
+          rotationY: 0,
+          scaleX: 1,
+          ease: 'power1.out',
+          stagger: 0.05,
+        },
+      )
+      .startTime(5);
   }, [withSplittedHeadings]);
 
-  const moveChars = (action: 'distance' | 'join') => {
-    if (!tlRef.current) {
+  const leaveHeading = useCallback(() => {
+    if (activeHeroIndex === prevActiveHeroIndex) {
       return;
     }
 
-    const findActiveHeroIndex = () => heroes.findIndex((hero) => hero.active);
-    const activeHeroChars = charsRef.current[findActiveHeroIndex()];
+    const prevActiveHeroChars = charsRef.current[prevActiveHeroIndex];
+    const posX = activeHeroIndex > prevActiveHeroIndex ? cycles.rightX : cycles.leftX;
 
-    tlRef.current.to(activeHeroChars, {
+    leaveTweenRef.current = gsap.fromTo(
+      prevActiveHeroChars,
+      {
+        opacity: 1,
+        x: 0,
+      },
+      {
+        duration: 0.5,
+        opacity: 0,
+        x: posX,
+        ease: 'power1.out',
+        stagger: 0.02,
+      },
+    );
+
+    leaveTweenRef.current.then(() => {
+      gsap.set(prevActiveHeroChars, { visibility: 'hidden' });
+      setPrevActiveHeroIndex(activeHeroIndex);
+    });
+  }, [activeHeroIndex, prevActiveHeroIndex]);
+
+  const enterHeading = useCallback(() => {
+    if (activeHeroIndex === prevActiveHeroIndex) {
+      return;
+    }
+
+    const activeHeroChars = charsRef.current[activeHeroIndex];
+    const posX = activeHeroIndex > prevActiveHeroIndex ? cycles.leftX : cycles.rightX;
+
+    enterTweenRef.current = gsap.fromTo(
+      activeHeroChars,
+      {
+        opacity: 0,
+        visibility: 'hidden',
+        x: posX,
+      },
+      {
+        duration: 0.6,
+        opacity: 1,
+        visibility: 'visible',
+        x: 0,
+        ease: 'power1.inOut',
+        stagger: 0.02,
+      },
+    );
+  }, [activeHeroIndex, prevActiveHeroIndex]);
+
+  useEffect(() => {
+    setActiveHeroIndex(heroes.findIndex((hero) => hero.active));
+  }, [heroes]);
+
+  useEffect(() => {
+    leaveHeading();
+    enterHeading();
+  }, [enterHeading, leaveHeading]);
+
+  const moveChars = (action: 'distance' | 'join') => {
+    const activeHeroChars = charsRef.current[activeHeroIndex];
+
+    moveTweenRef.current = gsap.to(activeHeroChars, {
       duration: 1,
-      x: action === 'distance' ? posX : 0,
+      x: action === 'distance' ? cycles.distanceX : 0,
       ease: 'power1.out',
     });
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedMoveChars = useCallback(debounce(moveChars, 100), [heroes]);
+  const debouncedMoveChars = useCallback(debounce(moveChars, 100), [activeHeroIndex]);
 
   return (
     <StyledHeroHeading>
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
-          <StyledHeroHeadingItem key={hero.id} isActive={hero.active}>
+          <StyledHeroHeadingItem key={hero.id}>
             <StyledHeroHeadingItemButton
               isActive={hero.active}
               onClick={() => {}}
