@@ -12,7 +12,7 @@ export const StyledLogoSvg = styled.svg`
 `;
 
 const Logo: React.FC = () => {
-  const tlRef = useRef<GSAPTimeline>();
+  const timelineRef = useRef<GSAPTimeline>();
   const logoSvgRef = useRef<SVGSVGElement>(null);
   const logoPathRef = useRef<SVGPathElement>(null);
 
@@ -21,20 +21,19 @@ const Logo: React.FC = () => {
       return;
     }
 
-    tlRef.current = gsap.timeline();
+    timelineRef.current = gsap.timeline();
 
-    tlRef.current
+    timelineRef.current
       .to(logoSvgRef.current, {
         duration: 1,
         opacity: 1,
         rotation: 720,
         scale: 1,
-        transformOrigin: '50% 50%',
         ease: 'quad.inOut',
       })
-      .delay(0.1)
       .to(logoPathRef.current, {
-        duration: 2.2,
+        delay: 0.5,
+        duration: 2.5,
         fillOpacity: 0.3,
         scale: 0.8,
         transformOrigin: '50% 50%',
@@ -42,7 +41,7 @@ const Logo: React.FC = () => {
       });
 
     return () => {
-      tlRef.current?.kill();
+      timelineRef.current?.kill();
     };
   }, []);
 

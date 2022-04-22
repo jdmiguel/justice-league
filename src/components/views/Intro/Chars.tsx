@@ -24,7 +24,7 @@ export const StyledChars = styled.svg`
 `;
 
 const Chars: React.FC = () => {
-  const tlRef = useRef<GSAPTimeline>();
+  const tweenRef = useRef<GSAPTween>();
   const jRef = useRef<SVGPathElement>(null);
   const uRef = useRef<SVGPathElement>(null);
   const sRef = useRef<SVGPathElement>(null);
@@ -60,28 +60,28 @@ const Chars: React.FC = () => {
       return;
     }
 
-    tlRef.current = gsap.timeline();
-
-    tlRef.current.startTime(1).fromTo(
-      chars,
-      {
-        y: posY,
-        strokeDasharray: 1300,
-        strokeDashoffset: 0,
-      },
-      {
-        duration: 3,
-        y: 0,
-        opacity: 1,
-        fill: theme.dark,
-        strokeDashoffset: 1300,
-        ease: 'power1.inOut',
-        stagger: 0.02,
-      },
-    );
+    tweenRef.current = gsap
+      .fromTo(
+        chars,
+        {
+          y: posY,
+          strokeDasharray: 1300,
+          strokeDashoffset: 0,
+        },
+        {
+          duration: 3,
+          y: 0,
+          opacity: 1,
+          fill: theme.dark,
+          strokeDashoffset: 1300,
+          ease: 'power1.inOut',
+          stagger: 0.02,
+        },
+      )
+      .startTime(1);
 
     return () => {
-      tlRef.current?.kill();
+      tweenRef.current?.kill();
     };
   }, []);
 

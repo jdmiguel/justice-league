@@ -22,7 +22,7 @@ type Props = {
 };
 
 const Intro: React.FC<Props> = ({ idParam }) => {
-  const tlRef = useRef<GSAPTimeline>();
+  const tweenRef = useRef<GSAPTween>();
   const introRef = useRef<HTMLDivElement>(null);
 
   const { setDisplayedIntro } = useContext(IntroContext);
@@ -36,18 +36,16 @@ const Intro: React.FC<Props> = ({ idParam }) => {
       return;
     }
 
-    tlRef.current = gsap.timeline({
-      onComplete: setDisplayedIntro,
-    });
-
-    tlRef.current.startTime(4.5).to(introRef.current, {
+    tweenRef.current = gsap.to(introRef.current, {
       duration: 0.5,
       y: '-120%',
       ease: 'power1.in',
     });
 
+    tweenRef.current.startTime(4.5).then(setDisplayedIntro);
+
     return () => {
-      tlRef.current?.kill();
+      tweenRef.current?.kill();
     };
   }, [setDisplayedIntro]);
 
