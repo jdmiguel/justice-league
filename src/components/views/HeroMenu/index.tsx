@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import noiseTexturePath from '@/assets/heroBg/noise-texture.png';
 import { animation } from '@/helpers/theme';
@@ -23,13 +24,19 @@ export const StyledGrainedBg = styled.div`
 `;
 
 const HeroMenu: React.FC = () => {
+  const [isMenuHighlighted, setIsMenuHighlighted] = useState(false);
+
   const { heroes, setActiveHero, setActivePrevHero, setActiveNextHero } = useHeroMenu();
 
   return (
     <>
-      <HeroBg heroes={heroes} />
+      <HeroBg heroes={heroes} isDarkened={isMenuHighlighted} />
       <Sidedrawer heroes={heroes} onClick={setActiveHero} />
-      <HeroHeading heroes={heroes} />
+      <HeroHeading
+        heroes={heroes}
+        onDistanceChars={() => setIsMenuHighlighted(true)}
+        onShrinkChars={() => setIsMenuHighlighted(false)}
+      />
       <StyledGrainedBg />
     </>
   );

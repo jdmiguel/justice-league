@@ -42,11 +42,12 @@ export const StyledHeroHeadingItemButton = styled.button<{ isActive: boolean }>`
 
 type Props = {
   heroes: Hero[];
+  onShrinkChars: () => void;
+  onDistanceChars: () => void;
 };
 
-const HeroHeading: React.FC<Props> = ({ heroes }) => {
+const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }) => {
   const [withSplittedHeadings, setWithSplittedHeadings] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
 
@@ -126,7 +127,7 @@ const HeroHeading: React.FC<Props> = ({ heroes }) => {
           stagger: 0.05,
         },
       )
-      .startTime(5);
+      .startTime(0.5);
   }, [withSplittedHeadings]);
 
   const leaveHeading = useCallback(() => {
@@ -136,7 +137,6 @@ const HeroHeading: React.FC<Props> = ({ heroes }) => {
 
     const prevActiveHeroChars = charsRef.current[prevActiveHeroIndex];
     const posX = activeHeroIndex > prevActiveHeroIndex ? cycles.rightX : cycles.leftX;
-
     leaveTweenRef.current = gsap.fromTo(
       prevActiveHeroChars,
       {
@@ -165,7 +165,6 @@ const HeroHeading: React.FC<Props> = ({ heroes }) => {
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
     const posX = activeHeroIndex > prevActiveHeroIndex ? cycles.leftX : cycles.rightX;
-
     enterTweenRef.current = gsap.fromTo(
       activeHeroChars,
       {
@@ -193,18 +192,32 @@ const HeroHeading: React.FC<Props> = ({ heroes }) => {
     enterHeading();
   }, [enterHeading, leaveHeading]);
 
-  const moveChars = (action: 'distance' | 'join') => {
-    const activeHeroChars = charsRef.current[activeHeroIndex];
+  const distanceChars = () => {
+    onDistanceChars();
 
+    const activeHeroChars = charsRef.current[activeHeroIndex];
     moveTweenRef.current = gsap.to(activeHeroChars, {
       duration: 1,
-      x: action === 'distance' ? cycles.distanceX : 0,
+      x: cycles.distanceX,
+      ease: 'power1.out',
+    });
+  };
+
+  const shrinkChars = () => {
+    onShrinkChars();
+
+    const activeHeroChars = charsRef.current[activeHeroIndex];
+    moveTweenRef.current = gsap.to(activeHeroChars, {
+      duration: 1,
+      x: 0,
       ease: 'power1.out',
     });
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedMoveChars = useCallback(debounce(moveChars, 100), [activeHeroIndex]);
+  const debouncedDistanceChars = useCallback(debounce(distanceChars, 100), [activeHeroIndex]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedShrinkChars = useCallback(debounce(shrinkChars, 100), [activeHeroIndex]);
 
   return (
     <StyledHeroHeading>
@@ -214,8 +227,8 @@ const HeroHeading: React.FC<Props> = ({ heroes }) => {
             <StyledHeroHeadingItemButton
               isActive={hero.active}
               onClick={() => {}}
-              onMouseEnter={() => debouncedMoveChars('distance')}
-              onMouseLeave={() => debouncedMoveChars('join')}
+              onMouseEnter={debouncedDistanceChars}
+              onMouseLeave={debouncedShrinkChars}
             >
               <h2 ref={heroRefs[index]}>{hero.name}</h2>
             </StyledHeroHeadingItemButton>
