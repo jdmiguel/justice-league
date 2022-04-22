@@ -5,6 +5,7 @@ import { animation } from '@/helpers/theme';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
+import HeroLogo from '@/components/views/HeroMenu/HeroLogo';
 import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
 
 export const StyledGrainedBg = styled.div`
@@ -12,7 +13,7 @@ export const StyledGrainedBg = styled.div`
   animation-timing-function: steps(10);
   backface-visibility: hidden;
   background-image: url(${noiseTexturePath});
-  background-color: ${({ theme }) => theme.alphaDark};
+  background-color: ${({ theme }) => theme.alphaDark_65};
   height: 300%;
   left: -100%;
   position: absolute;
@@ -32,6 +33,7 @@ const HeroMenu: React.FC = () => {
     <>
       <HeroBg heroes={heroes} isDarkened={isMenuHighlighted} />
       <Sidedrawer heroes={heroes} onClick={setActiveHero} />
+      <HeroLogo heroes={heroes} />
       <HeroHeading
         heroes={heroes}
         onDistanceChars={() => setIsMenuHighlighted(true)}

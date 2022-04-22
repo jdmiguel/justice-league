@@ -30,7 +30,8 @@ export const GlobalStyles = createGlobalStyle`
   span,
   a,
   ul,
-  li {
+  li, 
+  figure {
     background: none;
     border: 0;
     box-sizing: border-box;
@@ -65,7 +66,8 @@ export const neutralTheme = {
   neutralLight: '#BCBCBC',
   neutral: '#757575',
   dark: '#282828',
-  alphaDark: 'rgba(0,0,0,0.6)',
+  alphaDark_65: 'rgba(0,0,0,0.65)',
+  alphaDark_75: 'rgba(0,0,0,0.75)',
 };
 
 export const colorTheme = {
