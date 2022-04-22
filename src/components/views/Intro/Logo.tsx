@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
-import styled from 'styled-components';
 import { gsap } from 'gsap';
+import styled from 'styled-components';
 import { theme } from '@/helpers/theme';
 
 export const StyledLogoSvg = styled.svg`
@@ -17,6 +17,10 @@ const Logo: React.FC = () => {
   const logoPathRef = useRef<SVGPathElement>(null);
 
   useEffect(() => {
+    if (!logoSvgRef.current || !logoPathRef.current) {
+      return;
+    }
+
     tlRef.current = gsap.timeline();
 
     tlRef.current
@@ -28,6 +32,7 @@ const Logo: React.FC = () => {
         transformOrigin: '50% 50%',
         ease: 'quad.inOut',
       })
+      .delay(0.1)
       .to(logoPathRef.current, {
         duration: 2.2,
         fillOpacity: 0.3,

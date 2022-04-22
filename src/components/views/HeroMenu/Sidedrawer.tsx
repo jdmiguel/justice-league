@@ -5,12 +5,12 @@ export const StyledSidedrawer = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
   height: 100%;
   padding-left: 24px;
   position: absolute;
-  width: 100%;
-  z-index: 3;
+  z-index: 5;
 `;
 
 export const StyledSidedrawerList = styled.ul`

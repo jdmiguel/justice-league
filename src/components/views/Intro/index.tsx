@@ -1,6 +1,6 @@
 import { useRef, useEffect, useContext, useCallback } from 'react';
-import styled from 'styled-components';
 import { gsap } from 'gsap';
+import styled from 'styled-components';
 import { getHeroColor, getRandomHeroColor } from '@/helpers/theme';
 import IntroContext from '@/contexts/IntroContext';
 import Logo from '@/components/views/Intro/Logo';
@@ -14,7 +14,7 @@ export const StyledIntro = styled.div<{ bgColor: string }>`
   height: 100vh;
   position: absolute;
   width: 100%;
-  z-index: 5;
+  z-index: 6;
 `;
 
 type Props = {
@@ -32,13 +32,16 @@ const Intro: React.FC<Props> = ({ idParam }) => {
   const getBgColor = () => (idParam ? getMemoizedHeroColor(idParam) : getMemoizedRandomHeroColor());
 
   useEffect(() => {
+    if (!introRef.current) {
+      return;
+    }
+
     tlRef.current = gsap.timeline({
       onComplete: setDisplayedIntro,
     });
 
-    tlRef.current.to(introRef.current, {
+    tlRef.current.startTime(4.5).to(introRef.current, {
       duration: 0.5,
-      delay: 4.5,
       y: '-120%',
       ease: 'power1.in',
     });

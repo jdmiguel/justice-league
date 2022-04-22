@@ -4,6 +4,7 @@ import { animation } from '@/helpers/theme';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
+import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
 
 export const StyledGrainedBg = styled.div`
   animation: ${animation.noise} 5s infinite;
@@ -28,6 +29,7 @@ const HeroMenu: React.FC = () => {
     <>
       <HeroBg heroes={heroes} />
       <Sidedrawer heroes={heroes} onClick={setActiveHero} />
+      <HeroHeading heroes={heroes} />
       <StyledGrainedBg />
     </>
   );

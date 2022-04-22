@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Cinzel', sans-serif;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     min-height: 100vh;
     text-size-adjust: 100%;
   }
@@ -37,6 +37,7 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
     font-family: inherit;
     font-size: inherit;
+    font-weight: inherit;
     margin: 0;
     padding: 0;
   }

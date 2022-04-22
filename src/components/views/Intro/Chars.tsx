@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
-import styled from 'styled-components';
 import { gsap } from 'gsap';
+import styled from 'styled-components';
 import { theme } from '@/helpers/theme';
 import J from '@/components/views/Intro/chars/justice/J';
 import U from '@/components/views/Intro/chars/justice/U';
@@ -40,31 +40,36 @@ const Chars: React.FC = () => {
   const e3Ref = useRef<SVGPathElement>(null);
 
   useEffect(() => {
+    const chars = [
+      jRef.current,
+      uRef.current,
+      sRef.current,
+      tRef.current,
+      iRef.current,
+      cRef.current,
+      eRef.current,
+      lRef.current,
+      e2Ref.current,
+      aRef.current,
+      gRef.current,
+      u2Ref.current,
+      e3Ref.current,
+    ];
+
+    if (!chars.every((char) => char)) {
+      return;
+    }
+
     tlRef.current = gsap.timeline();
 
-    tlRef.current.fromTo(
-      [
-        jRef.current,
-        uRef.current,
-        sRef.current,
-        tRef.current,
-        iRef.current,
-        cRef.current,
-        eRef.current,
-        lRef.current,
-        e2Ref.current,
-        aRef.current,
-        gRef.current,
-        u2Ref.current,
-        e3Ref.current,
-      ],
+    tlRef.current.startTime(1).fromTo(
+      chars,
       {
         y: posY,
         strokeDasharray: 1300,
         strokeDashoffset: 0,
       },
       {
-        delay: 1,
         duration: 3,
         y: 0,
         opacity: 1,

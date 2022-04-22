@@ -2199,11 +2199,6 @@ source-map@^0.5.0:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-split-text-js@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/split-text-js/-/split-text-js-1.0.3.tgz#e2351e72d63ba2b54554a30cad37370e7428dfd5"
-  integrity sha512-M27Ou2Vje/d5PK7CMgZGjVBqjRwRw6pwS6j1/tI0utkQ/LBU4Jugc7bMBqyd2bPjgZDu4z6KYfT2lkrNUCvVXA==
-
 string-argv@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.3.1.tgz#95e2fbec0427ae19184935f816d74aaa4c5c19da"
