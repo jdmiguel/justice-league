@@ -131,3 +131,8 @@ export const animation = {
     100% { transform: translate(-10%, 10%); }
 `,
 };
+
+export const ease = {
+  out: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+  inOut: 'cubic-bezier(0.39, 0.575, 0.565, 1)',
+};

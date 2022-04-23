@@ -33,7 +33,7 @@ const HeroMenu: React.FC = () => {
     <>
       <HeroBg heroes={heroes} isDarkened={isMenuHighlighted} />
       <Sidedrawer heroes={heroes} onClick={setActiveHero} />
-      <HeroLogo heroes={heroes} />
+      <HeroLogo heroes={heroes} isHighlighted={isMenuHighlighted} />
       <HeroHeading
         heroes={heroes}
         onDistanceChars={() => setIsMenuHighlighted(true)}

@@ -9,7 +9,7 @@ const Root: React.FC = () => {
 
   return (
     <>
-      {!isIntroDisplayed && <Intro />}
+      {isIntroDisplayed && <Intro />}
       <Layout>
         <HeroMenu />
       </Layout>

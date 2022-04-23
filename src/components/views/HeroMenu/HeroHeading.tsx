@@ -38,8 +38,6 @@ export const StyledHeroHeadingItem = styled.li`
   position: absolute;
 `;
 
-export const StyledHeroHeadingItemButton = styled.button<{ isActive: boolean }>``;
-
 type Props = {
   heroes: Hero[];
   onShrinkChars: () => void;
@@ -80,18 +78,13 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }
   );
 
   useEffect(() => {
-    const tweens = [
-      initTweenRef.current,
-      moveTweenRef.current,
-      leaveTweenRef.current,
-      enterTweenRef.current,
-    ];
-
     return () => {
-      tweens[0]?.kill();
-      tweens[1]?.kill();
-      tweens[2]?.kill();
-      tweens[3]?.kill();
+      [
+        initTweenRef.current,
+        moveTweenRef.current,
+        leaveTweenRef.current,
+        enterTweenRef.current,
+      ].forEach((tween) => tween?.kill());
     };
   }, []);
 
@@ -127,7 +120,7 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }
           stagger: 0.05,
         },
       )
-      .startTime(0.5);
+      .startTime(5);
   }, [withSplittedHeadings]);
 
   const leaveHeading = useCallback(() => {
@@ -174,6 +167,7 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }
       },
       {
         duration: 0.6,
+        delay: 0.25,
         opacity: 1,
         visibility: 'visible',
         x: 0,
@@ -224,14 +218,13 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
           <StyledHeroHeadingItem key={hero.id}>
-            <StyledHeroHeadingItemButton
-              isActive={hero.active}
+            <button
               onClick={() => {}}
               onMouseEnter={debouncedDistanceChars}
               onMouseLeave={debouncedShrinkChars}
             >
               <h2 ref={heroRefs[index]}>{hero.name}</h2>
-            </StyledHeroHeadingItemButton>
+            </button>
           </StyledHeroHeadingItem>
         ))}
       </StyledHeroHeadingList>

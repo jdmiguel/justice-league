@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero } from '@/helpers/types';
 
 export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDarkened: boolean }>`
@@ -12,7 +13,7 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   position: absolute;
   transform: ${({ isActive }) => (isActive ? 'scale(1)' : 'scale(1.3)')};
   transform-origin: 50%;
-  transition: all 0.9s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: all 0.9s ${ease.inOut};
   visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
   width: 100%;
   z-index: 1;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero } from '@/helpers/types';
 
 export const StyledSidedrawer = styled.nav`
@@ -49,7 +50,7 @@ export const StyledSidedrawerItem = styled.li<{ isActive: boolean }>`
   img {
     height: 28px;
     opacity: ${({ isActive }) => (isActive ? 1 : 0.5)};
-    transition: opacity 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: opacity 0.4s ${ease.out};
     width: 32px;
   }
 
@@ -57,7 +58,7 @@ export const StyledSidedrawerItem = styled.li<{ isActive: boolean }>`
     margin-left: 8px;
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
     transform: ${({ isActive }) => (isActive ? 'translateX(0px)' : 'translateX(15px)')};
-    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: all 0.4s ${ease.out};
   }
 
   &:nth-of-type(2) {
