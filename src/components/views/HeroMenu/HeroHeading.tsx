@@ -6,6 +6,7 @@ import { HeroMenuData as Hero } from '@/helpers/types';
 
 const cycles = {
   distanceX: gsap.utils.wrap([-15, -10, -7, -5, 0, 5, 7, 10, 15, 22, 30, 40]),
+  duplicatedDistanceX: gsap.utils.wrap([-60, -40, -30, -20, 0, 20, 30, 40, 60, 80, 120, 160]),
   leftX: gsap.utils.wrap([-320, -280, -240, -210, -170, -135, -115, -90, -70, -50, -35, -20]),
   rightX: gsap.utils.wrap([20, 35, 50, 70, 90, 115, 135, 170, 210, 240, 280, 320]),
 };
@@ -42,12 +43,14 @@ type Props = {
   heroes: Hero[];
   onShrinkChars: () => void;
   onDistanceChars: () => void;
+  onClick: (id: string) => void;
 };
 
-const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }) => {
+const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars, onClick }) => {
   const [withSplittedHeadings, setWithSplittedHeadings] = useState(false);
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
 
   const initTweenRef = useRef<GSAPTween>();
   const moveTweenRef = useRef<GSAPTween>();
@@ -186,18 +189,27 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }
     enterHeading();
   }, [enterHeading, leaveHeading]);
 
-  const distanceChars = () => {
+  const distanceChars = ({ isLeavingMenu = false }: { isLeavingMenu: boolean }) => {
+    if (isFading) {
+      return;
+    }
+
     onDistanceChars();
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
     moveTweenRef.current = gsap.to(activeHeroChars, {
       duration: 1,
-      x: cycles.distanceX,
+      opacity: isLeavingMenu ? 0 : 1,
+      x: isLeavingMenu ? cycles.duplicatedDistanceX : cycles.distanceX,
       ease: 'power1.out',
     });
   };
 
   const shrinkChars = () => {
+    if (isFading) {
+      return;
+    }
+
     onShrinkChars();
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
@@ -206,6 +218,12 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }
       x: 0,
       ease: 'power1.out',
     });
+  };
+
+  const clickHeading = (id: string) => {
+    setIsFading(true);
+    distanceChars({ isLeavingMenu: true });
+    onClick(id);
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -219,7 +237,7 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars }
         {heroes.map((hero, index) => (
           <StyledHeroHeadingItem key={hero.id}>
             <button
-              onClick={() => {}}
+              onClick={() => clickHeading(hero.id)}
               onMouseEnter={debouncedDistanceChars}
               onMouseLeave={debouncedShrinkChars}
             >

@@ -3,9 +3,10 @@ import { StyledSvg, StyledPath } from '@/components/views/HeroMenu/HeroLogo/styl
 
 type Props = {
   isHighlighted: boolean;
+  isFaded: boolean;
 };
 
-const FlashLogo: React.FC<Props> = ({ isHighlighted }) => (
+const FlashLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
   <StyledSvg
     x="0px"
     y="0px"
@@ -15,6 +16,7 @@ const FlashLogo: React.FC<Props> = ({ isHighlighted }) => (
     enableBackground="new 0 0 500 500"
     xmlSpace="preserve"
     isHighlighted={isHighlighted}
+    isFaded={isFaded}
   >
     <StyledPath
       stroke={theme.red}

@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import noiseTexturePath from '@/assets/heroBg/noise-texture.png';
-import { animation } from '@/helpers/theme';
+import { animation, ease } from '@/helpers/theme';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
 import HeroLogo from '@/components/views/HeroMenu/HeroLogo';
 import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
+
+export const StyledHeroMenu = styled.main<{ isFaded: boolean }>`
+  opacity: ${({ isFaded }) => isFaded && 0};
+  transition: opacity 1s ${ease.smooth} 0.2s;
+`;
 
 export const StyledGrainedBg = styled.div`
   animation: ${animation.noise} 5s infinite;
@@ -26,21 +31,25 @@ export const StyledGrainedBg = styled.div`
 
 const HeroMenu: React.FC = () => {
   const [isMenuHighlighted, setIsMenuHighlighted] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
 
   const { heroes, setActiveHero, setActivePrevHero, setActiveNextHero } = useHeroMenu();
 
   return (
-    <>
+    <StyledHeroMenu isFaded={isLeaving}>
       <HeroBg heroes={heroes} isDarkened={isMenuHighlighted} />
       <Sidedrawer heroes={heroes} onClick={setActiveHero} />
-      <HeroLogo heroes={heroes} isHighlighted={isMenuHighlighted} />
+      <HeroLogo heroes={heroes} isHighlighted={isMenuHighlighted} isFaded={isLeaving} />
       <HeroHeading
         heroes={heroes}
         onDistanceChars={() => setIsMenuHighlighted(true)}
         onShrinkChars={() => setIsMenuHighlighted(false)}
+        onClick={() => {
+          setIsLeaving(true);
+        }}
       />
       <StyledGrainedBg />
-    </>
+    </StyledHeroMenu>
   );
 };
 

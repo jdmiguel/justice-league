@@ -26,9 +26,10 @@ export const StyledHeroLogo = styled.div`
 type Props = {
   heroes: Hero[];
   isHighlighted: boolean;
+  isFaded: boolean;
 };
 
-const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted }) => {
+const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted, isFaded }) => {
   const initTweenRef = useRef<GSAPTween>();
   const enterTweenRef = useRef<GSAPTween>();
   const leaveTweenRef = useRef<GSAPTween>();
@@ -68,14 +69,12 @@ const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted }) => {
         heroRefs[0].current,
         {
           opacity: 0,
-          rotation: -90,
-          scale: 1.5,
+          rotationY: 90,
         },
         {
-          duration: 0.5,
+          duration: 1,
           opacity: 1,
-          rotation: 0,
-          scale: 1,
+          rotationY: 0,
           ease: ease.smooth,
         },
       )
@@ -144,21 +143,21 @@ const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted }) => {
     switch (id) {
       case 'superman':
       default:
-        return <SupermanLogo isHighlighted={isHighlighted} />;
+        return <SupermanLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'batman':
-        return <BatmanLogo isHighlighted={isHighlighted} />;
+        return <BatmanLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'wonderwoman':
-        return <WonderWomanLogo isHighlighted={isHighlighted} />;
+        return <WonderWomanLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'flash':
-        return <FlashLogo isHighlighted={isHighlighted} />;
+        return <FlashLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'greenlantern':
-        return <GreenLanternLogo isHighlighted={isHighlighted} />;
+        return <GreenLanternLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'greenarrow':
-        return <GreenArrowLogo isHighlighted={isHighlighted} />;
+        return <GreenArrowLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'aquaman':
-        return <AquamanLogo isHighlighted={isHighlighted} />;
+        return <AquamanLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'cyborg':
-        return <CyborgLogo isHighlighted={isHighlighted} />;
+        return <CyborgLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
     }
   };
 
