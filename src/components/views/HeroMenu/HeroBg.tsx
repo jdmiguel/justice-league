@@ -13,7 +13,7 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   position: absolute;
   transform: ${({ isActive }) => (isActive ? 'scale(1)' : 'scale(1.3)')};
   transform-origin: 50%;
-  transition: all 0.9s ${ease.inOut};
+  transition: all 0.9s ${ease.smooth};
   visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
   width: 100%;
   z-index: 1;

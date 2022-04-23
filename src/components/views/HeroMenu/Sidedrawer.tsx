@@ -50,7 +50,7 @@ export const StyledSidedrawerItem = styled.li<{ isActive: boolean }>`
   img {
     height: 28px;
     opacity: ${({ isActive }) => (isActive ? 1 : 0.5)};
-    transition: opacity 0.4s ${ease.out};
+    transition: opacity 0.4s ${ease.medium};
     width: 32px;
   }
 
@@ -58,7 +58,7 @@ export const StyledSidedrawerItem = styled.li<{ isActive: boolean }>`
     margin-left: 8px;
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
     transform: ${({ isActive }) => (isActive ? 'translateX(0px)' : 'translateX(15px)')};
-    transition: all 0.4s ${ease.out};
+    transition: all 0.4s ${ease.medium};
   }
 
   &:nth-of-type(2) {

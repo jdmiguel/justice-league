@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useRef, useMemo, useState, useEffect } from 'react';
+import { gsap } from 'gsap';
 import styled from 'styled-components';
 import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero } from '@/helpers/types';
@@ -11,17 +12,13 @@ import GreenArrowLogo from '@/components/views/HeroMenu/HeroLogo/GreenArrowLogo'
 import AquamanLogo from '@/components/views/HeroMenu/HeroLogo/AquamanLogo';
 import CyborgLogo from '@/components/views/HeroMenu/HeroLogo/CyborgLogo';
 
-export const StyledHeroLogo = styled.figure<{ isActive: boolean; isNextAnimation: boolean }>`
+export const StyledHeroLogo = styled.div`
   align-items: center;
   display: flex;
   height: 100%;
   justify-content: center;
-  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+  opacity: 0;
   position: absolute;
-  transform: ${({ isActive, isNextAnimation }) =>
-    isActive ? 'scale(1) rotate(0)' : `scale(1.5) rotate(${isNextAnimation ? '' : '-'}90deg)`};
-  transform-origin: 50%;
-  transition: all 0.9s ${ease.inOut};
   width: 100%;
   z-index: 4;
 `;
@@ -32,19 +29,116 @@ type Props = {
 };
 
 const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted }) => {
+  const initTweenRef = useRef<GSAPTween>();
+  const enterTweenRef = useRef<GSAPTween>();
+  const leaveTweenRef = useRef<GSAPTween>();
+  const supermanRef = useRef<HTMLDivElement>(null);
+  const batmanRef = useRef<HTMLDivElement>(null);
+  const wonderwomanRef = useRef<HTMLDivElement>(null);
+  const flashRef = useRef<HTMLDivElement>(null);
+  const greenlanternRef = useRef<HTMLDivElement>(null);
+  const aquamanRef = useRef<HTMLDivElement>(null);
+  const greenarrowRef = useRef<HTMLDivElement>(null);
+  const cyborgRef = useRef<HTMLDivElement>(null);
+
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
-  const [isNextAnimation, setIsNextAnimation] = useState(true);
+
+  const heroRefs = useMemo(
+    () => [
+      supermanRef,
+      batmanRef,
+      wonderwomanRef,
+      flashRef,
+      greenlanternRef,
+      aquamanRef,
+      greenarrowRef,
+      cyborgRef,
+    ],
+    [],
+  );
 
   useEffect(() => {
-    const activeHeroIndex = heroes.findIndex((hero) => hero.active);
-
-    if (activeHeroIndex === prevActiveHeroIndex) {
+    if (!heroRefs.every((heroRef) => heroRef)) {
       return;
     }
 
-    setIsNextAnimation(activeHeroIndex > prevActiveHeroIndex);
-    setPrevActiveHeroIndex(activeHeroIndex);
-  }, [heroes, prevActiveHeroIndex]);
+    initTweenRef.current = gsap
+      .fromTo(
+        heroRefs[0].current,
+        {
+          opacity: 0,
+          rotation: -90,
+          scale: 1.5,
+        },
+        {
+          duration: 0.5,
+          opacity: 1,
+          rotation: 0,
+          scale: 1,
+          ease: ease.smooth,
+        },
+      )
+      .startTime(5);
+
+    return () => {
+      initTweenRef.current?.kill();
+    };
+  }, [heroRefs]);
+
+  useEffect(() => {
+    if (prevActiveHeroIndex === activeHeroIndex) {
+      return;
+    }
+
+    const preActiveLogo = heroRefs[prevActiveHeroIndex].current;
+    const rotationDeactiveHero = activeHeroIndex > prevActiveHeroIndex ? 90 : -90;
+    leaveTweenRef.current = gsap.fromTo(
+      preActiveLogo,
+      {
+        opacity: 1,
+        rotation: 0,
+      },
+      {
+        duration: 0.5,
+        opacity: 0,
+        rotation: rotationDeactiveHero,
+        scale: 1.5,
+        ease: ease.smooth,
+      },
+    );
+
+    const activeLogo = heroRefs[activeHeroIndex].current;
+    const rotationActiveHero = activeHeroIndex > prevActiveHeroIndex ? -90 : 90;
+    enterTweenRef.current = gsap.fromTo(
+      activeLogo,
+      {
+        opacity: 0,
+        rotation: rotationActiveHero,
+        scale: 1.5,
+      },
+      {
+        duration: 0.5,
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        ease: ease.smooth,
+      },
+    );
+
+    enterTweenRef.current.then(() => {
+      setPrevActiveHeroIndex(activeHeroIndex);
+    });
+
+    return () => {
+      enterTweenRef.current?.kill();
+      leaveTweenRef.current?.kill();
+    };
+  }, [prevActiveHeroIndex, activeHeroIndex, heroRefs]);
+
+  useEffect(() => {
+    setActiveHeroIndex(heroes.findIndex((hero) => hero.active));
+  }, [heroes]);
 
   const getLogo = (id: string) => {
     switch (id) {
@@ -70,8 +164,8 @@ const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted }) => {
 
   return (
     <>
-      {heroes.map((hero) => (
-        <StyledHeroLogo key={hero.id} isActive={hero.active} isNextAnimation={isNextAnimation}>
+      {heroes.map((hero, index) => (
+        <StyledHeroLogo key={hero.id} ref={heroRefs[index]}>
           {getLogo(hero.id)}
         </StyledHeroLogo>
       ))}

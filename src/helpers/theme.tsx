@@ -133,6 +133,6 @@ export const animation = {
 };
 
 export const ease = {
-  out: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
-  inOut: 'cubic-bezier(0.39, 0.575, 0.565, 1)',
+  medium: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+  smooth: 'cubic-bezier(0.39, 0.575, 0.565, 1)',
 };
