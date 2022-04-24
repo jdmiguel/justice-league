@@ -37,7 +37,7 @@ const useHeroMenu = () => {
   const getActiveHeroIndex = () => heroes.findIndex((hero) => hero.active);
 
   const setActivePrevHero = () => {
-    if (isChangingHero) {
+    if (isChangingHero || isHeroHighlighted) {
       return;
     }
 
@@ -49,7 +49,7 @@ const useHeroMenu = () => {
   };
 
   const setActiveNextHero = () => {
-    if (isChangingHero) {
+    if (isChangingHero || isHeroHighlighted) {
       return;
     }
 

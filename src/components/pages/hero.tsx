@@ -15,13 +15,7 @@ const Document: React.FC = () => {
 
   const { isDisplayed: isIntroDisplayed } = useContext(IntroContext);
 
-  return (
-    <StyledHero>
-      {isIntroDisplayed && <Intro idParam={id} />}
-      <h2>{`${id} page`}</h2>
-      <Link to="/">GO TO ROOT</Link>
-    </StyledHero>
-  );
+  return <StyledHero>{isIntroDisplayed && <Intro idParam={id} />}</StyledHero>;
 };
 
 export default Document;

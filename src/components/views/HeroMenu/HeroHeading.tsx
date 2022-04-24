@@ -270,8 +270,8 @@ const HeroHeading: React.FC<Props> = ({
           <StyledHeroHeadingItem key={hero.id}>
             <StyledHeroHeadingItemButton
               onClick={() => clickHeading(hero.id)}
-              onMouseEnter={debouncedDistanceChars}
-              onMouseLeave={debouncedShrinkChars}
+              onMouseOver={debouncedDistanceChars}
+              onMouseOut={debouncedShrinkChars}
               isChanging={isChanging}
             >
               <h2 ref={heroRefs[index]}>{hero.name}</h2>
