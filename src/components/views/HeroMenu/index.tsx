@@ -1,9 +1,9 @@
-import { useState, useCallback } from 'react';
+import { useState, useContext } from 'react';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 import styled from 'styled-components';
 import noiseTexturePath from '@/assets/heroBg/noise-texture.png';
-import { debounce } from '@/helpers';
 import { animation, ease } from '@/helpers/theme';
+import IntroContext from '@/contexts/IntroContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
@@ -36,17 +36,18 @@ const HeroMenu: React.FC = () => {
   const [isLeaving, setIsLeaving] = useState(false);
   const [isChangingHeading, setIsChangingHeading] = useState(false);
 
+  const { isDisplayed: isIntroDisplayed } = useContext(IntroContext);
   const { heroes, setActiveHero, setActivePrevHero, setActiveNextHero } = useHeroMenu();
 
   const onSetPrevActiveHero = () => {
-    if (isChangingHeading) {
+    if (isChangingHeading || isIntroDisplayed) {
       return;
     }
     setActivePrevHero();
   };
 
   const onSetActiveHero = () => {
-    if (isChangingHeading) {
+    if (isChangingHeading || isIntroDisplayed) {
       return;
     }
     setActiveNextHero();
