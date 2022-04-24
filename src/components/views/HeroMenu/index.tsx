@@ -32,6 +32,9 @@ export const StyledGrainedBg = styled.div`
 const HeroMenu: React.FC = () => {
   const {
     heroes,
+    activeHeroIndex,
+    prevActiveHeroIndex,
+    updatePrevActiveHeroIndex,
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
@@ -50,9 +53,18 @@ const HeroMenu: React.FC = () => {
       <StyledHeroMenu isFaded={isLeavingMenu}>
         <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
         <Sidedrawer heroes={heroes} onClick={setActiveHero} />
-        <HeroLogo heroes={heroes} isHighlighted={isHeroHighlighted} isFaded={isLeavingMenu} />
+        <HeroLogo
+          heroes={heroes}
+          activeHeroIndex={activeHeroIndex}
+          prevActiveHeroIndex={prevActiveHeroIndex}
+          onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
+          isHighlighted={isHeroHighlighted}
+          isFaded={isLeavingMenu}
+        />
         <HeroHeading
           heroes={heroes}
+          activeHeroIndex={activeHeroIndex}
+          prevActiveHeroIndex={prevActiveHeroIndex}
           onDistanceChars={onInitHighlightHero}
           onShrinkChars={onEndHighlightHero}
           onInitChange={onInitChangeHero}

@@ -1,4 +1,4 @@
-import { useMemo, useState, useContext } from 'react';
+import { useMemo, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
 import { HeroMenuData as Hero } from '@/helpers/types';
@@ -19,11 +19,17 @@ const useHeroMenu = () => {
   );
 
   const [heroes, setHeroes] = useState(fetchedHeroes);
+  const [isLeavingMenu, setIsLeavingMenu] = useState(false);
   const [isHeroHighlighted, setIsHeroHighlighted] = useState(false);
   const [isChangingHero, setIsChangingHero] = useState(false);
-  const [isLeavingMenu, setIsLeavingMenu] = useState(false);
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setActiveHeroIndex(heroes.findIndex((hero) => hero.active));
+  }, [heroes]);
 
   const setActiveHero = (id: string) => {
     setHeroes((prevHeroes) =>
@@ -34,14 +40,11 @@ const useHeroMenu = () => {
     );
   };
 
-  const getActiveHeroIndex = () => heroes.findIndex((hero) => hero.active);
-
   const setActivePrevHero = () => {
     if (isChangingHero || isHeroHighlighted) {
       return;
     }
 
-    const activeHeroIndex = getActiveHeroIndex();
     const prevActiveHeroId =
       activeHeroIndex > 0 ? heroes[activeHeroIndex - 1].id : heroes[lastHeroIndex].id;
 
@@ -53,22 +56,25 @@ const useHeroMenu = () => {
       return;
     }
 
-    const activeHeroIndex = getActiveHeroIndex();
     const nextActiveHeroId =
       activeHeroIndex < lastHeroIndex ? heroes[activeHeroIndex + 1].id : heroes[0].id;
 
     setActiveHero(nextActiveHeroId);
   };
 
-  const onInitChangeHero = () => setIsChangingHero(true);
-  const onEndChangeHero = () => setIsChangingHero(false);
+  const updatePrevActiveHeroIndex = useCallback(
+    () => setPrevActiveHeroIndex(activeHeroIndex),
+    [activeHeroIndex],
+  );
+
+  const onInitChangeHero = useCallback(() => setIsChangingHero(true), []);
+  const onEndChangeHero = useCallback(() => setIsChangingHero(false), []);
 
   const onInitHighlightHero = () => setIsHeroHighlighted(true);
   const onEndHighlightHero = () => setIsHeroHighlighted(false);
 
   const onInitLeaveMenu = () => setIsLeavingMenu(true);
   const onEndLeaveMenu = () => {
-    const activeHeroIndex = getActiveHeroIndex();
     const activeHeroId = heroes[activeHeroIndex].id;
 
     setIsLeavingMenu(false);
@@ -77,6 +83,9 @@ const useHeroMenu = () => {
 
   return {
     heroes,
+    activeHeroIndex,
+    prevActiveHeroIndex,
+    updatePrevActiveHeroIndex,
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,

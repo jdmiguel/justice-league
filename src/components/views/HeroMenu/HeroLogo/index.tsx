@@ -25,11 +25,21 @@ export const StyledHeroLogo = styled.div`
 
 type Props = {
   heroes: Hero[];
+  activeHeroIndex: number;
+  prevActiveHeroIndex: number;
+  onUpdatePrevActiveHeroIndex: () => void;
   isHighlighted: boolean;
   isFaded: boolean;
 };
 
-const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted, isFaded }) => {
+const HeroLogo: React.FC<Props> = ({
+  heroes,
+  activeHeroIndex,
+  prevActiveHeroIndex,
+  onUpdatePrevActiveHeroIndex,
+  isHighlighted,
+  isFaded,
+}) => {
   const initTweenRef = useRef<GSAPTween>();
   const enterTweenRef = useRef<GSAPTween>();
   const leaveTweenRef = useRef<GSAPTween>();
@@ -41,9 +51,6 @@ const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted, isFaded }) => {
   const aquamanRef = useRef<HTMLDivElement>(null);
   const greenarrowRef = useRef<HTMLDivElement>(null);
   const cyborgRef = useRef<HTMLDivElement>(null);
-
-  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
-  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
 
   const heroRefs = useMemo(
     () => [
@@ -126,18 +133,14 @@ const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted, isFaded }) => {
     );
 
     enterTweenRef.current.then(() => {
-      setPrevActiveHeroIndex(activeHeroIndex);
+      onUpdatePrevActiveHeroIndex();
     });
 
     return () => {
       enterTweenRef.current?.kill();
       leaveTweenRef.current?.kill();
     };
-  }, [prevActiveHeroIndex, activeHeroIndex, heroRefs]);
-
-  useEffect(() => {
-    setActiveHeroIndex(heroes.findIndex((hero) => hero.active));
-  }, [heroes]);
+  }, [prevActiveHeroIndex, activeHeroIndex, heroRefs, onUpdatePrevActiveHeroIndex]);
 
   const getLogo = (id: string) => {
     switch (id) {
