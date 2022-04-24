@@ -2009,6 +2009,11 @@ react-router@6.3.0:
   dependencies:
     history "^5.2.0"
 
+react-scroll-wheel-handler@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-scroll-wheel-handler/-/react-scroll-wheel-handler-2.1.0.tgz#a175a48fdd8e45e0148e6b80f3f67df380e0b596"
+  integrity sha512-pZPg+BJ7jlDNzQfQ2BFFhvBYkiNT8yDUKarLwzLcuEMgvqWlsJmickl2nBIAUn9iLzeZomaPY8AmVrra4SHuFg==
+
 react@^18.0.0:
   version "18.0.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.0.0.tgz#b468736d1f4a5891f38585ba8e8fb29f91c3cb96"

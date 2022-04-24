@@ -39,18 +39,32 @@ export const StyledHeroHeadingItem = styled.li`
   position: absolute;
 `;
 
+export const StyledHeroHeadingItemButton = styled.button<{ isChanging: boolean }>`
+  pointer-events: ${({ isChanging }) => isChanging && 'none'};
+`;
+
 type Props = {
   heroes: Hero[];
   onShrinkChars: () => void;
   onDistanceChars: () => void;
+  onInitChange: () => void;
+  onEndChange: () => void;
   onClick: (id: string) => void;
 };
 
-const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars, onClick }) => {
+const HeroHeading: React.FC<Props> = ({
+  heroes,
+  onShrinkChars,
+  onDistanceChars,
+  onInitChange,
+  onEndChange,
+  onClick,
+}) => {
   const [withSplittedHeadings, setWithSplittedHeadings] = useState(false);
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
 
   const initTweenRef = useRef<GSAPTween>();
   const moveTweenRef = useRef<GSAPTween>();
@@ -131,6 +145,9 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars, 
       return;
     }
 
+    onInitChange();
+    setIsChanging(true);
+
     const prevActiveHeroChars = charsRef.current[prevActiveHeroIndex];
     const posX = activeHeroIndex > prevActiveHeroIndex ? cycles.rightX : cycles.leftX;
     leaveTweenRef.current = gsap.fromTo(
@@ -152,7 +169,7 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars, 
       gsap.set(prevActiveHeroChars, { visibility: 'hidden' });
       setPrevActiveHeroIndex(activeHeroIndex);
     });
-  }, [activeHeroIndex, prevActiveHeroIndex]);
+  }, [activeHeroIndex, onInitChange, prevActiveHeroIndex]);
 
   const enterHeading = useCallback(() => {
     if (activeHeroIndex === prevActiveHeroIndex) {
@@ -178,7 +195,12 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars, 
         stagger: 0.02,
       },
     );
-  }, [activeHeroIndex, prevActiveHeroIndex]);
+
+    enterTweenRef.current.then(() => {
+      setIsChanging(false);
+      onEndChange();
+    });
+  }, [activeHeroIndex, onEndChange, prevActiveHeroIndex]);
 
   useEffect(() => {
     setActiveHeroIndex(heroes.findIndex((hero) => hero.active));
@@ -236,13 +258,14 @@ const HeroHeading: React.FC<Props> = ({ heroes, onShrinkChars, onDistanceChars, 
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
           <StyledHeroHeadingItem key={hero.id}>
-            <button
+            <StyledHeroHeadingItemButton
               onClick={() => clickHeading(hero.id)}
               onMouseEnter={debouncedDistanceChars}
               onMouseLeave={debouncedShrinkChars}
+              isChanging={isChanging}
             >
               <h2 ref={heroRefs[index]}>{hero.name}</h2>
-            </button>
+            </StyledHeroHeadingItemButton>
           </StyledHeroHeadingItem>
         ))}
       </StyledHeroHeadingList>

@@ -99,7 +99,7 @@ const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted, isFaded }) => {
         rotation: 0,
       },
       {
-        duration: 0.5,
+        duration: 1,
         opacity: 0,
         rotation: rotationDeactiveHero,
         scale: 1.5,
@@ -117,7 +117,7 @@ const HeroLogo: React.FC<Props> = ({ heroes, isHighlighted, isFaded }) => {
         scale: 1.5,
       },
       {
-        duration: 0.5,
+        duration: 1,
         opacity: 1,
         scale: 1,
         rotation: 0,
