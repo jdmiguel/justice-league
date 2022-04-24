@@ -49,6 +49,7 @@ type Props = {
   onDistanceChars: () => void;
   onInitChange: () => void;
   onEndChange: () => void;
+  onLeave: () => void;
   onClick: (id: string) => void;
 };
 
@@ -58,6 +59,7 @@ const HeroHeading: React.FC<Props> = ({
   onDistanceChars,
   onInitChange,
   onEndChange,
+  onLeave,
   onClick,
 }) => {
   const [withSplittedHeadings, setWithSplittedHeadings] = useState(false);
@@ -224,6 +226,14 @@ const HeroHeading: React.FC<Props> = ({
       opacity: isLeavingMenu ? 0 : 1,
       x: isLeavingMenu ? cycles.duplicatedDistanceX : cycles.distanceX,
       ease: 'power1.out',
+    });
+
+    moveTweenRef.current.then(() => {
+      if (!isLeavingMenu) {
+        return;
+      }
+
+      onLeave();
     });
   };
 

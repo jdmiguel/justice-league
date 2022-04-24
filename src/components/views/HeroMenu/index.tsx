@@ -1,9 +1,7 @@
-import { useState, useContext } from 'react';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 import styled from 'styled-components';
 import noiseTexturePath from '@/assets/heroBg/noise-texture.png';
 import { animation, ease } from '@/helpers/theme';
-import IntroContext from '@/contexts/IntroContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
@@ -32,42 +30,35 @@ export const StyledGrainedBg = styled.div`
 `;
 
 const HeroMenu: React.FC = () => {
-  const [isMenuHighlighted, setIsMenuHighlighted] = useState(false);
-  const [isLeaving, setIsLeaving] = useState(false);
-  const [isChangingHeading, setIsChangingHeading] = useState(false);
-
-  const { isDisplayed: isIntroDisplayed } = useContext(IntroContext);
-  const { heroes, setActiveHero, setActivePrevHero, setActiveNextHero } = useHeroMenu();
-
-  const onSetPrevActiveHero = () => {
-    if (isChangingHeading || isIntroDisplayed) {
-      return;
-    }
-    setActivePrevHero();
-  };
-
-  const onSetActiveHero = () => {
-    if (isChangingHeading || isIntroDisplayed) {
-      return;
-    }
-    setActiveNextHero();
-  };
+  const {
+    heroes,
+    setActiveHero,
+    setActivePrevHero,
+    setActiveNextHero,
+    onInitChangeHero,
+    onEndChangeHero,
+    isHeroHighlighted,
+    onInitHighlightHero,
+    onEndHighlightHero,
+    isLeavingMenu,
+    onInitLeaveMenu,
+    onEndLeaveMenu,
+  } = useHeroMenu();
 
   return (
-    <ReactScrollWheelHandler downHandler={onSetPrevActiveHero} upHandler={onSetActiveHero}>
-      <StyledHeroMenu isFaded={isLeaving}>
-        <HeroBg heroes={heroes} isDarkened={isMenuHighlighted} />
+    <ReactScrollWheelHandler downHandler={setActivePrevHero} upHandler={setActiveNextHero}>
+      <StyledHeroMenu isFaded={isLeavingMenu}>
+        <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
         <Sidedrawer heroes={heroes} onClick={setActiveHero} />
-        <HeroLogo heroes={heroes} isHighlighted={isMenuHighlighted} isFaded={isLeaving} />
+        <HeroLogo heroes={heroes} isHighlighted={isHeroHighlighted} isFaded={isLeavingMenu} />
         <HeroHeading
           heroes={heroes}
-          onDistanceChars={() => setIsMenuHighlighted(true)}
-          onShrinkChars={() => setIsMenuHighlighted(false)}
-          onInitChange={() => setIsChangingHeading(true)}
-          onEndChange={() => setIsChangingHeading(false)}
-          onClick={() => {
-            setIsLeaving(true);
-          }}
+          onDistanceChars={onInitHighlightHero}
+          onShrinkChars={onEndHighlightHero}
+          onInitChange={onInitChangeHero}
+          onEndChange={onEndChangeHero}
+          onClick={onInitLeaveMenu}
+          onLeave={onEndLeaveMenu}
         />
         <StyledGrainedBg />
       </StyledHeroMenu>
