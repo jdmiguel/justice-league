@@ -1,4 +1,4 @@
-export type HeroColor = {
+export type HeroIds = {
   superman: string;
   batman: string;
   wonderwoman: string;
@@ -12,7 +12,5 @@ export type HeroColor = {
 export type HeroMenuData = {
   id: string;
   name: string;
-  bgPath: string;
-  logoPath: string;
   active: boolean;
 };

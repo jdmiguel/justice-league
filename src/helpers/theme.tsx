@@ -1,5 +1,5 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
-import { HeroColor } from '@/helpers/types';
+import { HeroIds } from '@/helpers/types';
 
 export const GlobalStyles = createGlobalStyle`
   html {
@@ -86,7 +86,7 @@ export const theme = {
   ...colorTheme,
 };
 
-const heroColors: HeroColor = {
+export const heroColors: HeroIds = {
   superman: theme.blue,
   batman: theme.grey,
   wonderwoman: theme.orange,
@@ -96,8 +96,6 @@ const heroColors: HeroColor = {
   greenarrow: theme.darkGreen,
   cyborg: theme.darkRed,
 };
-
-export const getHeroColor = (id: string): string => heroColors[id as keyof HeroColor];
 
 export const getRandomHeroColor = (): string => {
   const colorsList = Object.values(colorTheme);

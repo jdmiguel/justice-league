@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { getHero } from '@/helpers';
 import { ease } from '@/helpers/theme';
-import { HeroMenuData as Hero } from '@/helpers/types';
-import { HeroColor } from '@/helpers/types';
+import { HeroMenuData as Hero, HeroIds } from '@/helpers/types';
 import supermanBgPath from '@/assets/heroBg/superman.jpg';
 import batmanBgPath from '@/assets/heroBg/batman.jpg';
 import wonderwomanBgPath from '@/assets/heroBg/wonderwoman.jpg';
@@ -28,7 +28,7 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   z-index: 1;
 `;
 
-const heroBgPaths: HeroColor = {
+const heroBgPaths: HeroIds = {
   superman: supermanBgPath,
   batman: batmanBgPath,
   wonderwoman: wonderwomanBgPath,
@@ -38,8 +38,6 @@ const heroBgPaths: HeroColor = {
   greenarrow: greenarrowBgPath,
   cyborg: cyborgBgPath,
 };
-
-export const getHeroBgPath = (id: string): string => heroBgPaths[id as keyof HeroColor];
 
 type Props = {
   heroes: Hero[];
@@ -51,7 +49,7 @@ const HeroBg: React.FC<Props> = ({ heroes, isDarkened }) => (
     {heroes.map((hero) => (
       <StyledHeroBg
         key={hero.id}
-        bgPath={getHeroBgPath(hero.id)}
+        bgPath={getHero(heroBgPaths, hero.id)}
         isActive={hero.active}
         isDarkened={isDarkened}
       />

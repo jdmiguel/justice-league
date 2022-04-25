@@ -11,8 +11,6 @@ const useHeroMenu = () => {
       heroesData.map((hero, index) => ({
         id: hero.id,
         name: hero.name,
-        bgPath: hero.bgPath,
-        logoPath: hero.logoPath,
         active: index === 0,
       })),
     [],
