@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import { ease } from '@/helpers/theme';
-import { HeroMenuData as Hero } from '@/helpers/types';
+import { HeroMenuData as Hero, HeroColor } from '@/helpers/types';
+import supermanLogoPath from '@/assets/logo/superman.svg';
+import batmanLogoPath from '@/assets/logo/batman.svg';
+import wonderwomanLogoPath from '@/assets/logo/wonderwoman.svg';
+import flashLogoPath from '@/assets/logo/flash.svg';
+import greenlanternLogoPath from '@/assets/logo/greenlantern.svg';
+import aquamanLogoPath from '@/assets/logo/aquaman.svg';
+import greenarrowLogoPath from '@/assets/logo/greenarrow.svg';
+import cyborgLogoPath from '@/assets/logo/cyborg.svg';
 
 export const StyledSidedrawer = styled.nav`
   display: flex;
@@ -76,6 +84,19 @@ export const StyledSidedrawerItem = styled.li<{ isActive: boolean }>`
   }
 `;
 
+const heroLogoPaths: HeroColor = {
+  superman: supermanLogoPath,
+  batman: batmanLogoPath,
+  wonderwoman: wonderwomanLogoPath,
+  flash: flashLogoPath,
+  greenlantern: greenlanternLogoPath,
+  aquaman: aquamanLogoPath,
+  greenarrow: greenarrowLogoPath,
+  cyborg: cyborgLogoPath,
+};
+
+export const getHeroLogoPath = (id: string): string => heroLogoPaths[id as keyof HeroColor];
+
 type Props = {
   heroes: Hero[];
   onClick: (id: string) => void;
@@ -88,7 +109,7 @@ const Sidedrawer: React.FC<Props> = ({ heroes, onClick }) => (
         <StyledSidedrawerItem key={hero.id} isActive={hero.active}>
           <button onClick={() => onClick(hero.id)}>
             <div>
-              <img src={hero.logoPath} alt={`${hero.name} icon`} />
+              <img src={getHeroLogoPath(hero.id)} alt={`${hero.name} icon`} />
             </div>
             <span>{hero.name}</span>
           </button>

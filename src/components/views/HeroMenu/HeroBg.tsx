@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero } from '@/helpers/types';
+import { HeroColor } from '@/helpers/types';
+import supermanBgPath from '@/assets/heroBg/superman.jpg';
+import batmanBgPath from '@/assets/heroBg/batman.jpg';
+import wonderwomanBgPath from '@/assets/heroBg/wonderwoman.jpg';
+import flashBgPath from '@/assets/heroBg/flash.jpg';
+import greenlanternBgPath from '@/assets/heroBg/greenlantern.jpg';
+import aquamanBgPath from '@/assets/heroBg/aquaman.jpg';
+import greenarrowBgPath from '@/assets/heroBg/greenarrow.jpg';
+import cyborgBgPath from '@/assets/heroBg/cyborg.jpg';
 
 export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDarkened: boolean }>`
   opacity: 0.35;
@@ -19,6 +28,19 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   z-index: 1;
 `;
 
+const heroBgPaths: HeroColor = {
+  superman: supermanBgPath,
+  batman: batmanBgPath,
+  wonderwoman: wonderwomanBgPath,
+  flash: flashBgPath,
+  greenlantern: greenlanternBgPath,
+  aquaman: aquamanBgPath,
+  greenarrow: greenarrowBgPath,
+  cyborg: cyborgBgPath,
+};
+
+export const getHeroBgPath = (id: string): string => heroBgPaths[id as keyof HeroColor];
+
 type Props = {
   heroes: Hero[];
   isDarkened: boolean;
@@ -29,7 +51,7 @@ const HeroBg: React.FC<Props> = ({ heroes, isDarkened }) => (
     {heroes.map((hero) => (
       <StyledHeroBg
         key={hero.id}
-        bgPath={hero.bgPath}
+        bgPath={getHeroBgPath(hero.id)}
         isActive={hero.active}
         isDarkened={isDarkened}
       />

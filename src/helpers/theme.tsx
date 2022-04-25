@@ -1,5 +1,5 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
-import { HeroColor } from './types';
+import { HeroColor } from '@/helpers/types';
 
 export const GlobalStyles = createGlobalStyle`
   html {
