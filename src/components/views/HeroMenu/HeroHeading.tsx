@@ -47,10 +47,11 @@ type Props = {
   heroes: Hero[];
   activeHeroIndex: number;
   prevActiveHeroIndex: number;
-  onShrinkChars: () => void;
   onDistanceChars: () => void;
+  onShrinkChars: () => void;
   onInitChange: () => void;
   onEndChange: () => void;
+  onUpdatePrevActiveHeroIndex: () => void;
   onLeave: () => void;
   onClick: (id: string) => void;
 };
@@ -59,10 +60,11 @@ const HeroHeading: React.FC<Props> = ({
   heroes,
   activeHeroIndex,
   prevActiveHeroIndex,
-  onShrinkChars,
   onDistanceChars,
+  onShrinkChars,
   onInitChange,
   onEndChange,
+  onUpdatePrevActiveHeroIndex,
   onLeave,
   onClick,
 }) => {
@@ -202,8 +204,9 @@ const HeroHeading: React.FC<Props> = ({
     enterTweenRef.current.then(() => {
       setIsChanging(false);
       onEndChange();
+      onUpdatePrevActiveHeroIndex();
     });
-  }, [activeHeroIndex, prevActiveHeroIndex, onEndChange]);
+  }, [activeHeroIndex, prevActiveHeroIndex, onEndChange, onUpdatePrevActiveHeroIndex]);
 
   useEffect(() => {
     leaveHeading();

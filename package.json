@@ -8,11 +8,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@use-gesture/react": "^10.2.11",
     "gsap": "^3.10.3",
+    "lethargy": "^1.0.9",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
-    "react-scroll-wheel-handler": "^2.1.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

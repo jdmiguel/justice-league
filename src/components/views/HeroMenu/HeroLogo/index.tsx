@@ -27,7 +27,7 @@ type Props = {
   heroes: Hero[];
   activeHeroIndex: number;
   prevActiveHeroIndex: number;
-  onUpdatePrevActiveHeroIndex: () => void;
+  lastHeroIndex: number;
   isHighlighted: boolean;
   isFaded: boolean;
 };
@@ -36,7 +36,7 @@ const HeroLogo: React.FC<Props> = ({
   heroes,
   activeHeroIndex,
   prevActiveHeroIndex,
-  onUpdatePrevActiveHeroIndex,
+  lastHeroIndex,
   isHighlighted,
   isFaded,
 }) => {
@@ -97,8 +97,12 @@ const HeroLogo: React.FC<Props> = ({
       return;
     }
 
+    const nextRotation =
+      (activeHeroIndex > prevActiveHeroIndex &&
+        !(activeHeroIndex === lastHeroIndex && prevActiveHeroIndex === 0)) ||
+      (activeHeroIndex === 0 && prevActiveHeroIndex === lastHeroIndex);
+
     const preActiveLogo = heroRefs[prevActiveHeroIndex].current;
-    const rotationDeactiveHero = activeHeroIndex > prevActiveHeroIndex ? 90 : -90;
     leaveTweenRef.current = gsap.fromTo(
       preActiveLogo,
       {
@@ -108,19 +112,18 @@ const HeroLogo: React.FC<Props> = ({
       {
         duration: 1,
         opacity: 0,
-        rotation: rotationDeactiveHero,
+        rotation: nextRotation ? 90 : -90,
         scale: 1.5,
         ease: ease.smooth,
       },
     );
 
     const activeLogo = heroRefs[activeHeroIndex].current;
-    const rotationActiveHero = activeHeroIndex > prevActiveHeroIndex ? -90 : 90;
     enterTweenRef.current = gsap.fromTo(
       activeLogo,
       {
         opacity: 0,
-        rotation: rotationActiveHero,
+        rotation: nextRotation ? -90 : 90,
         scale: 1.5,
       },
       {
@@ -132,15 +135,11 @@ const HeroLogo: React.FC<Props> = ({
       },
     );
 
-    enterTweenRef.current.then(() => {
-      onUpdatePrevActiveHeroIndex();
-    });
-
     return () => {
       enterTweenRef.current?.kill();
       leaveTweenRef.current?.kill();
     };
-  }, [prevActiveHeroIndex, activeHeroIndex, heroRefs, onUpdatePrevActiveHeroIndex]);
+  }, [prevActiveHeroIndex, activeHeroIndex, lastHeroIndex, heroRefs]);
 
   const getLogo = (id: string) => {
     switch (id) {

@@ -1,4 +1,5 @@
-import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import { useWheel } from '@use-gesture/react';
+import { Lethargy } from 'lethargy';
 import styled from 'styled-components';
 import noiseTexturePath from '@/assets/heroBg/noise-texture.png';
 import { animation, ease } from '@/helpers/theme';
@@ -29,11 +30,14 @@ export const StyledGrainedBg = styled.div`
   z-index: 2;
 `;
 
+const lethargy = new Lethargy();
+
 const HeroMenu: React.FC = () => {
   const {
     heroes,
     activeHeroIndex,
     prevActiveHeroIndex,
+    lastHeroIndex,
     updatePrevActiveHeroIndex,
     setActiveHero,
     setActivePrevHero,
@@ -48,33 +52,54 @@ const HeroMenu: React.FC = () => {
     onEndLeaveMenu,
   } = useHeroMenu();
 
+  const bind = useWheel(({ event, last, memo: wait = false }) => {
+    if (last) {
+      return false;
+    }
+
+    const deltaY = lethargy.check(event);
+
+    if (!deltaY) {
+      return false;
+    }
+
+    if (!wait) {
+      if (deltaY === 1) {
+        setActiveNextHero();
+      }
+      if (deltaY === -1) {
+        setActivePrevHero();
+      }
+      return true;
+    }
+  });
+
   return (
-    <ReactScrollWheelHandler downHandler={setActivePrevHero} upHandler={setActiveNextHero}>
-      <StyledHeroMenu isFaded={isLeavingMenu}>
-        <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
-        <Sidedrawer heroes={heroes} onClick={setActiveHero} />
-        <HeroLogo
-          heroes={heroes}
-          activeHeroIndex={activeHeroIndex}
-          prevActiveHeroIndex={prevActiveHeroIndex}
-          onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
-          isHighlighted={isHeroHighlighted}
-          isFaded={isLeavingMenu}
-        />
-        <HeroHeading
-          heroes={heroes}
-          activeHeroIndex={activeHeroIndex}
-          prevActiveHeroIndex={prevActiveHeroIndex}
-          onDistanceChars={onInitHighlightHero}
-          onShrinkChars={onEndHighlightHero}
-          onInitChange={onInitChangeHero}
-          onEndChange={onEndChangeHero}
-          onClick={onInitLeaveMenu}
-          onLeave={onEndLeaveMenu}
-        />
-        <StyledGrainedBg />
-      </StyledHeroMenu>
-    </ReactScrollWheelHandler>
+    <StyledHeroMenu isFaded={isLeavingMenu} {...bind()}>
+      <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
+      <Sidedrawer heroes={heroes} onClick={setActiveHero} />
+      <HeroLogo
+        heroes={heroes}
+        activeHeroIndex={activeHeroIndex}
+        prevActiveHeroIndex={prevActiveHeroIndex}
+        lastHeroIndex={lastHeroIndex}
+        isHighlighted={isHeroHighlighted}
+        isFaded={isLeavingMenu}
+      />
+      <HeroHeading
+        heroes={heroes}
+        activeHeroIndex={activeHeroIndex}
+        prevActiveHeroIndex={prevActiveHeroIndex}
+        onDistanceChars={onInitHighlightHero}
+        onShrinkChars={onEndHighlightHero}
+        onInitChange={onInitChangeHero}
+        onEndChange={onEndChangeHero}
+        onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
+        onClick={onInitLeaveMenu}
+        onLeave={onEndLeaveMenu}
+      />
+      <StyledGrainedBg />
+    </StyledHeroMenu>
   );
 };
 

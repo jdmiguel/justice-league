@@ -83,6 +83,7 @@ const useHeroMenu = () => {
     heroes,
     activeHeroIndex,
     prevActiveHeroIndex,
+    lastHeroIndex,
     updatePrevActiveHeroIndex,
     setActiveHero,
     setActivePrevHero,
