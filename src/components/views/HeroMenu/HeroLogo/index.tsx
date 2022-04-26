@@ -1,4 +1,4 @@
-import { useRef, useMemo, useState, useEffect } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import { gsap } from 'gsap';
 import styled from 'styled-components';
 import { ease } from '@/helpers/theme';
@@ -67,6 +67,14 @@ const HeroLogo: React.FC<Props> = ({
   );
 
   useEffect(() => {
+    return () => {
+      [initTweenRef.current, leaveTweenRef.current, enterTweenRef.current].forEach((tween) =>
+        tween?.kill(),
+      );
+    };
+  }, []);
+
+  useEffect(() => {
     if (!heroRefs.every((heroRef) => heroRef)) {
       return;
     }
@@ -86,10 +94,6 @@ const HeroLogo: React.FC<Props> = ({
         },
       )
       .startTime(5);
-
-    return () => {
-      initTweenRef.current?.kill();
-    };
   }, [heroRefs]);
 
   useEffect(() => {
@@ -97,7 +101,7 @@ const HeroLogo: React.FC<Props> = ({
       return;
     }
 
-    const nextRotation =
+    const isNextHeroDirection =
       (activeHeroIndex > prevActiveHeroIndex &&
         !(activeHeroIndex === lastHeroIndex && prevActiveHeroIndex === 0)) ||
       (activeHeroIndex === 0 && prevActiveHeroIndex === lastHeroIndex);
@@ -112,7 +116,7 @@ const HeroLogo: React.FC<Props> = ({
       {
         duration: 1,
         opacity: 0,
-        rotation: nextRotation ? 90 : -90,
+        rotation: isNextHeroDirection ? 90 : -90,
         scale: 1.5,
         ease: ease.smooth,
       },
@@ -123,7 +127,7 @@ const HeroLogo: React.FC<Props> = ({
       activeLogo,
       {
         opacity: 0,
-        rotation: nextRotation ? -90 : 90,
+        rotation: isNextHeroDirection ? -90 : 90,
         scale: 1.5,
       },
       {
@@ -134,11 +138,6 @@ const HeroLogo: React.FC<Props> = ({
         ease: ease.smooth,
       },
     );
-
-    return () => {
-      enterTweenRef.current?.kill();
-      leaveTweenRef.current?.kill();
-    };
   }, [prevActiveHeroIndex, activeHeroIndex, lastHeroIndex, heroRefs]);
 
   const getLogo = (id: string) => {

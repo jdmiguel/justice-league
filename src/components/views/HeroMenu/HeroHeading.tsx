@@ -47,6 +47,7 @@ type Props = {
   heroes: Hero[];
   activeHeroIndex: number;
   prevActiveHeroIndex: number;
+  lastHeroIndex: number;
   onDistanceChars: () => void;
   onShrinkChars: () => void;
   onInitChange: () => void;
@@ -60,6 +61,7 @@ const HeroHeading: React.FC<Props> = ({
   heroes,
   activeHeroIndex,
   prevActiveHeroIndex,
+  lastHeroIndex,
   onDistanceChars,
   onShrinkChars,
   onInitChange,
@@ -99,6 +101,11 @@ const HeroHeading: React.FC<Props> = ({
     ],
     [],
   );
+
+  const isNextHeroDirection =
+    (activeHeroIndex > prevActiveHeroIndex &&
+      !(activeHeroIndex === lastHeroIndex && prevActiveHeroIndex === 0)) ||
+    (activeHeroIndex === 0 && prevActiveHeroIndex === lastHeroIndex);
 
   useEffect(() => {
     return () => {
@@ -155,7 +162,6 @@ const HeroHeading: React.FC<Props> = ({
     setIsChanging(true);
 
     const prevActiveHeroChars = charsRef.current[prevActiveHeroIndex];
-    const posX = activeHeroIndex > prevActiveHeroIndex ? cycles.rightX : cycles.leftX;
     leaveTweenRef.current = gsap.fromTo(
       prevActiveHeroChars,
       {
@@ -165,7 +171,7 @@ const HeroHeading: React.FC<Props> = ({
       {
         duration: 0.5,
         opacity: 0,
-        x: posX,
+        x: isNextHeroDirection ? cycles.rightX : cycles.leftX,
         ease: 'power1.out',
         stagger: 0.02,
       },
@@ -174,7 +180,7 @@ const HeroHeading: React.FC<Props> = ({
     leaveTweenRef.current.then(() => {
       gsap.set(prevActiveHeroChars, { visibility: 'hidden' });
     });
-  }, [activeHeroIndex, prevActiveHeroIndex, onInitChange]);
+  }, [activeHeroIndex, prevActiveHeroIndex, onInitChange, isNextHeroDirection]);
 
   const enterHeading = useCallback(() => {
     if (activeHeroIndex === prevActiveHeroIndex) {
@@ -182,13 +188,12 @@ const HeroHeading: React.FC<Props> = ({
     }
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
-    const posX = activeHeroIndex > prevActiveHeroIndex ? cycles.leftX : cycles.rightX;
     enterTweenRef.current = gsap.fromTo(
       activeHeroChars,
       {
         opacity: 0,
         visibility: 'hidden',
-        x: posX,
+        x: isNextHeroDirection ? cycles.leftX : cycles.rightX,
       },
       {
         duration: 0.6,
@@ -206,7 +211,13 @@ const HeroHeading: React.FC<Props> = ({
       onEndChange();
       onUpdatePrevActiveHeroIndex();
     });
-  }, [activeHeroIndex, prevActiveHeroIndex, onEndChange, onUpdatePrevActiveHeroIndex]);
+  }, [
+    activeHeroIndex,
+    prevActiveHeroIndex,
+    isNextHeroDirection,
+    onEndChange,
+    onUpdatePrevActiveHeroIndex,
+  ]);
 
   useEffect(() => {
     leaveHeading();

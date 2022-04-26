@@ -90,6 +90,7 @@ const HeroMenu: React.FC = () => {
         heroes={heroes}
         activeHeroIndex={activeHeroIndex}
         prevActiveHeroIndex={prevActiveHeroIndex}
+        lastHeroIndex={lastHeroIndex}
         onDistanceChars={onInitHighlightHero}
         onShrinkChars={onEndHighlightHero}
         onInitChange={onInitChangeHero}
