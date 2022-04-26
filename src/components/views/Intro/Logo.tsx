@@ -17,6 +17,14 @@ const Logo: React.FC = () => {
   const logoPathRef = useRef<SVGPathElement>(null);
 
   useEffect(() => {
+    const timeline = timelineRef.current;
+
+    return () => {
+      timeline?.kill();
+    };
+  }, []);
+
+  useEffect(() => {
     if (!logoSvgRef.current || !logoPathRef.current) {
       return;
     }
@@ -39,10 +47,6 @@ const Logo: React.FC = () => {
         transformOrigin: '50% 50%',
         ease: 'power1.inOut',
       });
-
-    return () => {
-      timelineRef.current?.kill();
-    };
   }, []);
 
   return (

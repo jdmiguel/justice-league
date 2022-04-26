@@ -74,10 +74,7 @@ const HeroHeading: React.FC<Props> = ({
   const [isFading, setIsFading] = useState(false);
   const [isChanging, setIsChanging] = useState(false);
 
-  const initTweenRef = useRef<GSAPTween>();
-  const moveTweenRef = useRef<GSAPTween>();
-  const enterTweenRef = useRef<GSAPTween>();
-  const leaveTweenRef = useRef<GSAPTween>();
+  const tweenRef = useRef<GSAPTween>();
   const charsRef = useRef<any>([]);
   const supermanRef = useRef<HTMLHeadingElement>(null);
   const batmanRef = useRef<HTMLHeadingElement>(null);
@@ -108,13 +105,10 @@ const HeroHeading: React.FC<Props> = ({
     (activeHeroIndex === 0 && prevActiveHeroIndex === lastHeroIndex);
 
   useEffect(() => {
+    const tween = tweenRef.current;
+
     return () => {
-      [
-        initTweenRef.current,
-        moveTweenRef.current,
-        leaveTweenRef.current,
-        enterTweenRef.current,
-      ].forEach((tween) => tween?.kill());
+      tween?.kill();
     };
   }, []);
 
@@ -132,7 +126,7 @@ const HeroHeading: React.FC<Props> = ({
       return;
     }
 
-    initTweenRef.current = gsap
+    tweenRef.current = gsap
       .fromTo(
         charsRef.current[0],
         {
@@ -162,7 +156,7 @@ const HeroHeading: React.FC<Props> = ({
     setIsChanging(true);
 
     const prevActiveHeroChars = charsRef.current[prevActiveHeroIndex];
-    leaveTweenRef.current = gsap.fromTo(
+    tweenRef.current = gsap.fromTo(
       prevActiveHeroChars,
       {
         opacity: 1,
@@ -177,7 +171,7 @@ const HeroHeading: React.FC<Props> = ({
       },
     );
 
-    leaveTweenRef.current.then(() => {
+    tweenRef.current.then(() => {
       gsap.set(prevActiveHeroChars, { visibility: 'hidden' });
     });
   }, [activeHeroIndex, prevActiveHeroIndex, onInitChange, isNextHeroDirection]);
@@ -188,7 +182,7 @@ const HeroHeading: React.FC<Props> = ({
     }
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
-    enterTweenRef.current = gsap.fromTo(
+    tweenRef.current = gsap.fromTo(
       activeHeroChars,
       {
         opacity: 0,
@@ -206,7 +200,7 @@ const HeroHeading: React.FC<Props> = ({
       },
     );
 
-    enterTweenRef.current.then(() => {
+    tweenRef.current.then(() => {
       setIsChanging(false);
       onEndChange();
       onUpdatePrevActiveHeroIndex();
@@ -232,14 +226,14 @@ const HeroHeading: React.FC<Props> = ({
     onDistanceChars();
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
-    moveTweenRef.current = gsap.to(activeHeroChars, {
+    tweenRef.current = gsap.to(activeHeroChars, {
       duration: 1,
       opacity: isLeavingMenu ? 0 : 1,
       x: isLeavingMenu ? cycles.duplicatedDistanceX : cycles.distanceX,
       ease: 'power1.out',
     });
 
-    moveTweenRef.current.then(() => {
+    tweenRef.current.then(() => {
       if (!isLeavingMenu) {
         return;
       }
@@ -256,7 +250,7 @@ const HeroHeading: React.FC<Props> = ({
     onShrinkChars();
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
-    moveTweenRef.current = gsap.to(activeHeroChars, {
+    tweenRef.current = gsap.to(activeHeroChars, {
       duration: 1,
       x: 0,
       ease: 'power1.out',

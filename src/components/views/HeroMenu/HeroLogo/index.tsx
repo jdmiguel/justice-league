@@ -40,9 +40,7 @@ const HeroLogo: React.FC<Props> = ({
   isHighlighted,
   isFaded,
 }) => {
-  const initTweenRef = useRef<GSAPTween>();
-  const enterTweenRef = useRef<GSAPTween>();
-  const leaveTweenRef = useRef<GSAPTween>();
+  const tweenRef = useRef<GSAPTween>();
   const supermanRef = useRef<HTMLDivElement>(null);
   const batmanRef = useRef<HTMLDivElement>(null);
   const wonderwomanRef = useRef<HTMLDivElement>(null);
@@ -67,10 +65,10 @@ const HeroLogo: React.FC<Props> = ({
   );
 
   useEffect(() => {
+    const tween = tweenRef.current;
+
     return () => {
-      [initTweenRef.current, leaveTweenRef.current, enterTweenRef.current].forEach((tween) =>
-        tween?.kill(),
-      );
+      tween?.kill();
     };
   }, []);
 
@@ -79,7 +77,7 @@ const HeroLogo: React.FC<Props> = ({
       return;
     }
 
-    initTweenRef.current = gsap
+    tweenRef.current = gsap
       .fromTo(
         heroRefs[0].current,
         {
@@ -107,7 +105,7 @@ const HeroLogo: React.FC<Props> = ({
       (activeHeroIndex === 0 && prevActiveHeroIndex === lastHeroIndex);
 
     const preActiveLogo = heroRefs[prevActiveHeroIndex].current;
-    leaveTweenRef.current = gsap.fromTo(
+    tweenRef.current = gsap.fromTo(
       preActiveLogo,
       {
         opacity: 1,
@@ -123,7 +121,7 @@ const HeroLogo: React.FC<Props> = ({
     );
 
     const activeLogo = heroRefs[activeHeroIndex].current;
-    enterTweenRef.current = gsap.fromTo(
+    tweenRef.current = gsap.fromTo(
       activeLogo,
       {
         opacity: 0,

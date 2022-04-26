@@ -33,6 +33,14 @@ const Intro: React.FC<Props> = ({ idParam }) => {
   const getBgColor = () => (idParam ? getMemoizedHeroColor(idParam) : getMemoizedRandomHeroColor());
 
   useEffect(() => {
+    const tween = tweenRef.current;
+
+    return () => {
+      tween?.kill();
+    };
+  }, []);
+
+  useEffect(() => {
     if (!introRef.current) {
       return;
     }
@@ -44,10 +52,6 @@ const Intro: React.FC<Props> = ({ idParam }) => {
     });
 
     tweenRef.current.startTime(4.5).then(setDisplayedIntro);
-
-    return () => {
-      tweenRef.current?.kill();
-    };
   }, [setDisplayedIntro]);
 
   return (
