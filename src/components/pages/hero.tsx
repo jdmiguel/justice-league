@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import IntroContext from '@/contexts/IntroContext';
 import Intro from '@/components/views/Intro';
 
-export const StyledHero = styled.div`
+const StyledHero = styled.div`
   background-color: ${({ theme }) => theme.dark};
   height: 100vh;
   width: 100%;

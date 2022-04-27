@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { theme } from '@/helpers/theme';
 
-export const StyledChar = styled.path`
+const StyledChar = styled.path`
   opacity: 0;
 `;
 

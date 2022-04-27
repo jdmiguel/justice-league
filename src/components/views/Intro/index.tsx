@@ -7,7 +7,7 @@ import IntroContext from '@/contexts/IntroContext';
 import Logo from '@/components/views/Intro/Logo';
 import Chars from '@/components/views/Intro/Chars';
 
-export const StyledIntro = styled.div<{ bgColor: string }>`
+const StyledIntro = styled.div<{ bgColor: string }>`
   background-color: ${({ bgColor }) => bgColor};
   align-items: center;
   display: flex;

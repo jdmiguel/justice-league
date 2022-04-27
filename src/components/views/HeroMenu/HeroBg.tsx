@@ -11,7 +11,7 @@ import aquamanBgPath from '@/assets/heroBg/aquaman.jpg';
 import greenarrowBgPath from '@/assets/heroBg/greenarrow.jpg';
 import cyborgBgPath from '@/assets/heroBg/cyborg.jpg';
 
-export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDarkened: boolean }>`
+const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDarkened: boolean }>`
   opacity: 0.35;
   background-image: ${({ bgPath }) => `url(${bgPath})`};
   background-position: center;

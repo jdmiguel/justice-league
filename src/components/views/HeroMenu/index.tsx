@@ -9,12 +9,12 @@ import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
 import HeroLogo from '@/components/views/HeroMenu/HeroLogo';
 import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
 
-export const StyledHeroMenu = styled.main<{ isFaded: boolean }>`
+const StyledHeroMenu = styled.main<{ isFaded: boolean }>`
   opacity: ${({ isFaded }) => isFaded && 0};
   transition: opacity 1s ${ease.smooth} 0.2s;
 `;
 
-export const StyledGrainedBg = styled.div`
+const StyledGrainedBg = styled.div`
   animation: ${animation.noise} 5s infinite;
   animation-timing-function: steps(10);
   backface-visibility: hidden;
@@ -42,14 +42,15 @@ const HeroMenu: React.FC = () => {
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
-    onInitChangeHero,
-    onEndChangeHero,
+    initChangeHero,
+    endChangeHero,
     isHeroHighlighted,
-    onInitHighlightHero,
-    onEndHighlightHero,
+    highlightHero,
+    dimHero,
+    setDefaultMenuAppearance,
     isLeavingMenu,
-    onInitLeaveMenu,
-    onEndLeaveMenu,
+    initLeaveMenu,
+    endLeaveMenu,
   } = useHeroMenu();
 
   const bind = useWheel(({ event, last, memo: wait = false }) => {
@@ -91,13 +92,14 @@ const HeroMenu: React.FC = () => {
         activeHeroIndex={activeHeroIndex}
         prevActiveHeroIndex={prevActiveHeroIndex}
         lastHeroIndex={lastHeroIndex}
-        onDistanceChars={onInitHighlightHero}
-        onShrinkChars={onEndHighlightHero}
-        onInitChange={onInitChangeHero}
-        onEndChange={onEndChangeHero}
+        onDistanceChars={highlightHero}
+        onInitShrinkChars={dimHero}
+        onEndShrinkChars={setDefaultMenuAppearance}
+        onInitChange={initChangeHero}
+        onEndChange={endChangeHero}
         onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
-        onClick={onInitLeaveMenu}
-        onLeave={onEndLeaveMenu}
+        onClick={initLeaveMenu}
+        onLeave={endLeaveMenu}
       />
       <StyledGrainedBg />
     </StyledHeroMenu>

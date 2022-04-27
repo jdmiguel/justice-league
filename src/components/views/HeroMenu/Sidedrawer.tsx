@@ -11,7 +11,7 @@ import aquamanLogoPath from '@/assets/logo/aquaman.svg';
 import greenarrowLogoPath from '@/assets/logo/greenarrow.svg';
 import cyborgLogoPath from '@/assets/logo/cyborg.svg';
 
-export const StyledSidedrawer = styled.nav`
+const StyledSidedrawer = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,14 +23,14 @@ export const StyledSidedrawer = styled.nav`
   z-index: 5;
 `;
 
-export const StyledSidedrawerList = styled.ul`
+const StyledSidedrawerList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 18px;
   width: 220px;
 `;
 
-export const StyledSidedrawerItem = styled.li<{ isActive: boolean }>`
+const StyledSidedrawerItem = styled.li<{ isActive: boolean }>`
   button {
     align-items: center;
     display: flex;

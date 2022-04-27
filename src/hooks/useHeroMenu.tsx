@@ -19,6 +19,7 @@ const useHeroMenu = () => {
   const [heroes, setHeroes] = useState(fetchedHeroes);
   const [isLeavingMenu, setIsLeavingMenu] = useState(false);
   const [isHeroHighlighted, setIsHeroHighlighted] = useState(false);
+  const [isDefaultMenuAppearance, setIsDefaultMenuAppearance] = useState(true);
   const [isChangingHero, setIsChangingHero] = useState(false);
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
@@ -39,7 +40,7 @@ const useHeroMenu = () => {
   };
 
   const setActivePrevHero = () => {
-    if (isChangingHero || isHeroHighlighted) {
+    if (isChangingHero || !isDefaultMenuAppearance) {
       return;
     }
 
@@ -50,7 +51,7 @@ const useHeroMenu = () => {
   };
 
   const setActiveNextHero = () => {
-    if (isChangingHero || isHeroHighlighted) {
+    if (isChangingHero || !isDefaultMenuAppearance) {
       return;
     }
 
@@ -65,14 +66,18 @@ const useHeroMenu = () => {
     [activeHeroIndex],
   );
 
-  const onInitChangeHero = useCallback(() => setIsChangingHero(true), []);
-  const onEndChangeHero = useCallback(() => setIsChangingHero(false), []);
+  const initChangeHero = useCallback(() => setIsChangingHero(true), []);
+  const endChangeHero = useCallback(() => setIsChangingHero(false), []);
 
-  const onInitHighlightHero = () => setIsHeroHighlighted(true);
-  const onEndHighlightHero = () => setIsHeroHighlighted(false);
+  const highlightHero = () => {
+    setIsHeroHighlighted(true);
+    setIsDefaultMenuAppearance(false);
+  };
+  const dimHero = () => setIsHeroHighlighted(false);
+  const setDefaultMenuAppearance = () => setIsDefaultMenuAppearance(true);
 
-  const onInitLeaveMenu = () => setIsLeavingMenu(true);
-  const onEndLeaveMenu = () => {
+  const initLeaveMenu = () => setIsLeavingMenu(true);
+  const endLeaveMenu = () => {
     const activeHeroId = heroes[activeHeroIndex].id;
 
     setIsLeavingMenu(false);
@@ -88,14 +93,15 @@ const useHeroMenu = () => {
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
-    onInitChangeHero,
-    onEndChangeHero,
+    initChangeHero,
+    endChangeHero,
     isHeroHighlighted,
-    onInitHighlightHero,
-    onEndHighlightHero,
+    highlightHero,
+    dimHero,
+    setDefaultMenuAppearance,
     isLeavingMenu,
-    onInitLeaveMenu,
-    onEndLeaveMenu,
+    initLeaveMenu,
+    endLeaveMenu,
   };
 };
 

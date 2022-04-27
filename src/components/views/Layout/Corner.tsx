@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animation } from '@/helpers/theme';
 
-export const StyledCorner = styled.a`
+const StyledCorner = styled.a`
   svg {
     border: 0;
     color: transparent;

@@ -11,7 +11,7 @@ const cycles = {
   rightX: gsap.utils.wrap([20, 35, 50, 70, 90, 115, 135, 170, 210, 240, 280, 320]),
 };
 
-export const StyledHeroHeading = styled.nav`
+const StyledHeroHeading = styled.nav`
   font-size: 6.5rem;
   font-weight: 700;
   height: 100%;
@@ -26,7 +26,7 @@ export const StyledHeroHeading = styled.nav`
   }
 `;
 
-export const StyledHeroHeadingList = styled.ul`
+const StyledHeroHeadingList = styled.ul`
   align-items: center;
   display: flex;
   height: 100%;
@@ -34,12 +34,12 @@ export const StyledHeroHeadingList = styled.ul`
   width: 100%;
 `;
 
-export const StyledHeroHeadingItem = styled.li`
+const StyledHeroHeadingItem = styled.li`
   visibility: hidden;
   position: absolute;
 `;
 
-export const StyledHeroHeadingItemButton = styled.button<{ isChanging: boolean }>`
+const StyledHeroHeadingItemButton = styled.button<{ isChanging: boolean }>`
   pointer-events: ${({ isChanging }) => isChanging && 'none'};
 `;
 
@@ -49,7 +49,8 @@ type Props = {
   prevActiveHeroIndex: number;
   lastHeroIndex: number;
   onDistanceChars: () => void;
-  onShrinkChars: () => void;
+  onInitShrinkChars: () => void;
+  onEndShrinkChars: () => void;
   onInitChange: () => void;
   onEndChange: () => void;
   onUpdatePrevActiveHeroIndex: () => void;
@@ -63,7 +64,8 @@ const HeroHeading: React.FC<Props> = ({
   prevActiveHeroIndex,
   lastHeroIndex,
   onDistanceChars,
-  onShrinkChars,
+  onInitShrinkChars,
+  onEndShrinkChars,
   onInitChange,
   onEndChange,
   onUpdatePrevActiveHeroIndex,
@@ -71,8 +73,8 @@ const HeroHeading: React.FC<Props> = ({
   onClick,
 }) => {
   const [withSplittedHeadings, setWithSplittedHeadings] = useState(false);
-  const [isFading, setIsFading] = useState(false);
   const [isChanging, setIsChanging] = useState(false);
+  const [isFading, setIsFading] = useState(false);
 
   const tweenRef = useRef<GSAPTween>();
   const charsRef = useRef<any>([]);
@@ -247,13 +249,17 @@ const HeroHeading: React.FC<Props> = ({
       return;
     }
 
-    onShrinkChars();
+    onInitShrinkChars();
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
     tweenRef.current = gsap.to(activeHeroChars, {
       duration: 1,
       x: 0,
       ease: 'power1.out',
+    });
+
+    tweenRef.current.then(() => {
+      onEndShrinkChars();
     });
   };
 
@@ -275,8 +281,8 @@ const HeroHeading: React.FC<Props> = ({
           <StyledHeroHeadingItem key={hero.id}>
             <StyledHeroHeadingItemButton
               onClick={() => clickHeading(hero.id)}
-              onMouseOver={debouncedDistanceChars}
-              onMouseOut={debouncedShrinkChars}
+              onMouseEnter={debouncedDistanceChars}
+              onMouseLeave={debouncedShrinkChars}
               isChanging={isChanging}
             >
               <h2 ref={heroRefs[index]}>{hero.name}</h2>

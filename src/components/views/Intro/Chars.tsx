@@ -18,7 +18,7 @@ import E3 from '@/components/views/Intro/chars/league/LastE';
 
 const posY = gsap.utils.wrap([20, -20, 30, -30, 40, -40, 50, 60, -65, 70, -75, 80, -85]);
 
-export const StyledChars = styled.svg`
+const StyledChars = styled.svg`
   position: absolute;
   width: 45vw;
 `;

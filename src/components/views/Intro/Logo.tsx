@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import styled from 'styled-components';
 import { theme } from '@/helpers/theme';
 
-export const StyledLogoSvg = styled.svg`
+const StyledLogoSvg = styled.svg`
   opacity: 0;
   position: absolute;
   transform: scale(0.2);

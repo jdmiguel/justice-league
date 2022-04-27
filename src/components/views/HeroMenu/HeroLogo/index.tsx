@@ -12,7 +12,7 @@ import GreenArrowLogo from '@/components/views/HeroMenu/HeroLogo/GreenArrowLogo'
 import AquamanLogo from '@/components/views/HeroMenu/HeroLogo/AquamanLogo';
 import CyborgLogo from '@/components/views/HeroMenu/HeroLogo/CyborgLogo';
 
-export const StyledHeroLogo = styled.div`
+const StyledHeroLogo = styled.div`
   align-items: center;
   display: flex;
   height: 100%;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import justiceLeagueLogoPath from '@/assets/logo/justice-league.svg';
 import Corner from '@/components/views/Layout/Corner';
 
-export const StyledLayout = styled.div`
+const StyledLayout = styled.div`
   background-color: ${({ theme }) => theme.dark};
   color: ${({ theme }) => theme.light};
   height: 100vh;
@@ -11,7 +11,7 @@ export const StyledLayout = styled.div`
   width: 100%;
 `;
 
-export const StyledHeader = styled.header`
+const StyledHeader = styled.header`
   align-items: center;
   position: absolute;
   width: 100%;
@@ -20,7 +20,7 @@ export const StyledHeader = styled.header`
   z-index: 5;
 `;
 
-export const StyledFooter = styled.footer`
+const StyledFooter = styled.footer`
   bottom: 0;
   position: absolute;
   width: 100%;
@@ -30,7 +30,7 @@ export const StyledFooter = styled.footer`
   z-index: 5;
 `;
 
-export const StyledFooterLink = styled.a`
+const StyledFooterLink = styled.a`
   position: relative;
   &:after {
     background-color: ${({ theme }) => theme.light};
