@@ -2,13 +2,12 @@ import { useRef, useEffect, useContext, useCallback } from 'react';
 import { gsap } from 'gsap';
 import styled from 'styled-components';
 import { getHero } from '@/helpers';
-import { heroColors, getRandomHeroColor } from '@/helpers/theme';
+import { heroColors, getRandomHeroColor, theme } from '@/helpers/theme';
 import IntroContext from '@/contexts/IntroContext';
 import Logo from '@/components/views/Intro/Logo';
 import Chars from '@/components/views/Intro/Chars';
 
-const StyledIntro = styled.div<{ bgColor: string }>`
-  background-color: ${({ bgColor }) => bgColor};
+const StyledIntro = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
@@ -31,6 +30,7 @@ const Intro: React.FC<Props> = ({ idParam }) => {
   const getMemoizedRandomHeroColor = useCallback(() => getRandomHeroColor(), []);
 
   const getBgColor = () => (idParam ? getMemoizedHeroColor(idParam) : getMemoizedRandomHeroColor());
+  const bgColor = getBgColor();
 
   useEffect(() => {
     const tween = tweenRef.current;
@@ -39,6 +39,20 @@ const Intro: React.FC<Props> = ({ idParam }) => {
       tween?.kill();
     };
   }, []);
+
+  useEffect(() => {
+    tweenRef.current = gsap.fromTo(
+      introRef.current,
+      {
+        backgroundColor: theme.light,
+      },
+      {
+        duration: 0.5,
+        backgroundColor: bgColor,
+        ease: 'power1.inOut',
+      },
+    );
+  }, [bgColor]);
 
   useEffect(() => {
     if (!introRef.current) {
@@ -55,7 +69,7 @@ const Intro: React.FC<Props> = ({ idParam }) => {
   }, [setDisplayedIntro]);
 
   return (
-    <StyledIntro ref={introRef} bgColor={getBgColor()}>
+    <StyledIntro ref={introRef}>
       <Logo />
       <Chars />
     </StyledIntro>

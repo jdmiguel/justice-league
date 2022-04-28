@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useParams, Params, Link } from 'react-router-dom';
+import { useParams, Params } from 'react-router-dom';
 import styled from 'styled-components';
 import IntroContext from '@/contexts/IntroContext';
 import Intro from '@/components/views/Intro';

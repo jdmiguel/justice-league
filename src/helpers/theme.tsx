@@ -127,7 +127,21 @@ export const animation = {
     80% { transform: translate(-25%, 5%); }
     90% { transform: translate(-30%, 25%); }
     100% { transform: translate(-10%, 10%); }
-`,
+  `,
+  scale: keyframes`
+    0% {
+      background: transparent;
+      transform: scaleY(0.1);
+    }
+    50% {
+      background: ${theme.neutral};
+      transform: scaleY(1);
+    }
+    100% {
+      background: transparent;
+      transform: scaleY(0.1);
+    }
+  `,
 };
 
 export const ease = {
