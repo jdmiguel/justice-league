@@ -81,6 +81,7 @@ const Chars: React.FC = () => {
           y: 0,
           opacity: 1,
           fill: theme.dark,
+          stroke: theme.neutralLight,
           strokeDashoffset: 1300,
           ease: 'power1.inOut',
           stagger: 0.02,

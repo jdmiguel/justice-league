@@ -270,9 +270,12 @@ const HeroHeading: React.FC<Props> = ({
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedDistanceChars = useCallback(debounce(distanceChars, 100), [activeHeroIndex]);
+  const debouncedDistanceChars = useCallback(debounce(distanceChars, 100), [
+    activeHeroIndex,
+    isFading,
+  ]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedShrinkChars = useCallback(debounce(shrinkChars, 100), [activeHeroIndex]);
+  const debouncedShrinkChars = useCallback(debounce(shrinkChars, 100), [activeHeroIndex, isFading]);
 
   return (
     <StyledHeroHeading>

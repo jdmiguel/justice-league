@@ -32,7 +32,11 @@ const StyledGrainedBg = styled.div`
 
 const lethargy = new Lethargy();
 
-const HeroMenu: React.FC = () => {
+type Props = {
+  leaveHeroMenu: () => void;
+};
+
+const HeroMenu: React.FC<Props> = ({ leaveHeroMenu }) => {
   const {
     heroes,
     activeHeroIndex,
@@ -98,7 +102,10 @@ const HeroMenu: React.FC = () => {
         onInitChange={initChangeHero}
         onEndChange={endChangeHero}
         onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
-        onClick={initLeaveMenu}
+        onClick={() => {
+          initLeaveMenu();
+          leaveHeroMenu();
+        }}
         onLeave={endLeaveMenu}
       />
       <StyledGrainedBg />
