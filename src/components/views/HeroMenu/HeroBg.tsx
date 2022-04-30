@@ -10,23 +10,7 @@ import greenlanternBgPath from '@/assets/heroBg/greenlantern.jpg';
 import aquamanBgPath from '@/assets/heroBg/aquaman.jpg';
 import greenarrowBgPath from '@/assets/heroBg/greenarrow.jpg';
 import cyborgBgPath from '@/assets/heroBg/cyborg.jpg';
-
-const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDarkened: boolean }>`
-  opacity: 0.35;
-  background-image: ${({ bgPath }) => `url(${bgPath})`};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-  opacity: ${({ isActive, isDarkened }) => (isActive ? (isDarkened ? 0.3 : 1) : 0)};
-  position: absolute;
-  transform: ${({ isActive }) => (isActive ? 'scale(1)' : 'scale(1.3)')};
-  transform-origin: 50%;
-  transition: all 0.9s ${ease.smooth};
-  visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
-  width: 100%;
-  z-index: 1;
-`;
+import { StyledHeroBg } from '@/components/views/HeroMenu/styles';
 
 const heroBgPaths: HeroIds = {
   superman: supermanBgPath,

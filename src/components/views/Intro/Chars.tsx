@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import styled from 'styled-components';
 import { theme } from '@/helpers/theme';
 import J from '@/components/views/Intro/chars/justice/J';
 import U from '@/components/views/Intro/chars/justice/U';
@@ -15,13 +14,9 @@ import A from '@/components/views/Intro/chars/league/A';
 import G from '@/components/views/Intro/chars/league/G';
 import U2 from '@/components/views/Intro/chars/league/U';
 import E3 from '@/components/views/Intro/chars/league/LastE';
+import { StyledChars } from '@/components/views/Intro/styles';
 
 const posY = gsap.utils.wrap([20, -20, 30, -30, 40, -40, 50, 60, -65, 70, -75, 80, -85]);
-
-const StyledChars = styled.svg`
-  position: absolute;
-  width: 45vw;
-`;
 
 const Chars: React.FC = () => {
   const tweenRef = useRef<GSAPTween>();

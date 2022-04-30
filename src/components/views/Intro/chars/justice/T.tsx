@@ -1,10 +1,6 @@
 import { forwardRef } from 'react';
-import styled from 'styled-components';
 import { theme } from '@/helpers/theme';
-
-const StyledChar = styled.path`
-  opacity: 0;
-`;
+import { StyledChar } from '@/components/views/Intro/styles';
 
 export default forwardRef<SVGPathElement>((_, ref) => (
   <StyledChar

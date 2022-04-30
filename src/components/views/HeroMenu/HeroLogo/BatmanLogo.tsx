@@ -1,5 +1,5 @@
 import { theme } from '@/helpers/theme';
-import { StyledSvg, StyledPath } from '@/components/views/HeroMenu/HeroLogo/styles';
+import { StyledHeroLogoSvg, StyledHeroLogoPath } from '@/components/views/HeroMenu/styles';
 
 type Props = {
   isHighlighted: boolean;
@@ -7,7 +7,7 @@ type Props = {
 };
 
 const BatmanLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
-  <StyledSvg
+  <StyledHeroLogoSvg
     x="0px"
     y="0px"
     stroke={theme.grey}
@@ -21,7 +21,7 @@ const BatmanLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
     isHighlighted={isHighlighted}
     isFaded={isFaded}
   >
-    <StyledPath
+    <StyledHeroLogoPath
       stroke={theme.grey}
       strokeWidth="2"
       strokeMiterlimit="10"
@@ -30,7 +30,7 @@ const BatmanLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
       isHighlighted={isHighlighted}
       heroColor={theme.grey}
     />
-  </StyledSvg>
+  </StyledHeroLogoSvg>
 );
 
 export default BatmanLogo;

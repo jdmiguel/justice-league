@@ -1,5 +1,5 @@
 import { theme } from '@/helpers/theme';
-import { StyledSvg, StyledPath } from '@/components/views/HeroMenu/HeroLogo/styles';
+import { StyledHeroLogoSvg, StyledHeroLogoPath } from '@/components/views/HeroMenu/styles';
 
 type Props = {
   isHighlighted: boolean;
@@ -7,7 +7,7 @@ type Props = {
 };
 
 const GreenLanternLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
-  <StyledSvg
+  <StyledHeroLogoSvg
     x="0px"
     y="0px"
     width="500px"
@@ -18,7 +18,7 @@ const GreenLanternLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
     isHighlighted={isHighlighted}
     isFaded={isFaded}
   >
-    <StyledPath
+    <StyledHeroLogoPath
       stroke={theme.green}
       strokeWidth="2"
       strokeMiterlimit="10"
@@ -27,7 +27,7 @@ const GreenLanternLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
       isHighlighted={isHighlighted}
       heroColor={theme.green}
     />
-  </StyledSvg>
+  </StyledHeroLogoSvg>
 );
 
 export default GreenLanternLogo;

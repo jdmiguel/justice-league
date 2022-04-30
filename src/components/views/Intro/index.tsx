@@ -1,21 +1,11 @@
 import { useRef, useEffect, useContext, useCallback } from 'react';
 import { gsap } from 'gsap';
-import styled from 'styled-components';
 import { getHero } from '@/helpers';
 import { heroColors, getRandomHeroColor, theme } from '@/helpers/theme';
 import IntroContext from '@/contexts/IntroContext';
 import Logo from '@/components/views/Intro/Logo';
 import Chars from '@/components/views/Intro/Chars';
-
-const StyledIntro = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  position: absolute;
-  width: 100%;
-  z-index: 6;
-`;
+import { StyledIntro } from '@/components/views/Intro/styles';
 
 type Props = {
   idParam?: string;

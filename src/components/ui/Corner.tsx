@@ -1,32 +1,6 @@
-import styled from 'styled-components';
-import { animation } from '@/helpers/theme';
+import { StyledCorner } from '@/components/ui/styles';
 
-const StyledCorner = styled.a`
-  svg {
-    border: 0;
-    color: transparent;
-    transition: fill ease-out 250ms;
-    fill: ${({ theme }) => theme.neutral};
-  }
-  path {
-    &:not(:first-of-type) {
-      fill: ${({ theme }) => theme.dark};
-      transform-origin: 130px 106px;
-    }
-  }
-  &:hover {
-    svg {
-      fill: ${({ theme }) => theme.neutralLight};
-    }
-    path {
-      &:nth-of-type(2) {
-        animation: ${animation.greet} 560ms ease-in-out;
-      }
-    }
-  }
-`;
-
-const Corner = () => (
+const Corner: React.FC = () => (
   <StyledCorner
     href="https://github.com/jdmiguel/foodublin"
     rel="noopener noreferrer"

@@ -1,6 +1,5 @@
 import { useRef, useMemo, useEffect } from 'react';
 import { gsap } from 'gsap';
-import styled from 'styled-components';
 import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero } from '@/helpers/types';
 import SupermanLogo from '@/components/views/HeroMenu/HeroLogo/SupermanLogo';
@@ -11,17 +10,7 @@ import GreenLanternLogo from '@/components/views/HeroMenu/HeroLogo/GreenLanternL
 import GreenArrowLogo from '@/components/views/HeroMenu/HeroLogo/GreenArrowLogo';
 import AquamanLogo from '@/components/views/HeroMenu/HeroLogo/AquamanLogo';
 import CyborgLogo from '@/components/views/HeroMenu/HeroLogo/CyborgLogo';
-
-const StyledHeroLogo = styled.div`
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  opacity: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 4;
-`;
+import { StyledHeroLogo } from '@/components/views/HeroMenu/styles';
 
 type Props = {
   heroes: Hero[];

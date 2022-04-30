@@ -1,8 +1,13 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
-import styled from 'styled-components';
 import { debounce, splitHeadingIntoChars } from '@/helpers';
 import { HeroMenuData as Hero } from '@/helpers/types';
+import {
+  StyledHeroHeading,
+  StyledHeroHeadingList,
+  StyledHeroHeadingListItem,
+  StyledHeroHeadingListItemButton,
+} from '@/components/views/HeroMenu/styles';
 
 const cycles = {
   distanceX: gsap.utils.wrap([-15, -10, -7, -5, 0, 5, 7, 10, 15, 22, 30, 40]),
@@ -10,38 +15,6 @@ const cycles = {
   leftX: gsap.utils.wrap([-320, -280, -240, -210, -170, -135, -115, -90, -70, -50, -35, -20]),
   rightX: gsap.utils.wrap([20, 35, 50, 70, 90, 115, 135, 170, 210, 240, 280, 320]),
 };
-
-const StyledHeroHeading = styled.nav`
-  font-size: 6.5rem;
-  font-weight: 700;
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  z-index: 4;
-  @media only screen and (min-width: 1200px) {
-    font-size: 7.2rem;
-  }
-  @media only screen and (min-width: 1650px) {
-    font-size: 8.5rem;
-  }
-`;
-
-const StyledHeroHeadingList = styled.ul`
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  width: 100%;
-`;
-
-const StyledHeroHeadingItem = styled.li`
-  visibility: hidden;
-  position: absolute;
-`;
-
-const StyledHeroHeadingItemButton = styled.button<{ isChanging: boolean }>`
-  pointer-events: ${({ isChanging }) => isChanging && 'none'};
-`;
 
 type Props = {
   heroes: Hero[];
@@ -281,16 +254,16 @@ const HeroHeading: React.FC<Props> = ({
     <StyledHeroHeading>
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
-          <StyledHeroHeadingItem key={hero.id}>
-            <StyledHeroHeadingItemButton
+          <StyledHeroHeadingListItem key={hero.id}>
+            <StyledHeroHeadingListItemButton
               onClick={() => clickHeading(hero.id)}
               onMouseEnter={debouncedDistanceChars}
               onMouseLeave={debouncedShrinkChars}
               isChanging={isChanging}
             >
               <h2 ref={heroRefs[index]}>{hero.name}</h2>
-            </StyledHeroHeadingItemButton>
-          </StyledHeroHeadingItem>
+            </StyledHeroHeadingListItemButton>
+          </StyledHeroHeadingListItem>
         ))}
       </StyledHeroHeadingList>
     </StyledHeroHeading>

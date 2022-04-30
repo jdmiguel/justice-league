@@ -1,5 +1,5 @@
 import { theme } from '@/helpers/theme';
-import { StyledSvg, StyledPath } from '@/components/views/HeroMenu/HeroLogo/styles';
+import { StyledHeroLogoSvg, StyledHeroLogoPath } from '@/components/views/HeroMenu/styles';
 
 type Props = {
   isHighlighted: boolean;
@@ -7,7 +7,7 @@ type Props = {
 };
 
 const SupermanLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
-  <StyledSvg
+  <StyledHeroLogoSvg
     x="0px"
     y="0px"
     width="500px"
@@ -18,7 +18,7 @@ const SupermanLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
     isHighlighted={isHighlighted}
     isFaded={isFaded}
   >
-    <StyledPath
+    <StyledHeroLogoPath
       stroke={theme.blue}
       strokeWidth="2"
       strokeMiterlimit="10"
@@ -26,7 +26,7 @@ const SupermanLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
       isHighlighted={isHighlighted}
       heroColor={theme.blue}
     />
-  </StyledSvg>
+  </StyledHeroLogoSvg>
 );
 
 export default SupermanLogo;

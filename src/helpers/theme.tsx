@@ -128,7 +128,7 @@ export const animation = {
     90% { transform: translate(-30%, 25%); }
     100% { transform: translate(-10%, 10%); }
   `,
-  scale: keyframes`
+  equalizer: keyframes`
     0% {
       background: transparent;
       transform: scaleY(0.1);
@@ -140,6 +140,30 @@ export const animation = {
     100% {
       background: transparent;
       transform: scaleY(0.1);
+    }
+  `,
+  fadeIn: keyframes`
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  `,
+  up: keyframes`
+    0% {
+      transform: translateY(120px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  `,
+  down: keyframes`
+    0% {
+      transform: translateY(-120px);
+    }
+    100% {
+      transform: translateY(0);
     }
   `,
 };
