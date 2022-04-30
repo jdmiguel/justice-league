@@ -1,5 +1,3 @@
-import { getHero } from '@/helpers';
-import { HeroMenuData as Hero, HeroIds } from '@/helpers/types';
 import supermanLogoPath from '@/assets/logo/superman.svg';
 import batmanLogoPath from '@/assets/logo/batman.svg';
 import wonderwomanLogoPath from '@/assets/logo/wonderwoman.svg';
@@ -8,6 +6,8 @@ import greenlanternLogoPath from '@/assets/logo/greenlantern.svg';
 import aquamanLogoPath from '@/assets/logo/aquaman.svg';
 import greenarrowLogoPath from '@/assets/logo/greenarrow.svg';
 import cyborgLogoPath from '@/assets/logo/cyborg.svg';
+import { getHero } from '@/helpers';
+import { HeroMenuData as Hero, HeroIds } from '@/helpers/types';
 import {
   StyledSidedrawer,
   StyledSidedrawerList,

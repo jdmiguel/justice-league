@@ -105,15 +105,10 @@ export const getRandomHeroColor = (): string => {
 };
 
 export const animation = {
-  beat: keyframes`
-    0% { transform: scale(1); opacity: 1 }
-    50% { transform: scale(0.95); opacity: 0.7 }
-    100% { transform: scale(1); opacity: 1 }
-  `,
   greet: keyframes`
-    0%,100% { transform: rotate(0) }
-    20%,60% { transform: rotate(-25deg) }
-    40%,80% { transform: rotate(10deg) }
+    0%,100% { transform: rotate(0); }
+    20%,60% { transform: rotate(-25deg); }
+    40%,80% { transform: rotate(10deg); }
   `,
   noise: keyframes`
     0% { transform: translate(-10%, 10%); }

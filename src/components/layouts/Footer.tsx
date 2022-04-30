@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import IntroContext from '@/contexts/IntroContext';
+import NavigationDemo from '@/components/ui/NavigationDemo';
 import { StyledFooter, StyledFooterLink } from '@/components/layouts/styles';
 
 type Props = {
@@ -22,9 +23,7 @@ const Footer: React.FC<Props> = ({ isLeaving = false }) => {
           jdmiguel
         </StyledFooterLink>
       </div>
-      <div>
-        <h4>Based on DC characters</h4>
-      </div>
+      <NavigationDemo />
     </StyledFooter>
   );
 };

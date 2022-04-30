@@ -52,6 +52,7 @@ export const StyledHeaderMenuListItem = styled.li<{ isActive?: boolean }>`
 `;
 
 export const StyledFooter = styled.footer<{ isEntering: boolean; isLeaving: boolean }>`
+  align-items: flex-end;
   animation: ${animation.up} 0.5s ${ease.medium};
   bottom: 0;
   display: flex;

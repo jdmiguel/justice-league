@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { animation } from '@/helpers/theme';
+import { animation, ease } from '@/helpers/theme';
 
 export const StyledLogo = styled.h1`
   align-items: center;
@@ -77,5 +77,55 @@ export const StyledLoader = styled.div`
     &:nth-of-type(5) {
       animation-delay: 0.5s;
     }
+  }
+`;
+
+export const StyledNavigationDemo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+
+  h4 {
+    font-weight: 700;
+  }
+
+  ul,
+  figure {
+    position: relative;
+  }
+
+  li {
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    position: absolute;
+    right: 16px;
+    white-space: nowrap;
+
+    &:first-of-type {
+      img {
+        &:last-of-type {
+          left: 3px;
+          top: 5px;
+        }
+      }
+    }
+
+    &:last-of-type {
+      img {
+        &:first-of-type {
+          left: 4px;
+        }
+        &:last-of-type {
+          left: 3px;
+          top: 5px;
+        }
+      }
+    }
+  }
+
+  img {
+    position: absolute;
   }
 `;
