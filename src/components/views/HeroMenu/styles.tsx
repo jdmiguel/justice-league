@@ -127,6 +127,7 @@ export const StyledSidedrawer = styled.nav`
     flex-direction: column;
     height: 100%;
     padding-left: 24px;
+    width: 220px;
   }
 `;
 
