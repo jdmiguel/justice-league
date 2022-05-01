@@ -15,11 +15,14 @@ export const StyledLogo = styled.svg`
   position: absolute;
   transform: scale(0.2);
   transform-origin: '50% 50%';
-  width: 12vh;
+  width: 40vh;
   @media only screen and (orientation: landscape) {
     width: 30vw;
   }
   @media only screen and (min-width: 768px) {
+    width: 45vw;
+  }
+  @media only screen and (min-width: 992px) {
     width: 50vw;
   }
   @media only screen and (min-width: 1200px) {
@@ -29,11 +32,14 @@ export const StyledLogo = styled.svg`
 
 export const StyledChars = styled.svg`
   position: absolute;
-  width: 20vh;
+  width: 40vh;
   @media only screen and (orientation: landscape) {
     width: 35vw;
   }
   @media only screen and (min-width: 768px) {
+    width: 50vw;
+  }
+  @media only screen and (min-width: 992px) {
     width: 55vw;
   }
   @media only screen and (min-width: 1200px) {
