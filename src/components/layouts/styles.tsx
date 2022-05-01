@@ -6,8 +6,32 @@ export const StyledLayout = styled.div`
   color: ${({ theme }) => theme.light};
   height: 100vh;
   position: relative;
-  transition: opacity 0.75s;
+  overflow: hidden;
   width: 100%;
+`;
+
+export const StyledRotateDevice = styled.div`
+  display: none;
+  @media only screen and (orientation: portrait) and (max-width: 768px) {
+    align-items: center;
+    background-color: ${({ theme }) => theme.dark};
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100vh;
+    justify-content: center;
+    padding: 30px;
+    position: absolute;
+    z-index: 6;
+    width: 100%;
+    img {
+      max-width: 100%;
+    }
+    p {
+      text-align: center;
+      padding: 30px;
+    }
+  }
 `;
 
 export const StyledHeader = styled.header<{
@@ -52,17 +76,20 @@ export const StyledHeaderMenuListItem = styled.li<{ isActive?: boolean }>`
 `;
 
 export const StyledFooter = styled.footer<{ isEntering: boolean; isLeaving: boolean }>`
-  align-items: flex-end;
-  animation: ${animation.up} 0.5s ${ease.medium};
-  bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 24px 44px;
-  position: absolute;
-  transform: ${({ isLeaving }) => isLeaving && 'translateY(120px)'};
-  transition: transform 0.5s ${ease.medium};
-  width: 100%;
-  z-index: 5;
+  display: none;
+  @media only screen and (min-width: 1200px) {
+    align-items: flex-end;
+    animation: ${animation.up} 0.5s ${ease.medium};
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 44px;
+    position: absolute;
+    transform: ${({ isLeaving }) => isLeaving && 'translateY(120px)'};
+    transition: transform 0.5s ${ease.medium};
+    width: 100%;
+    z-index: 5;
+  }
 `;
 
 export const StyledFooterLink = styled.a`

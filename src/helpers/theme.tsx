@@ -19,6 +19,7 @@ export const GlobalStyles = createGlobalStyle`
   header,
   footer,
   main,
+  div,
   h1,
   h2,
   h3,

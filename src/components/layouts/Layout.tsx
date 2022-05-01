@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
+import rotateDevicePath from '@/assets/rotate-device.png';
 import Header from '@/components/layouts/Header';
 import Footer from '@/components/layouts/Footer';
-import { StyledLayout } from '@/components/layouts/styles';
+import { StyledLayout, StyledRotateDevice } from '@/components/layouts/styles';
 
 type Props = {
   children: ReactNode;
@@ -17,6 +18,10 @@ const Layout: React.FC<Props> = ({
   onClickNavigation,
 }) => (
   <StyledLayout>
+    <StyledRotateDevice>
+      <img src={rotateDevicePath} alt="no portrait allowed" />
+      <p>Change your device from portrait to landscape orientation to enjoy a better experience</p>
+    </StyledRotateDevice>
     <Header
       withNavigation={withNavigation}
       isLeaving={isLeaving}

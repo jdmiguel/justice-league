@@ -7,7 +7,7 @@ export const StyledIntro = styled.div`
   height: 100vh;
   position: absolute;
   width: 100%;
-  z-index: 6;
+  z-index: 7;
 `;
 
 export const StyledLogo = styled.svg`
@@ -15,12 +15,24 @@ export const StyledLogo = styled.svg`
   position: absolute;
   transform: scale(0.2);
   transform-origin: '50% 50%';
-  width: 35vw;
+  width: 12vh;
+  @media only screen and (min-width: 768px) {
+    width: 50vw;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 35vw;
+  }
 `;
 
 export const StyledChars = styled.svg`
   position: absolute;
-  width: 45vw;
+  width: 20vh;
+  @media only screen and (min-width: 768px) {
+    width: 55vw;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 45vw;
+  }
 `;
 
 export const StyledChar = styled.path`

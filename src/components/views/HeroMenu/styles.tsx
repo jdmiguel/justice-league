@@ -30,17 +30,29 @@ export const StyledHeroLogo = styled.div`
   height: 100%;
   justify-content: center;
   opacity: 0;
+  padding: 20px;
   position: absolute;
   width: 100%;
   z-index: 4;
 `;
 
 export const StyledHeroLogoSvg = styled.svg<{ isHighlighted: boolean; isFaded: boolean }>`
+  max-height: 100%;
   opacity: ${({ isFaded }) => isFaded && 0};
   overflow: visible;
   transition: all 0.9s ${ease.smooth};
   transform: ${({ isHighlighted, isFaded }) =>
     isHighlighted ? (isFaded ? 'scale(1.5)' : 'scale(1.15)') : 'scale(1)'};
+  width: 400px;
+  @media only screen and (min-width: 768px) {
+    width: 500px;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 450px;
+  }
+  @media only screen and (min-width: 1650px) {
+    width: initial;
+  }
 `;
 
 export const StyledHeroLogoPath = styled.path<{ isHighlighted: boolean; heroColor: string }>`
@@ -67,12 +79,15 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
 `;
 
 export const StyledHeroHeading = styled.nav`
-  font-size: 6.5rem;
+  font-size: 5.7rem;
   font-weight: 700;
   height: 100%;
   position: absolute;
   width: 100%;
   z-index: 4;
+  @media only screen and (min-width: 768px) {
+    font-size: 7.5rem;
+  }
   @media only screen and (min-width: 1200px) {
     font-size: 7.2rem;
   }
@@ -99,22 +114,30 @@ export const StyledHeroHeadingListItemButton = styled.button<{ isChanging: boole
 `;
 
 export const StyledSidedrawer = styled.nav`
+  bottom: 30px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   font-size: 1.2rem;
   font-weight: 700;
-  height: 100%;
-  padding-left: 24px;
+  justify-content: center;
   position: absolute;
+  width: 100%;
   z-index: 5;
+  @media only screen and (min-width: 1200px) {
+    bottom: initial;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 24px;
+  }
 `;
 
 export const StyledSidedrawerList = styled.ul`
   display: flex;
-  flex-direction: column;
-  gap: 18px;
-  width: 220px;
+  gap: 12px;
+  @media only screen and (min-width: 1200px) {
+    flex-direction: column;
+    gap: 18px;
+    width: 220px;
+  }
 `;
 
 export const StyledSidedrawerListItem = styled.li<{ isActive: boolean }>`
@@ -151,10 +174,14 @@ export const StyledSidedrawerListItem = styled.li<{ isActive: boolean }>`
   }
 
   span {
+    display: none;
     margin-left: 8px;
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
     transform: ${({ isActive }) => (isActive ? 'translateX(0px)' : 'translateX(15px)')};
     transition: all 0.4s ${ease.medium};
+    @media only screen and (min-width: 1200px) {
+      display: inline-block;
+    }
   }
 
   &:nth-of-type(2) {
