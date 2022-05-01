@@ -105,6 +105,9 @@ export const StyledNavigationDemo = styled.div`
 
     &:first-of-type {
       img {
+        &:first-of-type {
+          top: -1px;
+        }
         &:last-of-type {
           left: 3px;
           top: 5px;

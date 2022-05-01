@@ -86,10 +86,10 @@ export const StyledHeroHeading = styled.nav`
   width: 100%;
   z-index: 4;
   @media only screen and (min-width: 768px) {
-    font-size: 7.5rem;
+    font-size: 6rem;
   }
-  @media only screen and (min-width: 1200px) {
-    font-size: 7.2rem;
+  @media only screen and (min-width: 992px) {
+    font-size: 6.8rem;
   }
   @media only screen and (min-width: 1650px) {
     font-size: 8.5rem;
@@ -145,7 +145,6 @@ export const StyledSidedrawerListItem = styled.li<{ isActive: boolean }>`
     align-items: center;
     display: flex;
     pointer-events: ${({ isActive }) => isActive && 'none'};
-
     > div {
       align-items: center;
       display: flex;
@@ -153,7 +152,6 @@ export const StyledSidedrawerListItem = styled.li<{ isActive: boolean }>`
       height: 34px;
       width: 60px;
     }
-
     &:hover {
       img {
         opacity: 1;
@@ -165,14 +163,12 @@ export const StyledSidedrawerListItem = styled.li<{ isActive: boolean }>`
       }
     }
   }
-
   img {
     height: 28px;
     opacity: ${({ isActive }) => (isActive ? 1 : 0.5)};
     transition: opacity 0.4s ${ease.medium};
     width: 32px;
   }
-
   span {
     display: none;
     margin-left: 8px;
@@ -183,14 +179,12 @@ export const StyledSidedrawerListItem = styled.li<{ isActive: boolean }>`
       display: inline-block;
     }
   }
-
   &:nth-of-type(2) {
     img {
       height: 34px;
       width: 36px;
     }
   }
-
   &:nth-of-type(4) {
     img {
       height: 34px;

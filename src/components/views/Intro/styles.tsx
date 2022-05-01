@@ -16,6 +16,9 @@ export const StyledLogo = styled.svg`
   transform: scale(0.2);
   transform-origin: '50% 50%';
   width: 12vh;
+  @media only screen and (orientation: landscape) {
+    width: 30vw;
+  }
   @media only screen and (min-width: 768px) {
     width: 50vw;
   }
@@ -27,6 +30,9 @@ export const StyledLogo = styled.svg`
 export const StyledChars = styled.svg`
   position: absolute;
   width: 20vh;
+  @media only screen and (orientation: landscape) {
+    width: 35vw;
+  }
   @media only screen and (min-width: 768px) {
     width: 55vw;
   }
