@@ -1,6 +1,4 @@
-import styled from 'styled-components';
 import { getHero } from '@/helpers';
-import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero, HeroIds } from '@/helpers/types';
 import supermanBgPath from '@/assets/heroBg/superman.jpg';
 import batmanBgPath from '@/assets/heroBg/batman.jpg';

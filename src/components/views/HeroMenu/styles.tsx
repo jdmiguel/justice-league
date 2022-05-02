@@ -71,7 +71,8 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   height: 100%;
   opacity: ${({ isActive, isDarkened }) => (isActive ? (isDarkened ? 0.3 : 1) : 0)};
   position: absolute;
-  transform: ${({ isActive }) => (isActive ? 'scale(1)' : 'scale(1.3)')};
+  transform: ${({ isActive, isDarkened }) =>
+    isActive ? (isDarkened ? 'scale(1.05)' : 'scale(1)') : 'scale(1.3)'};
   transform-origin: 50%;
   transition: all 0.9s ${ease.smooth};
   visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
