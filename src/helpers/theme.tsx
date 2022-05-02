@@ -41,7 +41,9 @@ export const GlobalStyles = createGlobalStyle`
     font-size: inherit;
     font-weight: inherit;
     margin: 0;
+    outline: none;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
   }
   body {
     overflow: hidden;
