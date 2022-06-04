@@ -1,20 +1,25 @@
 import { createUseGesture, dragAction, wheelAction } from '@use-gesture/react';
 import { Lethargy } from 'lethargy';
+import { useHero } from '@/contexts/HeroContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
 import HeroLogo from '@/components/views/HeroMenu/HeroLogo';
 import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
 import { StyledHeroMenu, StyledGrainedBg } from '@/components/views/HeroMenu/styles';
+import { HeroId } from '@/helpers/types';
 
 const lethargy = new Lethargy();
 const useGesture = createUseGesture([dragAction, wheelAction]);
 
 type Props = {
-  leaveHeroMenu: () => void;
+  isLeaving: boolean;
+  initLeave: (_: HeroId) => void;
+  endLeave: () => void;
 };
 
-const HeroMenu: React.FC<Props> = ({ leaveHeroMenu }) => {
+const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
+  const { hero } = useHero();
   const {
     heroes,
     activeHeroIndex,
@@ -30,10 +35,7 @@ const HeroMenu: React.FC<Props> = ({ leaveHeroMenu }) => {
     highlightHero,
     dimHero,
     setDefaultMenuAppearance,
-    isLeavingMenu,
-    initLeaveMenu,
-    endLeaveMenu,
-  } = useHeroMenu();
+  } = useHeroMenu(hero);
 
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {
@@ -68,7 +70,7 @@ const HeroMenu: React.FC<Props> = ({ leaveHeroMenu }) => {
   });
 
   return (
-    <StyledHeroMenu isFaded={isLeavingMenu} {...bind()}>
+    <StyledHeroMenu isFaded={isLeaving} {...bind()}>
       <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
       <Sidedrawer heroes={heroes} onClick={setActiveHero} />
       <HeroLogo
@@ -77,7 +79,7 @@ const HeroMenu: React.FC<Props> = ({ leaveHeroMenu }) => {
         prevActiveHeroIndex={prevActiveHeroIndex}
         lastHeroIndex={lastHeroIndex}
         isHighlighted={isHeroHighlighted}
-        isFaded={isLeavingMenu}
+        isFaded={isLeaving}
       />
       <HeroHeading
         heroes={heroes}
@@ -91,10 +93,9 @@ const HeroMenu: React.FC<Props> = ({ leaveHeroMenu }) => {
         onEndChange={endChangeHero}
         onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
         onClick={() => {
-          initLeaveMenu();
-          leaveHeroMenu();
+          initLeave(heroes[activeHeroIndex].id as HeroId);
         }}
-        onLeave={endLeaveMenu}
+        onLeave={endLeave}
       />
       <StyledGrainedBg />
     </StyledHeroMenu>

@@ -23,10 +23,8 @@ const Intro: React.FC<Props> = ({ idParam }) => {
   const bgColor = getBgColor();
 
   useEffect(() => {
-    const tween = tweenRef.current;
-
     return () => {
-      tween?.kill();
+      tweenRef.current?.kill();
     };
   }, []);
 

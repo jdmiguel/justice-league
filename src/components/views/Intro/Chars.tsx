@@ -35,10 +35,8 @@ const Chars: React.FC = () => {
   const e3Ref = useRef<SVGPathElement>(null);
 
   useEffect(() => {
-    const tween = tweenRef.current;
-
     return () => {
-      tween?.kill();
+      tweenRef.current?.kill();
     };
   }, []);
 

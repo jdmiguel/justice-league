@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animation, ease } from '@/helpers/theme';
 
-export const StyledLayout = styled.div`
+export const StyledLayout = styled.main`
   background-color: ${({ theme }) => theme.dark};
   color: ${({ theme }) => theme.light};
   height: 100vh;
@@ -10,63 +10,38 @@ export const StyledLayout = styled.div`
   width: 100%;
 `;
 
-export const StyledRotateDevice = styled.div`
-  display: none;
-  @media only screen and (orientation: portrait) and (max-width: 768px) {
-    align-items: center;
-    background-color: ${({ theme }) => theme.dark};
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    height: 100vh;
-    justify-content: center;
-    padding: 30px;
-    position: absolute;
-    z-index: 6;
-    width: 100%;
-    img {
-      max-width: 100%;
-    }
-    p {
-      text-align: center;
-      padding: 30px;
-    }
-  }
-`;
-
-export const StyledHeader = styled.header<{
-  withNavigation: boolean;
-  isEntering: boolean;
-  isLeaving: boolean;
-}>`
-  animation: ${animation.down} 0.5s ${ease.medium};
-  border-bottom: ${({ theme, withNavigation }) => withNavigation && `1px solid ${theme.neutral}`};
+export const StyledHeader = styled.header<{ isSticky?: boolean }>`
   display: flex;
   justify-content: space-between;
   min-height: 85px;
-  padding-right: ${({ withNavigation }) => withNavigation && '40px'};
-  position: ${({ withNavigation }) => !withNavigation && 'absolute'};
-  transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
-  transition: transform 0.5s ${ease.medium};
-  width: ${({ withNavigation }) => !withNavigation && '100%'};
-  z-index: ${({ withNavigation }) => !withNavigation && '5'};
+  position: ${({ isSticky }) => (isSticky ? 'sticky' : 'absolute')};
+  width: 100%;
+  z-index: 6;
 `;
 
-export const StyledHeaderMenu = styled.nav`
+export const StyledHeaderLogo = styled.h1`
+  align-items: center;
+  display: flex;
+`;
+
+export const StyledHeaderNavigation = styled.nav<{ isLeaving?: boolean }>`
   align-items: center;
   display: flex;
   font-size: 1.2rem;
   font-weight: 700;
+  margin-right: 40px;
+  transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
+  transition: transform 0.5s ${ease.medium};
 `;
 
-export const StyledHeaderMenuList = styled.ul`
+export const StyledHeaderNavigationList = styled.ul`
   align-items: center;
   display: flex;
   gap: 26px;
   justify-content: space-between;
 `;
 
-export const StyledHeaderMenuListItem = styled.li<{ isActive?: boolean }>`
+export const StyledHeaderNavigationListItem = styled.li<{ isActive?: boolean }>`
   color: ${({ theme, isActive }) => (isActive ? theme.light : theme.neutral)};
   pointer-events: ${({ isActive }) => isActive && 'none'};
   transition: color 0.5s ${ease.medium};
@@ -75,7 +50,34 @@ export const StyledHeaderMenuListItem = styled.li<{ isActive?: boolean }>`
   }
 `;
 
-export const StyledFooter = styled.footer<{ isEntering: boolean; isLeaving: boolean }>`
+export const StyledHeaderCorner = styled.a<{ isLeaving?: boolean }>`
+  animation: ${animation.down} 0.5s ${ease.medium};
+  transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
+  transition: transform 0.5s ${ease.medium};
+  svg {
+    border: 0;
+    color: transparent;
+    fill: ${({ theme }) => theme.neutral};
+  }
+  path {
+    &:not(:first-of-type) {
+      fill: ${({ theme }) => theme.dark};
+      transform-origin: 130px 106px;
+    }
+  }
+  &:hover {
+    svg {
+      fill: ${({ theme }) => theme.neutralLight};
+    }
+    path {
+      &:nth-of-type(2) {
+        animation: ${animation.greet} 560ms ease-in-out;
+      }
+    }
+  }
+`;
+
+export const StyledFooter = styled.footer<{ isLeaving?: boolean }>`
   display: none;
   @media only screen and (min-width: 1200px) {
     align-items: flex-end;

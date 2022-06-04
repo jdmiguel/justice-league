@@ -1,5 +1,5 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
-import { HeroIds } from '@/helpers/types';
+import { HeroData } from '@/helpers/types';
 
 export const GlobalStyles = createGlobalStyle`
   html {
@@ -89,7 +89,7 @@ export const theme = {
   ...colorTheme,
 };
 
-export const heroColors: HeroIds = {
+export const heroColors: HeroData = {
   superman: theme.blue,
   batman: theme.grey,
   wonderwoman: theme.orange,
@@ -126,7 +126,7 @@ export const animation = {
     90% { transform: translate(-30%, 25%); }
     100% { transform: translate(-10%, 10%); }
   `,
-  equalizer: keyframes`
+  wave: keyframes`
     0% {
       background: transparent;
       transform: scaleY(0.1);

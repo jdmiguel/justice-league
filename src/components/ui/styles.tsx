@@ -1,35 +1,5 @@
 import styled from 'styled-components';
-import { animation, ease } from '@/helpers/theme';
-
-export const StyledLogo = styled.h1`
-  align-items: center;
-  display: flex;
-`;
-
-export const StyledCorner = styled.a`
-  svg {
-    border: 0;
-    color: transparent;
-    transition: fill ease-out 250ms;
-    fill: ${({ theme }) => theme.neutral};
-  }
-  path {
-    &:not(:first-of-type) {
-      fill: ${({ theme }) => theme.dark};
-      transform-origin: 130px 106px;
-    }
-  }
-  &:hover {
-    svg {
-      fill: ${({ theme }) => theme.neutralLight};
-    }
-    path {
-      &:nth-of-type(2) {
-        animation: ${animation.greet} 560ms ease-in-out;
-      }
-    }
-  }
-`;
+import { animation } from '@/helpers/theme';
 
 export const StyledLoaderWrapper = styled.div<{ withLightBg: boolean }>`
   align-items: center;
@@ -49,7 +19,7 @@ export const StyledLoader = styled.div`
   width: 100px;
 
   span {
-    animation: ${animation.equalizer} 1s linear infinite;
+    animation: ${animation.wave} 1s linear infinite;
     background: ${({ theme }) => theme.light};
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -130,5 +100,30 @@ export const StyledNavigationDemo = styled.div`
 
   img {
     position: absolute;
+  }
+`;
+
+export const StyledRotateDevice = styled.div`
+  display: none;
+  @media only screen and (orientation: portrait) and (max-width: 768px) {
+    align-items: center;
+    background-color: ${({ theme }) => theme.dark};
+    color: ${({ theme }) => theme.light};
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100vh;
+    justify-content: center;
+    padding: 30px;
+    position: absolute;
+    z-index: 7;
+    width: 100%;
+    img {
+      max-width: 100%;
+    }
+    p {
+      text-align: center;
+      padding: 30px;
+    }
   }
 `;

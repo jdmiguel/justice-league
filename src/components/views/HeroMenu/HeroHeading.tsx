@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { debounce, splitHeadingIntoChars } from '@/helpers';
-import { HeroMenuData as Hero } from '@/helpers/types';
+import { HeroMenuData } from '@/helpers/types';
+import { useIntro } from '@/contexts/IntroContext';
 import {
   StyledHeroHeading,
   StyledHeroHeadingList,
@@ -17,7 +18,7 @@ const cycles = {
 };
 
 type Props = {
-  heroes: Hero[];
+  heroes: HeroMenuData[];
   activeHeroIndex: number;
   prevActiveHeroIndex: number;
   lastHeroIndex: number;
@@ -28,7 +29,7 @@ type Props = {
   onEndChange: () => void;
   onUpdatePrevActiveHeroIndex: () => void;
   onLeave: () => void;
-  onClick: (id: string) => void;
+  onClick: () => void;
 };
 
 const HeroHeading: React.FC<Props> = ({
@@ -74,16 +75,16 @@ const HeroHeading: React.FC<Props> = ({
     [],
   );
 
+  const { isDisplayed: isIntroDisplayed } = useIntro();
+
   const isNextHeroDirection =
     (activeHeroIndex > prevActiveHeroIndex &&
       !(activeHeroIndex === lastHeroIndex && prevActiveHeroIndex === 0)) ||
     (activeHeroIndex === 0 && prevActiveHeroIndex === lastHeroIndex);
 
   useEffect(() => {
-    const tween = tweenRef.current;
-
     return () => {
-      tween?.kill();
+      tweenRef.current?.kill();
     };
   }, []);
 
@@ -101,25 +102,28 @@ const HeroHeading: React.FC<Props> = ({
       return;
     }
 
-    tweenRef.current = gsap
-      .fromTo(
-        charsRef.current[0],
-        {
-          opacity: 0,
-          rotationY: -120,
-          scaleX: 0,
-          visibility: 'visible',
-        },
-        {
-          duration: 0.7,
-          opacity: 1,
-          rotationY: 0,
-          scaleX: 1,
-          ease: 'power1.out',
-          stagger: 0.05,
-        },
-      )
-      .startTime(5);
+    tweenRef.current = gsap.fromTo(
+      charsRef.current[activeHeroIndex],
+      {
+        opacity: 0,
+        rotationY: -120,
+        scaleX: 0,
+        visibility: 'visible',
+      },
+      {
+        duration: 0.7,
+        opacity: 1,
+        rotationY: 0,
+        scaleX: 1,
+        ease: 'power1.out',
+        stagger: 0.05,
+      },
+    );
+
+    if (isIntroDisplayed) {
+      tweenRef.current.startTime(5);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [withSplittedHeadings]);
 
   const leaveHeading = useCallback(() => {
@@ -236,10 +240,10 @@ const HeroHeading: React.FC<Props> = ({
     });
   };
 
-  const clickHeading = (id: string) => {
+  const clickHeading = () => {
     setIsFading(true);
     distanceChars({ isLeavingMenu: true });
-    onClick(id);
+    onClick();
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -256,7 +260,7 @@ const HeroHeading: React.FC<Props> = ({
         {heroes.map((hero, index) => (
           <StyledHeroHeadingListItem key={hero.id}>
             <StyledHeroHeadingListItemButton
-              onClick={() => clickHeading(hero.id)}
+              onClick={clickHeading}
               onMouseEnter={debouncedDistanceChars}
               onMouseLeave={debouncedShrinkChars}
               isChanging={isChanging}

@@ -1,4 +1,4 @@
-export type HeroIds = {
+export type HeroData = {
   superman: string;
   batman: string;
   wonderwoman: string;
@@ -9,8 +9,12 @@ export type HeroIds = {
   cyborg: string;
 };
 
+export type HeroId = keyof HeroData;
+
 export type HeroMenuData = {
   id: string;
   name: string;
   active: boolean;
 };
+
+export type PageId = 'root' | 'profile' | 'timeline' | 'media';

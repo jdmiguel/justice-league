@@ -1,19 +1,29 @@
-import { useState, useContext } from 'react';
-import IntroContext from '@/contexts/IntroContext';
+import { useIntro } from '@/contexts/IntroContext';
+import useHeroNavigation from '@/hooks/useHeroNavigation';
 import Intro from '@/components/views/Intro';
 import HeroMenu from '@/components/views/HeroMenu';
 import Layout from '@/components/layouts/Layout';
+import Header from '@/components/layouts/Header';
+import Footer from '@/components/layouts/Footer';
 
 const Root: React.FC = () => {
-  const [isLeaving, setIsLeaving] = useState(false);
-
-  const { isDisplayed: isIntroDisplayed } = useContext(IntroContext);
+  const { isNavigating, initNavigation, endNavigation } = useHeroNavigation();
+  const { isDisplayed: isIntroDisplayed } = useIntro();
 
   return (
     <>
       {isIntroDisplayed && <Intro />}
-      <Layout isLeaving={isLeaving}>
-        <HeroMenu leaveHeroMenu={() => setIsLeaving(true)} />
+      <Layout>
+        <Header>
+          <Header.Logo />
+          <Header.Corner isLeaving={isNavigating} />
+        </Header>
+        <HeroMenu
+          isLeaving={isNavigating}
+          initLeave={(heroId) => initNavigation({ heroId, pageId: 'profile' })}
+          endLeave={endNavigation}
+        />
+        <Footer isLeaving={isNavigating} />
       </Layout>
     </>
   );

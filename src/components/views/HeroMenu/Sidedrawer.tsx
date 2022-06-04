@@ -7,14 +7,14 @@ import aquamanLogoPath from '@/assets/logo/aquaman.svg';
 import greenarrowLogoPath from '@/assets/logo/greenarrow.svg';
 import cyborgLogoPath from '@/assets/logo/cyborg.svg';
 import { getHero } from '@/helpers';
-import { HeroMenuData as Hero, HeroIds } from '@/helpers/types';
+import { HeroMenuData as Hero, HeroData } from '@/helpers/types';
 import {
   StyledSidedrawer,
   StyledSidedrawerList,
   StyledSidedrawerListItem,
 } from '@/components/views/HeroMenu/styles';
 
-const heroLogoPaths: HeroIds = {
+const heroLogoPaths: HeroData = {
   superman: supermanLogoPath,
   batman: batmanLogoPath,
   wonderwoman: wonderwomanLogoPath,

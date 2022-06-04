@@ -1,4 +1,4 @@
-import { HeroIds } from '@/helpers/types';
+import { HeroData, HeroId, PageId } from '@/helpers/types';
 
 export const debounce = (fn: any, delay: number) => {
   let timer: ReturnType<typeof setTimeout>;
@@ -48,4 +48,5 @@ export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   return split(target);
 };
 
-export const getHero = (heroData: any, id: string): string => heroData[id as keyof HeroIds];
+export const defaultHeroId = 'superman';
+export const getHero = (heroData: HeroData, id: HeroId): string => heroData[id || defaultHeroId];

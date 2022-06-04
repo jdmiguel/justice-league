@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext, useState, useContext } from 'react';
 
 const IntroContext = createContext({
   isDisplayed: true,
@@ -9,7 +9,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const IntroContextProvider = ({ children }: Props) => {
+const IntroContextProvider = ({ children }: Props) => {
   const [isDisplayed, setIsDisplayed] = useState(true);
 
   const setDisplayedIntro = () => setIsDisplayed(false);
@@ -21,5 +21,9 @@ export const IntroContextProvider = ({ children }: Props) => {
 
   return <IntroContext.Provider value={value}>{children}</IntroContext.Provider>;
 };
+
+const useIntro = () => useContext(IntroContext);
+
+export { IntroContextProvider, useIntro };
 
 export default IntroContext;

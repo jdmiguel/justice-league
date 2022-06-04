@@ -1,30 +1,24 @@
 import { useMemo, useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
 import { HeroMenuData as Hero } from '@/helpers/types';
 
 const lastHeroIndex = heroesData.length - 1;
 
-const useHeroMenu = () => {
-  const fetchedHeroes: Hero[] = useMemo(
-    () =>
-      heroesData.map((hero, index) => ({
-        id: hero.id,
-        name: hero.name,
-        active: index === 0,
-      })),
-    [],
-  );
+const useHeroMenu = (heroId: string) => {
+  const fetchedHeroes: Hero[] = heroesData.map((hero) => ({
+    id: hero.id,
+    name: hero.name,
+    active: hero.id === heroId,
+  }));
+
+  const defaultActiveHeroIndex = fetchedHeroes.findIndex((hero) => hero.active);
 
   const [heroes, setHeroes] = useState(fetchedHeroes);
-  const [isLeavingMenu, setIsLeavingMenu] = useState(false);
   const [isHeroHighlighted, setIsHeroHighlighted] = useState(false);
   const [isDefaultMenuAppearance, setIsDefaultMenuAppearance] = useState(true);
   const [isChangingHero, setIsChangingHero] = useState(false);
-  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
-  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
-
-  const navigate = useNavigate();
+  const [activeHeroIndex, setActiveHeroIndex] = useState(defaultActiveHeroIndex);
+  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(defaultActiveHeroIndex);
 
   useEffect(() => {
     setActiveHeroIndex(heroes.findIndex((hero) => hero.active));
@@ -76,14 +70,6 @@ const useHeroMenu = () => {
   const dimHero = () => setIsHeroHighlighted(false);
   const setDefaultMenuAppearance = () => setIsDefaultMenuAppearance(true);
 
-  const initLeaveMenu = () => setIsLeavingMenu(true);
-  const endLeaveMenu = () => {
-    const activeHeroId = heroes[activeHeroIndex].id;
-
-    setIsLeavingMenu(false);
-    navigate(`/${activeHeroId}`);
-  };
-
   return {
     heroes,
     activeHeroIndex,
@@ -99,9 +85,6 @@ const useHeroMenu = () => {
     highlightHero,
     dimHero,
     setDefaultMenuAppearance,
-    isLeavingMenu,
-    initLeaveMenu,
-    endLeaveMenu,
   };
 };
 
