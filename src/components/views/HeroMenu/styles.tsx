@@ -63,7 +63,7 @@ export const StyledHeroLogoPath = styled.path<{ isHighlighted: boolean; heroColo
 `;
 
 export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDarkened: boolean }>`
-  animation: ${animation.scaleIn} 1s ${ease.smooth};
+  animation: ${animation.scaleIn} 0.8s ${ease.smooth};
   opacity: 0.35;
   background-image: ${({ bgPath }) => `url(${bgPath})`};
   background-position: center;

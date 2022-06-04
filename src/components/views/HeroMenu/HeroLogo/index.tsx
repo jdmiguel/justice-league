@@ -69,23 +69,39 @@ const HeroLogo: React.FC<Props> = ({
       return;
     }
 
+    if (isIntroDisplayed) {
+      tweenRef.current = gsap
+        .fromTo(
+          heroRefs[activeHeroIndex].current,
+          {
+            opacity: 0,
+            rotationY: 90,
+          },
+          {
+            duration: 1,
+            opacity: 1,
+            rotationY: 0,
+            ease: ease.smooth,
+          },
+        )
+        .startTime(5);
+
+      return;
+    }
+
     tweenRef.current = gsap.fromTo(
       heroRefs[activeHeroIndex].current,
       {
         opacity: 0,
-        rotationY: 90,
+        scale: 1.5,
       },
       {
-        duration: 1,
+        duration: 0.8,
         opacity: 1,
-        rotationY: 0,
+        scale: 1,
         ease: ease.smooth,
       },
     );
-
-    if (isIntroDisplayed) {
-      tweenRef.current.startTime(5);
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [heroRefs]);
 

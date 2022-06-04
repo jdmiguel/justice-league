@@ -102,27 +102,47 @@ const HeroHeading: React.FC<Props> = ({
       return;
     }
 
+    if (isIntroDisplayed) {
+      tweenRef.current = gsap
+        .fromTo(
+          charsRef.current[activeHeroIndex],
+          {
+            opacity: 0,
+            rotationY: -120,
+            scaleX: 0,
+            visibility: 'visible',
+          },
+          {
+            duration: 0.7,
+            opacity: 1,
+            rotationY: 0,
+            scaleX: 1,
+            ease: 'power1.out',
+            stagger: 0.05,
+          },
+        )
+        .startTime(5);
+
+      return;
+    }
+
+    setIsFading(true);
+
     tweenRef.current = gsap.fromTo(
       charsRef.current[activeHeroIndex],
       {
         opacity: 0,
-        rotationY: -120,
-        scaleX: 0,
+        x: cycles.duplicatedDistanceX,
         visibility: 'visible',
       },
       {
-        duration: 0.7,
+        duration: 0.8,
         opacity: 1,
-        rotationY: 0,
-        scaleX: 1,
+        x: 0,
         ease: 'power1.out',
-        stagger: 0.05,
       },
     );
-
-    if (isIntroDisplayed) {
-      tweenRef.current.startTime(5);
-    }
+    tweenRef.current.then(() => setIsFading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [withSplittedHeadings]);
 
