@@ -148,6 +148,16 @@ export const animation = {
       opacity: 1;
     }
   `,
+  scaleIn: keyframes`
+    0% {
+      opacity: 0;
+      transform: scale(1.3);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+ `,
   up: keyframes`
     0% {
       transform: translateY(120px);
