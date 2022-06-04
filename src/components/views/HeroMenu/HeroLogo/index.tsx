@@ -2,6 +2,7 @@ import { useRef, useMemo, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero } from '@/helpers/types';
+import { useIntro } from '@/contexts/IntroContext';
 import SupermanLogo from '@/components/views/HeroMenu/HeroLogo/SupermanLogo';
 import BatmanLogo from '@/components/views/HeroMenu/HeroLogo/BatmanLogo';
 import WonderWomanLogo from '@/components/views/HeroMenu/HeroLogo/WonderWomanLogo';
@@ -53,6 +54,8 @@ const HeroLogo: React.FC<Props> = ({
     [],
   );
 
+  const { isDisplayed: isIntroDisplayed } = useIntro();
+
   useEffect(() => {
     const tween = tweenRef.current;
 
@@ -66,21 +69,24 @@ const HeroLogo: React.FC<Props> = ({
       return;
     }
 
-    tweenRef.current = gsap
-      .fromTo(
-        heroRefs[0].current,
-        {
-          opacity: 0,
-          rotationY: 90,
-        },
-        {
-          duration: 1,
-          opacity: 1,
-          rotationY: 0,
-          ease: ease.smooth,
-        },
-      )
-      .startTime(5);
+    tweenRef.current = gsap.fromTo(
+      heroRefs[activeHeroIndex].current,
+      {
+        opacity: 0,
+        rotationY: 90,
+      },
+      {
+        duration: 1,
+        opacity: 1,
+        rotationY: 0,
+        ease: ease.smooth,
+      },
+    );
+
+    if (isIntroDisplayed) {
+      tweenRef.current.startTime(5);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [heroRefs]);
 
   useEffect(() => {
