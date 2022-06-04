@@ -1,9 +1,10 @@
 import { ReactNode, createContext, useState, useContext } from 'react';
 import { defaultHeroId } from '@/helpers';
+import { HeroId } from '@/helpers/types';
 
 const HeroContext = createContext({
-  hero: '',
-  updateHero: (_: string) => {},
+  hero: defaultHeroId,
+  updateHero: (_: HeroId) => {},
 });
 
 type Props = {
@@ -11,9 +12,9 @@ type Props = {
 };
 
 const HeroContextProvider = ({ children }: Props) => {
-  const [hero, setHero] = useState(defaultHeroId);
+  const [hero, setHero] = useState<HeroId>(defaultHeroId);
 
-  const updateHero = (currentHeroId: string) => {
+  const updateHero = (currentHeroId: HeroId) => {
     setHero(currentHeroId);
   };
 

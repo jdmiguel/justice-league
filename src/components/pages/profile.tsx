@@ -16,7 +16,7 @@ const Profile: React.FC = () => {
   const { nextPagePath, isNavigating, initNavigation, endNavigation } = useHeroNavigation();
 
   useEffect(() => {
-    updateHero(id as string);
+    updateHero(id as HeroId);
   }, [id, updateHero]);
 
   return (
