@@ -2,7 +2,6 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
 import { HeroId } from '@/helpers/types';
-import { StyledTimeline } from '@/components/views/Hero/styles';
 
 type Props = {
   heroId: HeroId;
@@ -34,7 +33,7 @@ const Timeline: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) =>
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
-  return <StyledTimeline ref={timelineRef}>{`IS TIMELINE PAGE OF ${heroId}`}</StyledTimeline>;
+  return <div ref={timelineRef}>{`IS TIMELINE PAGE OF ${heroId}`}</div>;
 };
 
 export default Timeline;

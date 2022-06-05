@@ -12,7 +12,7 @@ export type HeroData = {
 export type HeroId = keyof HeroData;
 
 export type HeroMenuData = {
-  id: string;
+  id: HeroId;
   name: string;
   active: boolean;
 };

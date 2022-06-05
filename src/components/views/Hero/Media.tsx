@@ -2,7 +2,6 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
 import { HeroId } from '@/helpers/types';
-import { StyledMedia } from '@/components/views/Hero/styles';
 
 type Props = {
   heroId: HeroId;
@@ -34,7 +33,7 @@ const Media: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => {
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
-  return <StyledMedia ref={mediaRef}>{`IS MEDIA PAGE OF ${heroId}`}</StyledMedia>;
+  return <div ref={mediaRef}>{`IS MEDIA PAGE OF ${heroId}`}</div>;
 };
 
 export default Media;

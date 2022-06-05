@@ -148,6 +148,14 @@ export const animation = {
       opacity: 1;
     }
   `,
+  minFadeIn: keyframes`
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.1;
+    }
+  `,
   scaleIn: keyframes`
     0% {
       opacity: 0;

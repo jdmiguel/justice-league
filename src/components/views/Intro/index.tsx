@@ -1,6 +1,7 @@
 import { useRef, useEffect, useContext, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { getHero } from '@/helpers';
+import { HeroId } from '@/helpers/types';
 import { heroColors, getRandomHeroColor, theme } from '@/helpers/theme';
 import IntroContext from '@/contexts/IntroContext';
 import Logo from '@/components/views/Intro/Logo';
@@ -16,7 +17,10 @@ const Intro: React.FC<Props> = ({ idParam }) => {
   const introRef = useRef<HTMLDivElement>(null);
 
   const { setDisplayedIntro } = useContext(IntroContext);
-  const getMemoizedHeroColor = useCallback((idParam: string) => getHero(heroColors, idParam), []);
+  const getMemoizedHeroColor = useCallback(
+    (idParam: string) => getHero(heroColors, idParam as HeroId),
+    [],
+  );
   const getMemoizedRandomHeroColor = useCallback(() => getRandomHeroColor(), []);
 
   const getBgColor = () => (idParam ? getMemoizedHeroColor(idParam) : getMemoizedRandomHeroColor());

@@ -8,8 +8,8 @@ import BatmanLogo from '@/components/views/HeroMenu/HeroLogo/BatmanLogo';
 import WonderWomanLogo from '@/components/views/HeroMenu/HeroLogo/WonderWomanLogo';
 import FlashLogo from '@/components/views/HeroMenu/HeroLogo/FlashLogo';
 import GreenLanternLogo from '@/components/views/HeroMenu/HeroLogo/GreenLanternLogo';
-import GreenArrowLogo from '@/components/views/HeroMenu/HeroLogo/GreenArrowLogo';
 import AquamanLogo from '@/components/views/HeroMenu/HeroLogo/AquamanLogo';
+import GreenArrowLogo from '@/components/views/HeroMenu/HeroLogo/GreenArrowLogo';
 import CyborgLogo from '@/components/views/HeroMenu/HeroLogo/CyborgLogo';
 import { StyledHeroLogo } from '@/components/views/HeroMenu/styles';
 
@@ -162,10 +162,10 @@ const HeroLogo: React.FC<Props> = ({
         return <FlashLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'greenlantern':
         return <GreenLanternLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
-      case 'greenarrow':
-        return <GreenArrowLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'aquaman':
         return <AquamanLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
+      case 'greenarrow':
+        return <GreenArrowLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'cyborg':
         return <CyborgLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
     }
