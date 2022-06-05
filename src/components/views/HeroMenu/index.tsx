@@ -1,5 +1,6 @@
 import { createUseGesture, dragAction, wheelAction } from '@use-gesture/react';
 import { Lethargy } from 'lethargy';
+import { HeroId } from '@/helpers/types';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
@@ -7,7 +8,6 @@ import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
 import HeroLogo from '@/components/views/HeroMenu/HeroLogo';
 import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
 import { StyledHeroMenu, StyledGrainedBg } from '@/components/views/HeroMenu/styles';
-import { HeroId } from '@/helpers/types';
 
 const lethargy = new Lethargy();
 const useGesture = createUseGesture([dragAction, wheelAction]);
@@ -35,7 +35,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     highlightHero,
     dimHero,
     setDefaultMenuAppearance,
-  } = useHeroMenu(hero);
+  } = useHeroMenu(hero as HeroId);
 
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {

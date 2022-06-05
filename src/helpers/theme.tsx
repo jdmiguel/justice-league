@@ -153,7 +153,7 @@ export const animation = {
       opacity: 0;
     }
     100% {
-      opacity: 0.1;
+      opacity: 0.05;
     }
   `,
   scaleIn: keyframes`

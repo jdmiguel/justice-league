@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animation, ease } from '@/helpers/theme';
 
-export const StyledLayout = styled.main`
+export const StyledLayout = styled.div`
   background-color: ${({ theme }) => theme.dark};
   color: ${({ theme }) => theme.light};
   height: 100vh;
@@ -75,6 +75,19 @@ export const StyledHeaderCorner = styled.a<{ isLeaving?: boolean }>`
       }
     }
   }
+`;
+
+export const StyledHeaderDivider = styled.span<{ isLeaving?: boolean }>`
+  background-color: ${({ theme }) => theme.neutral};
+  bottom: 0;
+  display: block;
+  height: 1px;
+  opacity: 0.1;
+  position: absolute;
+  opacity: ${({ isLeaving }) => (isLeaving ? 0 : 1)};
+  transition: opacity 0.5s ${ease.smooth};
+  z-index: 1;
+  width: 100%;
 `;
 
 export const StyledFooter = styled.footer<{ isLeaving?: boolean }>`

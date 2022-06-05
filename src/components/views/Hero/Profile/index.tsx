@@ -9,8 +9,9 @@ import aquamanLogoPath from '@/assets/logo/color/aquaman.svg';
 import greenarrowLogoPath from '@/assets/logo/color/greenarrow.svg';
 import cyborgLogoPath from '@/assets/logo/color/cyborg.svg';
 import { ease } from '@/helpers/theme';
-import { HeroId } from '@/helpers/types';
-import { StyledProfile } from '@/components/views/Hero/Profile/styles';
+import { HeroId, HeroIntroData } from '@/helpers/types';
+import Intro from '@/components/views/Hero/Profile/Intro';
+import { StyledProfileWrapper, StyledProfile } from '@/components/views/Hero/Profile/styles';
 
 const getLogoPath = (id: HeroId) => {
   switch (id) {
@@ -36,13 +37,14 @@ const getLogoPath = (id: HeroId) => {
 
 type Props = {
   heroId: HeroId;
+  heroData: HeroIntroData;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
 
-const Profile: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => {
+const Profile: React.FC<Props> = ({ heroId, heroData, isLeaving, onEndFadeAnimation }) => {
   const tweenRef = useRef<GSAPTween>();
-  const profileRef = useRef<HTMLDivElement>(null);
+  const profileWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     return () => {
@@ -55,7 +57,7 @@ const Profile: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => 
       return;
     }
 
-    tweenRef.current = gsap.to(profileRef.current, {
+    tweenRef.current = gsap.to(profileWrapperRef.current, {
       duration: 0.5,
       opacity: 0,
       ease: ease.smooth,
@@ -67,10 +69,11 @@ const Profile: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => 
   const heroLogoPath = getLogoPath(heroId);
 
   return (
-    <StyledProfile
-      ref={profileRef}
-      heroLogoPath={heroLogoPath}
-    >{`IS PROFILE PAGE OF ${heroId}`}</StyledProfile>
+    <StyledProfileWrapper ref={profileWrapperRef} heroLogoPath={heroLogoPath}>
+      <StyledProfile>
+        <Intro data={heroData} />
+      </StyledProfile>
+    </StyledProfileWrapper>
   );
 };
 

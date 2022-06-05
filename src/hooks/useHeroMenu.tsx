@@ -1,12 +1,12 @@
-import { useMemo, useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import heroesData from '@/assets/heroes.json';
-import { HeroMenuData as Hero } from '@/helpers/types';
+import { HeroId, HeroMenuData as Hero } from '@/helpers/types';
 
 const lastHeroIndex = heroesData.length - 1;
 
-const useHeroMenu = (heroId: string) => {
+const useHeroMenu = (heroId: HeroId) => {
   const fetchedHeroes: Hero[] = heroesData.map((hero) => ({
-    id: hero.id,
+    id: hero.id as HeroId,
     name: hero.name,
     active: hero.id === heroId,
   }));

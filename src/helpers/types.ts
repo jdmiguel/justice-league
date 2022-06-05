@@ -18,3 +18,11 @@ export type HeroMenuData = {
 };
 
 export type PageId = 'root' | 'profile' | 'timeline' | 'media';
+
+export type HeroIntroData = {
+  color: string;
+  imgPath: string;
+  title: string;
+  subtitle: string;
+  description: string;
+};

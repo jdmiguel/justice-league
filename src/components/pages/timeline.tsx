@@ -19,6 +19,8 @@ const Timeline: React.FC = () => {
     updateHero(id as HeroId);
   }, [id, updateHero]);
 
+  const isLeaving = isNavigating && nextPagePath === '/';
+
   return (
     <>
       {isIntroDisplayed && <Intro idParam={id} />}
@@ -28,8 +30,9 @@ const Timeline: React.FC = () => {
           <Header.Navigation
             pageId="timeline"
             onClick={(pageId: PageId) => initNavigation({ heroId: id as HeroId, pageId })}
-            isLeaving={isNavigating && nextPagePath === '/'}
+            isLeaving={isLeaving}
           />
+          <Header.Divider isLeaving={isLeaving} />
         </Header>
         <TimelineView
           heroId={id as HeroId}
