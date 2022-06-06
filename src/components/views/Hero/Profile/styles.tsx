@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { animation } from '@/helpers/theme';
 
 export const StyledProfileWrapper = styled.main<{ heroLogoPath: string }>`
   overflow: hidden;

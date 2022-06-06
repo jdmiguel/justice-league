@@ -1,7 +1,9 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
+import { getLogoPath } from '@/helpers';
 import { ease } from '@/helpers/theme';
 import { HeroId } from '@/helpers/types';
+import { StyledMediaWrapper } from '@/components/views/Hero/Media/styles';
 
 type Props = {
   heroId: HeroId;
@@ -9,9 +11,9 @@ type Props = {
   onEndFadeAnimation: () => void;
 };
 
-const Timeline: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => {
+const Media: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => {
   const tweenRef = useRef<GSAPTween>();
-  const timelineRef = useRef<HTMLDivElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     return () => {
@@ -24,7 +26,7 @@ const Timeline: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) =>
       return;
     }
 
-    tweenRef.current = gsap.to(timelineRef.current, {
+    tweenRef.current = gsap.to(mediaRef.current, {
       duration: 0.5,
       opacity: 0,
       ease: ease.smooth,
@@ -33,7 +35,14 @@ const Timeline: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) =>
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
-  return <div ref={timelineRef}>{`IS TIMELINE PAGE OF ${heroId}`}</div>;
+  const heroLogoPath = getLogoPath(heroId);
+
+  return (
+    <StyledMediaWrapper
+      ref={mediaRef}
+      heroLogoPath={heroLogoPath}
+    >{`IS MEDIA PAGE OF ${heroId}`}</StyledMediaWrapper>
+  );
 };
 
-export default Timeline;
+export default Media;

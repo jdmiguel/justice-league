@@ -1,3 +1,11 @@
+import supermanLogoPath from '@/assets/logo/color/superman.svg';
+import batmanLogoPath from '@/assets/logo/color/batman.svg';
+import wonderwomanLogoPath from '@/assets/logo/color/wonderwoman.svg';
+import flashLogoPath from '@/assets/logo/color/flash.svg';
+import greenlanternLogoPath from '@/assets/logo/color/greenlantern.svg';
+import aquamanLogoPath from '@/assets/logo/color/aquaman.svg';
+import greenarrowLogoPath from '@/assets/logo/color/greenarrow.svg';
+import cyborgLogoPath from '@/assets/logo/color/cyborg.svg';
 import { HeroData, HeroId } from '@/helpers/types';
 
 export const debounce = (fn: any, delay: number) => {
@@ -50,3 +58,25 @@ export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
 
 export const defaultHeroId = 'superman';
 export const getHero = (heroData: HeroData, id: HeroId): string => heroData[id || defaultHeroId];
+
+export const getLogoPath = (id: HeroId) => {
+  switch (id) {
+    case 'superman':
+    default:
+      return supermanLogoPath;
+    case 'batman':
+      return batmanLogoPath;
+    case 'wonderwoman':
+      return wonderwomanLogoPath;
+    case 'flash':
+      return flashLogoPath;
+    case 'greenlantern':
+      return greenlanternLogoPath;
+    case 'aquaman':
+      return aquamanLogoPath;
+    case 'greenarrow':
+      return greenarrowLogoPath;
+    case 'cyborg':
+      return cyborgLogoPath;
+  }
+};
