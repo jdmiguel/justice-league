@@ -21,6 +21,7 @@ export type PageId = 'root' | 'profile' | 'timeline' | 'media';
 
 export type HeroIntroData = {
   color: string;
+  semiTransparentColor: string;
   imgPath: string;
   title: string;
   subtitle: string;

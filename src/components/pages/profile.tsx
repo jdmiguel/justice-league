@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
 import supermanImgPath from '@/assets/hero/superman/profile/intro.jpg';
-import { getHero } from '@/helpers';
-import { heroColors } from '@/helpers/theme';
+import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
 import { HeroId, HeroIntroData, PageId } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
@@ -23,9 +22,11 @@ const Profile: React.FC = () => {
     updateHero(id as HeroId);
   }, [id, updateHero]);
 
+  /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
   const data = {
     color: heroColors[id as HeroId],
+    semiTransparentColor: heroSemiTransparentColors[id as HeroId],
     imgPath: supermanImgPath,
     title: currentHeroData?.name,
     subtitle: currentHeroData?.alias,

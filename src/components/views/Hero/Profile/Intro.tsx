@@ -12,9 +12,11 @@ type Props = {
   data: HeroIntroData;
 };
 
-const Intro: React.FC<Props> = ({ data: { color, imgPath, title, subtitle, description } }) => (
+const Intro: React.FC<Props> = ({
+  data: { color, semiTransparentColor, imgPath, title, subtitle, description },
+}) => (
   <StyledIntro>
-    <StyledIntroImage src={imgPath} color={color} />
+    <StyledIntroImage src={imgPath} semiTransparentColor={semiTransparentColor} />
     <StyledIntroTextWrapper>
       <StyledIntroTitle>{title}</StyledIntroTitle>
       <StyledIntroSubtitle>{subtitle}</StyledIntroSubtitle>

@@ -6,7 +6,6 @@ export const StyledProfileWrapper = styled.main<{ heroLogoPath: string }>`
   position: relative;
   min-height: calc(100vh - 85px);
   &:before {
-    animation: ${animation.minFadeIn} 1s;
     background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
@@ -14,7 +13,7 @@ export const StyledProfileWrapper = styled.main<{ heroLogoPath: string }>`
     content: '';
     display: block;
     height: 100%;
-    opacity: 0.05;
+    opacity: 0.1;
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -35,9 +34,9 @@ export const StyledIntro = styled.div`
   gap: 100px;
 `;
 
-export const StyledIntroImage = styled.img<{ color: string }>`
+export const StyledIntroImage = styled.img<{ semiTransparentColor: string }>`
   border-radius: 50%;
-  box-shadow: ${({ color }) => `0px 0px 16px 4px ${color}`};
+  box-shadow: ${({ semiTransparentColor }) => `0px 0px 16px 4px ${semiTransparentColor}`};
   height: 380px;
   widht: 380px;
 `;
