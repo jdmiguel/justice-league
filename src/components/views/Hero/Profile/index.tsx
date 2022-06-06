@@ -2,18 +2,26 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { getLogoPath } from '@/helpers';
 import { ease } from '@/helpers/theme';
-import { HeroId, HeroIntroData } from '@/helpers/types';
+import { HeroId, ProfileIntroData, ProfileDetailsData } from '@/helpers/types';
 import Intro from '@/components/views/Hero/Profile/Intro';
+import Details from '@/components/views/Hero/Profile/Details';
 import { StyledProfileWrapper, StyledProfile } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
   heroId: HeroId;
-  heroData: HeroIntroData;
+  introData: ProfileIntroData;
+  detailsData: ProfileDetailsData;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
 
-const Profile: React.FC<Props> = ({ heroId, heroData, isLeaving, onEndFadeAnimation }) => {
+const Profile: React.FC<Props> = ({
+  heroId,
+  introData,
+  detailsData,
+  isLeaving,
+  onEndFadeAnimation,
+}) => {
   const tweenRef = useRef<GSAPTween>();
   const profileRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +50,8 @@ const Profile: React.FC<Props> = ({ heroId, heroData, isLeaving, onEndFadeAnimat
   return (
     <StyledProfileWrapper heroLogoPath={heroLogoPath}>
       <StyledProfile ref={profileRef}>
-        <Intro data={heroData} />
+        <Intro data={introData} />
+        <Details data={detailsData} />
       </StyledProfile>
     </StyledProfileWrapper>
   );

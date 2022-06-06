@@ -19,11 +19,21 @@ export type HeroMenuData = {
 
 export type PageId = 'root' | 'profile' | 'timeline' | 'media';
 
-export type HeroIntroData = {
-  color: string;
+export type ProfileIntroData = {
   semiTransparentColor: string;
   imgPath: string;
   title: string;
   subtitle: string;
   description: string;
+};
+
+export type ProfileDetailsData = {
+  semiTransparentColor: string;
+  color: string;
+  imgPath: string;
+  fullName: string;
+  birthPlace: string;
+  occupation: string;
+  base: string;
+  firstAppearance: string;
 };

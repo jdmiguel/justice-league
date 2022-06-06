@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
+import introImgPath from '@/assets/hero/superman/profile/intro.jpg';
+import detailsImgPath from '@/assets/hero/superman/profile/details.jpg';
 import supermanImgPath from '@/assets/hero/superman/profile/intro.jpg';
 import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
-import { HeroId, HeroIntroData, PageId } from '@/helpers/types';
+import { HeroId, ProfileIntroData, ProfileDetailsData, PageId } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
@@ -24,13 +26,22 @@ const Profile: React.FC = () => {
 
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
-  const data = {
-    color: heroColors[id as HeroId],
+  const introData: ProfileIntroData = {
     semiTransparentColor: heroSemiTransparentColors[id as HeroId],
-    imgPath: supermanImgPath,
-    title: currentHeroData?.name,
-    subtitle: currentHeroData?.alias,
-    description: currentHeroData?.description,
+    imgPath: introImgPath,
+    title: currentHeroData?.name || '',
+    subtitle: currentHeroData?.alias || '',
+    description: currentHeroData?.description || '',
+  };
+  const detailsData: ProfileDetailsData = {
+    semiTransparentColor: heroSemiTransparentColors[id as HeroId],
+    color: heroColors[id as HeroId],
+    imgPath: detailsImgPath,
+    fullName: currentHeroData?.profile.fullName || '',
+    birthPlace: currentHeroData?.profile.birthPlace || '',
+    occupation: currentHeroData?.profile.occupation || '',
+    base: currentHeroData?.profile.base || '',
+    firstAppearance: currentHeroData?.profile.firstAppearance || '',
   };
 
   const isLeaving = isNavigating && nextPagePath === '/';
@@ -50,7 +61,8 @@ const Profile: React.FC = () => {
         </Header>
         <ProfileView
           heroId={id as HeroId}
-          heroData={data as HeroIntroData}
+          introData={introData}
+          detailsData={detailsData}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
         />

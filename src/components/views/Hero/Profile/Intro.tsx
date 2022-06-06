@@ -1,22 +1,21 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
-import { HeroIntroData } from '@/helpers/types';
+import { ProfileIntroData } from '@/helpers/types';
 import {
   StyledIntro,
   StyledIntroImage,
   StyledIntroTextWrapper,
   StyledIntroTitle,
   StyledIntroSubtitle,
-  StyledIntroDescription,
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  data: HeroIntroData;
+  data: ProfileIntroData;
 };
 
 const Intro: React.FC<Props> = ({
-  data: { color, semiTransparentColor, imgPath, title, subtitle, description },
+  data: { semiTransparentColor, imgPath, title, subtitle, description },
 }) => {
   const imageTweenRef = useRef<GSAPTween>();
   const textWrapperTweenRef = useRef<GSAPTween>();
@@ -63,7 +62,7 @@ const Intro: React.FC<Props> = ({
       <StyledIntroTextWrapper ref={textWrapperRef}>
         <StyledIntroTitle>{title}</StyledIntroTitle>
         <StyledIntroSubtitle>{subtitle}</StyledIntroSubtitle>
-        <StyledIntroDescription>{description}</StyledIntroDescription>
+        <p>{description}</p>
       </StyledIntroTextWrapper>
     </StyledIntro>
   );
