@@ -37,3 +37,12 @@ export type ProfileDetailsData = {
   base: string;
   firstAppearance: string;
 };
+
+export type ProfileDetailsCard = {
+  color: string;
+  fullName: string;
+  birthPlace: string;
+  occupation: string;
+  base: string;
+  firstAppearance: string;
+};

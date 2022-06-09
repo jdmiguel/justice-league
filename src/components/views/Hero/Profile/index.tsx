@@ -48,7 +48,7 @@ const Profile: React.FC<Props> = ({
   const heroLogoPath = getLogoPath(heroId);
 
   return (
-    <StyledProfileWrapper heroLogoPath={heroLogoPath}>
+    <StyledProfileWrapper heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
       <StyledProfile ref={profileRef}>
         <Intro data={introData} />
         <Details data={detailsData} />

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { ease } from '@/helpers/theme';
 
-export const StyledProfileWrapper = styled.main<{ heroLogoPath: string }>`
-  overflow: hidden;
+export const StyledProfileWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
   position: relative;
   min-height: calc(100vh - 85px);
   &:before {
@@ -9,13 +9,15 @@ export const StyledProfileWrapper = styled.main<{ heroLogoPath: string }>`
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    background-attachment: fixed;
     content: '';
     display: block;
     height: 100%;
-    opacity: 0.1;
+    opacity: ${({ isLeaving }) => (isLeaving ? 0 : 0.1)};
     position: absolute;
-    z-index: 1;
+    transition: opacity 0.5s ${ease.smooth};
     width: 100%;
+    z-index: 1;
   }
 `;
 

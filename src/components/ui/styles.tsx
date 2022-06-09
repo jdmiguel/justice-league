@@ -116,7 +116,7 @@ export const StyledRotateDevice = styled.div`
     justify-content: center;
     padding: 30px;
     position: absolute;
-    z-index: 7;
+    z-index: 8;
     width: 100%;
     img {
       max-width: 100%;

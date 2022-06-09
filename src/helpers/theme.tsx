@@ -45,9 +45,6 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     -webkit-tap-highlight-color: transparent;
   }
-  body {
-    overflow: hidden;
-  }
   ul {
     list-style: none;
   }
@@ -75,26 +72,30 @@ export const neutralTheme = {
 
 export const colorTheme = {
   blue: '#10548c',
-  semiTransparentBlue: 'rgba(16, 84, 140, 0.5)',
   grey: '#56688a',
-  semiTransparentGrey: 'rgba(86, 104, 138, 0.5)',
   orange: '#e47711',
-  semiTransparentOrange: 'rgba(228, 119, 17, 0.35)',
   red: '#c01518',
-  semiTransparentRed: 'rgba(192, 21, 24, 0.3)',
   green: '#09a609',
-  semiTransparentGreen: 'rgba(9, 166, 9, 0.3)',
   yellow: '#df9a1a',
-  semiTransparentYellow: 'rgba(223, 154, 26, 0.3)',
   darkGreen: '#0d5f0f',
-  semiTransparentDarkGreen: 'rgba(13, 95, 15, 0.5)',
   darkRed: '#820e10',
+};
+
+export const semiTransparentColorTheme = {
+  semiTransparentBlue: 'rgba(16, 84, 140, 0.5)',
+  semiTransparentGrey: 'rgba(86, 104, 138, 0.5)',
+  semiTransparentOrange: 'rgba(228, 119, 17, 0.35)',
+  semiTransparentRed: 'rgba(192, 21, 24, 0.3)',
+  semiTransparentGreen: 'rgba(9, 166, 9, 0.3)',
+  semiTransparentYellow: 'rgba(223, 154, 26, 0.3)',
+  semiTransparentDarkGreen: 'rgba(13, 95, 15, 0.5)',
   semiTransparentDarkRed: 'rgba(130, 14, 16, 0.4)',
 };
 
 export const theme = {
   ...neutralTheme,
   ...colorTheme,
+  ...semiTransparentColorTheme,
 };
 
 export const heroColors: HeroData = {

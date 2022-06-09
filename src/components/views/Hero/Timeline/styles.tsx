@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledTimelineWrapper = styled.main<{ heroLogoPath: string }>`
-  overflow: hidden;
   position: relative;
   min-height: calc(100vh - 85px);
   &:before {

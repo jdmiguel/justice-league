@@ -45,6 +45,7 @@ export const StyledHeroLogoSvg = styled.svg<{ isHighlighted: boolean; isFaded: b
   transform: ${({ isHighlighted, isFaded }) =>
     isHighlighted ? (isFaded ? 'scale(1.5)' : 'scale(1.15)') : 'scale(1)'};
   width: 400px;
+  will-change: transform, opacity;
   @media only screen and (min-width: 768px) {
     width: 500px;
   }
@@ -78,6 +79,7 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   transition: all 0.9s ${ease.smooth};
   visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
   width: 100%;
+  will-change: transform, opacity;
   z-index: 1;
 `;
 

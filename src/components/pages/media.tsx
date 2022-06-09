@@ -4,6 +4,7 @@ import { HeroId, PageId } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
+import useLockedBody from '@/hooks/useLockedBody';
 import Intro from '@/components/views/Intro';
 import MediaView from '@/components/views/Hero/Media';
 import Layout from '@/components/layouts/Layout';
@@ -14,10 +15,19 @@ const Media: React.FC = () => {
   const { isDisplayed: isIntroDisplayed } = useIntro();
   const { updateHero } = useHero();
   const { nextPagePath, isNavigating, initNavigation, endNavigation } = useHeroNavigation();
+  const { updateLocked } = useLockedBody();
 
   useEffect(() => {
     updateHero(id as HeroId);
   }, [id, updateHero]);
+
+  useEffect(() => {
+    if (isIntroDisplayed) {
+      return;
+    }
+
+    updateLocked(false);
+  }, [isIntroDisplayed, updateLocked]);
 
   const isLeaving = isNavigating && nextPagePath === '/';
 

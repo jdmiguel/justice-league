@@ -4,17 +4,16 @@ import { animation, ease } from '@/helpers/theme';
 export const StyledLayout = styled.div`
   background-color: ${({ theme }) => theme.dark};
   color: ${({ theme }) => theme.light};
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+  min-height: 100vh;
 `;
 
 export const StyledHeader = styled.header<{ isSticky?: boolean }>`
+  background-color: ${({ theme, isSticky }) => isSticky && theme.dark};
   display: flex;
   justify-content: space-between;
   min-height: 85px;
   position: ${({ isSticky }) => (isSticky ? 'sticky' : 'absolute')};
+  top: 0;
   width: 100%;
   z-index: 6;
 `;

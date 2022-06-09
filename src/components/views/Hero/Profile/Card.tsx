@@ -1,8 +1,9 @@
 import { forwardRef } from 'react';
+import { ProfileDetailsCard, ProfileDetailsData } from '@/helpers/types';
 import { StyledCard, StyledCardTitle } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  data: any;
+  data: ProfileDetailsCard;
 };
 
 const Card = forwardRef<HTMLDivElement, Props>(
