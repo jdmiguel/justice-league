@@ -56,6 +56,7 @@ const Details: React.FC<Props> = ({
     );
 
     return () => {
+      cardTweenRef.current?.kill();
       imageTweenRef.current?.kill();
     };
   }, []);
@@ -64,7 +65,25 @@ const Details: React.FC<Props> = ({
 
   return (
     <StyledDetails>
-      <Card ref={cardRef} data={cardData} />
+      <Card ref={cardRef} title="Details" color={color}>
+        <ul>
+          <li>
+            full name: <strong>{fullName}</strong>
+          </li>
+          <li>
+            place of birth: <strong>{birthPlace}</strong>
+          </li>
+          <li>
+            occupation: <strong>{occupation}</strong>
+          </li>
+          <li>
+            base: <strong>{base}</strong>
+          </li>
+          <li>
+            first appearance: <strong>{firstAppearance}</strong>
+          </li>
+        </ul>
+      </Card>
       <StyledDetailsImage
         ref={imageRef}
         src={imgPath}

@@ -78,6 +78,17 @@ export const StyledDetailsImage = styled.img<{ semiTransparentColor: string }>`
   width: 580px;
 `;
 
+export const StyledAppearance = styled.div`
+  align-items: center;
+  display: flex;
+  gap: 50px;
+`;
+
+export const StyledAppearanceImage = styled.img`
+  max-width: 100%;
+  opacity: 0;
+`;
+
 export const StyledCard = styled.div<{ color: string }>`
   border: ${({ color }) => `4px solid ${color}`};
   border-radius: 16px;
@@ -88,5 +99,6 @@ export const StyledCard = styled.div<{ color: string }>`
 export const StyledCardTitle = styled.h4<{ color: string }>`
   color: ${({ color }) => color};
   font-size: 26px;
+  font-weight: 700;
   margin-bottom: 12px;
 `;

@@ -46,3 +46,28 @@ export type ProfileDetailsCard = {
   base: string;
   firstAppearance: string;
 };
+
+export type ProfileAppearanceData = {
+  color: string;
+  imgPath: string;
+  race: string;
+  height: string;
+  weight: string;
+  eyeColor: string;
+  hairColor: string;
+  powers: string[];
+};
+
+export type ProfileAppearanceCard = {
+  color: string;
+  race: string;
+  height: string;
+  weight: string;
+  eyeColor: string;
+  hairColor: string;
+};
+
+export type ProfilePowersCard = {
+  color: string;
+  powers: string[];
+};

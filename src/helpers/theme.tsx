@@ -45,6 +45,9 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     -webkit-tap-highlight-color: transparent;
   }
+  body {
+    background-color: #282828;
+  }
   ul {
     list-style: none;
   }
@@ -71,7 +74,7 @@ export const neutralTheme = {
 };
 
 export const colorTheme = {
-  blue: '#10548c',
+  blue: '#18629e',
   grey: '#56688a',
   orange: '#e47711',
   red: '#c01518',
@@ -82,7 +85,7 @@ export const colorTheme = {
 };
 
 export const semiTransparentColorTheme = {
-  semiTransparentBlue: 'rgba(16, 84, 140, 0.5)',
+  semiTransparentBlue: 'rgba(24, 98, 158, 0.5)',
   semiTransparentGrey: 'rgba(86, 104, 138, 0.5)',
   semiTransparentOrange: 'rgba(228, 119, 17, 0.35)',
   semiTransparentRed: 'rgba(192, 21, 24, 0.3)',

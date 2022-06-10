@@ -3,8 +3,15 @@ import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
 import introImgPath from '@/assets/hero/superman/profile/intro.jpg';
 import detailsImgPath from '@/assets/hero/superman/profile/details.jpg';
+import appearanceImgPath from '@/assets/hero/superman/profile/appearance.png';
 import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
-import { HeroId, ProfileIntroData, ProfileDetailsData, PageId } from '@/helpers/types';
+import {
+  HeroId,
+  ProfileIntroData,
+  ProfileDetailsData,
+  ProfileAppearanceData,
+  PageId,
+} from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
@@ -52,6 +59,16 @@ const Profile: React.FC = () => {
     base: currentHeroData?.profile.base || '',
     firstAppearance: currentHeroData?.profile.firstAppearance || '',
   };
+  const appearanceData: ProfileAppearanceData = {
+    color: heroColors[id as HeroId],
+    imgPath: appearanceImgPath,
+    race: currentHeroData?.appearance.race || '',
+    height: currentHeroData?.appearance.height || '',
+    weight: currentHeroData?.appearance.weight || '',
+    eyeColor: currentHeroData?.appearance.eyeColor || '',
+    hairColor: currentHeroData?.appearance.hairColor || '',
+    powers: currentHeroData?.powers || [],
+  };
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
@@ -72,6 +89,7 @@ const Profile: React.FC = () => {
           heroId={id as HeroId}
           introData={introData}
           detailsData={detailsData}
+          appearanceData={appearanceData}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
         />
