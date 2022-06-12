@@ -8,7 +8,7 @@ export const StyledProfileWrapper = styled.main<{ heroLogoPath: string; isLeavin
     background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-attachment: fixed;
     content: '';
     display: block;
@@ -68,6 +68,7 @@ export const StyledDetails = styled.div`
   align-items: center;
   display: flex;
   gap: 100px;
+  margin-bottom: 60px;
 `;
 
 export const StyledDetailsImage = styled.img<{ semiTransparentColor: string }>`

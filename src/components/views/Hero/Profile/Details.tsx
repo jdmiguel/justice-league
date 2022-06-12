@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
 import { ProfileDetailsData } from '@/helpers/types';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Card from '@/components/views/Hero/Profile/Card';
 import { StyledDetails, StyledDetailsImage } from '@/components/views/Hero/Profile/styles';
 
@@ -23,10 +24,25 @@ const Details: React.FC<Props> = ({
 }) => {
   const cardTweenRef = useRef<GSAPTween>();
   const imageTweenRef = useRef<GSAPTween>();
+  const detailsRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
+  const entry = useIntersectionObserver(detailsRef);
+  const isVisible = !!entry?.isIntersecting;
+
   useEffect(() => {
+    return () => {
+      cardTweenRef.current?.kill();
+      imageTweenRef.current?.kill();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) {
+      return;
+    }
+
     cardTweenRef.current = gsap.fromTo(
       cardRef.current,
       {
@@ -54,17 +70,10 @@ const Details: React.FC<Props> = ({
         ease: ease.medium,
       },
     );
-
-    return () => {
-      cardTweenRef.current?.kill();
-      imageTweenRef.current?.kill();
-    };
-  }, []);
-
-  const cardData = { color, fullName, birthPlace, occupation, base, firstAppearance };
+  }, [isVisible]);
 
   return (
-    <StyledDetails>
+    <StyledDetails ref={detailsRef}>
       <Card ref={cardRef} title="Details" color={color}>
         <ul>
           <li>

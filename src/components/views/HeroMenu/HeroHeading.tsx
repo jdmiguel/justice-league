@@ -278,15 +278,14 @@ const HeroHeading: React.FC<Props> = ({
     <StyledHeroHeading>
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
-          <StyledHeroHeadingListItem key={hero.id}>
+          <StyledHeroHeadingListItem key={hero.id} isActive={hero.active}>
             <StyledHeroHeadingListItemButton
               onClick={clickHeading}
-              onMouseEnter={debouncedDistanceChars}
-              onMouseLeave={debouncedShrinkChars}
+              onMouseOver={debouncedDistanceChars}
+              onMouseOut={debouncedShrinkChars}
               isChanging={isChanging}
-            >
-              <h2 ref={heroRefs[index]}>{hero.name}</h2>
-            </StyledHeroHeadingListItemButton>
+            />
+            <h2 ref={heroRefs[index]}>{hero.name}</h2>
           </StyledHeroHeadingListItem>
         ))}
       </StyledHeroHeadingList>

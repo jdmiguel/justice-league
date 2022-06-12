@@ -12,7 +12,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Cinzel', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    min-height: 100vh;
     text-size-adjust: 100%;
   }
   body,

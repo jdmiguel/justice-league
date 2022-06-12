@@ -109,13 +109,17 @@ export const StyledHeroHeadingList = styled.ul`
   width: 100%;
 `;
 
-export const StyledHeroHeadingListItem = styled.li`
-  visibility: hidden;
+export const StyledHeroHeadingListItem = styled.li<{ isActive: boolean }>`
   position: absolute;
+  visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
 `;
 
 export const StyledHeroHeadingListItemButton = styled.button<{ isChanging: boolean }>`
+  height: 100%;
   pointer-events: ${({ isChanging }) => isChanging && 'none'};
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 `;
 
 export const StyledSidedrawer = styled.nav`
