@@ -3,7 +3,6 @@ import { ease } from '@/helpers/theme';
 
 export const StyledProfileWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
   position: relative;
-  min-height: calc(100vh - 85px);
   &:before {
     background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
     background-position: center;

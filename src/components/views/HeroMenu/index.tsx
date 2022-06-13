@@ -29,12 +29,13 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
+    isChangingHero,
     initChangeHero,
     endChangeHero,
     isHeroHighlighted,
     highlightHero,
     dimHero,
-    setDefaultMenuAppearance,
+    resetMenuAppearance,
   } = useHeroMenu(hero as HeroId);
 
   const bind = useGesture({
@@ -72,7 +73,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
   return (
     <StyledHeroMenu isFaded={isLeaving} {...bind()}>
       <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
-      <Sidedrawer heroes={heroes} onClick={setActiveHero} />
+      <Sidedrawer heroes={heroes} isChangingHero={isChangingHero} onClick={setActiveHero} />
       <HeroLogo
         heroes={heroes}
         activeHeroIndex={activeHeroIndex}
@@ -88,7 +89,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
         lastHeroIndex={lastHeroIndex}
         onDistanceChars={highlightHero}
         onInitShrinkChars={dimHero}
-        onEndShrinkChars={setDefaultMenuAppearance}
+        onEndShrinkChars={resetMenuAppearance}
         onInitChange={initChangeHero}
         onEndChange={endChangeHero}
         onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}

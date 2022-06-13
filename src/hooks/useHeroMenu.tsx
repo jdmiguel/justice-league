@@ -68,7 +68,7 @@ const useHeroMenu = (heroId: HeroId) => {
     setIsDefaultMenuAppearance(false);
   };
   const dimHero = () => setIsHeroHighlighted(false);
-  const setDefaultMenuAppearance = () => setIsDefaultMenuAppearance(true);
+  const resetMenuAppearance = () => setIsDefaultMenuAppearance(true);
 
   return {
     heroes,
@@ -79,12 +79,13 @@ const useHeroMenu = (heroId: HeroId) => {
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
+    isChangingHero,
     initChangeHero,
     endChangeHero,
     isHeroHighlighted,
     highlightHero,
     dimHero,
-    setDefaultMenuAppearance,
+    resetMenuAppearance,
   };
 };
 

@@ -7,7 +7,7 @@ import aquamanLogoPath from '@/assets/logo/aquaman.svg';
 import greenarrowLogoPath from '@/assets/logo/greenarrow.svg';
 import cyborgLogoPath from '@/assets/logo/cyborg.svg';
 import { getHero } from '@/helpers';
-import { HeroMenuData as Hero, HeroData } from '@/helpers/types';
+import { HeroMenuData as Hero, HeroData, HeroId } from '@/helpers/types';
 import {
   StyledSidedrawer,
   StyledSidedrawerList,
@@ -27,24 +27,35 @@ const heroLogoPaths: HeroData = {
 
 type Props = {
   heroes: Hero[];
+  isChangingHero: boolean;
   onClick: (id: string) => void;
 };
 
-const Sidedrawer: React.FC<Props> = ({ heroes, onClick }) => (
-  <StyledSidedrawer>
-    <StyledSidedrawerList>
-      {heroes.map((hero) => (
-        <StyledSidedrawerListItem key={hero.id} isActive={hero.active}>
-          <button onClick={() => onClick(hero.id)}>
-            <div>
-              <img src={getHero(heroLogoPaths, hero.id)} alt={`${hero.name} icon`} />
-            </div>
-            <span>{hero.name}</span>
-          </button>
-        </StyledSidedrawerListItem>
-      ))}
-    </StyledSidedrawerList>
-  </StyledSidedrawer>
-);
+const Sidedrawer: React.FC<Props> = ({ heroes, isChangingHero, onClick }) => {
+  const onClickItem = (heroId: HeroId) => {
+    if (isChangingHero) {
+      return;
+    }
+
+    onClick(heroId);
+  };
+
+  return (
+    <StyledSidedrawer>
+      <StyledSidedrawerList>
+        {heroes.map((hero) => (
+          <StyledSidedrawerListItem key={hero.id} isActive={hero.active}>
+            <button onClick={() => onClickItem(hero.id)}>
+              <div>
+                <img src={getHero(heroLogoPaths, hero.id)} alt={`${hero.name} icon`} />
+              </div>
+              <span>{hero.name}</span>
+            </button>
+          </StyledSidedrawerListItem>
+        ))}
+      </StyledSidedrawerList>
+    </StyledSidedrawer>
+  );
+};
 
 export default Sidedrawer;
