@@ -8,6 +8,7 @@ import {
   StyledHeroHeadingList,
   StyledHeroHeadingListItem,
   StyledHeroHeadingListItemButton,
+  StyledHeroHeadingListItemText,
 } from '@/components/views/HeroMenu/styles';
 
 const cycles = {
@@ -75,7 +76,7 @@ const HeroHeading: React.FC<Props> = ({
     [],
   );
 
-  const { isDisplayed: isIntroDisplayed } = useIntro();
+  const { isIntroVisible } = useIntro();
 
   const isNextHeroDirection =
     (activeHeroIndex > prevActiveHeroIndex &&
@@ -93,7 +94,7 @@ const HeroHeading: React.FC<Props> = ({
       return;
     }
 
-    charsRef.current = heroRefs.map((ref) => splitHeadingIntoChars(ref.current));
+    charsRef.current = heroRefs.map((heroRef) => splitHeadingIntoChars(heroRef.current));
     setWithSplittedHeadings(true);
   }, [heroRefs]);
 
@@ -102,7 +103,7 @@ const HeroHeading: React.FC<Props> = ({
       return;
     }
 
-    if (isIntroDisplayed) {
+    if (isIntroVisible) {
       tweenRef.current = gsap
         .fromTo(
           charsRef.current[activeHeroIndex],
@@ -110,7 +111,6 @@ const HeroHeading: React.FC<Props> = ({
             opacity: 0,
             rotationY: -120,
             scaleX: 0,
-            visibility: 'visible',
           },
           {
             duration: 0.7,
@@ -133,7 +133,6 @@ const HeroHeading: React.FC<Props> = ({
       {
         opacity: 0,
         x: cycles.duplicatedDistanceX,
-        visibility: 'visible',
       },
       {
         duration: 0.8,
@@ -169,10 +168,6 @@ const HeroHeading: React.FC<Props> = ({
         stagger: 0.02,
       },
     );
-
-    tweenRef.current.then(() => {
-      gsap.set(prevActiveHeroChars, { visibility: 'hidden' });
-    });
   }, [activeHeroIndex, prevActiveHeroIndex, onInitChange, isNextHeroDirection]);
 
   const enterHeading = useCallback(() => {
@@ -185,14 +180,12 @@ const HeroHeading: React.FC<Props> = ({
       activeHeroChars,
       {
         opacity: 0,
-        visibility: 'hidden',
         x: isNextHeroDirection ? cycles.leftX : cycles.rightX,
       },
       {
         duration: 0.6,
         delay: 0.25,
         opacity: 1,
-        visibility: 'visible',
         x: 0,
         ease: 'power1.inOut',
         stagger: 0.02,
@@ -278,14 +271,16 @@ const HeroHeading: React.FC<Props> = ({
     <StyledHeroHeading>
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
-          <StyledHeroHeadingListItem key={hero.id} isActive={hero.active}>
+          <StyledHeroHeadingListItem key={hero.id}>
             <StyledHeroHeadingListItemButton
               onClick={clickHeading}
               onMouseOver={debouncedDistanceChars}
               onMouseOut={debouncedShrinkChars}
-              isChanging={isChanging}
+              isDisabled={!hero.active || isChanging}
             />
-            <h2 ref={heroRefs[index]}>{hero.name}</h2>
+            <StyledHeroHeadingListItemText ref={heroRefs[index]}>
+              {hero.name}
+            </StyledHeroHeadingListItemText>
           </StyledHeroHeadingListItem>
         ))}
       </StyledHeroHeadingList>

@@ -109,17 +109,20 @@ export const StyledHeroHeadingList = styled.ul`
   width: 100%;
 `;
 
-export const StyledHeroHeadingListItem = styled.li<{ isActive: boolean }>`
+export const StyledHeroHeadingListItem = styled.li`
   position: absolute;
-  visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
 `;
 
-export const StyledHeroHeadingListItemButton = styled.button<{ isChanging: boolean }>`
+export const StyledHeroHeadingListItemButton = styled.button<{ isDisabled: boolean }>`
   height: 100%;
-  pointer-events: ${({ isChanging }) => isChanging && 'none'};
+  pointer-events: ${({ isDisabled }) => isDisabled && 'none'};
   position: absolute;
   width: 100%;
   z-index: 1;
+`;
+
+export const StyledHeroHeadingListItemText = styled.h2`
+  user-select: none;
 `;
 
 export const StyledSidedrawer = styled.nav`

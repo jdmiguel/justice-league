@@ -39,6 +39,7 @@ export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
       word.split(/(?!^)/).map((char) => {
         const el = createSpan();
         el.innerText = char;
+        el.style.opacity = '0';
         currentTarget.appendChild(el);
         chars.push(el);
       });

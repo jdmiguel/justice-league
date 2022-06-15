@@ -9,13 +9,13 @@ import Footer from '@/components/layouts/Footer';
 
 const Root: React.FC = () => {
   const { isNavigating, initNavigation, endNavigation } = useHeroNavigation();
-  const { isDisplayed: isIntroDisplayed } = useIntro();
+  const { isIntroVisible } = useIntro();
 
   useLockedBody();
 
   return (
     <>
-      {isIntroDisplayed && <Intro />}
+      {isIntroVisible && <Intro />}
       <Layout>
         <Header>
           <Header.Logo />

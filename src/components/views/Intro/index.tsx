@@ -16,7 +16,7 @@ const Intro: React.FC<Props> = ({ idParam }) => {
   const tweenRef = useRef<GSAPTween>();
   const introRef = useRef<HTMLDivElement>(null);
 
-  const { setDisplayedIntro } = useContext(IntroContext);
+  const { hideIntro } = useContext(IntroContext);
   const getMemoizedHeroColor = useCallback(
     (idParam: string) => getHero(heroColors, idParam as HeroId),
     [],
@@ -57,8 +57,8 @@ const Intro: React.FC<Props> = ({ idParam }) => {
       ease: 'power1.in',
     });
 
-    tweenRef.current.startTime(4.5).then(setDisplayedIntro);
-  }, [setDisplayedIntro]);
+    tweenRef.current.startTime(4.5).then(hideIntro);
+  }, [hideIntro]);
 
   return (
     <StyledIntro ref={introRef}>

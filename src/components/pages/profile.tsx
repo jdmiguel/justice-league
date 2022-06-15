@@ -23,7 +23,7 @@ import Header from '@/components/layouts/Header';
 
 const Profile: React.FC = () => {
   const { id } = useParams<Params>();
-  const { isDisplayed: isIntroDisplayed } = useIntro();
+  const { isIntroVisible } = useIntro();
   const { updateHero } = useHero();
   const { nextPagePath, isNavigating, initNavigation, endNavigation } = useHeroNavigation();
   const { updateLocked } = useLockedBody();
@@ -33,12 +33,12 @@ const Profile: React.FC = () => {
   }, [id, updateHero]);
 
   useEffect(() => {
-    if (isIntroDisplayed) {
+    if (isIntroVisible) {
       return;
     }
 
     updateLocked(false);
-  }, [isIntroDisplayed, updateLocked]);
+  }, [isIntroVisible, updateLocked]);
 
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
@@ -74,7 +74,7 @@ const Profile: React.FC = () => {
 
   return (
     <>
-      {isIntroDisplayed && <Intro idParam={id} />}
+      {isIntroVisible && <Intro idParam={id} />}
       <Layout>
         <Header isSticky>
           <Header.Logo onClick={() => initNavigation({ heroId: null, pageId: 'root' })} />

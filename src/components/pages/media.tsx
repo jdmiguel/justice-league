@@ -12,7 +12,7 @@ import Header from '@/components/layouts/Header';
 
 const Media: React.FC = () => {
   const { id } = useParams<Params>();
-  const { isDisplayed: isIntroDisplayed } = useIntro();
+  const { isIntroVisible } = useIntro();
   const { updateHero } = useHero();
   const { nextPagePath, isNavigating, initNavigation, endNavigation } = useHeroNavigation();
   const { updateLocked } = useLockedBody();
@@ -22,18 +22,18 @@ const Media: React.FC = () => {
   }, [id, updateHero]);
 
   useEffect(() => {
-    if (isIntroDisplayed) {
+    if (isIntroVisible) {
       return;
     }
 
     updateLocked(false);
-  }, [isIntroDisplayed, updateLocked]);
+  }, [isIntroVisible, updateLocked]);
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
   return (
     <>
-      {isIntroDisplayed && <Intro idParam={id} />}
+      {isIntroVisible && <Intro idParam={id} />}
       <Layout>
         <Header isSticky>
           <Header.Logo onClick={() => initNavigation({ heroId: null, pageId: 'root' })} />

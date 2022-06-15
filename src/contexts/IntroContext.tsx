@@ -1,8 +1,8 @@
 import { ReactNode, createContext, useState, useContext } from 'react';
 
 const IntroContext = createContext({
-  isDisplayed: true,
-  setDisplayedIntro: () => {},
+  isIntroVisible: true,
+  hideIntro: () => {},
 });
 
 type Props = {
@@ -10,13 +10,13 @@ type Props = {
 };
 
 const IntroContextProvider = ({ children }: Props) => {
-  const [isDisplayed, setIsDisplayed] = useState(true);
+  const [isIntroVisible, setIsIntroVisible] = useState(true);
 
-  const setDisplayedIntro = () => setIsDisplayed(false);
+  const hideIntro = () => setIsIntroVisible(false);
 
   const value = {
-    isDisplayed,
-    setDisplayedIntro,
+    isIntroVisible,
+    hideIntro,
   };
 
   return <IntroContext.Provider value={value}>{children}</IntroContext.Provider>;

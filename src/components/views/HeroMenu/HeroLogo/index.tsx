@@ -54,7 +54,7 @@ const HeroLogo: React.FC<Props> = ({
     [],
   );
 
-  const { isDisplayed: isIntroDisplayed } = useIntro();
+  const { isIntroVisible } = useIntro();
 
   useEffect(() => {
     const tween = tweenRef.current;
@@ -69,7 +69,7 @@ const HeroLogo: React.FC<Props> = ({
       return;
     }
 
-    if (isIntroDisplayed) {
+    if (isIntroVisible) {
       tweenRef.current = gsap
         .fromTo(
           heroRefs[activeHeroIndex].current,
