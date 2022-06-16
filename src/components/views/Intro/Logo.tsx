@@ -25,7 +25,7 @@ const Logo: React.FC = () => {
       })
       .to(logoPathRef.current, {
         delay: 0.5,
-        duration: 2.5,
+        duration: 2.3,
         fillOpacity: 0.3,
         scale: 0.8,
         transformOrigin: '50% 50%',

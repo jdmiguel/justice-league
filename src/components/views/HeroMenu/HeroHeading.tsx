@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { debounce, splitHeadingIntoChars } from '@/helpers';
+import { ease } from '@/helpers/theme';
 import { HeroMenuData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import {
@@ -117,11 +118,11 @@ const HeroHeading: React.FC<Props> = ({
             opacity: 1,
             rotationY: 0,
             scaleX: 1,
-            ease: 'power1.out',
-            stagger: 0.05,
+            ease: ease.smooth,
+            stagger: 0.02,
           },
         )
-        .startTime(5);
+        .startTime(4.5);
 
       return;
     }
@@ -135,10 +136,10 @@ const HeroHeading: React.FC<Props> = ({
         x: cycles.duplicatedDistanceX,
       },
       {
-        duration: 0.8,
+        duration: 0.75,
         opacity: 1,
         x: 0,
-        ease: 'power1.out',
+        ease: ease.smooth,
       },
     );
     tweenRef.current.then(() => setIsFading(false));
@@ -164,8 +165,8 @@ const HeroHeading: React.FC<Props> = ({
         duration: 0.5,
         opacity: 0,
         x: isNextHeroDirection ? cycles.rightX : cycles.leftX,
-        ease: 'power1.out',
-        stagger: 0.02,
+        ease: ease.smooth,
+        stagger: 0.015,
       },
     );
   }, [activeHeroIndex, prevActiveHeroIndex, onInitChange, isNextHeroDirection]);
@@ -183,12 +184,12 @@ const HeroHeading: React.FC<Props> = ({
         x: isNextHeroDirection ? cycles.leftX : cycles.rightX,
       },
       {
-        duration: 0.6,
+        duration: 0.5,
         delay: 0.25,
         opacity: 1,
         x: 0,
         ease: 'power1.inOut',
-        stagger: 0.02,
+        stagger: 0.015,
       },
     );
 
@@ -222,7 +223,7 @@ const HeroHeading: React.FC<Props> = ({
       duration: 1,
       opacity: isLeavingMenu ? 0 : 1,
       x: isLeavingMenu ? cycles.duplicatedDistanceX : cycles.distanceX,
-      ease: 'power1.out',
+      ease: ease.smooth,
     });
 
     tweenRef.current.then(() => {
@@ -245,7 +246,7 @@ const HeroHeading: React.FC<Props> = ({
     tweenRef.current = gsap.to(activeHeroChars, {
       duration: 1,
       x: 0,
-      ease: 'power1.out',
+      ease: ease.smooth,
     });
 
     tweenRef.current.then(() => {

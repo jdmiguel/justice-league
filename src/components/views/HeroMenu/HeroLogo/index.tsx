@@ -78,13 +78,13 @@ const HeroLogo: React.FC<Props> = ({
             rotationY: 90,
           },
           {
-            duration: 1,
+            duration: 0.75,
             opacity: 1,
             rotationY: 0,
             ease: ease.smooth,
           },
         )
-        .startTime(5);
+        .startTime(4.5);
 
       return;
     }
@@ -96,7 +96,7 @@ const HeroLogo: React.FC<Props> = ({
         scale: 1.5,
       },
       {
-        duration: 0.8,
+        duration: 0.75,
         opacity: 1,
         scale: 1,
         ease: ease.smooth,
@@ -123,7 +123,7 @@ const HeroLogo: React.FC<Props> = ({
         rotation: 0,
       },
       {
-        duration: 1,
+        duration: 0.75,
         opacity: 0,
         rotation: isNextHeroDirection ? 90 : -90,
         scale: 1.5,
@@ -140,7 +140,7 @@ const HeroLogo: React.FC<Props> = ({
         scale: 1.5,
       },
       {
-        duration: 1,
+        duration: 0.75,
         opacity: 1,
         scale: 1,
         rotation: 0,

@@ -70,7 +70,7 @@ const Chars: React.FC = () => {
           strokeDashoffset: 0,
         },
         {
-          duration: 3,
+          duration: 2.8,
           y: 0,
           opacity: 1,
           fill: theme.dark,

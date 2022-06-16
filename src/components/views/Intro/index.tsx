@@ -57,7 +57,7 @@ const Intro: React.FC<Props> = ({ idParam }) => {
       ease: 'power1.in',
     });
 
-    tweenRef.current.startTime(4.5).then(hideIntro);
+    tweenRef.current.startTime(4).then(hideIntro);
   }, [hideIntro]);
 
   return (
