@@ -49,11 +49,11 @@ const HeroHeading: React.FC<Props> = ({
   onClick,
 }) => {
   const [withSplittedHeadings, setWithSplittedHeadings] = useState(false);
-  const [isChanging, setIsChanging] = useState(false);
-  const [isFading, setIsFading] = useState(false);
 
   const tweenRef = useRef<GSAPTween>();
   const charsRef = useRef<any>([]);
+  const isChangingRef = useRef(false);
+  const isFadingRef = useRef(false);
   const supermanRef = useRef<HTMLHeadingElement>(null);
   const batmanRef = useRef<HTMLHeadingElement>(null);
   const wonderwomanRef = useRef<HTMLHeadingElement>(null);
@@ -127,7 +127,7 @@ const HeroHeading: React.FC<Props> = ({
       return;
     }
 
-    setIsFading(true);
+    isFadingRef.current = true;
 
     tweenRef.current = gsap.fromTo(
       charsRef.current[activeHeroIndex],
@@ -142,17 +142,19 @@ const HeroHeading: React.FC<Props> = ({
         ease: ease.smooth,
       },
     );
-    tweenRef.current.then(() => setIsFading(false));
+    tweenRef.current.then(() => {
+      isFadingRef.current = false;
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [withSplittedHeadings]);
 
   const leaveHeading = useCallback(() => {
-    if (activeHeroIndex === prevActiveHeroIndex) {
+    if (activeHeroIndex === prevActiveHeroIndex || isFadingRef.current) {
       return;
     }
 
     onInitChange();
-    setIsChanging(true);
+    isChangingRef.current = true;
 
     const prevActiveHeroChars = charsRef.current[prevActiveHeroIndex];
     tweenRef.current = gsap.fromTo(
@@ -172,7 +174,7 @@ const HeroHeading: React.FC<Props> = ({
   }, [activeHeroIndex, prevActiveHeroIndex, onInitChange, isNextHeroDirection]);
 
   const enterHeading = useCallback(() => {
-    if (activeHeroIndex === prevActiveHeroIndex) {
+    if (activeHeroIndex === prevActiveHeroIndex || isFadingRef.current) {
       return;
     }
 
@@ -194,7 +196,7 @@ const HeroHeading: React.FC<Props> = ({
     );
 
     tweenRef.current.then(() => {
-      setIsChanging(false);
+      isChangingRef.current = false;
       onEndChange();
       onUpdatePrevActiveHeroIndex();
     });
@@ -212,7 +214,7 @@ const HeroHeading: React.FC<Props> = ({
   }, [enterHeading, leaveHeading]);
 
   const distanceChars = ({ isLeavingMenu = false }: { isLeavingMenu: boolean }) => {
-    if (isFading) {
+    if (isChangingRef.current) {
       return;
     }
 
@@ -236,7 +238,7 @@ const HeroHeading: React.FC<Props> = ({
   };
 
   const shrinkChars = () => {
-    if (isFading) {
+    if (isChangingRef.current) {
       return;
     }
 
@@ -255,18 +257,15 @@ const HeroHeading: React.FC<Props> = ({
   };
 
   const clickHeading = () => {
-    setIsFading(true);
+    isFadingRef.current = true;
     distanceChars({ isLeavingMenu: true });
     onClick();
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedDistanceChars = useCallback(debounce(distanceChars, 100), [
-    activeHeroIndex,
-    isFading,
-  ]);
+  const debouncedDistanceChars = useCallback(debounce(distanceChars, 200), [activeHeroIndex]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedShrinkChars = useCallback(debounce(shrinkChars, 100), [activeHeroIndex, isFading]);
+  const debouncedShrinkChars = useCallback(debounce(shrinkChars, 200), [activeHeroIndex]);
 
   return (
     <StyledHeroHeading>
@@ -277,7 +276,7 @@ const HeroHeading: React.FC<Props> = ({
               onClick={clickHeading}
               onMouseOver={debouncedDistanceChars}
               onMouseOut={debouncedShrinkChars}
-              isDisabled={!hero.active || isChanging}
+              isDisabled={!hero.active || isChangingRef.current}
             />
             <StyledHeroHeadingListItemText ref={heroRefs[index]}>
               {hero.name}
