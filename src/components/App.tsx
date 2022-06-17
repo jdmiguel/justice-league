@@ -13,12 +13,12 @@ const Timeline = lazy(() => import('@/components/pages/timeline'));
 const Media = lazy(() => import('@/components/pages/media'));
 
 const App = () => {
-  const { isDisplayed: isIntroDisplayed } = useContext(IntroContext);
+  const { isIntroVisible } = useContext(IntroContext);
 
   return (
     <ThemeProvider theme={theme}>
       <RotateDeviceMsg />
-      <Suspense fallback={<Loader withLightBg={!!isIntroDisplayed} />}>
+      <Suspense fallback={<Loader withLightBg={!!isIntroVisible} />}>
         <Routes>
           <Route path="/" element={<Root />} />
           <Route path="/:id/profile" element={<Profile />} />
