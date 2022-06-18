@@ -23,9 +23,9 @@ type ObservedElementRef = {
 const useIntersectionObserver = (
   elementRef: ObservedElementRef,
   intersectionObserverOptions: IntersectionObserverInit = {
-    threshold: 0.6,
+    threshold: 0.5,
     root: null,
-    rootMargin: '0%',
+    rootMargin: '-20%',
     freezeOnceVisible: true,
   },
 ): IntersectionObserverEntry | null => {

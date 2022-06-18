@@ -21,7 +21,12 @@ const Appearance: React.FC<Props> = ({
   const imageRef = useRef<HTMLImageElement>(null);
   const powersCardRef = useRef<HTMLDivElement>(null);
 
-  const entry = useIntersectionObserver(appearanceRef);
+  const entry = useIntersectionObserver(appearanceRef, {
+    threshold: 0.4,
+    root: null,
+    rootMargin: '-20%',
+    freezeOnceVisible: true,
+  });
   const isVisible = !!entry?.isIntersecting;
 
   useEffect(() => {
