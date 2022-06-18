@@ -4,7 +4,7 @@ import { HeroId, HeroMenuData as Hero } from '@/helpers/types';
 
 const lastHeroIndex = heroesData.length - 1;
 
-const useHeroMenu = (heroId: HeroId) => {
+const useHeroMenu = (heroId: HeroId, isIntroVisible: boolean) => {
   const fetchedHeroes: Hero[] = heroesData.map((hero) => ({
     id: hero.id as HeroId,
     name: hero.name,
@@ -14,9 +14,10 @@ const useHeroMenu = (heroId: HeroId) => {
   const defaultActiveHeroIndex = fetchedHeroes.findIndex((hero) => hero.active);
 
   const [heroes, setHeroes] = useState(fetchedHeroes);
+  const [isHeroChangeEnabled, setIsHeroChangeEnabled] = useState(false);
   const [isHeroHighlighted, setIsHeroHighlighted] = useState(false);
-  const [isDefaultMenuAppearance, setIsDefaultMenuAppearance] = useState(true);
   const [isChangingHero, setIsChangingHero] = useState(false);
+  const [isLeavingMenu, setIsLeavingMenu] = useState(false);
   const [activeHeroIndex, setActiveHeroIndex] = useState(defaultActiveHeroIndex);
   const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(defaultActiveHeroIndex);
 
@@ -24,17 +25,24 @@ const useHeroMenu = (heroId: HeroId) => {
     setActiveHeroIndex(heroes.findIndex((hero) => hero.active));
   }, [heroes]);
 
-  const setActiveHero = (id: string) => {
-    setHeroes((prevHeroes) =>
-      prevHeroes.map((hero) => ({
-        ...hero,
-        active: id === hero.id,
-      })),
-    );
-  };
+  const setActiveHero = useCallback(
+    (id: HeroId) => {
+      if (isChangingHero || isHeroHighlighted) {
+        return;
+      }
 
-  const setActivePrevHero = () => {
-    if (isChangingHero || !isDefaultMenuAppearance) {
+      setHeroes((prevHeroes) =>
+        prevHeroes.map((hero) => ({
+          ...hero,
+          active: id === hero.id,
+        })),
+      );
+    },
+    [isChangingHero, isHeroHighlighted],
+  );
+
+  const setActivePrevHero = useCallback(() => {
+    if (isChangingHero || isHeroHighlighted || !isHeroChangeEnabled) {
       return;
     }
 
@@ -42,10 +50,17 @@ const useHeroMenu = (heroId: HeroId) => {
       activeHeroIndex > 0 ? heroes[activeHeroIndex - 1].id : heroes[lastHeroIndex].id;
 
     setActiveHero(prevActiveHeroId);
-  };
+  }, [
+    activeHeroIndex,
+    heroes,
+    isChangingHero,
+    isHeroChangeEnabled,
+    isHeroHighlighted,
+    setActiveHero,
+  ]);
 
-  const setActiveNextHero = () => {
-    if (isChangingHero || !isDefaultMenuAppearance) {
+  const setActiveNextHero = useCallback(() => {
+    if (isChangingHero || isHeroHighlighted || !isHeroChangeEnabled) {
       return;
     }
 
@@ -53,39 +68,56 @@ const useHeroMenu = (heroId: HeroId) => {
       activeHeroIndex < lastHeroIndex ? heroes[activeHeroIndex + 1].id : heroes[0].id;
 
     setActiveHero(nextActiveHeroId);
-  };
+  }, [
+    activeHeroIndex,
+    heroes,
+    isChangingHero,
+    isHeroChangeEnabled,
+    isHeroHighlighted,
+    setActiveHero,
+  ]);
 
   const updatePrevActiveHeroIndex = useCallback(
     () => setPrevActiveHeroIndex(activeHeroIndex),
     [activeHeroIndex],
   );
 
-  const initChangeHero = useCallback(() => setIsChangingHero(true), []);
-  const endChangeHero = useCallback(() => setIsChangingHero(false), []);
-
-  const highlightHero = () => {
-    setIsHeroHighlighted(true);
-    setIsDefaultMenuAppearance(false);
-  };
+  const enableHeroChange = () => setIsHeroChangeEnabled(true);
+  const disableHeroChange = () => setIsHeroChangeEnabled(false);
+  const highlightHero = () => setIsHeroHighlighted(true);
   const dimHero = () => setIsHeroHighlighted(false);
-  const resetMenuAppearance = () => setIsDefaultMenuAppearance(true);
+  const initChangeHero = () => setIsChangingHero(true);
+  const endChangeHero = () => setIsChangingHero(false);
+  const leaveMenu = () => setIsLeavingMenu(true);
+
+  useEffect(() => {
+    if (isIntroVisible) {
+      return;
+    }
+
+    enableHeroChange();
+  }, [isIntroVisible]);
 
   return {
     heroes,
     activeHeroIndex,
     prevActiveHeroIndex,
     lastHeroIndex,
-    updatePrevActiveHeroIndex,
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
+    updatePrevActiveHeroIndex,
+    isHeroChangeEnabled,
+    enableHeroChange,
+    disableHeroChange,
     isChangingHero,
     initChangeHero,
     endChangeHero,
     isHeroHighlighted,
     highlightHero,
     dimHero,
-    resetMenuAppearance,
+    isLeavingMenu,
+    leaveMenu,
   };
 };
 

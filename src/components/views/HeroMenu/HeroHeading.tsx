@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
-import { debounce, splitHeadingIntoChars } from '@/helpers';
+import { splitHeadingIntoChars } from '@/helpers';
 import { ease } from '@/helpers/theme';
 import { HeroMenuData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
@@ -24,14 +24,17 @@ type Props = {
   activeHeroIndex: number;
   prevActiveHeroIndex: number;
   lastHeroIndex: number;
-  onDistanceChars: () => void;
+  onUpdatePrevActiveHeroIndex: () => void;
+  isHeroChangeEnabled: boolean;
+  onEndIntroChars: () => void;
+  onDistanceChars: ({ isLeaving }: { isLeaving: boolean }) => void;
   onInitShrinkChars: () => void;
   onEndShrinkChars: () => void;
+  isChangingHero: boolean;
   onInitChange: () => void;
   onEndChange: () => void;
-  onUpdatePrevActiveHeroIndex: () => void;
+  isFadingChars: boolean;
   onLeave: () => void;
-  onClick: () => void;
 };
 
 const HeroHeading: React.FC<Props> = ({
@@ -39,21 +42,22 @@ const HeroHeading: React.FC<Props> = ({
   activeHeroIndex,
   prevActiveHeroIndex,
   lastHeroIndex,
+  onUpdatePrevActiveHeroIndex,
+  isHeroChangeEnabled,
+  onEndIntroChars,
   onDistanceChars,
   onInitShrinkChars,
   onEndShrinkChars,
+  isChangingHero,
   onInitChange,
   onEndChange,
-  onUpdatePrevActiveHeroIndex,
+  isFadingChars,
   onLeave,
-  onClick,
 }) => {
   const [withSplittedHeadings, setWithSplittedHeadings] = useState(false);
 
   const tweenRef = useRef<GSAPTween>();
   const charsRef = useRef<any>([]);
-  const isChangingRef = useRef(false);
-  const isFadingRef = useRef(false);
   const supermanRef = useRef<HTMLHeadingElement>(null);
   const batmanRef = useRef<HTMLHeadingElement>(null);
   const wonderwomanRef = useRef<HTMLHeadingElement>(null);
@@ -123,11 +127,10 @@ const HeroHeading: React.FC<Props> = ({
           },
         )
         .startTime(4.5);
+      tweenRef.current.then(onEndIntroChars);
 
       return;
     }
-
-    isFadingRef.current = true;
 
     tweenRef.current = gsap.fromTo(
       charsRef.current[activeHeroIndex],
@@ -142,19 +145,12 @@ const HeroHeading: React.FC<Props> = ({
         ease: ease.smooth,
       },
     );
-    tweenRef.current.then(() => {
-      isFadingRef.current = false;
-    });
+    tweenRef.current.then(onEndIntroChars);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [withSplittedHeadings]);
 
   const leaveHeading = useCallback(() => {
-    if (activeHeroIndex === prevActiveHeroIndex || isFadingRef.current) {
-      return;
-    }
-
     onInitChange();
-    isChangingRef.current = true;
 
     const prevActiveHeroChars = charsRef.current[prevActiveHeroIndex];
     tweenRef.current = gsap.fromTo(
@@ -171,13 +167,9 @@ const HeroHeading: React.FC<Props> = ({
         stagger: 0.015,
       },
     );
-  }, [activeHeroIndex, prevActiveHeroIndex, onInitChange, isNextHeroDirection]);
+  }, [isNextHeroDirection, onInitChange, prevActiveHeroIndex]);
 
   const enterHeading = useCallback(() => {
-    if (activeHeroIndex === prevActiveHeroIndex || isFadingRef.current) {
-      return;
-    }
-
     const activeHeroChars = charsRef.current[activeHeroIndex];
     tweenRef.current = gsap.fromTo(
       activeHeroChars,
@@ -196,29 +188,31 @@ const HeroHeading: React.FC<Props> = ({
     );
 
     tweenRef.current.then(() => {
-      isChangingRef.current = false;
       onEndChange();
       onUpdatePrevActiveHeroIndex();
     });
-  }, [
-    activeHeroIndex,
-    prevActiveHeroIndex,
-    isNextHeroDirection,
-    onEndChange,
-    onUpdatePrevActiveHeroIndex,
-  ]);
+  }, [activeHeroIndex, isNextHeroDirection, onEndChange, onUpdatePrevActiveHeroIndex]);
 
   useEffect(() => {
-    leaveHeading();
-    enterHeading();
-  }, [enterHeading, leaveHeading]);
-
-  const distanceChars = ({ isLeavingMenu = false }: { isLeavingMenu: boolean }) => {
-    if (isChangingRef.current) {
+    if (activeHeroIndex === prevActiveHeroIndex || isChangingHero || !isHeroChangeEnabled) {
       return;
     }
 
-    onDistanceChars();
+    leaveHeading();
+    enterHeading();
+  }, [
+    activeHeroIndex,
+    enterHeading,
+    isChangingHero,
+    isHeroChangeEnabled,
+    leaveHeading,
+    prevActiveHeroIndex,
+  ]);
+
+  const distanceChars = (
+    { isLeavingMenu }: { isLeavingMenu: boolean } = { isLeavingMenu: false },
+  ) => {
+    onDistanceChars({ isLeaving: isLeavingMenu });
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
     tweenRef.current = gsap.to(activeHeroChars, {
@@ -238,7 +232,7 @@ const HeroHeading: React.FC<Props> = ({
   };
 
   const shrinkChars = () => {
-    if (isChangingRef.current) {
+    if (isFadingChars) {
       return;
     }
 
@@ -251,21 +245,18 @@ const HeroHeading: React.FC<Props> = ({
       ease: ease.smooth,
     });
 
-    tweenRef.current.then(() => {
-      onEndShrinkChars();
-    });
+    tweenRef.current.then(onEndShrinkChars);
   };
 
-  const clickHeading = () => {
-    isFadingRef.current = true;
-    distanceChars({ isLeavingMenu: true });
-    onClick();
+  const onOverHeading = () => {
+    if (!isHeroChangeEnabled || isChangingHero) {
+      return;
+    }
+
+    distanceChars();
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedDistanceChars = useCallback(debounce(distanceChars, 200), [activeHeroIndex]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedShrinkChars = useCallback(debounce(shrinkChars, 200), [activeHeroIndex]);
+  const clickHeading = () => distanceChars({ isLeavingMenu: true });
 
   return (
     <StyledHeroHeading>
@@ -274,9 +265,9 @@ const HeroHeading: React.FC<Props> = ({
           <StyledHeroHeadingListItem key={hero.id}>
             <StyledHeroHeadingListItemButton
               onClick={clickHeading}
-              onMouseOver={debouncedDistanceChars}
-              onMouseOut={debouncedShrinkChars}
-              isDisabled={!hero.active || isChangingRef.current}
+              onMouseOver={onOverHeading}
+              onMouseOut={shrinkChars}
+              isDisabled={!hero.active || isChangingHero}
             />
             <StyledHeroHeadingListItemText ref={heroRefs[index]}>
               {hero.name}

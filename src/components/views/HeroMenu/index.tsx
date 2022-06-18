@@ -27,25 +27,29 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     activeHeroIndex,
     prevActiveHeroIndex,
     lastHeroIndex,
-    updatePrevActiveHeroIndex,
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
+    updatePrevActiveHeroIndex,
+    isHeroChangeEnabled,
+    enableHeroChange,
+    disableHeroChange,
     isChangingHero,
     initChangeHero,
     endChangeHero,
     isHeroHighlighted,
     highlightHero,
     dimHero,
-    resetMenuAppearance,
-  } = useHeroMenu(hero as HeroId);
+    isLeavingMenu,
+    leaveMenu,
+  } = useHeroMenu(hero as HeroId, isIntroVisible);
 
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {
-      if (swipeX === 1 && !isIntroVisible) {
+      if (swipeX === 1) {
         setActiveNextHero();
       }
-      if (swipeX === -1 && !isIntroVisible) {
+      if (swipeX === -1) {
         setActivePrevHero();
       }
     },
@@ -61,10 +65,10 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
       }
 
       if (!wait) {
-        if (deltaY === 1 && !isIntroVisible) {
+        if (deltaY === 1) {
           setActiveNextHero();
         }
-        if (deltaY === -1 && !isIntroVisible) {
+        if (deltaY === -1) {
           setActivePrevHero();
         }
         return true;
@@ -72,10 +76,30 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     },
   });
 
+  const onClickSidedrawerItem = (id: HeroId) => {
+    if (isChangingHero) {
+      return;
+    }
+
+    setActiveHero(id);
+  };
+
+  const onHeadingDistanceChars = ({ isLeaving }: { isLeaving: boolean }) => {
+    disableHeroChange();
+    highlightHero();
+
+    if (!isLeaving) {
+      return;
+    }
+
+    leaveMenu();
+    initLeave(heroes[activeHeroIndex].id as HeroId);
+  };
+
   return (
     <StyledHeroMenu isFaded={isLeaving} {...bind()}>
       <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
-      <Sidedrawer heroes={heroes} isChangingHero={isChangingHero} onClick={setActiveHero} />
+      <Sidedrawer heroes={heroes} isChangingHero={isChangingHero} onClick={onClickSidedrawerItem} />
       <HeroLogo
         heroes={heroes}
         activeHeroIndex={activeHeroIndex}
@@ -89,15 +113,16 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
         activeHeroIndex={activeHeroIndex}
         prevActiveHeroIndex={prevActiveHeroIndex}
         lastHeroIndex={lastHeroIndex}
-        onDistanceChars={highlightHero}
+        onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
+        onEndIntroChars={enableHeroChange}
+        onDistanceChars={onHeadingDistanceChars}
         onInitShrinkChars={dimHero}
-        onEndShrinkChars={resetMenuAppearance}
+        onEndShrinkChars={enableHeroChange}
+        isHeroChangeEnabled={isHeroChangeEnabled}
+        isChangingHero={isChangingHero}
         onInitChange={initChangeHero}
         onEndChange={endChangeHero}
-        onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
-        onClick={() => {
-          initLeave(heroes[activeHeroIndex].id as HeroId);
-        }}
+        isFadingChars={isLeavingMenu}
         onLeave={endLeave}
       />
       <StyledGrainedBg />

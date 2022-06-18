@@ -28,7 +28,7 @@ const heroLogoPaths: HeroData = {
 type Props = {
   heroes: Hero[];
   isChangingHero: boolean;
-  onClick: (id: string) => void;
+  onClick: (id: HeroId) => void;
 };
 
 const Sidedrawer: React.FC<Props> = ({ heroes, isChangingHero, onClick }) => {
