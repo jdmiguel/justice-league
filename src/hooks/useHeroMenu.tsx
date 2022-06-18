@@ -4,7 +4,7 @@ import { HeroId, HeroMenuData as Hero } from '@/helpers/types';
 
 const lastHeroIndex = heroesData.length - 1;
 
-const useHeroMenu = (heroId: HeroId, isIntroVisible: boolean) => {
+const useHeroMenu = (heroId: HeroId) => {
   const fetchedHeroes: Hero[] = heroesData.map((hero) => ({
     id: hero.id as HeroId,
     name: hero.name,
@@ -89,14 +89,6 @@ const useHeroMenu = (heroId: HeroId, isIntroVisible: boolean) => {
   const initChangeHero = () => setIsChangingHero(true);
   const endChangeHero = () => setIsChangingHero(false);
   const leaveMenu = () => setIsLeavingMenu(true);
-
-  useEffect(() => {
-    if (isIntroVisible) {
-      return;
-    }
-
-    enableHeroChange();
-  }, [isIntroVisible]);
 
   return {
     heroes,

@@ -8,17 +8,6 @@ import greenarrowLogoPath from '@/assets/logo/color/greenarrow.svg';
 import cyborgLogoPath from '@/assets/logo/color/cyborg.svg';
 import { HeroData, HeroId } from '@/helpers/types';
 
-export const debounce = (fn: any, delay: number) => {
-  let timer: ReturnType<typeof setTimeout>;
-
-  return (...args: unknown[]) => {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(() => {
-      fn(...args);
-    }, delay);
-  };
-};
-
 export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   if (!target) {
     return;

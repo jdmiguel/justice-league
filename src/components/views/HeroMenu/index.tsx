@@ -42,7 +42,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     dimHero,
     isLeavingMenu,
     leaveMenu,
-  } = useHeroMenu(hero as HeroId, isIntroVisible);
+  } = useHeroMenu(hero as HeroId);
 
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {
