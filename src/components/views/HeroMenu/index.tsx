@@ -1,7 +1,6 @@
 import { createUseGesture, dragAction, wheelAction } from '@use-gesture/react';
 import { Lethargy } from 'lethargy';
 import { HeroId } from '@/helpers/types';
-import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
@@ -20,7 +19,6 @@ type Props = {
 };
 
 const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
-  const { isIntroVisible } = useIntro();
   const { hero } = useHero();
   const {
     heroes,

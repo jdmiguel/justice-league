@@ -16,10 +16,12 @@ import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
 import useLockedBody from '@/hooks/useLockedBody';
+import useImagePreloader from '@/hooks/useImagePreloader';
 import Intro from '@/components/views/Intro';
 import ProfileView from '@/components/views/Hero/Profile';
 import Layout from '@/components/layouts/Layout';
 import Header from '@/components/layouts/Header';
+import Loader from '@/components/ui/Loader';
 
 const Profile: React.FC = () => {
   const { id } = useParams<Params>();
@@ -27,6 +29,7 @@ const Profile: React.FC = () => {
   const { updateHero } = useHero();
   const { nextPagePath, isNavigating, initNavigation, endNavigation } = useHeroNavigation();
   const { updateLocked } = useLockedBody();
+  const { imagesPreloaded } = useImagePreloader([introImgPath, detailsImgPath, appearanceImgPath]);
 
   useEffect(() => {
     updateHero(id as HeroId);
@@ -71,6 +74,10 @@ const Profile: React.FC = () => {
   };
 
   const isLeaving = isNavigating && nextPagePath === '/';
+
+  if (!imagesPreloaded) {
+    return <Loader />;
+  }
 
   return (
     <>
