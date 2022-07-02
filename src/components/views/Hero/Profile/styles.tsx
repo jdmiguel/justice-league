@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ease } from '@/helpers/theme';
+import { animation, ease } from '@/helpers/theme';
 
 export const StyledProfileWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
   position: relative;
@@ -38,6 +38,7 @@ export const StyledIntro = styled.div`
 `;
 
 export const StyledIntroImage = styled.img<{ semiTransparentColor: string }>`
+  animation: ${animation.leftFadeIn} 0.5s forwards;
   border-radius: 50%;
   box-shadow: ${({ semiTransparentColor }) => `0px 0px 16px 4px ${semiTransparentColor}`};
   height: 380px;
@@ -47,6 +48,7 @@ export const StyledIntroImage = styled.img<{ semiTransparentColor: string }>`
 `;
 
 export const StyledIntroTextWrapper = styled.div`
+  animation: ${animation.rightFadeIn} 0.5s forwards;
   display: flex;
   flex-direction: column;
   opacity: 0;
@@ -70,11 +72,13 @@ export const StyledDetails = styled.div`
   margin-bottom: 80px;
 `;
 
-export const StyledDetailsImage = styled.img<{ semiTransparentColor: string }>`
+export const StyledDetailsImage = styled.img<{ semiTransparentColor: string; isVisible: boolean }>`
   border-radius: 8px;
   box-shadow: ${({ semiTransparentColor }) => `0px 0px 16px 4px ${semiTransparentColor}`};
   max-width: 100%;
-  opacity: 0;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(120px)')};
+  transition: all 0.5s ${ease.smooth};
   width: 580px;
 `;
 
@@ -84,16 +88,28 @@ export const StyledAppearance = styled.div`
   gap: 50px;
 `;
 
-export const StyledAppearanceImage = styled.img`
+export const StyledAppearanceImage = styled.img<{ isVisible: boolean }>`
   max-width: 100%;
-  opacity: 0;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transform: ${({ isVisible }) => (isVisible ? 'translateY(0)' : 'translateY(50px)')};
+  transition: all 0.5s ${ease.smooth};
 `;
 
-export const StyledCard = styled.div<{ color: string }>`
+export const StyledCard = styled.div<{ color: string; isVisible: boolean }>`
   border: ${({ color }) => `4px solid ${color}`};
   border-radius: 16px;
   padding: 24px;
   opacity: 0;
+`;
+
+export const StyledLeftCard = styled(StyledCard)<{ isVisible: boolean }>`
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(-120px)')};
+  transition: all 0.5s ${ease.smooth};
+`;
+
+export const StyledRightCard = styled(StyledLeftCard)<{ isVisible: boolean }>`
+  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(120px)')};
 `;
 
 export const StyledCardTitle = styled.h4<{ color: string }>`

@@ -172,7 +172,7 @@ export const StyledSidedrawerListItem = styled.li<{ isActive: boolean }>`
 
       span {
         opacity: 1;
-        transform: translateX(0px);
+        transform: translateX(0);
       }
     }
   }
