@@ -10,6 +10,7 @@ import {
   ProfileIntroData,
   ProfileDetailsData,
   ProfileAppearanceData,
+  ProfileStatsData,
   PageId,
 } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
@@ -72,6 +73,10 @@ const Profile: React.FC = () => {
     hairColor: currentHeroData?.appearance.hairColor || '',
     powers: currentHeroData?.powers || [],
   };
+  const statsData: ProfileStatsData = {
+    color: heroColors[id as HeroId],
+    skills: currentHeroData?.skills || [],
+  };
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
@@ -97,6 +102,7 @@ const Profile: React.FC = () => {
           introData={introData}
           detailsData={detailsData}
           appearanceData={appearanceData}
+          statsData={statsData}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
         />

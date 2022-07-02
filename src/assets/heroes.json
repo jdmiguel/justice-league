@@ -26,13 +26,13 @@
       "Vision - X-Ray",
       "Vision - Heat"
     ],
-    "skills": { 
-      "intelligence": 50,
-      "strength": 100,
-      "speed": 90,
-      "power": 90,
-      "combat": 50
-    }
+    "skills": [
+      {"name": "intelligence", "namePosX": 30, "value": 48},
+      {"name": "strength", "namePosX": 46, "value": 99},
+      {"name": "speed", "namePosX": 68, "value": 85},
+      {"name": "power", "namePosX": 64, "value": 90},
+      {"name": "combat", "namePosX": 59, "value": 44}
+    ] 
   },
   {
     "id": "batman",
@@ -50,7 +50,7 @@
     "appearance": {
       "race": "Human",
       "height": "6.2 / 188 cm",
-      "weight": "210 lb / 95 kg",
+      "weight": "210 lb / 100 kg",
       "eyeColor": "Blue",
       "hairColor": "Black" 
     },
@@ -61,13 +61,13 @@
       "Reflexes",
       "Fear creation"
     ],
-    "skills": {
-      "intelligence": 100,
-      "strength": 15,
-      "speed": 15,
-      "power": 24,
-      "combat": 100 
-    }
+    "skills": [
+      {"name": "intelligence", "namePosX": 30, "value": 96},
+      {"name": "strength", "namePosX": 46, "value": 24},
+      {"name": "speed", "namePosX": 68, "value": 22},
+      {"name": "power", "namePosX": 64, "value": 20},
+      {"name": "combat", "namePosX": 59, "value": 99}
+    ]
   },
   {
     "id": "wonderwoman",
@@ -96,13 +96,13 @@
       "Invulnerability",
       "Telepathy"
     ],
-    "skills":  { 
-      "intelligence": 70,
-      "strength": 90,
-      "speed": 80,
-      "power": 80,
-      "combat": 70 
-    }
+    "skills": [
+      {"name": "intelligence", "namePosX": 30, "value": 62},
+      {"name": "strength", "namePosX": 46, "value": 80},
+      {"name": "speed", "namePosX": 68, "value": 78},
+      {"name": "power", "namePosX": 64, "value": 70},
+      {"name": "combat", "namePosX": 59, "value": 68}
+    ]
   },
   {
     "id": "flash",
@@ -120,7 +120,7 @@
     "appearance": {
       "race": "Human",
       "height": "6.0 / 183 cm",
-      "weight": "195 lb / 88 kg",
+      "weight": "1100 lb / 88 kg",
       "eyeColor": "Blue",
       "hairColor": "Blond" 
     },
@@ -131,13 +131,13 @@
       "Time travel",
       "Enhanced senses"
     ],
-    "skills": { 
-      "intelligence": 80,
-      "strength": 35,
-      "speed": 100,
-      "power": 80,
-      "combat": 60 
-    }
+    "skills": [
+      {"name": "intelligence", "namePosX": 30, "value": 75},
+      {"name": "strength", "namePosX": 46, "value": 40},
+      {"name": "speed", "namePosX": 68, "value": 98},
+      {"name": "power", "namePosX": 64, "value": 70},
+      {"name": "combat", "namePosX": 59, "value": 54}
+    ]
   },
   {
     "id": "greenlantern",
@@ -166,13 +166,13 @@
       "Phasing",
       "Flight"
     ],
-    "skills": { 
-      "intelligence": 50,
-      "strength": 10,
-      "speed": 30,
-      "power": 100,
-      "combat": 60 
-    }
+    "skills": [
+      {"name": "intelligence", "namePosX": 30, "value": 44},
+      {"name": "strength", "namePosX": 46, "value": 20},
+      {"name": "speed", "namePosX": 68, "value": 32},
+      {"name": "power", "namePosX": 64, "value": 98},
+      {"name": "combat", "namePosX": 59, "value": 60}
+    ]
   },
   {
     "id": "aquaman",
@@ -201,13 +201,13 @@
       "Super strength",
       "Enhanced senses"
     ],
-    "skills": { 
-      "intelligence": 64,
-      "strength": 74,
-      "speed": 30,
-      "power": 90,
-      "combat": 64 
-    }
+    "skills": [
+      {"name": "intelligence", "namePosX": 30, "value": 54},
+      {"name": "strength", "namePosX": 46, "value": 68},
+      {"name": "speed", "namePosX": 68, "value": 36},
+      {"name": "power", "namePosX": 64, "value": 86},
+      {"name": "combat", "namePosX": 59, "value": 58}
+    ]
   },
   {
     "id": "greenarrow",
@@ -236,13 +236,13 @@
       "Reflexes",
       "Stamina"
     ],
-    "skills": { 
-      "intelligence": 78,
-      "strength": 12,
-      "speed": 16,
-      "power": 20,
-      "combat": 90 
-    }
+    "skills": [
+      {"name": "intelligence", "namePosX": 30, "value": 80},
+      {"name": "strength", "namePosX": 46, "value": 23},
+      {"name": "speed", "namePosX": 68, "value": 22},
+      {"name": "power", "namePosX": 64, "value": 20},
+      {"name": "combat", "namePosX": 59, "value": 90}
+    ]
   },
   {
     "id": "cyborg",
@@ -271,12 +271,12 @@
       "Flight",
       "Shapeshifting"
     ],
-    "skills": { 
-      "intelligence": 60,
-      "strength": 88,
-      "speed": 34,
-      "power": 84,
-      "combat": 60 
-    }
+    "skills": [
+      {"name": "intelligence", "namePosX": 30,  "value": 60},
+      {"name": "strength", "namePosX": 46, "value": 70},
+      {"name": "speed", "namePosX": 68, "value": 38},
+      {"name": "power", "namePosX": 64, "value": 84},
+      {"name": "combat", "namePosX": 59, "value": 55}
+    ]
   }
 ]

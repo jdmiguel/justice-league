@@ -7,10 +7,12 @@ import {
   ProfileIntroData,
   ProfileDetailsData,
   ProfileAppearanceData,
+  ProfileStatsData,
 } from '@/helpers/types';
 import Intro from '@/components/views/Hero/Profile/Intro';
 import Details from '@/components/views/Hero/Profile/Details';
 import Appearance from '@/components/views/Hero/Profile/Appearance';
+import Stats from '@/components/views/Hero/Profile/Stats';
 import { StyledProfileWrapper, StyledProfile } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
@@ -18,6 +20,7 @@ type Props = {
   introData: ProfileIntroData;
   detailsData: ProfileDetailsData;
   appearanceData: ProfileAppearanceData;
+  statsData: ProfileStatsData;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
@@ -27,6 +30,7 @@ const Profile: React.FC<Props> = ({
   introData,
   detailsData,
   appearanceData,
+  statsData,
   isLeaving,
   onEndFadeAnimation,
 }) => {
@@ -61,6 +65,7 @@ const Profile: React.FC<Props> = ({
         <Intro data={introData} />
         <Details data={detailsData} />
         <Appearance data={appearanceData} />
+        <Stats data={statsData} />
       </StyledProfile>
     </StyledProfileWrapper>
   );

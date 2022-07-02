@@ -71,3 +71,42 @@ export type ProfilePowersCard = {
   color: string;
   powers: string[];
 };
+
+type Skill = {
+  name: string;
+  namePosX: number;
+  value: number;
+};
+export type ProfileStatsData = {
+  color: string;
+  skills: Skill[];
+};
+
+type ProfileStatsBarData = {
+  id: string;
+  posX: number;
+  posY: number;
+  width: number;
+  height: number;
+  color: string;
+};
+export type ProfileStatsBarsData = ProfileStatsBarData[];
+
+type ProfileStatsLegendData = {
+  name: string;
+  posX: number;
+  posY: number;
+};
+export type ProfileStatsLegendsData = ProfileStatsLegendData[];
+
+export type ProfileStatsPercentData = {
+  id: string;
+  value: number;
+  posX: number;
+  posY: number;
+  valueTextFontSize: string;
+  percentTextFontSize: string;
+  percentTextPosX: number;
+  percentTextPosY: number;
+};
+export type ProfileStatsPercentsData = ProfileStatsPercentData[];

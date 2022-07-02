@@ -67,7 +67,7 @@ export const StyledDetails = styled.div`
   align-items: center;
   display: flex;
   gap: 100px;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 `;
 
 export const StyledDetailsImage = styled.img<{ semiTransparentColor: string }>`
@@ -101,4 +101,31 @@ export const StyledCardTitle = styled.h4<{ color: string }>`
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 12px;
+`;
+
+export const StyledStats = styled.div<{ isVisible: boolean }>`
+  height: 480px;
+  margin-bottom: 40px;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.5s ${ease.smooth};
+  width: 100%;
+`;
+
+export const StyledStatsTitle = styled(StyledCardTitle)`
+  margin-bottom: 24px;
+`;
+
+export const StyledBars = styled.g`
+  transform: translateY(-24px);
+`;
+
+export const StyledBar = styled.rect<{ isVisible: boolean }>`
+  transform: ${({ isVisible }) => (isVisible ? 'scaleY(1)' : 'scaleY(0)')};
+  transform-origin: 100% 100%;
+  transition: transform 0.75s ${ease.medium} 0.25s;
+`;
+
+export const StyledPercents = styled.g<{ isVisible: boolean }>`
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.4s ${ease.smooth} 0.5s;
 `;
