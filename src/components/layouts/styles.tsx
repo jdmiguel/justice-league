@@ -5,6 +5,7 @@ export const StyledLayout = styled.div`
   background-color: ${({ theme }) => theme.dark};
   color: ${({ theme }) => theme.light};
   min-height: 100vh;
+  overflow-x: hidden;
 `;
 
 export const StyledHeader = styled.header<{ isSticky?: boolean }>`
