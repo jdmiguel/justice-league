@@ -5,6 +5,7 @@ import {
   StyledIntroTextWrapper,
   StyledIntroTitle,
   StyledIntroSubtitle,
+  StyledIntroDescription,
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
@@ -19,7 +20,7 @@ const Intro: React.FC<Props> = ({
     <StyledIntroTextWrapper>
       <StyledIntroTitle>{title}</StyledIntroTitle>
       <StyledIntroSubtitle>{subtitle}</StyledIntroSubtitle>
-      <p>{description}</p>
+      <StyledIntroDescription>{description}</StyledIntroDescription>
     </StyledIntroTextWrapper>
   </StyledIntro>
 );

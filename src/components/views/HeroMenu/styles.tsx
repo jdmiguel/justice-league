@@ -129,7 +129,7 @@ export const StyledHeroHeadingListItemText = styled.h2`
 `;
 
 export const StyledSidedrawer = styled.nav`
-  bottom: 30px;
+  bottom: 10px;
   display: flex;
   font-size: 1.2rem;
   font-weight: 700;
@@ -137,6 +137,9 @@ export const StyledSidedrawer = styled.nav`
   position: absolute;
   width: 100%;
   z-index: 5;
+  @media only screen and (min-width: 768px) {
+    bottom: 30px;
+  }
   @media only screen and (min-width: 1200px) {
     bottom: initial;
     flex-direction: column;

@@ -26,8 +26,11 @@ export const StyledProfile = styled.div`
   line-height: 30px;
   margin: 0 auto;
   max-width: 100%;
-  padding: 100px 30px;
+  padding: 40px 30px;
   width: 900px;
+  @media only screen and (min-width: 768px) {
+    padding: 100px 30px 80px;
+  }
   @media only screen and (min-width: 992px) {
     width: 960px;
   }
@@ -72,14 +75,28 @@ export const StyledIntroTextWrapper = styled.div`
 `;
 
 export const StyledIntroTitle = styled.h2`
-  font-size: 90px;
+  font-size: 74px;
   font-weight: 900;
   line-height: 1;
+  @media only screen and (min-width: 768px) {
+    font-size: 90px;
+  }
 `;
+
 export const StyledIntroSubtitle = styled.h3`
-  font-size: 45px;
+  font-size: 35px;
   line-height: 1;
   margin-bottom: 30px;
+  @media only screen and (min-width: 768px) {
+    font-size: 45px;
+  }
+`;
+
+export const StyledIntroDescription = styled.p`
+  @media only screen and (max-width: 767px) {
+    line-height: 1.5;
+    font-size: 1.2rem;
+  }
 `;
 
 export const StyledDetails = styled.div`

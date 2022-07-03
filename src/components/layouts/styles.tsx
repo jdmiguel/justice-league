@@ -11,26 +11,37 @@ export const StyledHeader = styled.header<{ isSticky?: boolean }>`
   background-color: ${({ theme, isSticky }) => isSticky && theme.dark};
   display: flex;
   justify-content: space-between;
-  min-height: 85px;
+  min-height: 60px;
   position: ${({ isSticky }) => (isSticky ? 'sticky' : 'absolute')};
   top: 0;
   width: 100%;
   z-index: 6;
+  @media only screen and (min-width: 768px) {
+    min-height: 85px;
+  }
 `;
 
 export const StyledHeaderLogo = styled.h1`
   align-items: center;
   display: flex;
+  img {
+    @media only screen and (max-width: 767px) {
+      width: 140px;
+    }
+  }
 `;
 
 export const StyledHeaderNavigation = styled.nav<{ isLeaving?: boolean }>`
   align-items: center;
   display: flex;
-  font-size: 1.2rem;
   font-weight: 700;
-  margin-right: 40px;
+  margin-right: 30px;
   transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
   transition: transform 0.5s ${ease.medium};
+  @media only screen and (min-width: 768px) {
+    font-size: 1.2rem;
+    margin-right: 40px;
+  }
 `;
 
 export const StyledHeaderNavigationList = styled.ul`
@@ -57,6 +68,10 @@ export const StyledHeaderCorner = styled.a<{ isLeaving?: boolean }>`
     border: 0;
     color: transparent;
     fill: ${({ theme }) => theme.neutral};
+    @media only screen and (max-width: 767px) {
+      height: 60px;
+      width: 60px;
+    }
   }
   path {
     &:not(:first-of-type) {
