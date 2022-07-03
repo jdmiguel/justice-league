@@ -123,7 +123,7 @@ export const StyledDetailsImage = styled.img<{ semiTransparentColor: string; isV
     display: block;
   }
   @media only screen and (min-width: 1200px) {
-    width: 540px;
+    width: 600px;
   }
 `;
 
@@ -159,9 +159,11 @@ export const StyledCard = styled.div<{ color: string; isVisible: boolean }>`
   border: ${({ color }) => `4px solid ${color}`};
   border-radius: 16px;
   font-size: 18px;
-  height: 230px;
   padding: 20px;
   opacity: 0;
+  @media only screen and (max-width: 991px) {
+    height: 230px;
+  }
   @media only screen and (min-width: 1200px) {
     font-size: inherit;
     padding: 24px;
