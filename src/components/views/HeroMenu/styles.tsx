@@ -44,13 +44,13 @@ export const StyledHeroLogoSvg = styled.svg<{ isHighlighted: boolean; isFaded: b
   transition: all 0.9s ${ease.smooth};
   transform: ${({ isHighlighted, isFaded }) =>
     isHighlighted ? (isFaded ? 'scale(1.5)' : 'scale(1.15)') : 'scale(1)'};
-  width: 400px;
+  width: 200px;
   will-change: transform, opacity;
   @media only screen and (min-width: 768px) {
-    width: 500px;
+    width: 320px;
   }
   @media only screen and (min-width: 1200px) {
-    width: 450px;
+    width: 380px;
   }
   @media only screen and (min-width: 1650px) {
     width: initial;
@@ -84,16 +84,19 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
 `;
 
 export const StyledHeroHeading = styled.nav`
-  font-size: 5.7rem;
+  font-size: 5.2rem;
   font-weight: 700;
   height: 100%;
   position: absolute;
   width: 100%;
   z-index: 4;
   @media only screen and (min-width: 768px) {
-    font-size: 6rem;
+    font-size: 5.5rem;
   }
   @media only screen and (min-width: 992px) {
+    font-size: 5.8rem;
+  }
+  @media only screen and (min-width: 1200px) {
     font-size: 6.8rem;
   }
   @media only screen and (min-width: 1650px) {

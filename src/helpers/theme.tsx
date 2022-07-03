@@ -44,6 +44,15 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     -webkit-tap-highlight-color: transparent;
   }
+  html {
+    @media only screen and (orientation: portrait) and (max-width: 768px) {
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      touch-action: none;
+      width: 100%;
+    }
+  }
   body {
     background-color: #282828;
   }
