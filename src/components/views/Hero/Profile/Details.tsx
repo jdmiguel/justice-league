@@ -2,7 +2,11 @@ import { useRef } from 'react';
 import { ProfileDetailsData } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Card from '@/components/views/Hero/Profile/Card';
-import { StyledDetails, StyledDetailsImage } from '@/components/views/Hero/Profile/styles';
+import {
+  StyledDetails,
+  StyledDetailsImage,
+  StyledCardList,
+} from '@/components/views/Hero/Profile/styles';
 
 type Props = {
   data: ProfileDetailsData;
@@ -28,7 +32,7 @@ const Details: React.FC<Props> = ({
   return (
     <StyledDetails ref={detailsRef}>
       <Card title="Details" color={color} isVisible={isVisible}>
-        <ul>
+        <StyledCardList>
           <li>
             full name: <strong>{fullName}</strong>
           </li>
@@ -44,7 +48,7 @@ const Details: React.FC<Props> = ({
           <li>
             first appearance: <strong>{firstAppearance}</strong>
           </li>
-        </ul>
+        </StyledCardList>
       </Card>
       <StyledDetailsImage
         src={imgPath}

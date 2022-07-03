@@ -2,7 +2,11 @@ import { useRef } from 'react';
 import { ProfileAppearanceData } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Card from '@/components/views/Hero/Profile/Card';
-import { StyledAppearance, StyledAppearanceImage } from '@/components/views/Hero/Profile/styles';
+import {
+  StyledAppearance,
+  StyledAppearanceImage,
+  StyledCardList,
+} from '@/components/views/Hero/Profile/styles';
 
 type Props = {
   data: ProfileAppearanceData;
@@ -24,7 +28,7 @@ const Appearance: React.FC<Props> = ({
   return (
     <StyledAppearance ref={appearanceRef}>
       <Card title="Appearance" color={color} isVisible={isVisible}>
-        <ul>
+        <StyledCardList>
           <li>
             race: <strong>{race}</strong>
           </li>
@@ -40,7 +44,7 @@ const Appearance: React.FC<Props> = ({
           <li>
             hair color: <strong>{hairColor}</strong>
           </li>
-        </ul>
+        </StyledCardList>
       </Card>
       <StyledAppearanceImage src={imgPath} isVisible={isVisible} />
       <Card title="Powers" color={color} isVisible={isVisible} xOrigin="right">

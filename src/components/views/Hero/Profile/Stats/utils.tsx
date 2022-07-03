@@ -11,7 +11,7 @@ export enum GridDetails {
 
 export enum BarDetails {
   width = 200,
-  margin = 24,
+  margin = 28,
 }
 
 export enum PercentDetails {

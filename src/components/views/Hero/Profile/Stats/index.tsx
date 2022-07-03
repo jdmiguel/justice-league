@@ -41,7 +41,7 @@ const Stats: React.FC<Props> = ({ data }) => {
 
         return {
           id: skill.name,
-          posX: index * (BarDetails.width + BarDetails.margin),
+          posX: index * (BarDetails.width + BarDetails.margin) + ChartDetails.padding / 2,
           posY: ChartDetails.height - barHeight,
           width: BarDetails.width as number,
           height: barHeight,
@@ -54,7 +54,10 @@ const Stats: React.FC<Props> = ({ data }) => {
     () =>
       skills.map((skill, index) => ({
         name: skill.name,
-        posX: (BarDetails.width + BarDetails.margin) * index + skill.namePosX,
+        posX:
+          (BarDetails.width + BarDetails.margin) * index +
+          skill.namePosX +
+          ChartDetails.padding / 2,
         posY: ChartDetails.height,
       })),
     [skills],
@@ -64,7 +67,10 @@ const Stats: React.FC<Props> = ({ data }) => {
       skills.map((skill, index) => {
         const barHeight =
           (skill.value * ChartDetails.height) / ChartDetails.heightFactor - ChartDetails.padding;
-        const posX = (BarDetails.width + BarDetails.margin) * index + PercentDetails.offsetX;
+        const posX =
+          (BarDetails.width + BarDetails.margin) * index +
+          PercentDetails.offsetX +
+          ChartDetails.padding / 2;
         const posY = GridDetails.height - barHeight / 2 + PercentDetails.offsetY;
 
         return {
@@ -86,7 +92,7 @@ const Stats: React.FC<Props> = ({ data }) => {
       <StyledStatsTitle color={color}>Ranked stats</StyledStatsTitle>
       <Chart width={chartWidth} height={ChartDetails.height}>
         <ChartGrid
-          width={chartWidth - ChartDetails.padding}
+          width={chartWidth}
           height={GridDetails.height}
           lineVerticalMargin={GridDetails.lineMargin}
         />
