@@ -1,6 +1,5 @@
 import { useMemo, useRef } from 'react';
 import { ProfileStatsData } from '@/helpers/types';
-import { ease } from '@/helpers/theme';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Chart from '@/components/views/Hero/Profile/Stats/Chart';
 import ChartGrid from '@/components/views/Hero/Profile/Stats/ChartGrid';

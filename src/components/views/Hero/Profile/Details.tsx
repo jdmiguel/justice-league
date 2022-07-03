@@ -46,7 +46,7 @@ const Details: React.FC<Props> = ({
             base: <strong>{base}</strong>
           </li>
           <li>
-            first appearance: <strong>{firstAppearance}</strong>
+            1st appearance: <strong>{firstAppearance}</strong>
           </li>
         </StyledCardList>
       </Card>
