@@ -79,20 +79,21 @@ export const StyledIntroTitle = styled.h2`
   font-weight: 900;
   line-height: 1;
   @media only screen and (min-width: 768px) {
-    font-size: 90px;
+    font-size: 80px;
   }
 `;
 
 export const StyledIntroSubtitle = styled.h3`
   font-size: 35px;
   line-height: 1;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   @media only screen and (min-width: 768px) {
-    font-size: 45px;
+    font-size: 40px;
   }
 `;
 
 export const StyledIntroDescription = styled.p`
+  white-space: break-spaces;
   @media only screen and (max-width: 767px) {
     line-height: 1.5;
     font-size: 1.2rem;
@@ -123,7 +124,7 @@ export const StyledDetailsImage = styled.img<{ semiTransparentColor: string; isV
     display: block;
   }
   @media only screen and (min-width: 1200px) {
-    width: 600px;
+    width: 580px;
   }
 `;
 

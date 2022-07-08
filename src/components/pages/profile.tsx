@@ -1,9 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
-import introImgPath from '@/assets/hero/superman/profile/intro.jpg';
-import detailsImgPath from '@/assets/hero/superman/profile/details.jpg';
-import appearanceImgPath from '@/assets/hero/superman/profile/appearance.png';
 import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
 import {
   HeroId,
@@ -30,7 +27,6 @@ const Profile: React.FC = () => {
   const { updateHero } = useHero();
   const { nextPagePath, isNavigating, initNavigation, endNavigation } = useHeroNavigation();
   const { updateLocked } = useLockedBody();
-  const { imagesPreloaded } = useImagePreloader([introImgPath, detailsImgPath, appearanceImgPath]);
 
   useEffect(() => {
     updateHero(id as HeroId);
@@ -46,9 +42,15 @@ const Profile: React.FC = () => {
 
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
+  const { imagesPreloaded } = useImagePreloader([
+    currentHeroData?.profile.imagePath as string,
+    currentHeroData?.profile.details.imagePath as string,
+    currentHeroData?.profile.appearance.imagePath as string,
+  ]);
+
   const introData: ProfileIntroData = {
     semiTransparentColor: heroSemiTransparentColors[id as HeroId],
-    imgPath: introImgPath,
+    imgPath: currentHeroData?.profile.imagePath as string,
     title: currentHeroData?.name || '',
     subtitle: currentHeroData?.alias || '',
     description: currentHeroData?.description || '',
@@ -56,26 +58,26 @@ const Profile: React.FC = () => {
   const detailsData: ProfileDetailsData = {
     semiTransparentColor: heroSemiTransparentColors[id as HeroId],
     color: heroColors[id as HeroId],
-    imgPath: detailsImgPath,
-    fullName: currentHeroData?.profile.fullName || '',
-    birthPlace: currentHeroData?.profile.birthPlace || '',
-    occupation: currentHeroData?.profile.occupation || '',
-    base: currentHeroData?.profile.base || '',
-    firstAppearance: currentHeroData?.profile.firstAppearance || '',
+    imgPath: currentHeroData?.profile.details.imagePath as string,
+    fullName: currentHeroData?.profile.details.fullName || '',
+    birthPlace: currentHeroData?.profile.details.birthPlace || '',
+    occupation: currentHeroData?.profile.details.occupation || '',
+    base: currentHeroData?.profile.details.base || '',
+    firstAppearance: currentHeroData?.profile.details.firstAppearance || '',
   };
   const appearanceData: ProfileAppearanceData = {
     color: heroColors[id as HeroId],
-    imgPath: appearanceImgPath,
-    race: currentHeroData?.appearance.race || '',
-    height: currentHeroData?.appearance.height || '',
-    weight: currentHeroData?.appearance.weight || '',
-    eyeColor: currentHeroData?.appearance.eyeColor || '',
-    hairColor: currentHeroData?.appearance.hairColor || '',
-    powers: currentHeroData?.powers || [],
+    imgPath: currentHeroData?.profile.appearance.imagePath as string,
+    race: currentHeroData?.profile.appearance.race || '',
+    height: currentHeroData?.profile.appearance.height || '',
+    weight: currentHeroData?.profile.appearance.weight || '',
+    eyeColor: currentHeroData?.profile.appearance.eyeColor || '',
+    hairColor: currentHeroData?.profile.appearance.hairColor || '',
+    powers: currentHeroData?.profile.powers || [],
   };
   const statsData: ProfileStatsData = {
     color: heroColors[id as HeroId],
-    skills: currentHeroData?.skills || [],
+    skills: currentHeroData?.profile.skills || [],
   };
 
   const isLeaving = isNavigating && nextPagePath === '/';
