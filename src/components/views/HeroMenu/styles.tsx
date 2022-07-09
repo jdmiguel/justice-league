@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import noiseTexturePath from '@/assets/heroBg/noise-texture.png';
 import { animation, ease } from '@/helpers/theme';
 
 export const StyledHeroMenu = styled.main<{ isFaded: boolean }>`
@@ -13,7 +12,7 @@ export const StyledGrainedBg = styled.div`
   animation: ${animation.noise} 5s infinite;
   animation-timing-function: steps(10);
   backface-visibility: hidden;
-  background-image: url(${noiseTexturePath});
+  background-image: url('/noise-texture.png');
   background-color: ${({ theme }) => theme.alphaDark_65};
   height: 300%;
   left: -100%;

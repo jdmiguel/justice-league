@@ -14,6 +14,7 @@ export type HeroId = keyof HeroData;
 export type HeroMenuData = {
   id: HeroId;
   name: string;
+  bgImagePath: string;
   active: boolean;
 };
 

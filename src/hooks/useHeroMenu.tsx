@@ -8,6 +8,7 @@ const useHeroMenu = (heroId: HeroId) => {
   const fetchedHeroes: Hero[] = heroesData.map((hero) => ({
     id: hero.id as HeroId,
     name: hero.name,
+    bgImagePath: hero.menuBgImagePath,
     active: hero.id === heroId,
   }));
 
