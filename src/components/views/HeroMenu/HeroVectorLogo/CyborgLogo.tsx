@@ -1,5 +1,8 @@
 import { theme } from '@/helpers/theme';
-import { StyledHeroLogoSvg, StyledHeroLogoPath } from '@/components/views/HeroMenu/styles';
+import {
+  StyledHeroVectorLogoSvg,
+  StyledHeroVectorLogoPath,
+} from '@/components/views/HeroMenu/styles';
 
 type Props = {
   isHighlighted: boolean;
@@ -7,7 +10,7 @@ type Props = {
 };
 
 const CyborgLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
-  <StyledHeroLogoSvg
+  <StyledHeroVectorLogoSvg
     x="0px"
     y="0px"
     width="500px"
@@ -18,7 +21,7 @@ const CyborgLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
     isHighlighted={isHighlighted}
     isFaded={isFaded}
   >
-    <StyledHeroLogoPath
+    <StyledHeroVectorLogoPath
       stroke={theme.darkRed}
       strokeWidth="2"
       strokeMiterlimit="10"
@@ -27,6 +30,6 @@ const CyborgLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
       isHighlighted={isHighlighted}
       heroColor={theme.darkRed}
     />
-  </StyledHeroLogoSvg>
+  </StyledHeroVectorLogoSvg>
 );
 export default CyborgLogo;

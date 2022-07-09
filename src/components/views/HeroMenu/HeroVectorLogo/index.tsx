@@ -3,15 +3,15 @@ import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
-import SupermanLogo from '@/components/views/HeroMenu/HeroLogo/SupermanLogo';
-import BatmanLogo from '@/components/views/HeroMenu/HeroLogo/BatmanLogo';
-import WonderWomanLogo from '@/components/views/HeroMenu/HeroLogo/WonderWomanLogo';
-import FlashLogo from '@/components/views/HeroMenu/HeroLogo/FlashLogo';
-import GreenLanternLogo from '@/components/views/HeroMenu/HeroLogo/GreenLanternLogo';
-import AquamanLogo from '@/components/views/HeroMenu/HeroLogo/AquamanLogo';
-import GreenArrowLogo from '@/components/views/HeroMenu/HeroLogo/GreenArrowLogo';
-import CyborgLogo from '@/components/views/HeroMenu/HeroLogo/CyborgLogo';
-import { StyledHeroLogo } from '@/components/views/HeroMenu/styles';
+import SupermanLogo from '@/components/views/HeroMenu/HeroVectorLogo/SupermanLogo';
+import BatmanLogo from '@/components/views/HeroMenu/HeroVectorLogo/BatmanLogo';
+import WonderWomanLogo from '@/components/views/HeroMenu/HeroVectorLogo/WonderWomanLogo';
+import FlashLogo from '@/components/views/HeroMenu/HeroVectorLogo/FlashLogo';
+import GreenLanternLogo from '@/components/views/HeroMenu/HeroVectorLogo/GreenLanternLogo';
+import AquamanLogo from '@/components/views/HeroMenu/HeroVectorLogo/AquamanLogo';
+import GreenArrowLogo from '@/components/views/HeroMenu/HeroVectorLogo/GreenArrowLogo';
+import CyborgLogo from '@/components/views/HeroMenu/HeroVectorLogo/CyborgLogo';
+import { StyledHeroVectorLogo } from '@/components/views/HeroMenu/styles';
 
 type Props = {
   heroes: Hero[];
@@ -22,7 +22,7 @@ type Props = {
   isFaded: boolean;
 };
 
-const HeroLogo: React.FC<Props> = ({
+const HeroVectorLogo: React.FC<Props> = ({
   heroes,
   activeHeroIndex,
   prevActiveHeroIndex,
@@ -174,12 +174,12 @@ const HeroLogo: React.FC<Props> = ({
   return (
     <>
       {heroes.map((hero, index) => (
-        <StyledHeroLogo key={hero.id} ref={heroRefs[index]}>
+        <StyledHeroVectorLogo key={hero.id} ref={heroRefs[index]}>
           {getLogo(hero.id)}
-        </StyledHeroLogo>
+        </StyledHeroVectorLogo>
       ))}
     </>
   );
 };
 
-export default HeroLogo;
+export default HeroVectorLogo;

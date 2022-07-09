@@ -25,7 +25,7 @@ export const StyledGrainedBg = styled.div`
   z-index: 2;
 `;
 
-export const StyledHeroLogo = styled.div`
+export const StyledHeroVectorLogo = styled.div`
   align-items: center;
   display: flex;
   height: 100%;
@@ -37,7 +37,7 @@ export const StyledHeroLogo = styled.div`
   z-index: 4;
 `;
 
-export const StyledHeroLogoSvg = styled.svg<{ isHighlighted: boolean; isFaded: boolean }>`
+export const StyledHeroVectorLogoSvg = styled.svg<{ isHighlighted: boolean; isFaded: boolean }>`
   max-height: 100%;
   opacity: ${({ isFaded }) => isFaded && 0};
   overflow: visible;
@@ -57,7 +57,7 @@ export const StyledHeroLogoSvg = styled.svg<{ isHighlighted: boolean; isFaded: b
   }
 `;
 
-export const StyledHeroLogoPath = styled.path<{ isHighlighted: boolean; heroColor: string }>`
+export const StyledHeroVectorLogoPath = styled.path<{ isHighlighted: boolean; heroColor: string }>`
   fill: ${({ theme, isHighlighted, heroColor }) =>
     isHighlighted ? heroColor : theme.alphaDark_75};
   transition: fill 0.9s ${ease.smooth};

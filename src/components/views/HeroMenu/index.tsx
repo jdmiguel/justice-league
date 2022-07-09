@@ -5,7 +5,7 @@ import { useHero } from '@/contexts/HeroContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
-import HeroLogo from '@/components/views/HeroMenu/HeroLogo';
+import HeroVectorLogo from '@/components/views/HeroMenu/HeroVectorLogo';
 import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
 import { StyledHeroMenu, StyledGrainedBg } from '@/components/views/HeroMenu/styles';
 
@@ -98,7 +98,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     <StyledHeroMenu isFaded={isLeaving} {...bind()}>
       <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
       <Sidedrawer heroes={heroes} isChangingHero={isChangingHero} onClick={onClickSidedrawerItem} />
-      <HeroLogo
+      <HeroVectorLogo
         heroes={heroes}
         activeHeroIndex={activeHeroIndex}
         prevActiveHeroIndex={prevActiveHeroIndex}
