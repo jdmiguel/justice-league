@@ -1,17 +1,15 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { getLogoPath } from '@/helpers';
 import { ease } from '@/helpers/theme';
-import { HeroId } from '@/helpers/types';
 import { StyledTimelineWrapper } from '@/components/views/Hero/Timeline/styles';
 
 type Props = {
-  heroId: HeroId;
+  heroLogoPath: string;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
 
-const Timeline: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => {
+const Timeline: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation }) => {
   const tweenRef = useRef<GSAPTween>();
   const timelineRef = useRef<HTMLDivElement>(null);
 
@@ -35,13 +33,10 @@ const Timeline: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) =>
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
-  const heroLogoPath = getLogoPath(heroId);
-
   return (
-    <StyledTimelineWrapper
-      ref={timelineRef}
-      heroLogoPath={heroLogoPath}
-    >{`IS TIMELINE PAGE OF ${heroId}`}</StyledTimelineWrapper>
+    <StyledTimelineWrapper ref={timelineRef} heroLogoPath={heroLogoPath}>
+      IS TIMELINE PAGE
+    </StyledTimelineWrapper>
   );
 };
 

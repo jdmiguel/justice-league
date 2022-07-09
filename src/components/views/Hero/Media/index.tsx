@@ -1,17 +1,15 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { getLogoPath } from '@/helpers';
 import { ease } from '@/helpers/theme';
-import { HeroId } from '@/helpers/types';
 import { StyledMediaWrapper } from '@/components/views/Hero/Media/styles';
 
 type Props = {
-  heroId: HeroId;
+  heroLogoPath: string;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
 
-const Media: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => {
+const Media: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation }) => {
   const tweenRef = useRef<GSAPTween>();
   const mediaRef = useRef<HTMLDivElement>(null);
 
@@ -35,13 +33,10 @@ const Media: React.FC<Props> = ({ heroId, isLeaving, onEndFadeAnimation }) => {
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
-  const heroLogoPath = getLogoPath(heroId);
-
   return (
-    <StyledMediaWrapper
-      ref={mediaRef}
-      heroLogoPath={heroLogoPath}
-    >{`IS MEDIA PAGE OF ${heroId}`}</StyledMediaWrapper>
+    <StyledMediaWrapper ref={mediaRef} heroLogoPath={heroLogoPath}>
+      IS MEDIA PAGE
+    </StyledMediaWrapper>
   );
 };
 

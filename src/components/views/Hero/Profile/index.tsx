@@ -1,9 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { getLogoPath } from '@/helpers';
 import { ease } from '@/helpers/theme';
 import {
-  HeroId,
   ProfileIntroData,
   ProfileDetailsData,
   ProfileAppearanceData,
@@ -16,7 +14,7 @@ import Stats from '@/components/views/Hero/Profile/Stats';
 import { StyledProfileWrapper, StyledProfile } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  heroId: HeroId;
+  heroLogoPath: string;
   introData: ProfileIntroData;
   detailsData: ProfileDetailsData;
   appearanceData: ProfileAppearanceData;
@@ -26,7 +24,7 @@ type Props = {
 };
 
 const Profile: React.FC<Props> = ({
-  heroId,
+  heroLogoPath,
   introData,
   detailsData,
   appearanceData,
@@ -56,8 +54,6 @@ const Profile: React.FC<Props> = ({
 
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
-
-  const heroLogoPath = getLogoPath(heroId);
 
   return (
     <StyledProfileWrapper heroLogoPath={heroLogoPath} isLeaving={isLeaving}>

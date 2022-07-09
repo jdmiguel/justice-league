@@ -100,7 +100,7 @@ const Profile: React.FC = () => {
           <Header.Divider isLeaving={isLeaving} />
         </Header>
         <ProfileView
-          heroId={id as HeroId}
+          heroLogoPath={currentHeroData?.colorLogoPath || ''}
           introData={introData}
           detailsData={detailsData}
           appearanceData={appearanceData}

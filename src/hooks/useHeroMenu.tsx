@@ -9,6 +9,7 @@ const useHeroMenu = (heroId: HeroId) => {
     id: hero.id as HeroId,
     name: hero.name,
     bgImagePath: hero.menuBgImagePath,
+    whiteLogoPath: hero.whiteLogoPath,
     active: hero.id === heroId,
   }));
 

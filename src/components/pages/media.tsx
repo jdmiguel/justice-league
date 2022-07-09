@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
+import heroesData from '@/assets/heroes.json';
 import { HeroId, PageId } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
@@ -29,6 +30,9 @@ const Media: React.FC = () => {
     updateLocked(false);
   }, [isIntroVisible, updateLocked]);
 
+  /* It will be replaced with a GET request*/
+  const currentHeroData = heroesData.find((hero) => hero.id === id);
+
   const isLeaving = isNavigating && nextPagePath === '/';
 
   return (
@@ -45,7 +49,7 @@ const Media: React.FC = () => {
           <Header.Divider isLeaving={isLeaving} />
         </Header>
         <MediaView
-          heroId={id as HeroId}
+          heroLogoPath={currentHeroData?.colorLogoPath || ''}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
         />

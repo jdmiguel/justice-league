@@ -15,6 +15,7 @@ export type HeroMenuData = {
   id: HeroId;
   name: string;
   bgImagePath: string;
+  whiteLogoPath: string;
   active: boolean;
 };
 

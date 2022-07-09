@@ -1,8 +1,5 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import mousePath from '@/assets/mouse.svg';
-import handFingerPath from '@/assets/hand-finger.svg';
-import menuPath from '@/assets/menu.svg';
 import { StyledNavigationDemo } from '@/components/ui/styles';
 
 const NavigationDemo: React.FC = () => {
@@ -65,15 +62,15 @@ const NavigationDemo: React.FC = () => {
         <li ref={wheelRef}>
           <span>use the mouse wheel</span>
           <figure>
-            <img src={mousePath} alt="mouse" />
-            <img src={handFingerPath} alt="hand finger" />
+            <img src="/mouse-icon.svg" alt="mouse" />
+            <img src="/hand-finger-icon.svg" alt="hand finger" />
           </figure>
         </li>
         <li ref={clickRef}>
           <span>click on the side menu</span>
           <figure>
-            <img src={menuPath} alt="menu" width={16} />
-            <img src={handFingerPath} alt="hand finger" />
+            <img src="/menu-icon.svg" alt="menu" width={16} />
+            <img src="/hand-finger-icon.svg" alt="hand finger" />
           </figure>
         </li>
       </ul>
