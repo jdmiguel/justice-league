@@ -34,7 +34,7 @@ const Timeline: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation
   }, [isLeaving, onEndFadeAnimation]);
 
   return (
-    <StyledTimelineWrapper ref={timelineRef} heroLogoPath={heroLogoPath}>
+    <StyledTimelineWrapper ref={timelineRef} heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
       IS TIMELINE PAGE
     </StyledTimelineWrapper>
   );

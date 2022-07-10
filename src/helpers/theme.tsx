@@ -199,6 +199,14 @@ export const animation = {
       transform: translateX(0);
     }
   `,
+  minFadeIn: keyframes`
+   0% {
+     opacity: 0;
+   }
+   100% {
+     opacity: 0.1;
+   }
+ `,
   scaleIn: keyframes`
     0% {
       opacity: 0;

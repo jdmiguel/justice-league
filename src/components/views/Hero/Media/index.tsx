@@ -34,7 +34,7 @@ const Media: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation })
   }, [isLeaving, onEndFadeAnimation]);
 
   return (
-    <StyledMediaWrapper ref={mediaRef} heroLogoPath={heroLogoPath}>
+    <StyledMediaWrapper ref={mediaRef} heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
       IS MEDIA PAGE
     </StyledMediaWrapper>
   );

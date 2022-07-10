@@ -4,6 +4,7 @@ import { animation, ease } from '@/helpers/theme';
 export const StyledProfileWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
   position: relative;
   &:before {
+    animation: ${animation.minFadeIn} 0.5s;
     background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
