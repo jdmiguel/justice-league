@@ -30,8 +30,8 @@ export type ProfileIntroData = {
 };
 
 export type ProfileDetailsData = {
-  semiTransparentColor: string;
   color: string;
+  semiTransparentColor: string;
   imgPath: string;
   fullName: string;
   birthPlace: string;
@@ -112,3 +112,11 @@ export type ProfileStatsPercentData = {
   percentTextPosY: number;
 };
 export type ProfileStatsPercentsData = ProfileStatsPercentData[];
+
+type TimelineEventData = {
+  year: string;
+  imagePath: string;
+  title: string;
+  description: string;
+};
+export type TimelineEventsData = TimelineEventData[];

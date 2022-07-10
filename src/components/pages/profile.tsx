@@ -47,17 +47,19 @@ const Profile: React.FC = () => {
     currentHeroData?.profile.details.imagePath as string,
     currentHeroData?.profile.appearance.imagePath as string,
   ]);
+  const heroColor = heroColors[id as HeroId];
+  const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
 
   const introData: ProfileIntroData = {
-    semiTransparentColor: heroSemiTransparentColors[id as HeroId],
+    semiTransparentColor: heroSemiTransparentColor,
     imgPath: currentHeroData?.profile.imagePath as string,
     title: currentHeroData?.name || '',
     subtitle: currentHeroData?.alias || '',
     description: currentHeroData?.description || '',
   };
   const detailsData: ProfileDetailsData = {
-    semiTransparentColor: heroSemiTransparentColors[id as HeroId],
-    color: heroColors[id as HeroId],
+    color: heroColor,
+    semiTransparentColor: heroSemiTransparentColor,
     imgPath: currentHeroData?.profile.details.imagePath as string,
     fullName: currentHeroData?.profile.details.fullName || '',
     birthPlace: currentHeroData?.profile.details.birthPlace || '',
@@ -66,7 +68,7 @@ const Profile: React.FC = () => {
     firstAppearance: currentHeroData?.profile.details.firstAppearance || '',
   };
   const appearanceData: ProfileAppearanceData = {
-    color: heroColors[id as HeroId],
+    color: heroColor,
     imgPath: currentHeroData?.profile.appearance.imagePath as string,
     race: currentHeroData?.profile.appearance.race || '',
     height: currentHeroData?.profile.appearance.height || '',
@@ -76,7 +78,7 @@ const Profile: React.FC = () => {
     powers: currentHeroData?.profile.powers || [],
   };
   const statsData: ProfileStatsData = {
-    color: heroColors[id as HeroId],
+    color: heroColor,
     skills: currentHeroData?.profile.skills || [],
   };
 

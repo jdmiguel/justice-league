@@ -40,7 +40,48 @@
         {"name": "power", "namePosX": 64, "value": 90},
         {"name": "combat", "namePosX": 59, "value": 44}
       ] 
-    }
+    },
+    "timeline": {
+      "events": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "superman - the video game",
+          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+        }
+      ]
+    },
+    "media": {}
   },
   {
     "id": "batman",
@@ -83,7 +124,48 @@
         {"name": "power", "namePosX": 64, "value": 20},
         {"name": "combat", "namePosX": 59, "value": 99}
       ]
-    }
+    },
+    "timeline": {
+      "events": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "superman - the arcade game",
+          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+        }
+      ]
+    },
+    "media": {}
   },
   {
     "id": "wonderwoman",
@@ -126,7 +208,48 @@
         {"name": "power", "namePosX": 64, "value": 70},
         {"name": "combat", "namePosX": 59, "value": 68}
       ]
-    }
+    },
+    "timeline": {
+      "events": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "superman - the arcade game",
+          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+        }
+      ]
+    },
+    "media": {}
   },
   {
     "id": "flash",
@@ -169,7 +292,48 @@
         {"name": "power", "namePosX": 64, "value": 70},
         {"name": "combat", "namePosX": 59, "value": 54}
       ]
-    }
+    },
+    "timeline": {
+      "events": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "superman - the arcade game",
+          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+        }
+      ]
+    },
+    "media": {}
   },
   {
     "id": "greenlantern",
@@ -212,7 +376,48 @@
         {"name": "power", "namePosX": 64, "value": 98},
         {"name": "combat", "namePosX": 59, "value": 60}
       ]
-    }
+    },
+    "timeline": {
+      "events": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "superman - the arcade game",
+          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+        }
+      ]
+    },
+    "media": {}
   },
   {
     "id": "aquaman",
@@ -255,7 +460,48 @@
         {"name": "power", "namePosX": 64, "value": 86},
         {"name": "combat", "namePosX": 59, "value": 58}
       ]   
-    }
+    },
+    "timeline": {
+      "events": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "superman - the arcade game",
+          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+        }
+      ]
+    },
+    "media": {}
   },
   {
     "id": "greenarrow",
@@ -298,7 +544,48 @@
         {"name": "power", "namePosX": 64, "value": 20},
         {"name": "combat", "namePosX": 59, "value": 90}
       ] 
-    }
+    },
+    "timeline": {
+      "events": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "superman - the arcade game",
+          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+        }
+      ]
+    },
+    "media": {}
   },
   {
     "id": "cyborg",
@@ -341,6 +628,47 @@
         {"name": "power", "namePosX": 64, "value": 84},
         {"name": "combat", "namePosX": 59, "value": 55}
       ]
-    }
+    },
+    "timeline": {
+      "events": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "superman - the arcade game",
+          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+        }
+      ]
+    },
+    "media": {}
   }
 ]

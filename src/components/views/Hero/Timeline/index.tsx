@@ -1,15 +1,31 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
-import { StyledTimelineWrapper } from '@/components/views/Hero/Timeline/styles';
+import { TimelineEventsData } from '@/helpers/types';
+import Card from '@/components/views/Hero/Timeline/Card';
+import {
+  StyledTimelineWrapper,
+  StyledTimeline,
+  StyledCardWrapper,
+} from '@/components/views/Hero/Timeline/styles';
 
 type Props = {
   heroLogoPath: string;
+  color: string;
+  semiTransparentColor: string;
+  eventsData: TimelineEventsData;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
 
-const Timeline: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation }) => {
+const Timeline: React.FC<Props> = ({
+  heroLogoPath,
+  color,
+  semiTransparentColor,
+  eventsData,
+  isLeaving,
+  onEndFadeAnimation,
+}) => {
   const tweenRef = useRef<GSAPTween>();
   const timelineRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +51,21 @@ const Timeline: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation
 
   return (
     <StyledTimelineWrapper ref={timelineRef} heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
-      IS TIMELINE PAGE
+      <StyledTimeline>
+        <StyledCardWrapper>
+          {eventsData.map((event) => (
+            <Card
+              key={event.title}
+              color={color}
+              semiTransparentColor={semiTransparentColor}
+              imagePath={event.imagePath}
+              title={event.title}
+              description={event.description}
+              isVisible
+            />
+          ))}
+        </StyledCardWrapper>
+      </StyledTimeline>
     </StyledTimelineWrapper>
   );
 };

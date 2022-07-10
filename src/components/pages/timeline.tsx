@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
-import { HeroId, PageId } from '@/helpers/types';
+import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
+import { HeroId, PageId, TimelineEventsData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
@@ -32,6 +33,9 @@ const Timeline: React.FC = () => {
 
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
+  const eventsData: TimelineEventsData = currentHeroData?.timeline.events || [];
+  const heroColor = heroColors[id as HeroId];
+  const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
@@ -50,6 +54,9 @@ const Timeline: React.FC = () => {
         </Header>
         <TimelineView
           heroLogoPath={currentHeroData?.colorLogoPath || ''}
+          color={heroColor}
+          semiTransparentColor={heroSemiTransparentColor}
+          eventsData={eventsData}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
         />
