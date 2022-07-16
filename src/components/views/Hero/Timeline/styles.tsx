@@ -23,6 +23,9 @@ export const StyledTimelineWrapper = styled.main<{ heroLogoPath: string; isLeavi
 `;
 
 export const StyledTimeline = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   height: 100%;
   margin: 0 auto;
   max-width: 100%;
@@ -39,10 +42,19 @@ export const StyledTimeline = styled.div`
   }
 `;
 
-export const StyledCardWrapper = styled.div`
+export const StyledEvent = styled.div`
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: 50px;
+  &:nth-of-type(even) {
+    align-self: flex-end;
+    > :nth-child(even) {
+      order: 1;
+    }
+    > :nth-child(odd) {
+      order: 2;
+    }
+  }
 `;
 
 export const StyledCard = styled.div<{ color: string; isVisible: boolean }>`
@@ -55,9 +67,6 @@ export const StyledCard = styled.div<{ color: string; isVisible: boolean }>`
   padding: 20px;
   opacity: 0;
   width: 480px;
-  &:nth-of-type(even) {
-    align-self: flex-end;
-  }
   @media only screen and (max-width: 991px) {
     height: 230px;
   }
@@ -101,4 +110,37 @@ export const StyledCardTitle = styled.h4<{ color: string }>`
 export const StyledCardDescription = styled.p`
   font-size: 15px;
   line-height: 22px;
+`;
+
+export const StyledYearBubble = styled.div<{
+  color: string;
+  isLast: boolean;
+  cardXPosition: 'left' | 'right';
+}>`
+  align-items: center;
+  border: ${({ color }) => `4px solid ${color}`};
+  border-radius: 50%;
+  display: flex;
+  font-size: 18px;
+  height: 80px;
+  justify-content: center;
+  position: relative;
+  width: 80px;
+  &:before {
+    background-color: ${({ color }) => color};
+    content: '';
+    display: ${({ isLast }) => isLast && 'none'};
+    height: 104px;
+    position: absolute;
+    width: 4px;
+    top: 72px;
+  }
+  &:after {
+    background-color: ${({ color }) => color};
+    content: '';
+    height: 4px;
+    position: absolute;
+    width: 50px;
+    left: ${({ cardXPosition }) => (cardXPosition === 'left' ? '-54px' : '76px')};
+  }
 `;

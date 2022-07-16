@@ -2,18 +2,15 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
 import { TimelineEventsData } from '@/helpers/types';
-import Card from '@/components/views/Hero/Timeline/Card';
-import {
-  StyledTimelineWrapper,
-  StyledTimeline,
-  StyledCardWrapper,
-} from '@/components/views/Hero/Timeline/styles';
+import Event from '@/components/views/Hero/Timeline/Event';
+import { StyledTimelineWrapper, StyledTimeline } from '@/components/views/Hero/Timeline/styles';
 
 type Props = {
   heroLogoPath: string;
   color: string;
   semiTransparentColor: string;
   eventsData: TimelineEventsData;
+  totalEvents: number;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
@@ -23,6 +20,7 @@ const Timeline: React.FC<Props> = ({
   color,
   semiTransparentColor,
   eventsData,
+  totalEvents,
   isLeaving,
   onEndFadeAnimation,
 }) => {
@@ -52,19 +50,20 @@ const Timeline: React.FC<Props> = ({
   return (
     <StyledTimelineWrapper ref={timelineRef} heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
       <StyledTimeline>
-        <StyledCardWrapper>
-          {eventsData.map((event) => (
-            <Card
-              key={event.title}
-              color={color}
-              semiTransparentColor={semiTransparentColor}
-              imagePath={event.imagePath}
-              title={event.title}
-              description={event.description}
-              isVisible
-            />
-          ))}
-        </StyledCardWrapper>
+        {eventsData.map((event, index) => (
+          <Event
+            key={event.year}
+            isLastEvent={index + 1 === totalEvents}
+            xOrigin={(index + 1) % 2 === 0 ? 'right' : 'left'}
+            color={color}
+            semiTransparentColor={semiTransparentColor}
+            imagePath={event.imagePath}
+            title={event.title}
+            description={event.description}
+            year={event.year}
+            isVisible
+          />
+        ))}
       </StyledTimeline>
     </StyledTimelineWrapper>
   );
