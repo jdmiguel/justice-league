@@ -42,11 +42,17 @@ export const StyledTimeline = styled.div`
   }
 `;
 
-export const StyledEvent = styled.div`
+export const StyledEvent = styled.div<{ isVisible: boolean }>`
   align-items: center;
   display: flex;
   gap: 50px;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: all 0.5s ${ease.smooth};
+  &:nth-of-type(odd) {
+    transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(-120px)')};
+  }
   &:nth-of-type(even) {
+    transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(120px)')};
     align-self: flex-end;
     > :nth-child(even) {
       order: 1;
@@ -57,7 +63,7 @@ export const StyledEvent = styled.div`
   }
 `;
 
-export const StyledCard = styled.div<{ color: string; isVisible: boolean }>`
+export const StyledCard = styled.div<{ color: string }>`
   align-items: center;
   border: ${({ color }) => `4px solid ${color}`};
   border-radius: 16px;
@@ -65,7 +71,6 @@ export const StyledCard = styled.div<{ color: string; isVisible: boolean }>`
   gap: 26px;
   max-width: 100%;
   padding: 20px;
-  opacity: 0;
   width: 480px;
   @media only screen and (max-width: 991px) {
     height: 230px;
@@ -74,16 +79,6 @@ export const StyledCard = styled.div<{ color: string; isVisible: boolean }>`
     font-size: inherit;
     padding: 24px;
   }
-`;
-
-export const StyledLeftCard = styled(StyledCard)<{ isVisible: boolean }>`
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(-120px)')};
-  transition: all 0.5s ${ease.smooth};
-`;
-
-export const StyledRightCard = styled(StyledLeftCard)<{ isVisible: boolean }>`
-  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(120px)')};
 `;
 
 export const StyledCardImage = styled.img<{ semiTransparentColor: string }>`
@@ -114,8 +109,9 @@ export const StyledCardDescription = styled.p`
 
 export const StyledYearBubble = styled.div<{
   color: string;
-  isLast: boolean;
   cardXPosition: 'left' | 'right';
+  isFirst: boolean;
+  isVisible: boolean;
 }>`
   align-items: center;
   border: ${({ color }) => `4px solid ${color}`};
@@ -129,18 +125,22 @@ export const StyledYearBubble = styled.div<{
   &:before {
     background-color: ${({ color }) => color};
     content: '';
-    display: ${({ isLast }) => isLast && 'none'};
-    height: 104px;
-    position: absolute;
-    width: 4px;
-    top: 72px;
-  }
-  &:after {
-    background-color: ${({ color }) => color};
-    content: '';
     height: 4px;
     position: absolute;
     width: 50px;
     left: ${({ cardXPosition }) => (cardXPosition === 'left' ? '-54px' : '76px')};
+  }
+  &:after {
+    background-color: ${({ color }) => color};
+    content: '';
+    display: ${({ isFirst }) => isFirst && 'none'};
+    height: 104px;
+    position: absolute;
+    opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+    transform: ${({ isVisible }) => (isVisible ? 'scaleY(1)' : 'scaleY(0)')};
+    transform-origin: top;
+    transition: all 0.5s ${ease.medium} 0.4s;
+    width: 4px;
+    top: -104px;
   }
 `;

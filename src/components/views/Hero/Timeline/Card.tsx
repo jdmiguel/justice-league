@@ -1,6 +1,5 @@
 import {
-  StyledLeftCard,
-  StyledRightCard,
+  StyledCard,
   StyledCardImage,
   StyledCardText,
   StyledCardTitle,
@@ -13,46 +12,20 @@ type Props = {
   imagePath: string;
   title: string;
   description: string;
-  isVisible: boolean;
-  xOrigin?: 'left' | 'right';
 };
 
-const Card: React.FC<Props> = ({
-  color,
-  semiTransparentColor,
-  imagePath,
-  title,
-  description,
-  isVisible,
-  xOrigin = 'left',
-}) => (
-  <>
-    {xOrigin === 'left' ? (
-      <StyledLeftCard color={color} isVisible={isVisible}>
-        <StyledCardImage
-          src={imagePath}
-          semiTransparentColor={semiTransparentColor}
-          alt="timeline event"
-        />
-        <StyledCardText>
-          <StyledCardTitle color={color}>{title}</StyledCardTitle>
-          <StyledCardDescription>{description}</StyledCardDescription>
-        </StyledCardText>
-      </StyledLeftCard>
-    ) : (
-      <StyledRightCard color={color} isVisible={isVisible}>
-        <StyledCardImage
-          src={imagePath}
-          semiTransparentColor={semiTransparentColor}
-          alt="timeline event"
-        />
-        <StyledCardText>
-          <StyledCardTitle color={color}>{title}</StyledCardTitle>
-          <StyledCardDescription>{description}</StyledCardDescription>
-        </StyledCardText>
-      </StyledRightCard>
-    )}
-  </>
+const Card: React.FC<Props> = ({ color, semiTransparentColor, imagePath, title, description }) => (
+  <StyledCard color={color}>
+    <StyledCardImage
+      src={imagePath}
+      semiTransparentColor={semiTransparentColor}
+      alt="timeline event"
+    />
+    <StyledCardText>
+      <StyledCardTitle color={color}>{title}</StyledCardTitle>
+      <StyledCardDescription>{description}</StyledCardDescription>
+    </StyledCardText>
+  </StyledCard>
 );
 
 export default Card;

@@ -1,9 +1,10 @@
+import { useRef } from 'react';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Card from '@/components/views/Hero/Timeline/Card';
 import YearBubble from '@/components/views/Hero/Timeline/YearBubble';
 import { StyledEvent } from '@/components/views/Hero/Timeline/styles';
 
 type Props = {
-  isLastEvent: boolean;
   xOrigin: 'left' | 'right';
   color: string;
   semiTransparentColor: string;
@@ -11,32 +12,47 @@ type Props = {
   title: string;
   description: string;
   year: string;
-  isVisible: boolean;
+  isFirstEvent: boolean;
 };
 
 const Event: React.FC<Props> = ({
-  isLastEvent,
   xOrigin,
   color,
   semiTransparentColor,
   imagePath,
   title,
   description,
-  isVisible,
   year,
-}) => (
-  <StyledEvent>
-    <Card
-      key={title}
-      color={color}
-      semiTransparentColor={semiTransparentColor}
-      imagePath={imagePath}
-      title={title}
-      description={description}
-      isVisible
-    />
-    <YearBubble color={color} isLast={isLastEvent} cardXPosition={xOrigin} year={year} />
-  </StyledEvent>
-);
+  isFirstEvent,
+}) => {
+  const eventRef = useRef<HTMLDivElement>(null);
+  const entry = useIntersectionObserver(eventRef, {
+    threshold: 0.4,
+    root: null,
+    rootMargin: '-12%',
+    freezeOnceVisible: true,
+  });
+  const isVisible = !!entry?.isIntersecting;
+
+  return (
+    <StyledEvent ref={eventRef} isVisible={isVisible}>
+      <Card
+        key={title}
+        color={color}
+        semiTransparentColor={semiTransparentColor}
+        imagePath={imagePath}
+        title={title}
+        description={description}
+      />
+      <YearBubble
+        color={color}
+        cardXPosition={xOrigin}
+        year={year}
+        isFirst={isFirstEvent}
+        isVisible={isVisible}
+      />
+    </StyledEvent>
+  );
+};
 
 export default Event;

@@ -34,7 +34,6 @@ const Timeline: React.FC = () => {
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
   const eventsData: TimelineEventsData = currentHeroData?.timeline.events || [];
-  const totalEvents = eventsData.length;
   const heroColor = heroColors[id as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
 
@@ -58,7 +57,6 @@ const Timeline: React.FC = () => {
           color={heroColor}
           semiTransparentColor={heroSemiTransparentColor}
           eventsData={eventsData}
-          totalEvents={totalEvents}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
         />

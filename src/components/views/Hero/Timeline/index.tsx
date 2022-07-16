@@ -10,7 +10,6 @@ type Props = {
   color: string;
   semiTransparentColor: string;
   eventsData: TimelineEventsData;
-  totalEvents: number;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
@@ -20,7 +19,6 @@ const Timeline: React.FC<Props> = ({
   color,
   semiTransparentColor,
   eventsData,
-  totalEvents,
   isLeaving,
   onEndFadeAnimation,
 }) => {
@@ -53,7 +51,6 @@ const Timeline: React.FC<Props> = ({
         {eventsData.map((event, index) => (
           <Event
             key={event.year}
-            isLastEvent={index + 1 === totalEvents}
             xOrigin={(index + 1) % 2 === 0 ? 'right' : 'left'}
             color={color}
             semiTransparentColor={semiTransparentColor}
@@ -61,7 +58,7 @@ const Timeline: React.FC<Props> = ({
             title={event.title}
             description={event.description}
             year={event.year}
-            isVisible
+            isFirstEvent={index === 0}
           />
         ))}
       </StyledTimeline>
