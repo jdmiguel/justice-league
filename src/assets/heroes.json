@@ -128,10 +128,16 @@
     "timeline": {
       "events": [
         {
-          "year": "1938",
-          "imagePath": "/superman-timeline-creation.jpg",
+          "year": "1939",
+          "imagePath": "/batman-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+          "description": "Batman was created by Bob Kane y Bill Finger. First appearance in Detective Comics #27"
+        },
+        {
+          "year": "1940",
+          "imagePath": "/robin-timeline-creation.jpg",
+          "title": "robin creation",
+          "description": "Robin was introduced as a junior crime-fighting partner for Batman in Detective Comics #38"
         },
         {
           "year": "1960",
@@ -140,28 +146,22 @@
           "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
-          "year": "1978",
-          "imagePath": "/superman-timeline-first-movie.jpg",
-          "title": "superman - the film",
-          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+          "year": "1986",
+          "imagePath": "/batman-timeline-dark-knight-comic.jpg",
+          "title": "the dark night returns",
+          "description": "It is widely considered to be one of the greatest and most influential Batman stories ever made"
         },
         {
-          "year": "1988",
-          "imagePath": "/superman-timeline-video-game.jpg",
-          "title": "superman - the arcade game",
-          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+          "year": "1989",
+          "imagePath": "/batman-timeline-first-movie.jpg",
+          "title": "batman - the film",
+          "description": "Directed by Tim Burton and starred by Michael Keaton, it was the first hero appearance on the big screens"
         },
         {
-          "year": "1993",
-          "imagePath": "/superman-timeline-death-superman-comic.jpg",
-          "title": "the death of superman",
-          "description": "Crossover story which contains one of the most relevant events across all the character history"
-        },
-        {
-          "year": "2013",
-          "imagePath": "/superman-timeline-new-movie.jpg",
+          "year": "2009",
+          "imagePath": "/batman-timeline-video-game.jpg",
           "title": "man of steel - the movie",
-          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+          "description": "The beginning of a relevant franchise, it was called one of the best comic book superhero games ever made"
         }
       ]
     },
