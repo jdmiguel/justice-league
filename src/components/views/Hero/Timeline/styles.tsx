@@ -53,12 +53,18 @@ export const StyledEvent = styled.div<{ isVisible: boolean }>`
   }
   &:nth-of-type(even) {
     transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(120px)')};
-    align-self: flex-end;
+    @media only screen and (min-width: 768px) {
+      align-self: flex-end;
+    }
     > :nth-child(even) {
-      order: 1;
+      @media only screen and (min-width: 768px) {
+        order: 1;
+      }
     }
     > :nth-child(odd) {
-      order: 2;
+      @media only screen and (min-width: 768px) {
+        order: 2;
+      }
     }
   }
 `;
@@ -72,9 +78,6 @@ export const StyledCard = styled.div<{ color: string }>`
   max-width: 100%;
   padding: 20px;
   width: 480px;
-  @media only screen and (max-width: 991px) {
-    height: 230px;
-  }
   @media only screen and (min-width: 1200px) {
     font-size: inherit;
     padding: 24px;
@@ -126,21 +129,33 @@ export const StyledYearBubble = styled.div<{
     background-color: ${({ color }) => color};
     content: '';
     height: 4px;
+    left: -56px;
     position: absolute;
-    width: 50px;
-    left: ${({ cardXPosition }) => (cardXPosition === 'left' ? '-54px' : '76px')};
+    width: 54px;
+    @media only screen and (min-width: 768px) {
+      left: ${({ cardXPosition }) => (cardXPosition === 'left' ? '-54px' : '76px')};
+      width: 50px;
+    }
   }
   &:after {
     background-color: ${({ color }) => color};
     content: '';
     display: ${({ isFirst }) => isFirst && 'none'};
-    height: 104px;
+    height: 94px;
     position: absolute;
     opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
     transform: ${({ isVisible }) => (isVisible ? 'scaleY(1)' : 'scaleY(0)')};
     transform-origin: top;
     transition: all 0.5s ${ease.medium} 0.4s;
     width: 4px;
-    top: -104px;
+    top: -94px;
+    @media only screen and (min-width: 768px) {
+      height: 58px;
+      top: -61px;
+    }
+    @media only screen and (min-width: 1200px) {
+      height: 104px;
+      top: -104px;
+    }
   }
 `;
