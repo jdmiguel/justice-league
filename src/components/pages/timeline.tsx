@@ -7,10 +7,12 @@ import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
 import useLockedBody from '@/hooks/useLockedBody';
+import useImagePreloader from '@/hooks/useImagePreloader';
 import Intro from '@/components/views/Intro';
 import TimelineView from '@/components/views/Hero/Timeline';
 import Layout from '@/components/layouts/Layout';
 import Header from '@/components/layouts/Header';
+import Loader from '@/components/ui/Loader';
 
 const Timeline: React.FC = () => {
   const { id } = useParams<Params>();
@@ -33,11 +35,22 @@ const Timeline: React.FC = () => {
 
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
+
+  const eventImages = currentHeroData?.timeline.events.map((event) => event.imagePath) as string[];
+  const { imagesPreloaded } = useImagePreloader([
+    currentHeroData?.colorLogoPath as string,
+    ...eventImages,
+  ]);
+
   const eventsData: TimelineEventsData = currentHeroData?.timeline.events || [];
   const heroColor = heroColors[id as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
 
   const isLeaving = isNavigating && nextPagePath === '/';
+
+  if (!imagesPreloaded) {
+    return <Loader />;
+  }
 
   return (
     <>

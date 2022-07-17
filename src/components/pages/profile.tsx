@@ -42,11 +42,14 @@ const Profile: React.FC = () => {
 
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
+
   const { imagesPreloaded } = useImagePreloader([
+    currentHeroData?.colorLogoPath as string,
     currentHeroData?.profile.imagePath as string,
     currentHeroData?.profile.details.imagePath as string,
     currentHeroData?.profile.appearance.imagePath as string,
   ]);
+
   const heroColor = heroColors[id as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
 
