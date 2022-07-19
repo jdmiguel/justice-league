@@ -47,7 +47,7 @@
           "year": "1938",
           "imagePath": "/superman-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+          "description": "Superman was created by Jerry Siegel and Joe Shuster. First appearance in Action Comics #1"
         },
         {
           "year": "1960",
@@ -212,10 +212,10 @@
     "timeline": {
       "events": [
         {
-          "year": "1938",
-          "imagePath": "/superman-timeline-creation.jpg",
+          "year": "1941",
+          "imagePath": "/wonderwoman-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+          "description": "Wonderwoman was created by William M. Marston and Harry G. Peter. First appearance in Sensation Comics #1"
         },
         {
           "year": "1960",
@@ -224,28 +224,28 @@
           "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
-          "year": "1978",
-          "imagePath": "/superman-timeline-first-movie.jpg",
-          "title": "superman - the film",
-          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+          "year": "1976",
+          "imagePath": "/wonderwoman-timeline-tv-show.jpg",
+          "title": "wonder woman - tv show",
+          "description": "Starred by Kinda Carter, this portrayal of the character strongly influenced the Wonder Woman comics"
         },
         {
-          "year": "1988",
-          "imagePath": "/superman-timeline-video-game.jpg",
-          "title": "superman - the arcade game",
-          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+          "year": "1987",
+          "imagePath": "/wonderwoman-timeline-comic.jpg",
+          "title": "gods and mortals",
+          "description": "Run by George Perez, it is widely considered the greatest run of the character in comic book history"
         },
         {
-          "year": "1993",
-          "imagePath": "/superman-timeline-death-superman-comic.jpg",
-          "title": "the death of superman",
-          "description": "Crossover story which contains one of the most relevant events across all the character history"
+          "year": "2017",
+          "imagePath": "/wonderwoman-timeline-first-movie.jpg",
+          "title": "wonder woman - the movie",
+          "description": "Directed by Patty Jenkins and starred by Gal Gadot, it received a very positive response from critics"
         },
         {
-          "year": "2013",
-          "imagePath": "/superman-timeline-new-movie.jpg",
-          "title": "man of steel - the movie",
-          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+          "year": "2023",
+          "imagePath": "/wonderwoman-timeline-video-game.jpg",
+          "title": "the official game",
+          "description": "A single-player open-world action game which is the first videogame starring the Amazonian warrior"
         }
       ]
     },
