@@ -225,8 +225,8 @@
         },
         {
           "year": "1976",
-          "imagePath": "/wonderwoman-timeline-tv-show.jpg",
-          "title": "wonder woman - tv show",
+          "imagePath": "/wonderwoman-timeline-tv-series.jpg",
+          "title": "wonder woman - the series",
           "description": "Starred by Kinda Carter, this portrayal of the character strongly influenced the Wonder Woman comics"
         },
         {
@@ -296,10 +296,10 @@
     "timeline": {
       "events": [
         {
-          "year": "1938",
-          "imagePath": "/superman-timeline-creation.jpg",
+          "year": "1940",
+          "imagePath": "/flash-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+          "description": "Flash was created by Gardner Fox and Harry Lampert. First appearance in Flash Comics #1"
         },
         {
           "year": "1960",
@@ -308,28 +308,28 @@
           "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
-          "year": "1978",
-          "imagePath": "/superman-timeline-first-movie.jpg",
-          "title": "superman - the film",
-          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+          "year": "1990",
+          "imagePath": "/flash-timeline-nineties-tv-series.jpg",
+          "title": "the flash - nineties series",
+          "description": "Starred by John Wesley Shipp, this series was plenty of weird sci-fi villains and blockbuster special effects"
         },
         {
-          "year": "1988",
-          "imagePath": "/superman-timeline-video-game.jpg",
-          "title": "superman - the arcade game",
-          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+          "year": "2011",
+          "imagePath": "/flash-timeline-flashpoint-comic.jpg",
+          "title": "flashpoint",
+          "description": "Perhaps the most iconic of all modern timelines involving the Flash, it implied a reboot of the character"
         },
         {
-          "year": "1993",
-          "imagePath": "/superman-timeline-death-superman-comic.jpg",
-          "title": "the death of superman",
-          "description": "Crossover story which contains one of the most relevant events across all the character history"
+          "year": "2014",
+          "imagePath": "/flash-timeline-tv-series.jpg",
+          "title": "the flash - the series",
+          "description": "Starred by Grant Gustin, it was composed of 8 seasons within fictional universe known the Arrowverse"
         },
         {
-          "year": "2013",
-          "imagePath": "/superman-timeline-new-movie.jpg",
-          "title": "man of steel - the movie",
-          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+          "year": "2017",
+          "imagePath": "/justice-league-timeline-movie.jpg",
+          "title": "justice league - the movie",
+          "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
         }
       ]
     },
