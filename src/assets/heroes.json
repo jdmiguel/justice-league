@@ -380,10 +380,10 @@
     "timeline": {
       "events": [
         {
-          "year": "1938",
-          "imagePath": "/superman-timeline-creation.jpg",
+          "year": "1940",
+          "imagePath": "/greenlantern-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+          "description": "Greenlantern was created by Mart Nodell and Bill Finger. First appearance in All-American Comics #16"
         },
         {
           "year": "1960",
@@ -392,28 +392,28 @@
           "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
-          "year": "1978",
-          "imagePath": "/superman-timeline-first-movie.jpg",
-          "title": "superman - the film",
-          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+          "year": "1994",
+          "imagePath": "/greenlantern-timeline-emerald-twilight-comic.jpg",
+          "title": "Emerald Twilight",
+          "description": "This iconic storyline changed the super hero forever by shaking up the status quo for the character"
         },
         {
-          "year": "1988",
-          "imagePath": "/superman-timeline-video-game.jpg",
-          "title": "superman - the arcade game",
-          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+          "year": "2007",
+          "imagePath": "/greenlantern-timeline-sinestro-war-comic.jpg",
+          "title": "Sinestro Corps War",
+          "description": "Ranked among the top comic books of the year, the fan reception of this crossover was highly positive"
         },
         {
-          "year": "1993",
-          "imagePath": "/superman-timeline-death-superman-comic.jpg",
-          "title": "the death of superman",
-          "description": "Crossover story which contains one of the most relevant events across all the character history"
+          "year": "2011",
+          "imagePath": "/greenlantern-timeline-movie.jpg",
+          "title": "green lantern - the movie",
+          "description": "Directed by Martin Campbell and starred by Ryan Reynolds, the film receive negative reviews overall"
         },
         {
-          "year": "2013",
-          "imagePath": "/superman-timeline-new-movie.jpg",
-          "title": "man of steel - the movie",
-          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+          "year": "2011",
+          "imagePath": "/greenlantern-timeline-video-game.jpg",
+          "title": "green lantern - the action game",
+          "description": "Green Lantern: Rise of the Manhunters is an enjoyable and predictable beat-'em-up action game"
         }
       ]
     },
