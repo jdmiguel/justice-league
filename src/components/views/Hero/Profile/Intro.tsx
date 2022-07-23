@@ -16,7 +16,7 @@ const Intro: React.FC<Props> = ({
   data: { semiTransparentColor, imgPath, title, subtitle, description },
 }) => (
   <StyledIntro>
-    <StyledIntroImage src={imgPath} semiTransparentColor={semiTransparentColor} />
+    <StyledIntroImage src={imgPath} semiTransparentColor={semiTransparentColor} alt={title} />
     <StyledIntroTextWrapper>
       <StyledIntroTitle>{title}</StyledIntroTitle>
       <StyledIntroSubtitle>{subtitle}</StyledIntroSubtitle>

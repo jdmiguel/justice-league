@@ -16,11 +16,7 @@ type Props = {
 
 const Card: React.FC<Props> = ({ color, semiTransparentColor, imagePath, title, description }) => (
   <StyledCard color={color}>
-    <StyledCardImage
-      src={imagePath}
-      semiTransparentColor={semiTransparentColor}
-      alt="timeline event"
-    />
+    <StyledCardImage src={imagePath} semiTransparentColor={semiTransparentColor} alt={title} />
     <StyledCardText>
       <StyledCardTitle color={color}>{title}</StyledCardTitle>
       <StyledCardDescription>{description}</StyledCardDescription>

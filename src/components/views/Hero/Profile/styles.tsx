@@ -28,15 +28,11 @@ export const StyledProfile = styled.div`
   margin: 0 auto;
   max-width: 100%;
   padding: 40px 30px;
-  width: 900px;
   @media only screen and (min-width: 768px) {
     padding: 100px 30px 80px;
   }
-  @media only screen and (min-width: 992px) {
-    width: 960px;
-  }
   @media only screen and (min-width: 1200px) {
-    width: 1200px;
+    max-width: 1200px;
   }
 `;
 
@@ -104,9 +100,10 @@ export const StyledIntroDescription = styled.p`
 export const StyledDetails = styled.div`
   align-items: center;
   display: flex;
+  gap: 60px;
   justify-content: center;
   margin-bottom: 60px;
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1200px) {
     justify-content: space-between;
     margin-bottom: 80px;
   }
@@ -120,9 +117,9 @@ export const StyledDetailsImage = styled.img<{ semiTransparentColor: string; isV
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(120px)')};
   transition: all 0.5s ${ease.smooth};
-  width: 400px;
   @media only screen and (min-width: 992px) {
     display: block;
+    width: 520px;
   }
   @media only screen and (min-width: 1200px) {
     width: 580px;

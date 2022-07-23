@@ -1,15 +1,18 @@
 import { useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
-import { HeroId, PageId } from '@/helpers/types';
+import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
+import { HeroId, PageId, EnemiesData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
 import useLockedBody from '@/hooks/useLockedBody';
+import useImagePreloader from '@/hooks/useImagePreloader';
 import Intro from '@/components/views/Intro';
 import EnemiesView from '@/components/views/Hero/Enemies';
 import Layout from '@/components/layouts/Layout';
 import Header from '@/components/layouts/Header';
+import Loader from '@/components/ui/Loader';
 
 const Enemies: React.FC = () => {
   const { id } = useParams<Params>();
@@ -33,7 +36,21 @@ const Enemies: React.FC = () => {
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
 
+  const enemyImages = currentHeroData?.enemies.map((event) => event.imagePath) as string[];
+  const { imagesPreloaded } = useImagePreloader([
+    currentHeroData?.colorLogoPath as string,
+    ...enemyImages,
+  ]);
+
+  const enemiesData: EnemiesData = currentHeroData?.enemies || [];
+  const heroColor = heroColors[id as HeroId];
+  const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
+
   const isLeaving = isNavigating && nextPagePath === '/';
+
+  if (!imagesPreloaded) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -50,6 +67,9 @@ const Enemies: React.FC = () => {
         </Header>
         <EnemiesView
           heroLogoPath={currentHeroData?.colorLogoPath || ''}
+          color={heroColor}
+          semiTransparentColor={heroSemiTransparentColor}
+          enemiesData={enemiesData}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
         />

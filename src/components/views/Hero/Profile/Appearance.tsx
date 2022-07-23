@@ -46,7 +46,7 @@ const Appearance: React.FC<Props> = ({
           </li>
         </StyledCardList>
       </Card>
-      <StyledAppearanceImage src={imgPath} isVisible={isVisible} />
+      <StyledAppearanceImage src={imgPath} isVisible={isVisible} alt="hero" />
       <Card title="Powers" color={color} isVisible={isVisible} xOrigin="right">
         <ul>
           {powers.map((power) => (

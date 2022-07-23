@@ -119,3 +119,10 @@ type TimelineEventData = {
   description: string;
 };
 export type TimelineEventsData = TimelineEventData[];
+
+type EnemyData = {
+  name: string;
+  imagePath: string;
+  description: string;
+};
+export type EnemiesData = EnemyData[];

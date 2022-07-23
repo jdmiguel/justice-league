@@ -30,15 +30,11 @@ export const StyledTimeline = styled.div`
   margin: 0 auto;
   max-width: 100%;
   padding: 40px 30px;
-  width: 900px;
   @media only screen and (min-width: 768px) {
     padding: 100px 30px 80px;
   }
-  @media only screen and (min-width: 992px) {
-    width: 960px;
-  }
   @media only screen and (min-width: 1200px) {
-    width: 1200px;
+    max-width: 1200px;
   }
 `;
 
@@ -93,7 +89,7 @@ export const StyledCardImage = styled.img<{ semiTransparentColor: string }>`
 export const StyledCardText = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 `;
 
 export const StyledCardTitle = styled.h4<{ color: string }>`
@@ -106,8 +102,8 @@ export const StyledCardTitle = styled.h4<{ color: string }>`
 `;
 
 export const StyledCardDescription = styled.p`
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 18px;
+  line-height: 23px;
 `;
 
 export const StyledYearBubble = styled.div<{

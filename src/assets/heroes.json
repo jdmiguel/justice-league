@@ -41,6 +41,38 @@
         {"name": "combat", "namePosX": 59, "value": 44}
       ] 
     },
+    "enemies": [
+      {
+        "name": "Lex Luthor",
+        "imagePath": "/lex-luthor-enemies.jpg",
+        "description": "No Superman villain is as well known, or as well-loved as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+      },
+      {
+        "name": "Darkseid",
+        "imagePath": "/darkseid-enemies.jpg",
+        "description": "The tyrannical ruler of Apokolips, a sadistic tyrant who has invaded and conquered countless worlds throughout the universe"
+      },
+      {
+        "name": "Doomsday",
+        "imagePath": "/doomsday-enemies.jpg",
+        "description": "A weapon crafted in the most extreme conditions, Doomsday is an unstoppable force of destruction, devastation and death"
+      },
+      {
+        "name": "Zod",
+        "imagePath": "/zod-enemies.jpg",
+        "description": "Once considered an outstanding military hero of the planet Krypton, General Dru-Zod decided he would rather rule his world than serve it"
+      },
+      {
+        "name": "Brainiac",
+        "imagePath": "/brainiac-enemies.jpg",
+        "description": "One of the most intelligent beings in the entire universe, the wicked Brainiac's genius has challenged Superman over and over again"
+      },
+      {
+        "name": "Bizarro",
+        "imagePath": "/bizarro-enemies.jpg",
+        "description": "As result of a bizarre science experiment, Bizarro is an imperfect duplicate of Kal-El, with none of his intelligence or self-control"
+      }
+    ],
     "timeline": {
       "events": [
         {
@@ -53,19 +85,19 @@
           "year": "1960",
           "imagePath": "/justice-league-timeline-comic.jpg",
           "title": "justice league anexation",
-          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
           "year": "1978",
           "imagePath": "/superman-timeline-first-movie.jpg",
           "title": "superman - the film",
-          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+          "description": "Directed by Richard Donner, it is considered the first super hero blockbuster of history"
         },
         {
           "year": "1988",
           "imagePath": "/superman-timeline-video-game.jpg",
           "title": "the arcade game",
-          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+          "description": "Released by Taito, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
         },
         {
           "year": "1993",
@@ -77,11 +109,10 @@
           "year": "2013",
           "imagePath": "/superman-timeline-new-movie.jpg",
           "title": "man of steel - the movie",
-          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+          "description": "Directed by Zack Snyder, it was the highest-grossing solo Superman movie of all time"
         }
       ]
-    },
-    "media": {}
+    }
   },
   {
     "id": "batman",
@@ -125,6 +156,13 @@
         {"name": "combat", "namePosX": 59, "value": 99}
       ]
     },
+    "enemies": [
+      {
+        "name": "Lex Luthor",
+        "imagePath": "/lex-luthor-enemies.jpg",
+        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+      }
+    ],
     "timeline": {
       "events": [
         {
@@ -143,29 +181,28 @@
           "year": "1960",
           "imagePath": "/justice-league-timeline-comic.jpg",
           "title": "justice league anexation",
-          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
           "year": "1986",
           "imagePath": "/batman-timeline-dark-knight-comic.jpg",
           "title": "the dark night returns",
-          "description": "It is widely considered to be one of the greatest and most influential Batman stories ever made"
+          "description": "It is widely considered one of the greatest and most influential Batman stories ever made"
         },
         {
           "year": "1989",
           "imagePath": "/batman-timeline-first-movie.jpg",
           "title": "batman - the film",
-          "description": "Directed by Tim Burton and starred by Michael Keaton, it was the first hero appearance on the big screens"
+          "description": "Directed by Tim Burton and starred by Michael Keaton, it was a really successful blockbuster"
         },
         {
           "year": "2009",
           "imagePath": "/batman-timeline-video-game.jpg",
           "title": "arkham asylum - the game",
-          "description": "The beginning of a relevant franchise, it was called one of the best comic book superhero games ever made"
+          "description": "The beginning of a relevant franchise, it was one of the best superhero games of history"
         }
       ]
-    },
-    "media": {}
+    }
   },
   {
     "id": "wonderwoman",
@@ -209,47 +246,53 @@
         {"name": "combat", "namePosX": 59, "value": 68}
       ]
     },
+    "enemies": [
+      {
+        "name": "Lex Luthor",
+        "imagePath": "/lex-luthor-enemies.jpg",
+        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+      }
+    ],
     "timeline": {
       "events": [
         {
           "year": "1941",
           "imagePath": "/wonderwoman-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Wonderwoman was created by William M. Marston and Harry G. Peter. First appearance in Sensation Comics #1"
+          "description": "Wonderwoman was created by W. M. Marston and H. G. Peter. First appearance in A.A Comics #8"
         },
         {
           "year": "1960",
           "imagePath": "/justice-league-timeline-comic.jpg",
           "title": "justice league anexation",
-          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
           "year": "1976",
           "imagePath": "/wonderwoman-timeline-tv-series.jpg",
           "title": "wonder woman - the series",
-          "description": "Starred by Kinda Carter, this portrayal of the character strongly influenced the Wonder Woman comics"
+          "description": "Starred by Kinda Carter, this portrayal of the character strongly influenced comics"
         },
         {
           "year": "1987",
           "imagePath": "/wonderwoman-timeline-comic.jpg",
           "title": "gods and mortals",
-          "description": "Run by George Perez, it is widely considered the greatest run of the character in comic book history"
+          "description": "Run by George Perez, it is considered the greatest run of the hero in comic book history"
         },
         {
           "year": "2017",
           "imagePath": "/wonderwoman-timeline-first-movie.jpg",
           "title": "wonder woman - the movie",
-          "description": "Directed by Patty Jenkins and starred by Gal Gadot, it received a very positive response from critics"
+          "description": "Directed by Patty Jenkins and starred by Gal Gadot, it received a positive response from critics"
         },
         {
           "year": "2023",
           "imagePath": "/wonderwoman-timeline-video-game.jpg",
           "title": "the official game",
-          "description": "A single-player open-world action game which is the first videogame starring the Amazonian warrior"
+          "description": "A single-player open-world action game, it is the first one starred by Amazonian warrior"
         }
       ]
-    },
-    "media": {}
+    }
   },
   {
     "id": "flash",
@@ -293,6 +336,13 @@
         {"name": "combat", "namePosX": 59, "value": 54}
       ]
     },
+    "enemies": [
+      {
+        "name": "Lex Luthor",
+        "imagePath": "/lex-luthor-enemies.jpg",
+        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+      }
+    ],
     "timeline": {
       "events": [
         {
@@ -305,25 +355,25 @@
           "year": "1960",
           "imagePath": "/justice-league-timeline-comic.jpg",
           "title": "justice league anexation",
-          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
           "year": "1990",
           "imagePath": "/flash-timeline-nineties-tv-series.jpg",
           "title": "the flash - nineties series",
-          "description": "Starred by John Wesley Shipp, this series was plenty of weird sci-fi villains and blockbuster special effects"
+          "description": "Starred by John W.Shipp, this series was plenty of weird sci-fi villains and special effects"
         },
         {
           "year": "2011",
           "imagePath": "/flash-timeline-flashpoint-comic.jpg",
           "title": "flashpoint",
-          "description": "Perhaps the most iconic of all modern timelines involving the Flash, it implied a reboot of the character"
+          "description": "Perhaps the most iconic of all modern timelines involving the Flash, it was a reboot of the hero"
         },
         {
           "year": "2014",
           "imagePath": "/flash-timeline-tv-series.jpg",
           "title": "the flash - the series",
-          "description": "Starred by Grant Gustin, it was composed of 8 seasons within fictional universe known the Arrowverse"
+          "description": "This tv series had 8 seasons developed within the fictional universe known the Arrowverse"
         },
         {
           "year": "2017",
@@ -332,8 +382,7 @@
           "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
         }
       ]
-    },
-    "media": {}
+    }
   },
   {
     "id": "greenlantern",
@@ -377,19 +426,26 @@
         {"name": "combat", "namePosX": 59, "value": 60}
       ]
     },
+    "enemies": [
+      {
+        "name": "Lex Luthor",
+        "imagePath": "/lex-luthor-enemies.jpg",
+        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+      }
+    ],
     "timeline": {
       "events": [
         {
           "year": "1940",
           "imagePath": "/greenlantern-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Greenlantern was created by Mart Nodell and Bill Finger. First appearance in All-American Comics #16"
+          "description": "Greenlantern was created by M. Nodell and Bill Finger. First appearance in A.A Comics #16"
         },
         {
           "year": "1960",
           "imagePath": "/justice-league-timeline-comic.jpg",
           "title": "justice league anexation",
-          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
           "year": "1994",
@@ -416,8 +472,7 @@
           "description": "Green Lantern: Rise of the Manhunters is an enjoyable and predictable beat-'em-up action game"
         }
       ]
-    },
-    "media": {}
+    }
   },
   {
     "id": "aquaman",
@@ -461,31 +516,38 @@
         {"name": "combat", "namePosX": 59, "value": 58}
       ]   
     },
+    "enemies": [
+      {
+        "name": "Lex Luthor",
+        "imagePath": "/lex-luthor-enemies.jpg",
+        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+      }
+    ],
     "timeline": {
       "events": [
         {
           "year": "1941",
           "imagePath": "/aquaman-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Aquaman was created by Paul Norris and Mort Weisinger. First appearance in More Fun Comics #73"
+          "description": "Aquaman was created by Paul Norris and Mort Weisinger. First appearance in M.F Comics #73"
         },
         {
           "year": "1960",
           "imagePath": "/justice-league-timeline-comic.jpg",
           "title": "justice league anexation",
-          "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
           "year": "1967",
           "imagePath": "/aquaman-timeline-series.jpg",
           "title": "aquaman - the series",
-          "description": "This show was comprised of previously-aired adventures featuring Aquaman and his sidekick Aqualad"
+          "description": "This tv series was comprised of adventures featuring Aquaman and his sidekick Aqualad"
         },
         {
           "year": "2011",
           "imagePath": "/aquaman-timeline-comic.jpg",
           "title": "aquaman - the trench",
-          "description": "One of the most relevant storylines of the character, it implied a strong rebirth for the hero"
+          "description": "One of the most relevant storylines of the character, it was a strong rebirth for the hero"
         },
         {
           "year": "2017",
@@ -497,11 +559,10 @@
           "year": "2018",
           "imagePath": "/aquaman-timeline-movie.jpg",
           "title": "aquaman - the movie",
-          "description": "Directed by James Wan and starred by Jason Momoa, it had a total worldwide gross of $1.148 billion"
+          "description": "Directed by James Wan, it obtained a total worldwide gross of $1.148 billion"
         }
       ]
-    },
-    "media": {}
+    }
   },
   {
     "id": "cyborg",
@@ -545,13 +606,20 @@
         {"name": "combat", "namePosX": 59, "value": 55}
       ]
     },
+    "enemies": [
+      {
+        "name": "Lex Luthor",
+        "imagePath": "/lex-luthor-enemies.jpg",
+        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+      }
+    ],
     "timeline": {
       "events": [
         {
           "year": "1980",
           "imagePath": "/cyborg-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Cyborg was created by Marv Wolfman and George Pérez. First appearance in DC Comics Presents #26"
+          "description": "Cyborg was created by Marv Wolfman and George Pérez. First appearance in DC C.P #26"
         },
         {
           "year": "1980",
@@ -563,19 +631,19 @@
           "year": "2006",
           "imagePath": "/smallville-timeline.jpg",
           "title": "smallville",
-          "description": "Based on the adventures of teenage Clark Kent, it was the first live-action portrayal of the character"
+          "description": "Being a secondary role, it supposed the first live-action portrayal of the superhero"
         },
         {
           "year": "2011",
           "imagePath": "/justice-league-timeline-rebirth-comic.jpg",
           "title": "justice league anexation",
-          "description": "He was established as a founding member of the Justice League in DC's 2011 reboot of its comic book titles"
+          "description": "He was established as a founding member of the Justice League in DC's 2011 reboot"
         },
         {
           "year": "2016",
           "imagePath": "/cyborg-timeline-comic.jpg",
           "title": "the imitation of life",
-          "description": "Composed of 10 parts, this storyline was the rebirth of the hero and provided him a general progression"
+          "description": "Composed of 10 separated blocks, this relevant storyline was the rebirth of the character"
         },
         {
           "year": "2017",
@@ -584,7 +652,6 @@
           "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
         }
       ]
-    },
-    "media": {}
+    }
   }
 ]

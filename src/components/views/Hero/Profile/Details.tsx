@@ -54,6 +54,7 @@ const Details: React.FC<Props> = ({
         src={imgPath}
         semiTransparentColor={semiTransparentColor}
         isVisible={isVisible}
+        alt={fullName}
       />
     </StyledDetails>
   );
