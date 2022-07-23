@@ -412,7 +412,7 @@
         {
           "year": "2011",
           "imagePath": "/greenlantern-timeline-video-game.jpg",
-          "title": "green lantern - the action game",
+          "title": "green lantern - the game",
           "description": "Green Lantern: Rise of the Manhunters is an enjoyable and predictable beat-'em-up action game"
         }
       ]
@@ -548,10 +548,10 @@
     "timeline": {
       "events": [
         {
-          "year": "1938",
-          "imagePath": "/superman-timeline-creation.jpg",
+          "year": "1941",
+          "imagePath": "/aquaman-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+          "description": "Green arrow was created by George Papp and Mort Weisinger. First appearance in More Fun Comics #73"
         },
         {
           "year": "1960",
