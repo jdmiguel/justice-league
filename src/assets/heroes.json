@@ -464,10 +464,10 @@
     "timeline": {
       "events": [
         {
-          "year": "1938",
-          "imagePath": "/superman-timeline-creation.jpg",
+          "year": "1941",
+          "imagePath": "/aquaman-timeline-creation.jpg",
           "title": "character creation",
-          "description": "Superman was created by Jerry Siegel and JoeShuster. First appearance in Action Comics #1"
+          "description": "Aquaman was created by Paul Norris and Mort Weisinger. First appearance in More Fun Comics #73"
         },
         {
           "year": "1960",
@@ -476,28 +476,28 @@
           "description": "One of the founders of the Justice League whose first appearing was in The Brave and the Bold #28"
         },
         {
-          "year": "1978",
-          "imagePath": "/superman-timeline-first-movie.jpg",
-          "title": "superman - the film",
-          "description": "Directed by Richard Donner and starred by Christopher Reeve, it was the first superhero blockbuster"
+          "year": "1967",
+          "imagePath": "/aquaman-timeline-series.jpg",
+          "title": "aquaman - the series",
+          "description": "This show was comprised of previously-aired adventures featuring Aquaman and his sidekick Aqualad"
         },
         {
-          "year": "1988",
-          "imagePath": "/superman-timeline-video-game.jpg",
-          "title": "superman - the arcade game",
-          "description": "Released by Taito in 1988, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+          "year": "2011",
+          "imagePath": "/aquaman-timeline-comic.jpg",
+          "title": "aquaman - the trench",
+          "description": "One of the most relevant storylines of the character, it implied a strong rebirth for the hero"
         },
         {
-          "year": "1993",
-          "imagePath": "/superman-timeline-death-superman-comic.jpg",
-          "title": "the death of superman",
-          "description": "Crossover story which contains one of the most relevant events across all the character history"
+          "year": "2017",
+          "imagePath": "/justice-league-timeline-movie.jpg",
+          "title": "justice league - the movie",
+          "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
         },
         {
-          "year": "2013",
-          "imagePath": "/superman-timeline-new-movie.jpg",
-          "title": "man of steel - the movie",
-          "description": "Directed by Zack Snyder and starred by Henry Cavill, it was the highest-grossing solo Superman film of all time"
+          "year": "2018",
+          "imagePath": "/aquaman-timeline-movie.jpg",
+          "title": "aquaman - the movie",
+          "description": "Directed by James Wan and starred by Jason Momoa, it had a total worldwide gross of $1.148 billion"
         }
       ]
     },
