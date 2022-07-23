@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
-import { StyledMediaWrapper } from '@/components/views/Hero/Media/styles';
+import { StyledEnemiesWrapper } from '@/components/views/Hero/Enemies/styles';
 
 type Props = {
   heroLogoPath: string;
@@ -9,7 +9,7 @@ type Props = {
   onEndFadeAnimation: () => void;
 };
 
-const Media: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation }) => {
+const Enemies: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation }) => {
   const tweenRef = useRef<GSAPTween>();
   const mediaRef = useRef<HTMLDivElement>(null);
 
@@ -34,10 +34,10 @@ const Media: React.FC<Props> = ({ heroLogoPath, isLeaving, onEndFadeAnimation })
   }, [isLeaving, onEndFadeAnimation]);
 
   return (
-    <StyledMediaWrapper ref={mediaRef} heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
-      IS MEDIA PAGE
-    </StyledMediaWrapper>
+    <StyledEnemiesWrapper ref={mediaRef} heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
+      IS ENEMIES PAGE
+    </StyledEnemiesWrapper>
   );
 };
 
-export default Media;
+export default Enemies;

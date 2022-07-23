@@ -7,11 +7,11 @@ import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
 import useLockedBody from '@/hooks/useLockedBody';
 import Intro from '@/components/views/Intro';
-import MediaView from '@/components/views/Hero/Media';
+import EnemiesView from '@/components/views/Hero/Enemies';
 import Layout from '@/components/layouts/Layout';
 import Header from '@/components/layouts/Header';
 
-const Media: React.FC = () => {
+const Enemies: React.FC = () => {
   const { id } = useParams<Params>();
   const { isIntroVisible } = useIntro();
   const { updateHero } = useHero();
@@ -42,13 +42,13 @@ const Media: React.FC = () => {
         <Header isSticky>
           <Header.Logo onClick={() => initNavigation({ heroId: null, pageId: 'root' })} />
           <Header.Navigation
-            pageId="media"
+            pageId="enemies"
             onClick={(pageId: PageId) => initNavigation({ heroId: id as HeroId, pageId })}
             isLeaving={isLeaving}
           />
           <Header.Divider isLeaving={isLeaving} />
         </Header>
-        <MediaView
+        <EnemiesView
           heroLogoPath={currentHeroData?.colorLogoPath || ''}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
@@ -58,4 +58,4 @@ const Media: React.FC = () => {
   );
 };
 
-export default Media;
+export default Enemies;

@@ -9,8 +9,8 @@ import Loader from '@/components/ui/Loader';
 /* Lazy Components */
 const Root = lazy(() => import('@/components/pages/root'));
 const Profile = lazy(() => import('@/components/pages/profile'));
+const Enemies = lazy(() => import('@/components/pages/enemies'));
 const Timeline = lazy(() => import('@/components/pages/timeline'));
-const Media = lazy(() => import('@/components/pages/media'));
 
 const App = () => {
   const { isIntroVisible } = useContext(IntroContext);
@@ -22,8 +22,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Root />} />
           <Route path="/:id/profile" element={<Profile />} />
+          <Route path="/:id/enemies" element={<Enemies />} />
           <Route path="/:id/timeline" element={<Timeline />} />
-          <Route path="/:id/media" element={<Media />} />
         </Routes>
       </Suspense>
     </ThemeProvider>

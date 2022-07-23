@@ -18,7 +18,7 @@ export type HeroMenuData = {
   active: boolean;
 };
 
-export type PageId = 'root' | 'profile' | 'timeline' | 'media';
+export type PageId = 'root' | 'profile' | 'enemies' | 'timeline';
 
 export type ProfileIntroData = {
   semiTransparentColor: string;

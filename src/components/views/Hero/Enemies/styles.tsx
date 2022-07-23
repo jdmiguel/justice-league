@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animation, ease } from '@/helpers/theme';
 
-export const StyledMediaWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
+export const StyledEnemiesWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
   position: relative;
   min-height: calc(100vh - 85px);
   &:before {

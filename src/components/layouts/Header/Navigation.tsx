@@ -20,11 +20,11 @@ const Navigation: React.FC<Props> = ({ pageId, onClick, isLeaving }) => (
       <StyledHeaderNavigationListItem isActive={pageId === 'profile'}>
         <button onClick={() => onClick('profile')}>PROFILE</button>
       </StyledHeaderNavigationListItem>
+      <StyledHeaderNavigationListItem isActive={pageId === 'enemies'}>
+        <button onClick={() => onClick('enemies')}>ENEMIES</button>
+      </StyledHeaderNavigationListItem>
       <StyledHeaderNavigationListItem isActive={pageId === 'timeline'}>
         <button onClick={() => onClick('timeline')}>TIMELINE</button>
-      </StyledHeaderNavigationListItem>
-      <StyledHeaderNavigationListItem isActive={pageId === 'media'}>
-        <button onClick={() => onClick('media')}>MEDIA</button>
       </StyledHeaderNavigationListItem>
     </StyledHeaderNavigationList>
   </StyledHeaderNavigation>
