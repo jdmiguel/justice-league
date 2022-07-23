@@ -5,7 +5,6 @@ export type HeroData = {
   flash: string;
   greenlantern: string;
   aquaman: string;
-  greenarrow: string;
   cyborg: string;
 };
 

@@ -9,7 +9,6 @@ import WonderWomanLogo from '@/components/views/HeroMenu/HeroVectorLogo/WonderWo
 import FlashLogo from '@/components/views/HeroMenu/HeroVectorLogo/FlashLogo';
 import GreenLanternLogo from '@/components/views/HeroMenu/HeroVectorLogo/GreenLanternLogo';
 import AquamanLogo from '@/components/views/HeroMenu/HeroVectorLogo/AquamanLogo';
-import GreenArrowLogo from '@/components/views/HeroMenu/HeroVectorLogo/GreenArrowLogo';
 import CyborgLogo from '@/components/views/HeroMenu/HeroVectorLogo/CyborgLogo';
 import { StyledHeroVectorLogo } from '@/components/views/HeroMenu/styles';
 
@@ -37,7 +36,6 @@ const HeroVectorLogo: React.FC<Props> = ({
   const flashRef = useRef<HTMLDivElement>(null);
   const greenlanternRef = useRef<HTMLDivElement>(null);
   const aquamanRef = useRef<HTMLDivElement>(null);
-  const greenarrowRef = useRef<HTMLDivElement>(null);
   const cyborgRef = useRef<HTMLDivElement>(null);
 
   const heroRefs = useMemo(
@@ -48,7 +46,6 @@ const HeroVectorLogo: React.FC<Props> = ({
       flashRef,
       greenlanternRef,
       aquamanRef,
-      greenarrowRef,
       cyborgRef,
     ],
     [],
@@ -164,8 +161,6 @@ const HeroVectorLogo: React.FC<Props> = ({
         return <GreenLanternLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'aquaman':
         return <AquamanLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
-      case 'greenarrow':
-        return <GreenArrowLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
       case 'cyborg':
         return <CyborgLogo isHighlighted={isHighlighted} isFaded={isFaded} />;
     }

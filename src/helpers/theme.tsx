@@ -88,8 +88,7 @@ export const colorTheme = {
   red: '#c01518',
   green: '#09a609',
   yellow: '#df9a1a',
-  darkGreen: '#0d5f0f',
-  darkRed: '#820e10',
+  silver: '#7d878d',
 };
 
 export const semiTransparentColorTheme = {
@@ -99,8 +98,7 @@ export const semiTransparentColorTheme = {
   semiTransparentRed: 'rgba(192, 21, 24, 0.3)',
   semiTransparentGreen: 'rgba(9, 166, 9, 0.3)',
   semiTransparentYellow: 'rgba(223, 154, 26, 0.3)',
-  semiTransparentDarkGreen: 'rgba(13, 95, 15, 0.5)',
-  semiTransparentDarkRed: 'rgba(130, 14, 16, 0.4)',
+  semiTransparentSilver: 'rgba(125, 135, 141, 0.5)',
 };
 
 export const theme = {
@@ -116,8 +114,7 @@ export const heroColors: HeroData = {
   flash: theme.red,
   greenlantern: theme.green,
   aquaman: theme.yellow,
-  greenarrow: theme.darkGreen,
-  cyborg: theme.darkRed,
+  cyborg: theme.silver,
 };
 
 export const heroSemiTransparentColors: HeroData = {
@@ -127,8 +124,7 @@ export const heroSemiTransparentColors: HeroData = {
   flash: theme.semiTransparentRed,
   greenlantern: theme.semiTransparentGreen,
   aquaman: theme.semiTransparentYellow,
-  greenarrow: theme.semiTransparentDarkGreen,
-  cyborg: theme.semiTransparentDarkRed,
+  cyborg: theme.semiTransparentSilver,
 };
 
 export const getRandomHeroColor = (): string => {

@@ -64,7 +64,6 @@ const HeroHeading: React.FC<Props> = ({
   const flashRef = useRef<HTMLHeadingElement>(null);
   const greenlanternRef = useRef<HTMLHeadingElement>(null);
   const aquamanRef = useRef<HTMLHeadingElement>(null);
-  const greenarrowRef = useRef<HTMLHeadingElement>(null);
   const cyborgRef = useRef<HTMLHeadingElement>(null);
 
   const heroRefs = useMemo(
@@ -75,7 +74,6 @@ const HeroHeading: React.FC<Props> = ({
       flashRef,
       greenlanternRef,
       aquamanRef,
-      greenarrowRef,
       cyborgRef,
     ],
     [],
