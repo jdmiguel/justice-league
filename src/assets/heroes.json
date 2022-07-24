@@ -248,9 +248,34 @@
     },
     "enemies": [
       {
-        "name": "Lex Luthor",
-        "imagePath": "/lex-luthor-enemies.jpg",
-        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+        "name": "Cheetah",
+        "imagePath": "/cheetah-enemies.jpg",
+        "description": "Cheetah may not only be the most famous of all of Wonder Woman's rogue gallery, but also the most lethal since she is the avatar of a god"
+      },
+      {
+        "name": "Ares",
+        "imagePath": "/ares-enemies.jpg",
+        "description": "The Greek god of war is obviously a very dangerous foe. Ares is constantly lusting for more violence being extremely brutal in battle"
+      },
+      {
+        "name": "Circe",
+        "imagePath": "/circe-enemies.jpg",
+        "description": "Based on the sorceress of Greek mythology who imprisoned Odysseus, the Circe of the comics contains much of her mythological traits"
+      },
+      {
+        "name": "Veronica Cale",
+        "imagePath": "/veronica-cale-enemies.jpg",
+        "description": "A scientific genius and uber-rich (as the half-owner of a pharmaceutical company). Cale is to Wonder Woman what Lex Luthor is to Superman"
+      },
+      {
+        "name": "Doctor Psycho",
+        "imagePath": "/doctor-psycho-enemies.jpg",
+        "description": "This villain is sadistic, vile, and misogynistic. In some ways, he is the polar opposite of everything that Diana Prince actually stands for"
+      },
+      {
+        "name": "Silver Swan",
+        "imagePath": "/silver-swan-enemies.jpg",
+        "description": "From ugly duckling to murderous cyborg, Silver Swan might just have the most versatile resume of all of Wonder Woman’s rogue’s gallery"
       }
     ],
     "timeline": {
