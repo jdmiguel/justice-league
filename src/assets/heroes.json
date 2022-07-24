@@ -633,9 +633,34 @@
     },
     "enemies": [
       {
-        "name": "Lex Luthor",
-        "imagePath": "/lex-luthor-enemies.jpg",
-        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+        "name": "H8-Bit",
+        "imagePath": "/h8-bit-enemies.jpg",
+        "description": "He was a brilliant hacker before becoming in one of the unique villains of this era due to his electricity powers and technology control"
+      },
+      {
+        "name": "Magenta",
+        "imagePath": "/magenta-enemies.jpg",
+        "description": "Magenta suffers from a mental illness that gave her a dissociative personality disorder. Also, she owns strange powers related to magnetism"
+      },
+      {
+        "name": "Shrapnel",
+        "imagePath": "/shrapnel-enemies.jpg",
+        "description": "This villain is a walking piece of organic metal with super-strength, endurance, and self-sustainability. An actual threat for any hero"
+      },
+      {
+        "name": "Grid",
+        "imagePath": "/grid-enemies.jpg",
+        "description": "Grid is a malevolent sentient computer virus that lived within Cyborg’s. It's main goal is to feel the emotions of other living things"
+      },
+      {
+        "name": "Cyborg Girl",
+        "imagePath": "/cyborg-girl-enemies.jpg",
+        "description": "Her aunt replaced her body with powerful cybernetic implants. Sadly, those upgrades are not used for the good of humanity at all"
+      },
+      {
+        "name": "Bobby Zirrozinski",
+        "imagePath": "/zirrozinski-enemies.jpg",
+        "description": "A strong hatred for Cyborg, he is a military veteran who underwent a backdoor operation to add cybernetic attachments to his body"
       }
     ],
     "timeline": {
