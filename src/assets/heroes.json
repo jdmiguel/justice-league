@@ -543,9 +543,34 @@
     },
     "enemies": [
       {
-        "name": "Lex Luthor",
-        "imagePath": "/lex-luthor-enemies.jpg",
-        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+        "name": "Black Manta",
+        "imagePath": "/black-manta-enemies.jpg",
+        "description": "This villain is the main Aquaman's arch-nemesis. Consumed by his vendetta, he seeks the death of Arthur and the destruction of Atlantis"
+      },
+      {
+        "name": "Dead King",
+        "imagePath": "/dead-king-enemies.jpg",
+        "description": "Atlan is an ancient ruler of Atlantis who actually represents all of the worst elements of Atlantean culture. He is racist and elitist"
+      },
+      {
+        "name": "Ocean Master",
+        "imagePath": "/ocean-master-enemies.jpg",
+        "description": "The Ocean Master has seen himself as the true and unique king of Atlantis and has butted heads with Arthur on numerous occasions"
+      },
+      {
+        "name": "Trench",
+        "imagePath": "/trench-enemies.jpg",
+        "description": "A former tribe of Atlantis that mutated to in the depths, the Trench is a huge menace which exists only to feed and kill anything it sees"
+      },
+      {
+        "name": "Siren",
+        "imagePath": "/siren-enemies.jpg",
+        "description": "Considered to be one of the greatest female villains of Aquaman's rogue's gallery, Siren is the sister of Mera and sister-in-law to Arthur"
+      },
+      {
+        "name": "Corum Rath",
+        "imagePath": "/corum-rath-enemies.jpg",
+        "description": "Leader of the eco-terrorist group known as the Deluge, Corum Rath became Atlantis king. This enemy forms a dark mirror to Aquaman"
       }
     ],
     "timeline": {
