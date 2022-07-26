@@ -363,9 +363,34 @@
     },
     "enemies": [
       {
-        "name": "Lex Luthor",
-        "imagePath": "/lex-luthor-enemies.jpg",
-        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+        "name": "Reverse Flash",
+        "imagePath": "/reverse-flash-enemies.jpg",
+        "description": "Shaping a dark mirror of the character, he traveled back in time and killed Flash's mother, which is what led Flash to become a hero"
+      },
+      {
+        "name": "Grood",
+        "imagePath": "/grood-enemies.jpg",
+        "description": "Hailing from Gorilla City, a hidden society of highly evolved apes, Grodd has frequently tried to infiltrate and conquer man's world"
+      },
+      {
+        "name": "Savitar",
+        "imagePath": "/savitar-enemies.jpg",
+        "description": "Taking his name from the Hindu god-of-motion, Savitar was a pilot whose plane was suddenly struck by lightning, giving him super-speed"
+      },
+      {
+        "name": "The Thinker",
+        "imagePath": "/the-thinker-enemies.jpg",
+        "description": "With a weaponized chair. The Thinker is the smartest villain on this list and is therefore one step ahead of the hero most of the times"
+      },
+      {
+        "name": "Captain Cold",
+        "imagePath": "/captain-cold-enemies.jpg",
+        "description": "This dangerous criminal is not a superpowered villain but instead uses weapons and tech that freezes everything around instantly"
+      },
+      {
+        "name": "Mirror Master",
+        "imagePath": "/mirror-master-enemies.jpg",
+        "description": "A lifelong criminal who became in a master of illusion, he makes use of his mirror gun to vex and addle the Scarlet Speedster at every turn"
       }
     ],
     "timeline": {
