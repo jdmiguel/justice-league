@@ -478,9 +478,34 @@
     },
     "enemies": [
       {
-        "name": "Lex Luthor",
-        "imagePath": "/lex-luthor-enemies.jpg",
-        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+        "name": "Sinestro",
+        "imagePath": "/sinestro-enemies.jpg",
+        "description": "An intelligent former member of the Green Lantern Corps, Sinestro turns on the Guardians and dons a yellow ring, a ring powered by fear"
+      },
+      {
+        "name": "Parallax",
+        "imagePath": "/parallax-enemies.jpg",
+        "description": "An evil space bug named Parallax who is the embodiment of all fear, it has gone on to possess numerous people across the universe"
+      },
+      {
+        "name": "Nekron",
+        "imagePath": "/nekron-enemies.jpg",
+        "description": "Responsible for instigating the events of Blackest Night, Nekron led to the revival of millions of both, dead heroes and villains"
+      },
+      {
+        "name": "Atrocitus",
+        "imagePath": "/atrocitus-enemies.jpg",
+        "description": "One of the few survivors of a Manhunter attack. Enraged, Atrocitus gave birth to the Red Lantern Corps and wields his rage like a weapon"
+      },
+      {
+        "name": "Krona",
+        "imagePath": "/krona-enemies.jpg",
+        "description": "The resulting wave of cosmic power turned Krona into a being of pure energy who became an extremely powerful and cosmic-level entity"
+      },
+      {
+        "name": "larfleeze",
+        "imagePath": "/larfleeze-enemies.jpg",
+        "description": "Larfleeze is the only member of the Orange Lantern Corps. With an immense amount of power, the agent orange is powered by avarice"
       }
     ],
     "timeline": {
