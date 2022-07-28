@@ -158,9 +158,34 @@
     },
     "enemies": [
       {
-        "name": "Lex Luthor",
-        "imagePath": "/lex-luthor-enemies.jpg",
-        "description": "No Superman villain is as well known, as well-loved, or as well-traveled as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+        "name": "The Joker",
+        "imagePath": "/joker-enemies.jpg",
+        "description": "The Clown Prince of Crime is the authentic nemesis of Batman. His desire for chaos and carnage makes him a difficult villain to stop"
+      },
+      {
+        "name": "Catwoman",
+        "imagePath": "/catwoman-enemies.jpg",
+        "description": "Selina Kyle is a good person who does bad things, making her both a sympathetic villain and an uneasy ally for the caped crusader"
+      },
+      {
+        "name": "Two-face",
+        "imagePath": "/two-face-enemies.jpg",
+        "description": "Former district attorney, he became badly disfigured after a mob boss throws acid on his face. This fact turned him into Two-Face"
+      },
+      {
+        "name": "The Penguin",
+        "imagePath": "/penguin-enemies.jpg",
+        "description": "Despite being the grotesque face of the city's criminal underworld, The Penguin has displayed refined intelligence and sophistication"
+      },
+      {
+        "name": "The Riddler",
+        "imagePath": "/riddler-enemies.jpg",
+        "description": "At his best, this enigmatic evildoer is a riddling madman hellbent on pitting his amazing wits against the world's greatest detective"
+      },
+      {
+        "name": "Bane",
+        "imagePath": "/bane-enemies.jpg",
+        "description": "After nearly dying from an experimental super-soldier program, this villain reached the pinnacle of physical and mental criminality"
       }
     ],
     "timeline": {
