@@ -71,6 +71,16 @@
         "name": "Bizarro",
         "imagePath": "/bizarro-enemies.jpg",
         "description": "As result of a bizarre science experiment, Bizarro is an imperfect duplicate of Kal-El, with none of his intelligence or self-control"
+      },
+      {
+        "name": "Metallo",
+        "imagePath": "/metallo-enemies.jpg",
+        "description": "Metallo is more of an evil Tony Stark since his metallic body has all the technology needed to perform as well as the most gifted superheroes"
+      },
+      {
+        "name": "Parasite",
+        "imagePath": "/parasite-enemies.jpg",
+        "description": "Parasite feeds on energy to live and his touch allows him to sap the powers and memories of his victims, making him a formidable foe"
       }
     ],
     "timeline": {
@@ -186,6 +196,16 @@
         "name": "Bane",
         "imagePath": "/bane-enemies.jpg",
         "description": "After nearly dying from an experimental super-soldier program, this villain reached the pinnacle of physical and mental criminality"
+      },
+      {
+        "name": "Poison Ivy",
+        "imagePath": "/poison-ivy-enemies.jpg",
+        "description": "Poison Ivy is a lethal and beauty eco-terrorist who is obsessed with protecting the planet's plant life by eliminating all human life"
+      },
+      {
+        "name": "Ras Al Ghul",
+        "imagePath": "/ras-al-ghul-enemies.jpg",
+        "description": "This super-intelligent, mystical international assassin leads the League of Assassins whose main purpose is purging the crimes of humanity"
       }
     ],
     "timeline": {
@@ -301,6 +321,16 @@
         "name": "Silver Swan",
         "imagePath": "/silver-swan-enemies.jpg",
         "description": "From ugly duckling to murderous cyborg, Silver Swan might just have the most versatile resume of all of Wonder Woman’s rogue’s gallery"
+      },
+      {
+        "name": "Giganta",
+        "imagePath": "/giganta-enemies.jpg",
+        "description": "A scientist with a fatal blood disease that leads her to try and swap bodies with Wonder Woman. She has the power to grow to a huge height"
+      },
+      {
+        "name": "Devastation",
+        "imagePath": "/devastation-enemies.jpg",
+        "description": "Her tragic nature combined with her powers being a dark echo of Diana's results in this foe being one of the more intriguing villains"
       }
     ],
     "timeline": {
@@ -416,6 +446,16 @@
         "name": "Mirror Master",
         "imagePath": "/mirror-master-enemies.jpg",
         "description": "A lifelong criminal who became in a master of illusion, he makes use of his mirror gun to vex and addle the Scarlet Speedster at every turn"
+      },
+      {
+        "name": "Heatwave",
+        "imagePath": "/heatwave-enemies.jpg",
+        "description": "A deadly villain who has committed countless crimes of arson and thieving. Even the fastest man alive can't run from the flames forever"
+      },
+      {
+        "name": "Captain Boomerang",
+        "imagePath": "/captain-boomerang-enemies.jpg",
+        "description": "Because of his level of technology and skills with them, he is actually one of the most memorable people on the Flash's foes gallery"
       }
     ],
     "timeline": {
@@ -531,6 +571,16 @@
         "name": "larfleeze",
         "imagePath": "/larfleeze-enemies.jpg",
         "description": "Larfleeze is the only member of the Orange Lantern Corps. With an immense amount of power, the agent orange is powered by avarice"
+      },
+      {
+        "name": "Doctor Polaris",
+        "imagePath": "/doctor-polaris-enemies.jpg",
+        "description": "one minute appearing as Neal Emmerson and the next the dangerous and unstable Polaris who uses his powers to control magnetic fields"
+      },
+      {
+        "name": "Hector Hammond",
+        "imagePath": "/hector-hammond-enemies.jpg",
+        "description": "Hector Hammond is a metahuman with a very large head whose telepathic abilities have constantly made him a foe to be reckoned with"
       }
     ],
     "timeline": {
@@ -646,6 +696,16 @@
         "name": "Corum Rath",
         "imagePath": "/corum-rath-enemies.jpg",
         "description": "Leader of the eco-terrorist group known as the Deluge, Corum Rath became Atlantis king. This enemy forms a dark mirror to Aquaman"
+      },
+      {
+        "name": "King Shark",
+        "imagePath": "/king-shark-enemies.jpg",
+        "description": "Mutant or son of a shark god? he is a super-villain and humanoid shark. Driven by animal instincts, he is unable to stop his need to feed"
+      },
+      {
+        "name": "Charybdis",
+        "imagePath": "/charybdis-enemies.jpg",
+        "description": "Driven mad when his wife and partner in crime Scylla was killed in an attempt to kill Aquaman, he became in one greatest menaces for the hero"
       }
     ],
     "timeline": {
@@ -761,6 +821,16 @@
         "name": "Bobby Zirrozinski",
         "imagePath": "/zirrozinski-enemies.jpg",
         "description": "A strong hatred for Cyborg, he is a military veteran who underwent a backdoor operation to add cybernetic attachments to his body"
+      },
+      {
+        "name": "Anomaly",
+        "imagePath": "/anomaly-enemies.jpg",
+        "description": "As a product of unethical experimentation by Silas Stone, the father of Cyborg, he was created to replicate organic tissue to save Silas's wife"
+      },
+      {
+        "name": "Gizmo",
+        "imagePath": "/gizmo-enemies.jpg",
+        "description": "With genius level intellect, This villain is a highly resourceful chap who can create a new machine with almost anything he has access to"
       }
     ],
     "timeline": {
