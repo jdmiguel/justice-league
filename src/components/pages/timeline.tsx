@@ -36,13 +36,13 @@ const Timeline: React.FC = () => {
   /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.id === id);
 
-  const eventImages = currentHeroData?.timeline.events.map((event) => event.imagePath) as string[];
+  const eventImages = currentHeroData?.timelineEvents.map((event) => event.imagePath) as string[];
   const { imagesPreloaded } = useImagePreloader([
     currentHeroData?.colorLogoPath as string,
     ...eventImages,
   ]);
 
-  const eventsData: TimelineEventsData = currentHeroData?.timeline.events || [];
+  const eventsData: TimelineEventsData = currentHeroData?.timelineEvents || [];
   const heroColor = heroColors[id as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
 
