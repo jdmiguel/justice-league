@@ -53,19 +53,14 @@
         "description": "The tyrannical ruler of Apokolips, a sadistic tyrant who has invaded and conquered countless worlds throughout the universe"
       },
       {
-        "name": "Doomsday",
-        "imagePath": "/doomsday-enemies.jpg",
-        "description": "A weapon crafted in the most extreme conditions, Doomsday is an unstoppable force of destruction, devastation and death"
-      },
-      {
         "name": "Zod",
         "imagePath": "/zod-enemies.jpg",
         "description": "Once considered an outstanding military hero of the planet Krypton, General Dru-Zod decided he would rather rule his world than serve it"
       },
       {
-        "name": "Brainiac",
-        "imagePath": "/brainiac-enemies.jpg",
-        "description": "One of the most intelligent beings in the entire universe, the wicked Brainiac's genius has challenged Superman over and over again"
+        "name": "Doomsday",
+        "imagePath": "/doomsday-enemies.jpg",
+        "description": "A weapon crafted in the most extreme conditions, Doomsday is an unstoppable force of destruction, devastation and death"
       },
       {
         "name": "Bizarro",
@@ -73,14 +68,19 @@
         "description": "As result of a bizarre science experiment, Bizarro is an imperfect duplicate of Kal-El, with none of his intelligence or self-control"
       },
       {
-        "name": "Metallo",
-        "imagePath": "/metallo-enemies.jpg",
-        "description": "Metallo is more of an evil Tony Stark since his metallic body has all the technology needed to perform as well as the most gifted superheroes"
+        "name": "Brainiac",
+        "imagePath": "/brainiac-enemies.jpg",
+        "description": "One of the most intelligent beings in the entire universe, the wicked Brainiac's genius has challenged Superman over and over again"
       },
       {
         "name": "Parasite",
         "imagePath": "/parasite-enemies.jpg",
         "description": "Parasite feeds on energy to live and his touch allows him to sap the powers and memories of his victims, making him a formidable foe"
+      },
+      {
+        "name": "Metallo",
+        "imagePath": "/metallo-enemies.jpg",
+        "description": "Metallo is more of an evil Tony Stark since his metallic body has all the technology needed to perform as well as the most gifted superheroes"
       }
     ],
     "timelineEvents": [
@@ -427,14 +427,14 @@
         "description": "Taking his name from the Hindu god-of-motion, Savitar was a pilot whose plane was suddenly struck by lightning, giving him super-speed"
       },
       {
-        "name": "The Thinker",
-        "imagePath": "/the-thinker-enemies.jpg",
-        "description": "With a weaponized chair. The Thinker is the smartest villain on this list and is therefore one step ahead of the hero most of the times"
-      },
-      {
         "name": "Captain Cold",
         "imagePath": "/captain-cold-enemies.jpg",
         "description": "This dangerous criminal is not a superpowered villain but instead uses weapons and tech that freezes everything around instantly"
+      },
+      {
+        "name": "The Thinker",
+        "imagePath": "/the-thinker-enemies.jpg",
+        "description": "With a weaponized chair. The Thinker is the smartest villain on this list and is therefore one step ahead of the hero most of the times"
       },
       {
         "name": "Mirror Master",
@@ -555,24 +555,25 @@
         "description": "One of the few survivors of a Manhunter attack. Enraged, Atrocitus gave birth to the Red Lantern Corps and wields his rage like a weapon"
       },
       {
-        "name": "Krona",
-        "imagePath": "/krona-enemies.jpg",
-        "description": "The resulting wave of cosmic power turned Krona into a being of pure energy who became an extremely powerful and cosmic-level entity"
-      },
-      {
         "name": "larfleeze",
         "imagePath": "/larfleeze-enemies.jpg",
         "description": "Larfleeze is the only member of the Orange Lantern Corps. With an immense amount of power, the agent orange is powered by avarice"
       },
       {
-        "name": "Doctor Polaris",
-        "imagePath": "/doctor-polaris-enemies.jpg",
-        "description": "one minute appearing as Neal Emmerson and the next the dangerous and unstable Polaris who uses his powers to control magnetic fields"
+        "name": "Krona",
+        "imagePath": "/krona-enemies.jpg",
+        "description": "The resulting wave of cosmic power turned Krona into a being of pure energy who became an extremely powerful and cosmic-level entity"
       },
       {
         "name": "Hector Hammond",
         "imagePath": "/hector-hammond-enemies.jpg",
         "description": "Hector Hammond is a metahuman with a very large head whose telepathic abilities have constantly made him a foe to be reckoned with"
+      }
+      ,
+      {
+        "name": "Doctor Polaris",
+        "imagePath": "/doctor-polaris-enemies.jpg",
+        "description": "one minute appearing as Neal Emmerson and the next the dangerous and unstable Polaris who uses his powers to control magnetic fields"
       }
     ],
     "timelineEvents": [
@@ -663,11 +664,6 @@
         "description": "This villain is the main Aquaman's arch-nemesis. Consumed by his vendetta, he seeks the death of Arthur and the destruction of Atlantis"
       },
       {
-        "name": "Dead King",
-        "imagePath": "/dead-king-enemies.jpg",
-        "description": "Atlan is an ancient ruler of Atlantis who actually represents all of the worst elements of Atlantean culture. He is racist and elitist"
-      },
-      {
         "name": "Ocean Master",
         "imagePath": "/ocean-master-enemies.jpg",
         "description": "The Ocean Master has seen himself as the true and unique king of Atlantis and has butted heads with Arthur on numerous occasions"
@@ -678,9 +674,19 @@
         "description": "A former tribe of Atlantis that mutated to in the depths, the Trench is a huge menace which exists only to feed and kill anything it sees"
       },
       {
+        "name": "Dead King",
+        "imagePath": "/dead-king-enemies.jpg",
+        "description": "Atlan is an ancient ruler of Atlantis who actually represents all of the worst elements of Atlantean culture. He is racist and elitist"
+      },
+      {
         "name": "Siren",
         "imagePath": "/siren-enemies.jpg",
         "description": "Considered to be one of the greatest female villains of Aquaman's rogue's gallery, Siren is the sister of Mera and sister-in-law to Arthur"
+      },
+      {
+        "name": "Charybdis",
+        "imagePath": "/charybdis-enemies.jpg",
+        "description": "Driven mad when his wife and partner in crime Scylla was killed in an attempt to kill Aquaman, he became in one greatest menaces for the hero"
       },
       {
         "name": "Corum Rath",
@@ -691,11 +697,6 @@
         "name": "King Shark",
         "imagePath": "/king-shark-enemies.jpg",
         "description": "Mutant or son of a shark god? he is a super-villain and humanoid shark. Driven by animal instincts, he is unable to stop his need to feed"
-      },
-      {
-        "name": "Charybdis",
-        "imagePath": "/charybdis-enemies.jpg",
-        "description": "Driven mad when his wife and partner in crime Scylla was killed in an attempt to kill Aquaman, he became in one greatest menaces for the hero"
       }
     ],
     "timelineEvents": [
@@ -781,14 +782,14 @@
     },
     "enemies": [
       {
+        "name": "Anomaly",
+        "imagePath": "/anomaly-enemies.jpg",
+        "description": "As a product of unethical experimentation by Silas Stone, the father of Cyborg, he was created to replicate organic tissue to save Silas's wife"
+      },
+      {
         "name": "H8-Bit",
         "imagePath": "/h8-bit-enemies.jpg",
         "description": "He was a brilliant hacker before becoming in one of the unique villains of this era due to his electricity powers and technology control"
-      },
-      {
-        "name": "Magenta",
-        "imagePath": "/magenta-enemies.jpg",
-        "description": "Magenta suffers from a mental illness that gave her a dissociative personality disorder. Also, she owns strange powers related to magnetism"
       },
       {
         "name": "Shrapnel",
@@ -801,6 +802,11 @@
         "description": "Grid is a malevolent sentient computer virus that lived within Cyborg’s. It's main goal is to feel the emotions of other living things"
       },
       {
+        "name": "Magenta",
+        "imagePath": "/magenta-enemies.jpg",
+        "description": "Magenta suffers from a mental illness that gave her a dissociative personality disorder. Also, she owns strange powers related to magnetism"
+      },
+      {
         "name": "Cyborg Girl",
         "imagePath": "/cyborg-girl-enemies.jpg",
         "description": "Her aunt replaced her body with powerful cybernetic implants. Sadly, those upgrades are not used for the good of humanity at all"
@@ -809,11 +815,6 @@
         "name": "Bobby Zirrozinski",
         "imagePath": "/zirrozinski-enemies.jpg",
         "description": "A strong hatred for Cyborg, he is a military veteran who underwent a backdoor operation to add cybernetic attachments to his body"
-      },
-      {
-        "name": "Anomaly",
-        "imagePath": "/anomaly-enemies.jpg",
-        "description": "As a product of unethical experimentation by Silas Stone, the father of Cyborg, he was created to replicate organic tissue to save Silas's wife"
       },
       {
         "name": "Gizmo",
