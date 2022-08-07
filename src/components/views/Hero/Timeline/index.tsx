@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
-import { TimelineEventsData } from '@/helpers/types';
+import { EventsData } from '@/helpers/types';
 import Event from '@/components/views/Hero/Timeline/Event';
 import { StyledTimelineWrapper, StyledTimeline } from '@/components/views/Hero/Timeline/styles';
 
@@ -9,7 +9,7 @@ type Props = {
   heroLogoPath: string;
   color: string;
   semiTransparentColor: string;
-  eventsData: TimelineEventsData;
+  eventsData: EventsData;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
