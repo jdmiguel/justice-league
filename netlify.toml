@@ -7,3 +7,4 @@ to = '/index.html'
 command = 'yarn build'
 environment = {NODE_VERSION = '16.13.0'}
 publish = 'dist'
+functions = 'functions'

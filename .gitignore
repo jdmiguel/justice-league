@@ -24,4 +24,5 @@ tsconfig.tsbuildinfo
 *.sln
 *.sw?
 
+# misc
 .env

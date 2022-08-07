@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@use-gesture/react": "^10.2.11",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "gsap": "^3.10.3",
     "lethargy": "^1.0.9",
     "react": "^18.0.0",
