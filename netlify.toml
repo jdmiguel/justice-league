@@ -1,10 +1,10 @@
-[[redirects]]
-from = '/*'
-status = 200
-to = '/index.html'
-
 [build]
-command = 'yarn build'
-environment = {NODE_VERSION = '16.13.0'}
-publish = 'dist'
-functions = 'functions'
+  command = "yarn build"
+  environment = {NODE_VERSION = "16.13.0"}
+  publish = "dist"
+  functions = "functions"
+
+[[redirects]]
+  from = "api/*"
+  to = ".netlify/functions/:splat"
+  status = 200
