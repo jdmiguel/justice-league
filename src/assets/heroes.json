@@ -1,20 +1,23 @@
 [
   {
-    "id": "superman",
-    "name": "Superman",
-    "alias": "The man of steel",
-    "description":
-      "Faster than a speeding bullet, more powerful than a locomotive… Rocketed to Earth as an infant from the doomed planet Krypton, Kal-El was adopted by the loving Kent family and raised in America´s heartland as Clark Kent. Using his immense solar-fueled powers, he became Superman to defend mankind against all manner of threats while championing truth, justice and freedom.",
-    "menuBgImagePath": "/superman-hero-menu-bg.jpg",
-    "whiteLogoPath": "/superman-white-logo.svg",
-    "colorLogoPath": "/superman-color-logo.svg",
+    "meta": {
+      "heroId": "superman",
+      "name": "Superman",
+      "menuBgImagePath": "/superman-hero-menu-bg.jpg",
+      "whiteLogoPath": "/superman-white-logo.svg",
+      "colorLogoPath": "/superman-color-logo.svg"
+    },
     "profile": { 
+      "heroId": "superman",
+      "alias": "The man of steel",
+      "description":
+        "Faster than a speeding bullet, more powerful than a locomotive… Rocketed to Earth as an infant from the doomed planet Krypton, Kal-El was adopted by the loving Kent family and raised in America´s heartland as Clark Kent. Using his immense solar-fueled powers, he became Superman to defend mankind against all manner of threats while championing truth, justice and freedom",
       "imagePath": "/superman-profile.jpg",
       "details": { 
-        "fullName": "Clark Kent" ,
-        "birthPlace": "Krypton" ,
-        "occupation": "Reporter" ,
-        "base": "Metropolis" ,
+        "fullName": "Clark Kent",
+        "birthPlace": "Krypton",
+        "occupation": "Reporter",
+        "base": "Metropolis",
         "firstAppearance": "Action Comics #1",
         "imagePath": "/superman-profile-details.jpg"
       },
@@ -41,97 +44,106 @@
         {"name": "combat", "namePosX": 59, "value": 44}
       ] 
     },
-    "enemies": [
-      {
-        "name": "Lex Luthor",
-        "imagePath": "/lex-luthor-enemies.jpg",
-        "description": "No Superman villain is as well known, or as well-loved as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
-      },
-      {
-        "name": "Darkseid",
-        "imagePath": "/darkseid-enemies.jpg",
-        "description": "The tyrannical ruler of Apokolips, a sadistic tyrant who has invaded and conquered countless worlds throughout the universe"
-      },
-      {
-        "name": "Zod",
-        "imagePath": "/zod-enemies.jpg",
-        "description": "Once considered an outstanding military hero of the planet Krypton, General Dru-Zod decided he would rather rule his world than serve it"
-      },
-      {
-        "name": "Doomsday",
-        "imagePath": "/doomsday-enemies.jpg",
-        "description": "A weapon crafted in the most extreme conditions, Doomsday is an unstoppable force of destruction, devastation and death"
-      },
-      {
-        "name": "Bizarro",
-        "imagePath": "/bizarro-enemies.jpg",
-        "description": "As result of a bizarre science experiment, Bizarro is an imperfect duplicate of Kal-El, with none of his intelligence or self-control"
-      },
-      {
-        "name": "Brainiac",
-        "imagePath": "/brainiac-enemies.jpg",
-        "description": "One of the most intelligent beings in the entire universe, the wicked Brainiac's genius has challenged Superman over and over again"
-      },
-      {
-        "name": "Parasite",
-        "imagePath": "/parasite-enemies.jpg",
-        "description": "Parasite feeds on energy to live and his touch allows him to sap the powers and memories of his victims, making him a formidable foe"
-      },
-      {
-        "name": "Metallo",
-        "imagePath": "/metallo-enemies.jpg",
-        "description": "Metallo is more of an evil Tony Stark since his metallic body has all the technology needed to perform as well as the most gifted superheroes"
-      }
-    ],
-    "timelineEvents": [
-      {
-        "year": "1938",
-        "imagePath": "/superman-timeline-creation.jpg",
-        "title": "character creation",
-        "description": "Superman was created by Jerry Siegel and Joe Shuster. First appearance in Action Comics #1"
-      },
-      {
-        "year": "1960",
-        "imagePath": "/justice-league-timeline-comic.jpg",
-        "title": "justice league anexation",
-        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
-      },
-      {
-        "year": "1978",
-        "imagePath": "/superman-timeline-first-movie.jpg",
-        "title": "superman - the film",
-        "description": "Directed by Richard Donner, it is considered the first super hero blockbuster of history"
-      },
-      {
-        "year": "1988",
-        "imagePath": "/superman-timeline-video-game.jpg",
-        "title": "the arcade game",
-        "description": "Released by Taito, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
-      },
-      {
-        "year": "1993",
-        "imagePath": "/superman-timeline-death-superman-comic.jpg",
-        "title": "the death of superman",
-        "description": "Crossover story which contains one of the most relevant events across all the character history"
-      },
-      {
-        "year": "2013",
-        "imagePath": "/superman-timeline-new-movie.jpg",
-        "title": "man of steel - the movie",
-        "description": "Directed by Zack Snyder, it was the highest-grossing solo Superman movie of all time"
-      }
-    ]
+    "enemies": {
+      "heroId": "superman",
+      "enemiesList": [
+        {
+          "name": "Lex Luthor",
+          "imagePath": "/lex-luthor-enemies.jpg",
+          "description": "No Superman villain is as well known, or as well-loved as Lex Luthor. Often seen as the de facto leader of all of the DCU's supervillains"
+        },
+        {
+          "name": "Darkseid",
+          "imagePath": "/darkseid-enemies.jpg",
+          "description": "The tyrannical ruler of Apokolips, a sadistic tyrant who has invaded and conquered countless worlds throughout the universe"
+        },
+        {
+          "name": "Zod",
+          "imagePath": "/zod-enemies.jpg",
+          "description": "Once considered an outstanding military hero of the planet Krypton, General Dru-Zod decided he would rather rule his world than serve it"
+        },
+        {
+          "name": "Doomsday",
+          "imagePath": "/doomsday-enemies.jpg",
+          "description": "A weapon crafted in the most extreme conditions, Doomsday is an unstoppable force of destruction, devastation and death"
+        },
+        {
+          "name": "Bizarro",
+          "imagePath": "/bizarro-enemies.jpg",
+          "description": "As result of a bizarre science experiment, Bizarro is an imperfect duplicate of Kal-El, with none of his intelligence or self-control"
+        },
+        {
+          "name": "Brainiac",
+          "imagePath": "/brainiac-enemies.jpg",
+          "description": "One of the most intelligent beings in the entire universe, the wicked Brainiac's genius has challenged Superman over and over again"
+        },
+        {
+          "name": "Parasite",
+          "imagePath": "/parasite-enemies.jpg",
+          "description": "Parasite feeds on energy to live and his touch allows him to sap the powers and memories of his victims, making him a formidable foe"
+        },
+        {
+          "name": "Metallo",
+          "imagePath": "/metallo-enemies.jpg",
+          "description": "Metallo is more of an evil Tony Stark since his metallic body has all the technology needed to perform as well as the most gifted superheroes"
+        }
+      ]
+    },
+    "events": {
+      "heroId": "superman",
+      "eventsList": [
+        {
+          "year": "1938",
+          "imagePath": "/superman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Superman was created by Jerry Siegel and Joe Shuster. First appearance in Action Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1978",
+          "imagePath": "/superman-timeline-first-movie.jpg",
+          "title": "superman - the film",
+          "description": "Directed by Richard Donner, it is considered the first super hero blockbuster of history"
+        },
+        {
+          "year": "1988",
+          "imagePath": "/superman-timeline-video-game.jpg",
+          "title": "the arcade game",
+          "description": "Released by Taito, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+        },
+        {
+          "year": "1993",
+          "imagePath": "/superman-timeline-death-superman-comic.jpg",
+          "title": "the death of superman",
+          "description": "Crossover story which contains one of the most relevant events across all the character history"
+        },
+        {
+          "year": "2013",
+          "imagePath": "/superman-timeline-new-movie.jpg",
+          "title": "man of steel - the movie",
+          "description": "Directed by Zack Snyder, it was the highest-grossing solo Superman movie of all time"
+        }
+      ]
+    }
   },
   {
-    "id": "batman",
-    "name": "Batman",
-    "alias": "The dark night",
-    "description":
-      "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary dark night of Gotham.",
-    "menuBgImagePath": "/batman-hero-menu-bg.jpg",  
-    "whiteLogoPath": "/batman-white-logo.svg",
-    "colorLogoPath": "/batman-color-logo.svg",
+    "meta": {
+      "heroId": "batman",
+      "name": "Batman",
+      "menuBgImagePath": "/batman-hero-menu-bg.jpg",  
+      "whiteLogoPath": "/batman-white-logo.svg",
+      "colorLogoPath": "/batman-color-logo.svg"
+    },
     "profile": { 
+      "heroId": "batman",
+      "alias": "The dark night",
+      "description":
+        "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary dark night of Gotham",
       "imagePath": "/batman-profile.jpg",
       "details": { 
         "fullName": "Bruce Wayne",
@@ -164,97 +176,106 @@
         {"name": "combat", "namePosX": 59, "value": 99}
       ]
     },
-    "enemies": [
-      {
-        "name": "The Joker",
-        "imagePath": "/joker-enemies.jpg",
-        "description": "The Clown Prince of Crime is the authentic nemesis of Batman. His desire for chaos and carnage makes him a difficult villain to stop"
-      },
-      {
-        "name": "Catwoman",
-        "imagePath": "/catwoman-enemies.jpg",
-        "description": "Selina Kyle is a good person who does bad things, making her both a sympathetic villain and an uneasy ally for the caped crusader"
-      },
-      {
-        "name": "Two-face",
-        "imagePath": "/two-face-enemies.jpg",
-        "description": "Former district attorney, he became badly disfigured after a mob boss throws acid on his face. This fact turned him into Two-Face"
-      },
-      {
-        "name": "The Penguin",
-        "imagePath": "/penguin-enemies.jpg",
-        "description": "Despite being the grotesque face of the city's criminal underworld, The Penguin has displayed refined intelligence and sophistication"
-      },
-      {
-        "name": "The Riddler",
-        "imagePath": "/riddler-enemies.jpg",
-        "description": "At his best, this enigmatic evildoer is a riddling madman hellbent on pitting his amazing wits against the world's greatest detective"
-      },
-      {
-        "name": "Bane",
-        "imagePath": "/bane-enemies.jpg",
-        "description": "After nearly dying from an experimental super-soldier program, this villain reached the pinnacle of physical and mental criminality"
-      },
-      {
-        "name": "Poison Ivy",
-        "imagePath": "/poison-ivy-enemies.jpg",
-        "description": "Poison Ivy is a lethal and beauty eco-terrorist who is obsessed with protecting the planet's plant life by eliminating all human life"
-      },
-      {
-        "name": "Ras Al Ghul",
-        "imagePath": "/ras-al-ghul-enemies.jpg",
-        "description": "This super-intelligent, mystical international assassin leads the League of Assassins whose main purpose is purging the crimes of humanity"
-      }
-    ],
-    "timelineEvents": [
-      {
-        "year": "1939",
-        "imagePath": "/batman-timeline-creation.jpg",
-        "title": "character creation",
-        "description": "Batman was created by Bob Kane y Bill Finger. First appearance in Detective Comics #27"
-      },
-      {
-        "year": "1940",
-        "imagePath": "/robin-timeline-creation.jpg",
-        "title": "robin creation",
-        "description": "Robin was introduced as a junior crime-fighting partner for Batman in Detective Comics #38"
-      },
-      {
-        "year": "1960",
-        "imagePath": "/justice-league-timeline-comic.jpg",
-        "title": "justice league anexation",
-        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
-      },
-      {
-        "year": "1986",
-        "imagePath": "/batman-timeline-dark-knight-comic.jpg",
-        "title": "the dark night returns",
-        "description": "It is widely considered one of the greatest and most influential Batman stories ever made"
-      },
-      {
-        "year": "1989",
-        "imagePath": "/batman-timeline-first-movie.jpg",
-        "title": "batman - the film",
-        "description": "Directed by Tim Burton and starred by Michael Keaton, it was a really successful blockbuster"
-      },
-      {
-        "year": "2009",
-        "imagePath": "/batman-timeline-video-game.jpg",
-        "title": "arkham asylum - the game",
-        "description": "The beginning of a relevant franchise, it was one of the best superhero games of history"
-      }
-    ]
+    "enemies": {
+      "heroId": "batman",
+      "enemiesList": [
+        {
+          "name": "The Joker",
+          "imagePath": "/joker-enemies.jpg",
+          "description": "The Clown Prince of Crime is the authentic nemesis of Batman. His desire for chaos and carnage makes him a difficult villain to stop"
+        },
+        {
+          "name": "Catwoman",
+          "imagePath": "/catwoman-enemies.jpg",
+          "description": "Selina Kyle is a good person who does bad things, making her both a sympathetic villain and an uneasy ally for the caped crusader"
+        },
+        {
+          "name": "Two-face",
+          "imagePath": "/two-face-enemies.jpg",
+          "description": "Former district attorney, he became badly disfigured after a mob boss throws acid on his face. This fact turned him into Two-Face"
+        },
+        {
+          "name": "The Penguin",
+          "imagePath": "/penguin-enemies.jpg",
+          "description": "Despite being the grotesque face of the city's criminal underworld, The Penguin has displayed refined intelligence and sophistication"
+        },
+        {
+          "name": "The Riddler",
+          "imagePath": "/riddler-enemies.jpg",
+          "description": "At his best, this enigmatic evildoer is a riddling madman hellbent on pitting his amazing wits against the world's greatest detective"
+        },
+        {
+          "name": "Bane",
+          "imagePath": "/bane-enemies.jpg",
+          "description": "After nearly dying from an experimental super-soldier program, this villain reached the pinnacle of physical and mental criminality"
+        },
+        {
+          "name": "Poison Ivy",
+          "imagePath": "/poison-ivy-enemies.jpg",
+          "description": "Poison Ivy is a lethal and beauty eco-terrorist who is obsessed with protecting the planet's plant life by eliminating all human life"
+        },
+        {
+          "name": "Ras Al Ghul",
+          "imagePath": "/ras-al-ghul-enemies.jpg",
+          "description": "This super-intelligent, mystical international assassin leads the League of Assassins whose main purpose is purging the crimes of humanity"
+        }
+      ]
+    },
+    "events": {
+      "heroId": "batman",
+      "eventsList": [
+        {
+          "year": "1939",
+          "imagePath": "/batman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Batman was created by Bob Kane y Bill Finger. First appearance in Detective Comics #27"
+        },
+        {
+          "year": "1940",
+          "imagePath": "/robin-timeline-creation.jpg",
+          "title": "robin creation",
+          "description": "Robin was introduced as a junior crime-fighting partner for Batman in Detective Comics #38"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1986",
+          "imagePath": "/batman-timeline-dark-knight-comic.jpg",
+          "title": "the dark night returns",
+          "description": "It is widely considered one of the greatest and most influential Batman stories ever made"
+        },
+        {
+          "year": "1989",
+          "imagePath": "/batman-timeline-first-movie.jpg",
+          "title": "batman - the film",
+          "description": "Directed by Tim Burton and starred by Michael Keaton, it was a really successful blockbuster"
+        },
+        {
+          "year": "2009",
+          "imagePath": "/batman-timeline-video-game.jpg",
+          "title": "arkham asylum - the game",
+          "description": "The beginning of a relevant franchise, it was one of the best superhero games of history"
+        }
+      ]
+    }
   },
   {
-    "id": "wonderwoman",
-    "name": "WonderWoman",
-    "alias": "Princess of the amazons",
-    "description":
-      "Armed with superpowers of a god, Wonder Woman is one of Earth´s most powerful defenders of peace, justice, and equality in addition to be a member of the Justice League. Her original origin allegorically depicted her as a clay figure brought to life by the gods, but in recent years she has been depicted more literally as the daughter of Zeus and the Amazon queen Hippolyta.",
-    "menuBgImagePath": "/wonderwoman-hero-menu-bg.jpg",
-    "whiteLogoPath": "/wonderwoman-white-logo.svg",
-    "colorLogoPath": "/wonderwoman-color-logo.svg",    
+    "meta": {
+      "heroId": "wonderwoman",
+      "name": "WonderWoman",
+      "menuBgImagePath": "/wonderwoman-hero-menu-bg.jpg",
+      "whiteLogoPath": "/wonderwoman-white-logo.svg",
+      "colorLogoPath": "/wonderwoman-color-logo.svg"    
+    },
     "profile": { 
+      "heroId": "wonderwoman",
+      "alias": "Princess of the amazons",
+      "description":
+        "Armed with superpowers of a god, Wonder Woman is one of Earth´s most powerful defenders of peace, justice, and equality in addition to be a member of the Justice League. Her original origin allegorically depicted her as a clay figure brought to life by the gods, but in recent years she has been depicted more literally as the daughter of Zeus and the Amazon queen Hippolyta",
       "imagePath": "/wonderwoman-profile.jpg",
       "details": { 
         "fullName": "Diana Prince",
@@ -287,97 +308,106 @@
         {"name": "combat", "namePosX": 59, "value": 68}
       ]
     },
-    "enemies": [
-      {
-        "name": "Cheetah",
-        "imagePath": "/cheetah-enemies.jpg",
-        "description": "Cheetah may not only be the most famous of all of Wonder Woman's rogue gallery, but also the most lethal since she is the avatar of a god"
-      },
-      {
-        "name": "Ares",
-        "imagePath": "/ares-enemies.jpg",
-        "description": "The Greek god of war is obviously a very dangerous foe. Ares is constantly lusting for more violence being extremely brutal in battle"
-      },
-      {
-        "name": "Circe",
-        "imagePath": "/circe-enemies.jpg",
-        "description": "Based on the sorceress of Greek mythology who imprisoned Odysseus, the Circe of the comics contains much of her mythological traits"
-      },
-      {
-        "name": "Veronica Cale",
-        "imagePath": "/veronica-cale-enemies.jpg",
-        "description": "A scientific genius and uber-rich (as the half-owner of a pharmaceutical company). Cale is to Wonder Woman what Lex Luthor is to Superman"
-      },
-      {
-        "name": "Doctor Psycho",
-        "imagePath": "/doctor-psycho-enemies.jpg",
-        "description": "This villain is sadistic, vile, and misogynistic. In some ways, he is the polar opposite of everything that Diana Prince actually stands for"
-      },
-      {
-        "name": "Silver Swan",
-        "imagePath": "/silver-swan-enemies.jpg",
-        "description": "From ugly duckling to murderous cyborg, Silver Swan might just have the most versatile resume of all of Wonder Woman’s rogue’s gallery"
-      },
-      {
-        "name": "Giganta",
-        "imagePath": "/giganta-enemies.jpg",
-        "description": "A scientist with a fatal blood disease that leads her to try and swap bodies with Wonder Woman. She has the power to grow to a huge height"
-      },
-      {
-        "name": "Devastation",
-        "imagePath": "/devastation-enemies.jpg",
-        "description": "Her tragic nature combined with her powers being a dark echo of Diana's results in this foe being one of the more intriguing villains"
-      }
-    ],
-    "timelineEvents": [
-      {
-        "year": "1941",
-        "imagePath": "/wonderwoman-timeline-creation.jpg",
-        "title": "character creation",
-        "description": "Wonderwoman was created by W. M. Marston and H. G. Peter. First appearance in A.A Comics #8"
-      },
-      {
-        "year": "1960",
-        "imagePath": "/justice-league-timeline-comic.jpg",
-        "title": "justice league anexation",
-        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
-      },
-      {
-        "year": "1976",
-        "imagePath": "/wonderwoman-timeline-tv-series.jpg",
-        "title": "wonder woman - the series",
-        "description": "Starred by Kinda Carter, this portrayal of the character strongly influenced comics"
-      },
-      {
-        "year": "1987",
-        "imagePath": "/wonderwoman-timeline-comic.jpg",
-        "title": "gods and mortals",
-        "description": "Run by George Perez, it is considered the greatest run of the hero in comic book history"
-      },
-      {
-        "year": "2017",
-        "imagePath": "/wonderwoman-timeline-first-movie.jpg",
-        "title": "wonder woman - the movie",
-        "description": "Directed by Patty Jenkins and starred by Gal Gadot, it received a positive response from critics"
-      },
-      {
-        "year": "2023",
-        "imagePath": "/wonderwoman-timeline-video-game.jpg",
-        "title": "the official game",
-        "description": "A single-player open-world action game, it is the first one starred by Amazonian warrior"
-      }
-    ]
+    "enemies": {
+      "heroId": "wonderwoman",
+      "enemiesList": [
+        {
+          "name": "Cheetah",
+          "imagePath": "/cheetah-enemies.jpg",
+          "description": "Cheetah may not only be the most famous of all of Wonder Woman's rogue gallery, but also the most lethal since she is the avatar of a god"
+        },
+        {
+          "name": "Ares",
+          "imagePath": "/ares-enemies.jpg",
+          "description": "The Greek god of war is obviously a very dangerous foe. Ares is constantly lusting for more violence being extremely brutal in battle"
+        },
+        {
+          "name": "Circe",
+          "imagePath": "/circe-enemies.jpg",
+          "description": "Based on the sorceress of Greek mythology who imprisoned Odysseus, the Circe of the comics contains much of her mythological traits"
+        },
+        {
+          "name": "Veronica Cale",
+          "imagePath": "/veronica-cale-enemies.jpg",
+          "description": "A scientific genius and uber-rich (as the half-owner of a pharmaceutical company). Cale is to Wonder Woman what Lex Luthor is to Superman"
+        },
+        {
+          "name": "Doctor Psycho",
+          "imagePath": "/doctor-psycho-enemies.jpg",
+          "description": "This villain is sadistic, vile, and misogynistic. In some ways, he is the polar opposite of everything that Diana Prince actually stands for"
+        },
+        {
+          "name": "Silver Swan",
+          "imagePath": "/silver-swan-enemies.jpg",
+          "description": "From ugly duckling to murderous cyborg, Silver Swan might just have the most versatile resume of all of Wonder Woman’s rogue’s gallery"
+        },
+        {
+          "name": "Giganta",
+          "imagePath": "/giganta-enemies.jpg",
+          "description": "A scientist with a fatal blood disease that leads her to try and swap bodies with Wonder Woman. She has the power to grow to a huge height"
+        },
+        {
+          "name": "Devastation",
+          "imagePath": "/devastation-enemies.jpg",
+          "description": "Her tragic nature combined with her powers being a dark echo of Diana's results in this foe being one of the more intriguing villains"
+        }
+      ]
+    },
+    "events": {
+      "heroId": "wonderwoman",
+      "eventsList": [
+        {
+          "year": "1941",
+          "imagePath": "/wonderwoman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Wonderwoman was created by W. M. Marston and H. G. Peter. First appearance in A.A Comics #8"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1976",
+          "imagePath": "/wonderwoman-timeline-tv-series.jpg",
+          "title": "wonder woman - the series",
+          "description": "Starred by Kinda Carter, this portrayal of the character strongly influenced comics"
+        },
+        {
+          "year": "1987",
+          "imagePath": "/wonderwoman-timeline-comic.jpg",
+          "title": "gods and mortals",
+          "description": "Run by George Perez, it is considered the greatest run of the hero in comic book history"
+        },
+        {
+          "year": "2017",
+          "imagePath": "/wonderwoman-timeline-first-movie.jpg",
+          "title": "wonder woman - the movie",
+          "description": "Directed by Patty Jenkins and starred by Gal Gadot, it received a positive response from critics"
+        },
+        {
+          "year": "2023",
+          "imagePath": "/wonderwoman-timeline-video-game.jpg",
+          "title": "the official game",
+          "description": "A single-player open-world action game, it is the first one starred by Amazonian warrior"
+        }
+      ]
+    }
   },
   {
-    "id": "flash",
-    "name": "TheFlash",
-    "alias": "The fastest man alive",
-    "description":
-      "Having discovered his mother murdered and his father blamed for the act, forensic scientist Barry Allen sought conscientiously to clear his father´s alias and find the real killer. After being doused in chemicals and struck by lightning, Barry was granted the gift of super-speed. Nowadays he protects his hometown of Central City as The Flash, the scarlet speedster.",
-    "menuBgImagePath": "/flash-hero-menu-bg.jpg",
-    "whiteLogoPath": "/flash-white-logo.svg",
-    "colorLogoPath": "/flash-color-logo.svg",  
+    "meta": {
+      "heroId": "flash",
+      "name": "Flash",
+      "menuBgImagePath": "/flash-hero-menu-bg.jpg",
+      "whiteLogoPath": "/flash-white-logo.svg",
+      "colorLogoPath": "/flash-color-logo.svg"
+    },
     "profile":  {
+      "heroId": "flash",
+      "alias": "The fastest man alive",
+      "description":
+        "Having discovered his mother murdered and his father blamed for the act, forensic scientist Barry Allen sought conscientiously to clear his father´s alias and find the real killer. After being doused in chemicals and struck by lightning, Barry was granted the gift of super-speed. Nowadays he protects his hometown of Central City as The Flash, the scarlet speedster",
       "imagePath": "/flash-profile.jpg",
       "details":  {
         "fullName": "Barry Allen",
@@ -390,7 +420,7 @@
       "appearance": {
         "race": "Human",
         "height": "6.0 / 183 cm",
-        "weight": "1100 lb / 88 kg",
+        "weight": "185 lb / 88 kg",
         "eyeColor": "Blue",
         "hairColor": "Blond",
         "imagePath": "/flash-profile-appearance.png"  
@@ -410,97 +440,106 @@
         {"name": "combat", "namePosX": 59, "value": 54}
       ]
     },
-    "enemies": [
-      {
-        "name": "Reverse Flash",
-        "imagePath": "/reverse-flash-enemies.jpg",
-        "description": "Shaping a dark mirror of the character, he traveled back in time and killed Flash's mother, which is what led Flash to become a hero"
-      },
-      {
-        "name": "Grood",
-        "imagePath": "/grood-enemies.jpg",
-        "description": "Hailing from Gorilla City, a hidden society of highly evolved apes, Grodd has frequently tried to infiltrate and conquer man's world"
-      },
-      {
-        "name": "Savitar",
-        "imagePath": "/savitar-enemies.jpg",
-        "description": "Taking his name from the Hindu god-of-motion, Savitar was a pilot whose plane was suddenly struck by lightning, giving him super-speed"
-      },
-      {
-        "name": "Captain Cold",
-        "imagePath": "/captain-cold-enemies.jpg",
-        "description": "This dangerous criminal is not a superpowered villain but instead uses weapons and tech that freezes everything around instantly"
-      },
-      {
-        "name": "The Thinker",
-        "imagePath": "/the-thinker-enemies.jpg",
-        "description": "With a weaponized chair. The Thinker is the smartest villain on this list and is therefore one step ahead of the hero most of the times"
-      },
-      {
-        "name": "Mirror Master",
-        "imagePath": "/mirror-master-enemies.jpg",
-        "description": "A lifelong criminal who became in a master of illusion, he makes use of his mirror gun to vex and addle the Scarlet Speedster at every turn"
-      },
-      {
-        "name": "Heatwave",
-        "imagePath": "/heatwave-enemies.jpg",
-        "description": "A deadly villain who has committed countless crimes of arson and thieving. Even the fastest man alive can't run from the flames forever"
-      },
-      {
-        "name": "Captain Boomerang",
-        "imagePath": "/captain-boomerang-enemies.jpg",
-        "description": "Because of his level of technology and skills with them, he is actually one of the most memorable people on the Flash's foes gallery"
-      }
-    ],
-    "timelineEvents": [
-      {
-        "year": "1940",
-        "imagePath": "/flash-timeline-creation.jpg",
-        "title": "character creation",
-        "description": "Flash was created by Gardner Fox and Harry Lampert. First appearance in Flash Comics #1"
-      },
-      {
-        "year": "1960",
-        "imagePath": "/justice-league-timeline-comic.jpg",
-        "title": "justice league anexation",
-        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
-      },
-      {
-        "year": "1990",
-        "imagePath": "/flash-timeline-nineties-tv-series.jpg",
-        "title": "the flash - nineties series",
-        "description": "Starred by John W.Shipp, this series was plenty of weird sci-fi villains and special effects"
-      },
-      {
-        "year": "2011",
-        "imagePath": "/flash-timeline-flashpoint-comic.jpg",
-        "title": "flashpoint",
-        "description": "Perhaps the most iconic of all modern timelines involving the Flash, it was a reboot of the hero"
-      },
-      {
-        "year": "2014",
-        "imagePath": "/flash-timeline-tv-series.jpg",
-        "title": "the flash - the series",
-        "description": "This tv series had 8 seasons developed within the fictional universe known the Arrowverse"
-      },
-      {
-        "year": "2017",
-        "imagePath": "/justice-league-timeline-movie.jpg",
-        "title": "justice league - the movie",
-        "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
-      }
-    ]
+    "enemies": {
+      "heroId": "flash",
+      "enemiesList": [
+        {
+          "name": "Reverse Flash",
+          "imagePath": "/reverse-flash-enemies.jpg",
+          "description": "Shaping a dark mirror of the character, he traveled back in time and killed Flash's mother, which is what led Flash to become a hero"
+        },
+        {
+          "name": "Grood",
+          "imagePath": "/grood-enemies.jpg",
+          "description": "Hailing from Gorilla City, a hidden society of highly evolved apes, Grodd has frequently tried to infiltrate and conquer man's world"
+        },
+        {
+          "name": "Savitar",
+          "imagePath": "/savitar-enemies.jpg",
+          "description": "Taking his name from the Hindu god-of-motion, Savitar was a pilot whose plane was suddenly struck by lightning, giving him super-speed"
+        },
+        {
+          "name": "Captain Cold",
+          "imagePath": "/captain-cold-enemies.jpg",
+          "description": "This dangerous criminal is not a superpowered villain but instead uses weapons and tech that freezes everything around instantly"
+        },
+        {
+          "name": "The Thinker",
+          "imagePath": "/the-thinker-enemies.jpg",
+          "description": "With a weaponized chair. The Thinker is the smartest villain on this list and is therefore one step ahead of the hero most of the times"
+        },
+        {
+          "name": "Mirror Master",
+          "imagePath": "/mirror-master-enemies.jpg",
+          "description": "A lifelong criminal who became in a master of illusion, he makes use of his mirror gun to vex and addle the Scarlet Speedster at every turn"
+        },
+        {
+          "name": "Heatwave",
+          "imagePath": "/heatwave-enemies.jpg",
+          "description": "A deadly villain who has committed countless crimes of arson and thieving. Even the fastest man alive can't run from the flames forever"
+        },
+        {
+          "name": "Captain Boomerang",
+          "imagePath": "/captain-boomerang-enemies.jpg",
+          "description": "Because of his level of technology and skills with them, he is actually one of the most memorable people on the Flash's foes gallery"
+        }
+      ]
+    },
+    "events": {
+      "heroId": "flash",
+      "eventsList": [
+        {
+          "year": "1940",
+          "imagePath": "/flash-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Flash was created by Gardner Fox and Harry Lampert. First appearance in Flash Comics #1"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1990",
+          "imagePath": "/flash-timeline-nineties-tv-series.jpg",
+          "title": "the flash - nineties series",
+          "description": "Starred by John W.Shipp, this series was plenty of weird sci-fi villains and special effects"
+        },
+        {
+          "year": "2011",
+          "imagePath": "/flash-timeline-flashpoint-comic.jpg",
+          "title": "flashpoint",
+          "description": "Perhaps the most iconic of all modern timelines involving the Flash, it was a reboot of the hero"
+        },
+        {
+          "year": "2014",
+          "imagePath": "/flash-timeline-tv-series.jpg",
+          "title": "the flash - the series",
+          "description": "This tv series had 8 seasons developed within the fictional universe known the Arrowverse"
+        },
+        {
+          "year": "2017",
+          "imagePath": "/justice-league-timeline-movie.jpg",
+          "title": "justice league - the movie",
+          "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
+        }
+      ]
+    }
   },
   {
-    "id": "greenlantern",
-    "name": "GreenLantern",
-    "alias": "God of light",
-    "description":
-      "Gifted with the ability to overcome great fear and harness the power of will, test-pilot Hal Jordan was chosen to be the Green Lantern of Sector 2814 inheriting the ring of the dying alien Green Lantern, Abin Sur. Through sheer will power and determination, Hal has established an impressive record of heroism and brave performances across the galaxy with the help of his fellow Green Lanterns.",
-    "menuBgImagePath": "/greenlantern-hero-menu-bg.jpg",
-    "whiteLogoPath": "/greenlantern-white-logo.svg",
-    "colorLogoPath": "/greenlantern-color-logo.svg",     
+    "meta": {
+      "heroId": "greenlantern",
+      "name": "GreenLantern",
+      "menuBgImagePath": "/greenlantern-hero-menu-bg.jpg",
+      "whiteLogoPath": "/greenlantern-white-logo.svg",
+      "colorLogoPath": "/greenlantern-color-logo.svg"
+    },
     "profile": { 
+      "heroId": "greenlantern",
+      "alias": "God of light",
+      "description":
+        "Gifted with the ability to overcome great fear and harness the power of will, test-pilot Hal Jordan was chosen to be the Green Lantern of Sector 2814 inheriting the ring of the dying alien Green Lantern, Abin Sur. Through sheer will power and determination, Hal has established an impressive record of heroism and brave performances across the galaxy with the help of his fellow Green Lanterns",
       "imagePath": "/greenlantern-profile.jpg",     
       "details": { 
         "fullName": "Hal Jordan",
@@ -533,98 +572,107 @@
         {"name": "combat", "namePosX": 59, "value": 60}
       ]
     },
-    "enemies": [
-      {
-        "name": "Sinestro",
-        "imagePath": "/sinestro-enemies.jpg",
-        "description": "An intelligent former member of the Green Lantern Corps, Sinestro turns on the Guardians and dons a yellow ring, a ring powered by fear"
-      },
-      {
-        "name": "Parallax",
-        "imagePath": "/parallax-enemies.jpg",
-        "description": "An evil space bug named Parallax who is the embodiment of all fear, it has gone on to possess numerous people across the universe"
-      },
-      {
-        "name": "Nekron",
-        "imagePath": "/nekron-enemies.jpg",
-        "description": "Responsible for instigating the events of Blackest Night, Nekron led to the revival of millions of both, dead heroes and villains"
-      },
-      {
-        "name": "Atrocitus",
-        "imagePath": "/atrocitus-enemies.jpg",
-        "description": "One of the few survivors of a Manhunter attack. Enraged, Atrocitus gave birth to the Red Lantern Corps and wields his rage like a weapon"
-      },
-      {
-        "name": "larfleeze",
-        "imagePath": "/larfleeze-enemies.jpg",
-        "description": "Larfleeze is the only member of the Orange Lantern Corps. With an immense amount of power, the agent orange is powered by avarice"
-      },
-      {
-        "name": "Krona",
-        "imagePath": "/krona-enemies.jpg",
-        "description": "The resulting wave of cosmic power turned Krona into a being of pure energy who became an extremely powerful and cosmic-level entity"
-      },
-      {
-        "name": "Hector Hammond",
-        "imagePath": "/hector-hammond-enemies.jpg",
-        "description": "Hector Hammond is a metahuman with a very large head whose telepathic abilities have constantly made him a foe to be reckoned with"
-      }
-      ,
-      {
-        "name": "Doctor Polaris",
-        "imagePath": "/doctor-polaris-enemies.jpg",
-        "description": "one minute appearing as Neal Emmerson and the next the dangerous and unstable Polaris who uses his powers to control magnetic fields"
-      }
-    ],
-    "timelineEvents": [
-      {
-        "year": "1940",
-        "imagePath": "/greenlantern-timeline-creation.jpg",
-        "title": "character creation",
-        "description": "Greenlantern was created by M. Nodell and Bill Finger. First appearance in A.A Comics #16"
-      },
-      {
-        "year": "1960",
-        "imagePath": "/justice-league-timeline-comic.jpg",
-        "title": "justice league anexation",
-        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
-      },
-      {
-        "year": "1994",
-        "imagePath": "/greenlantern-timeline-emerald-twilight-comic.jpg",
-        "title": "Emerald Twilight",
-        "description": "This iconic storyline changed the super hero forever by shaking up the status quo for the character"
-      },
-      {
-        "year": "2007",
-        "imagePath": "/greenlantern-timeline-sinestro-war-comic.jpg",
-        "title": "Sinestro Corps War",
-        "description": "Ranked among the top comic books of the year, the reception of this story was highly positive"
-      },
-      {
-        "year": "2011",
-        "imagePath": "/greenlantern-timeline-movie.jpg",
-        "title": "green lantern - the movie",
-        "description": "Directed by Martin Campbell and starred by Ryan Reynolds, the film receive negative reviews"
-      },
-      {
-        "year": "2011",
-        "imagePath": "/greenlantern-timeline-video-game.jpg",
-        "title": "green lantern - the game",
-        "description": "Green Lantern: Rise of the Manhunters is a quite enjoyable beat-'em-up action video game"
-      }
-    ]
+    "enemies": {
+      "heroId": "greenlantern",
+      "enemiesList": [
+        {
+          "name": "Sinestro",
+          "imagePath": "/sinestro-enemies.jpg",
+          "description": "An intelligent former member of the Green Lantern Corps, Sinestro turns on the Guardians and dons a yellow ring, a ring powered by fear"
+        },
+        {
+          "name": "Parallax",
+          "imagePath": "/parallax-enemies.jpg",
+          "description": "An evil space bug named Parallax who is the embodiment of all fear, it has gone on to possess numerous people across the universe"
+        },
+        {
+          "name": "Nekron",
+          "imagePath": "/nekron-enemies.jpg",
+          "description": "Responsible for instigating the events of Blackest Night, Nekron led to the revival of millions of both, dead heroes and villains"
+        },
+        {
+          "name": "Atrocitus",
+          "imagePath": "/atrocitus-enemies.jpg",
+          "description": "One of the few survivors of a Manhunter attack. Enraged, Atrocitus gave birth to the Red Lantern Corps and wields his rage like a weapon"
+        },
+        {
+          "name": "larfleeze",
+          "imagePath": "/larfleeze-enemies.jpg",
+          "description": "Larfleeze is the only member of the Orange Lantern Corps. With an immense amount of power, the agent orange is powered by avarice"
+        },
+        {
+          "name": "Krona",
+          "imagePath": "/krona-enemies.jpg",
+          "description": "The resulting wave of cosmic power turned Krona into a being of pure energy who became an extremely powerful and cosmic-level entity"
+        },
+        {
+          "name": "Hector Hammond",
+          "imagePath": "/hector-hammond-enemies.jpg",
+          "description": "Hector Hammond is a metahuman with a very large head whose telepathic abilities have constantly made him a foe to be reckoned with"
+        }
+        ,
+        {
+          "name": "Doctor Polaris",
+          "imagePath": "/doctor-polaris-enemies.jpg",
+          "description": "one minute appearing as Neal Emmerson and the next the dangerous and unstable Polaris who uses his powers to control magnetic fields"
+        }
+      ]
+    },
+    "events": {
+      "heroId": "greenlantern",
+      "eventsList": [
+        {
+          "year": "1940",
+          "imagePath": "/greenlantern-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Greenlantern was created by M. Nodell and Bill Finger. First appearance in A.A Comics #16"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1994",
+          "imagePath": "/greenlantern-timeline-emerald-twilight-comic.jpg",
+          "title": "Emerald Twilight",
+          "description": "This iconic storyline changed the super hero forever by shaking up the status quo for the character"
+        },
+        {
+          "year": "2007",
+          "imagePath": "/greenlantern-timeline-sinestro-war-comic.jpg",
+          "title": "Sinestro Corps War",
+          "description": "Ranked among the top comic books of the year, the reception of this story was highly positive"
+        },
+        {
+          "year": "2011",
+          "imagePath": "/greenlantern-timeline-movie.jpg",
+          "title": "green lantern - the movie",
+          "description": "Directed by Martin Campbell and starred by Ryan Reynolds, the film receive negative reviews"
+        },
+        {
+          "year": "2011",
+          "imagePath": "/greenlantern-timeline-video-game.jpg",
+          "title": "green lantern - the game",
+          "description": "Green Lantern: Rise of the Manhunters is a quite enjoyable beat-'em-up action video game"
+        }
+      ]
+    }
   },
   {
-    "id": "aquaman",
-    "name": "Aquaman",
-    "alias": "The king of the seven seas",
-    "description":
-      "The son of an Atlantean queen and a lighthouse keeper from the town of Amnesty Bay, Arthur Curry would grow up to become the powerful superhero Aquaman, and later take on his birthright as the King of Atlantis. He is the bridge between the surface world and his tumultuous realm of the sea in addition to being an important founding member of the Justice League.",
-    "menuBgImagePath": "/aquaman-hero-menu-bg.jpg",
-    "whiteLogoPath": "/aquaman-white-logo.svg",
-    "colorLogoPath": "/aquaman-color-logo.svg",   
+    "meta": {
+      "heroId": "aquaman",
+      "name": "Aquaman",
+      "menuBgImagePath": "/aquaman-hero-menu-bg.jpg",
+      "whiteLogoPath": "/aquaman-white-logo.svg",
+      "colorLogoPath": "/aquaman-color-logo.svg"   
+    },
     "profile": { 
+      "heroId": "aquaman",
+      "alias": "The king of the seven seas",
+      "description":
+        "The son of an Atlantean queen and a lighthouse keeper from the town of Amnesty Bay, Arthur Curry would grow up to become the powerful superhero Aquaman, and later take on his birthright as the King of Atlantis. He is the bridge between the surface world and his tumultuous realm of the sea in addition to being an important founding member of the Justice League",
       "imagePath": "/aquaman-profile.jpg",
       "details": { 
         "fullName": "Arthur Curry",
@@ -657,97 +705,106 @@
         {"name": "combat", "namePosX": 59, "value": 58}
       ]   
     },
-    "enemies": [
-      {
-        "name": "Black Manta",
-        "imagePath": "/black-manta-enemies.jpg",
-        "description": "This villain is the main Aquaman's arch-nemesis. Consumed by his vendetta, he seeks the death of Arthur and the destruction of Atlantis"
-      },
-      {
-        "name": "Ocean Master",
-        "imagePath": "/ocean-master-enemies.jpg",
-        "description": "The Ocean Master has seen himself as the true and unique king of Atlantis and has butted heads with Arthur on numerous occasions"
-      },
-      {
-        "name": "Trench",
-        "imagePath": "/trench-enemies.jpg",
-        "description": "A former tribe of Atlantis that mutated to in the depths, the Trench is a huge menace which exists only to feed and kill anything it sees"
-      },
-      {
-        "name": "Dead King",
-        "imagePath": "/dead-king-enemies.jpg",
-        "description": "Atlan is an ancient ruler of Atlantis who actually represents all of the worst elements of Atlantean culture. He is racist and elitist"
-      },
-      {
-        "name": "Siren",
-        "imagePath": "/siren-enemies.jpg",
-        "description": "Considered to be one of the greatest female villains of Aquaman's rogue's gallery, Siren is the sister of Mera and sister-in-law to Arthur"
-      },
-      {
-        "name": "Charybdis",
-        "imagePath": "/charybdis-enemies.jpg",
-        "description": "Driven mad when his wife and partner in crime Scylla was killed in an attempt to kill Aquaman, he became in one greatest menaces for the hero"
-      },
-      {
-        "name": "Corum Rath",
-        "imagePath": "/corum-rath-enemies.jpg",
-        "description": "Leader of the eco-terrorist group known as the Deluge, Corum Rath became Atlantis king. This enemy forms a dark mirror to Aquaman"
-      },
-      {
-        "name": "King Shark",
-        "imagePath": "/king-shark-enemies.jpg",
-        "description": "Mutant or son of a shark god? he is a super-villain and humanoid shark. Driven by animal instincts, he is unable to stop his need to feed"
-      }
-    ],
-    "timelineEvents": [
-      {
-        "year": "1941",
-        "imagePath": "/aquaman-timeline-creation.jpg",
-        "title": "character creation",
-        "description": "Aquaman was created by Paul Norris and Mort Weisinger. First appearance in M.F Comics #73"
-      },
-      {
-        "year": "1960",
-        "imagePath": "/justice-league-timeline-comic.jpg",
-        "title": "justice league anexation",
-        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
-      },
-      {
-        "year": "1967",
-        "imagePath": "/aquaman-timeline-series.jpg",
-        "title": "aquaman - the series",
-        "description": "This tv series was comprised of adventures featuring Aquaman and his sidekick Aqualad"
-      },
-      {
-        "year": "2011",
-        "imagePath": "/aquaman-timeline-comic.jpg",
-        "title": "aquaman - the trench",
-        "description": "One of the most relevant storylines of the character, it was a strong rebirth for the hero"
-      },
-      {
-        "year": "2017",
-        "imagePath": "/justice-league-timeline-movie.jpg",
-        "title": "justice league - the movie",
-        "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
-      },
-      {
-        "year": "2018",
-        "imagePath": "/aquaman-timeline-movie.jpg",
-        "title": "aquaman - the movie",
-        "description": "Directed by J.Wan and starred by Jason Momoa, it became in one of the most successful dc movies"
-      }
-    ]
+    "enemies": {
+      "heroId": "aquaman",
+      "enemiesList": [
+        {
+          "name": "Black Manta",
+          "imagePath": "/black-manta-enemies.jpg",
+          "description": "This villain is the main Aquaman's arch-nemesis. Consumed by his vendetta, he seeks the death of Arthur and the destruction of Atlantis"
+        },
+        {
+          "name": "Ocean Master",
+          "imagePath": "/ocean-master-enemies.jpg",
+          "description": "The Ocean Master has seen himself as the true and unique king of Atlantis and has butted heads with Arthur on numerous occasions"
+        },
+        {
+          "name": "Trench",
+          "imagePath": "/trench-enemies.jpg",
+          "description": "A former tribe of Atlantis that mutated to in the depths, the Trench is a huge menace which exists only to feed and kill anything it sees"
+        },
+        {
+          "name": "Dead King",
+          "imagePath": "/dead-king-enemies.jpg",
+          "description": "Atlan is an ancient ruler of Atlantis who actually represents all of the worst elements of Atlantean culture. He is racist and elitist"
+        },
+        {
+          "name": "Siren",
+          "imagePath": "/siren-enemies.jpg",
+          "description": "Considered to be one of the greatest female villains of Aquaman's rogue's gallery, Siren is the sister of Mera and sister-in-law to Arthur"
+        },
+        {
+          "name": "Charybdis",
+          "imagePath": "/charybdis-enemies.jpg",
+          "description": "Driven mad when his wife and partner in crime Scylla was killed in an attempt to kill Aquaman, he became in one greatest menaces for the hero"
+        },
+        {
+          "name": "Corum Rath",
+          "imagePath": "/corum-rath-enemies.jpg",
+          "description": "Leader of the eco-terrorist group known as the Deluge, Corum Rath became Atlantis king. This enemy forms a dark mirror to Aquaman"
+        },
+        {
+          "name": "King Shark",
+          "imagePath": "/king-shark-enemies.jpg",
+          "description": "Mutant or son of a shark god? he is a super-villain and humanoid shark. Driven by animal instincts, he is unable to stop his need to feed"
+        }
+      ]
+    },
+    "events": {
+      "heroId": "aquaman",
+      "eventsList": [
+        {
+          "year": "1941",
+          "imagePath": "/aquaman-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Aquaman was created by Paul Norris and Mort Weisinger. First appearance in M.F Comics #73"
+        },
+        {
+          "year": "1960",
+          "imagePath": "/justice-league-timeline-comic.jpg",
+          "title": "justice league anexation",
+          "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+        },
+        {
+          "year": "1967",
+          "imagePath": "/aquaman-timeline-series.jpg",
+          "title": "aquaman - the series",
+          "description": "This tv series was comprised of adventures featuring Aquaman and his sidekick Aqualad"
+        },
+        {
+          "year": "2011",
+          "imagePath": "/aquaman-timeline-comic.jpg",
+          "title": "aquaman - the trench",
+          "description": "One of the most relevant storylines of the character, it was a strong rebirth for the hero"
+        },
+        {
+          "year": "2017",
+          "imagePath": "/justice-league-timeline-movie.jpg",
+          "title": "justice league - the movie",
+          "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
+        },
+        {
+          "year": "2018",
+          "imagePath": "/aquaman-timeline-movie.jpg",
+          "title": "aquaman - the movie",
+          "description": "Directed by J.Wan and starred by Jason Momoa, it became in one of the most successful dc movies"
+        }
+      ]
+    }
   },
   {
-    "id": "cyborg",
-    "name": "Cyborg",
-    "alias": "Cyberion Technis",
-    "description":
-      "Half man, half machine - all hero! After a near fatal incident, Victor Stone was cybernetically enhanced by his father. He now possesses the ability to communicate, manipulate, and interface with nearly all forms of technology. As he is constantly upgrading, he promises to defend the future from any threat. Furthermore, he is a founding member of the Justice League.",
-    "menuBgImagePath": "/cyborg-hero-menu-bg.jpg",
-    "whiteLogoPath": "/cyborg-white-logo.svg",
-    "colorLogoPath": "/cyborg-color-logo.svg",  
+    "meta": {
+      "heroId": "cyborg",
+      "name": "Cyborg",
+      "menuBgImagePath": "/cyborg-hero-menu-bg.jpg",
+      "whiteLogoPath": "/cyborg-white-logo.svg",
+      "colorLogoPath": "/cyborg-color-logo.svg"
+    },
     "profile": { 
+      "heroId": "cyborg",
+      "alias": "Cyberion Technis",
+      "description":
+        "Half man, half machine - all hero! After a near fatal incident, Victor Stone was cybernetically enhanced by his father. He now possesses the ability to communicate, manipulate, and interface with nearly all forms of technology. As he is constantly upgrading, he promises to defend the future from any threat. Furthermore, he is a founding member of the Justice League",
       "imagePath": "/cyborg-profile.jpg",
       "details": { 
         "fullName": "Victor Stone",
@@ -780,85 +837,91 @@
         {"name": "combat", "namePosX": 59, "value": 55}
       ]
     },
-    "enemies": [
-      {
-        "name": "Anomaly",
-        "imagePath": "/anomaly-enemies.jpg",
-        "description": "As a product of unethical experimentation by Silas Stone, the father of Cyborg, he was created to replicate organic tissue to save Silas's wife"
-      },
-      {
-        "name": "H8-Bit",
-        "imagePath": "/h8-bit-enemies.jpg",
-        "description": "He was a brilliant hacker before becoming in one of the unique villains of this era due to his electricity powers and technology control"
-      },
-      {
-        "name": "Shrapnel",
-        "imagePath": "/shrapnel-enemies.jpg",
-        "description": "This villain is a walking piece of organic metal with super-strength, endurance, and self-sustainability. An actual threat for any hero"
-      },
-      {
-        "name": "Grid",
-        "imagePath": "/grid-enemies.jpg",
-        "description": "Grid is a malevolent sentient computer virus that lived within Cyborg’s. It's main goal is to feel the emotions of other living things"
-      },
-      {
-        "name": "Magenta",
-        "imagePath": "/magenta-enemies.jpg",
-        "description": "Magenta suffers from a mental illness that gave her a dissociative personality disorder. Also, she owns strange powers related to magnetism"
-      },
-      {
-        "name": "Cyborg Girl",
-        "imagePath": "/cyborg-girl-enemies.jpg",
-        "description": "Her aunt replaced her body with powerful cybernetic implants. Sadly, those upgrades are not used for the good of humanity at all"
-      },
-      {
-        "name": "Bobby Zirrozinski",
-        "imagePath": "/zirrozinski-enemies.jpg",
-        "description": "A strong hatred for Cyborg, he is a military veteran who underwent a backdoor operation to add cybernetic attachments to his body"
-      },
-      {
-        "name": "Gizmo",
-        "imagePath": "/gizmo-enemies.jpg",
-        "description": "With genius level intellect, This villain is a highly resourceful chap who can create a new machine with almost anything he has access to"
-      }
-    ],
-    "timelineEvents": [
-      {
-        "year": "1980",
-        "imagePath": "/cyborg-timeline-creation.jpg",
-        "title": "character creation",
-        "description": "Cyborg was created by Marv Wolfman and George Pérez. First appearance in DC C.P #26"
-      },
-      {
-        "year": "1980",
-        "imagePath": "/new-teen-titans-timeline-comic.jpg",
-        "title": "the flash - nineties series",
-        "description": "One of the founders of new teen titans in the eighties. He was an outstanding member of the squad"
-      },
-      {
-        "year": "2006",
-        "imagePath": "/smallville-timeline.jpg",
-        "title": "smallville",
-        "description": "Being a secondary role, it supposed the first live-action portrayal of the superhero"
-      },
-      {
-        "year": "2011",
-        "imagePath": "/justice-league-timeline-rebirth-comic.jpg",
-        "title": "justice league anexation",
-        "description": "Cyberion technis was established as a founding member of the Justice League in DC's 2011 reboot"
-      },
-      {
-        "year": "2016",
-        "imagePath": "/cyborg-timeline-comic.jpg",
-        "title": "the imitation of life",
-        "description": "Composed of 10 separated blocks, this relevant storyline was the rebirth of the character"
-      },
-      {
-        "year": "2017",
-        "imagePath": "/justice-league-timeline-movie.jpg",
-        "title": "justice league - the movie",
-        "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
-      }
-    ]
+    "enemies": {
+      "heroId": "cyborg",
+      "enemiesList": [
+        {
+          "name": "Anomaly",
+          "imagePath": "/anomaly-enemies.jpg",
+          "description": "As a product of unethical experimentation by Silas Stone, the father of Cyborg, he was created to replicate organic tissue to save Silas's wife"
+        },
+        {
+          "name": "H8-Bit",
+          "imagePath": "/h8-bit-enemies.jpg",
+          "description": "He was a brilliant hacker before becoming in one of the unique villains of this era due to his electricity powers and technology control"
+        },
+        {
+          "name": "Shrapnel",
+          "imagePath": "/shrapnel-enemies.jpg",
+          "description": "This villain is a walking piece of organic metal with super-strength, endurance, and self-sustainability. An actual threat for any hero"
+        },
+        {
+          "name": "Grid",
+          "imagePath": "/grid-enemies.jpg",
+          "description": "Grid is a malevolent sentient computer virus that lived within Cyborg’s. It's main goal is to feel the emotions of other living things"
+        },
+        {
+          "name": "Magenta",
+          "imagePath": "/magenta-enemies.jpg",
+          "description": "Magenta suffers from a mental illness that gave her a dissociative personality disorder. Also, she owns strange powers related to magnetism"
+        },
+        {
+          "name": "Cyborg Girl",
+          "imagePath": "/cyborg-girl-enemies.jpg",
+          "description": "Her aunt replaced her body with powerful cybernetic implants. Sadly, those upgrades are not used for the good of humanity at all"
+        },
+        {
+          "name": "Bobby Zirrozinski",
+          "imagePath": "/zirrozinski-enemies.jpg",
+          "description": "A strong hatred for Cyborg, he is a military veteran who underwent a backdoor operation to add cybernetic attachments to his body"
+        },
+        {
+          "name": "Gizmo",
+          "imagePath": "/gizmo-enemies.jpg",
+          "description": "With genius level intellect, This villain is a highly resourceful chap who can create a new machine with almost anything he has access to"
+        }
+      ]
+    },
+    "events": {
+      "heroId": "cyborg",
+      "eventsList": [
+        {
+          "year": "1980",
+          "imagePath": "/cyborg-timeline-creation.jpg",
+          "title": "character creation",
+          "description": "Cyborg was created by Marv Wolfman and George Pérez. First appearance in DC C.P #26"
+        },
+        {
+          "year": "1980",
+          "imagePath": "/new-teen-titans-timeline-comic.jpg",
+          "title": "the flash - nineties series",
+          "description": "One of the founders of new teen titans in the eighties. He was an outstanding member of the squad"
+        },
+        {
+          "year": "2006",
+          "imagePath": "/smallville-timeline.jpg",
+          "title": "smallville",
+          "description": "Being a secondary role, it supposed the first live-action portrayal of the superhero"
+        },
+        {
+          "year": "2011",
+          "imagePath": "/justice-league-timeline-rebirth-comic.jpg",
+          "title": "justice league anexation",
+          "description": "Cyberion technis was established as a founding member of the Justice League in DC's 2011 reboot"
+        },
+        {
+          "year": "2016",
+          "imagePath": "/cyborg-timeline-comic.jpg",
+          "title": "the imitation of life",
+          "description": "Composed of 10 separated blocks, this relevant storyline was the rebirth of the character"
+        },
+        {
+          "year": "2017",
+          "imagePath": "/justice-league-timeline-movie.jpg",
+          "title": "justice league - the movie",
+          "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
+        }
+      ]
+    }
   }
 ]

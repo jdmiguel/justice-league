@@ -10,7 +10,7 @@ const HeroBg: React.FC<Props> = ({ heroes, isDarkened }) => (
   <>
     {heroes.map((hero) => (
       <StyledHeroBg
-        key={hero.id}
+        key={hero.heroId}
         bgPath={hero.bgImagePath}
         isActive={hero.active}
         isDarkened={isDarkened}

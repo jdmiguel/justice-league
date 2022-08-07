@@ -260,7 +260,7 @@ const HeroHeading: React.FC<Props> = ({
     <StyledHeroHeading>
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
-          <StyledHeroHeadingListItem key={hero.id}>
+          <StyledHeroHeadingListItem key={hero.heroId}>
             <StyledHeroHeadingListItemButton
               onClick={clickHeading}
               onMouseOver={onOverHeading}

@@ -91,7 +91,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     }
 
     leaveMenu();
-    initLeave(heroes[activeHeroIndex].id as HeroId);
+    initLeave(heroes[activeHeroIndex].heroId);
   };
 
   return (

@@ -6,11 +6,11 @@ const lastHeroIndex = heroesData.length - 1;
 
 const useHeroMenu = (heroId: HeroId) => {
   const fetchedHeroes: Hero[] = heroesData.map((hero) => ({
-    id: hero.id as HeroId,
-    name: hero.name,
-    bgImagePath: hero.menuBgImagePath,
-    whiteLogoPath: hero.whiteLogoPath,
-    active: hero.id === heroId,
+    heroId: hero.meta.heroId as HeroId,
+    name: hero.meta.name,
+    bgImagePath: hero.meta.menuBgImagePath,
+    whiteLogoPath: hero.meta.whiteLogoPath,
+    active: hero.meta.heroId === heroId,
   }));
 
   const defaultActiveHeroIndex = fetchedHeroes.findIndex((hero) => hero.active);
@@ -36,7 +36,7 @@ const useHeroMenu = (heroId: HeroId) => {
       setHeroes((prevHeroes) =>
         prevHeroes.map((hero) => ({
           ...hero,
-          active: id === hero.id,
+          active: id === hero.heroId,
         })),
       );
     },
@@ -49,7 +49,7 @@ const useHeroMenu = (heroId: HeroId) => {
     }
 
     const prevActiveHeroId =
-      activeHeroIndex > 0 ? heroes[activeHeroIndex - 1].id : heroes[lastHeroIndex].id;
+      activeHeroIndex > 0 ? heroes[activeHeroIndex - 1].heroId : heroes[lastHeroIndex].heroId;
 
     setActiveHero(prevActiveHeroId);
   }, [
@@ -67,7 +67,7 @@ const useHeroMenu = (heroId: HeroId) => {
     }
 
     const nextActiveHeroId =
-      activeHeroIndex < lastHeroIndex ? heroes[activeHeroIndex + 1].id : heroes[0].id;
+      activeHeroIndex < lastHeroIndex ? heroes[activeHeroIndex + 1].heroId : heroes[0].heroId;
 
     setActiveHero(nextActiveHeroId);
   }, [

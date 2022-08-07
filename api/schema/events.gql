@@ -1,0 +1,15 @@
+type Events {
+  heroId: String!
+  eventsList: [Event!]
+}
+
+type Event @embedded {
+  year: String!
+  imagePath: String!
+  title: String!
+  description: String!
+}
+
+type Query {
+  allEvents: [Events!]
+}

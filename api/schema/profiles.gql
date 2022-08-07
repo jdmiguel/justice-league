@@ -1,0 +1,38 @@
+type Profile {
+  heroId: String!
+  alias: String!
+  description: String!
+  imagePath: String!
+  details: Detail!
+  appearance: Appearance!
+  powers: [String!]
+  skills: [Skill!]
+}
+
+type Detail @embedded {
+  fullName: String!
+  birthPlace: String!
+  occupation: String!
+  base: String!
+  firstAppearance: String!
+  imagePath: String!
+}
+
+type Appearance @embedded {
+  race: String!
+  height: String!
+  weight: String!
+  eyeColor: String!
+  hairColor: String!
+  imagePath: String!
+}
+
+type Skill @embedded {
+  name: String!
+  namePosX: Int!
+  value: Int!
+}
+
+type Query {
+  allProfiles: [Profile!]
+}

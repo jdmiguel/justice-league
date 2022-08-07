@@ -11,7 +11,7 @@ export type HeroData = {
 export type HeroId = keyof HeroData;
 
 export type HeroMenuData = {
-  id: HeroId;
+  heroId: HeroId;
   name: string;
   bgImagePath: string;
   whiteLogoPath: string;
@@ -112,13 +112,13 @@ export type ProfileStatsPercentData = {
 };
 export type ProfileStatsPercentsData = ProfileStatsPercentData[];
 
-type TimelineEventData = {
+type EventData = {
   year: string;
   imagePath: string;
   title: string;
   description: string;
 };
-export type TimelineEventsData = TimelineEventData[];
+export type EventsData = EventData[];
 
 type EnemyData = {
   name: string;

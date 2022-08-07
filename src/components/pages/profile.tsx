@@ -41,10 +41,10 @@ const Profile: React.FC = () => {
   }, [isIntroVisible, updateLocked]);
 
   /* It will be replaced with a GET request*/
-  const currentHeroData = heroesData.find((hero) => hero.id === id);
+  const currentHeroData = heroesData.find((hero) => hero.meta.heroId === id);
 
   const { imagesPreloaded } = useImagePreloader([
-    currentHeroData?.colorLogoPath as string,
+    currentHeroData?.meta.colorLogoPath as string,
     currentHeroData?.profile.imagePath as string,
     currentHeroData?.profile.details.imagePath as string,
     currentHeroData?.profile.appearance.imagePath as string,
@@ -56,9 +56,9 @@ const Profile: React.FC = () => {
   const introData: ProfileIntroData = {
     semiTransparentColor: heroSemiTransparentColor,
     imgPath: currentHeroData?.profile.imagePath as string,
-    title: currentHeroData?.name || '',
-    subtitle: currentHeroData?.alias || '',
-    description: currentHeroData?.description || '',
+    title: currentHeroData?.meta.name || '',
+    subtitle: currentHeroData?.profile.alias || '',
+    description: currentHeroData?.profile.description || '',
   };
   const detailsData: ProfileDetailsData = {
     color: heroColor,
@@ -105,7 +105,7 @@ const Profile: React.FC = () => {
           <Header.Divider isLeaving={isLeaving} />
         </Header>
         <ProfileView
-          heroLogoPath={currentHeroData?.colorLogoPath || ''}
+          heroLogoPath={currentHeroData?.meta.colorLogoPath || ''}
           introData={introData}
           detailsData={detailsData}
           appearanceData={appearanceData}

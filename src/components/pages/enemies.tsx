@@ -34,15 +34,17 @@ const Enemies: React.FC = () => {
   }, [isIntroVisible, updateLocked]);
 
   /* It will be replaced with a GET request*/
-  const currentHeroData = heroesData.find((hero) => hero.id === id);
+  const currentHeroData = heroesData.find((hero) => hero.meta.heroId === id);
 
-  const enemyImages = currentHeroData?.enemies.map((event) => event.imagePath) as string[];
+  const enemyImages = currentHeroData?.enemies.enemiesList.map(
+    (event) => event.imagePath,
+  ) as string[];
   const { imagesPreloaded } = useImagePreloader([
-    currentHeroData?.colorLogoPath as string,
+    currentHeroData?.meta.colorLogoPath as string,
     ...enemyImages,
   ]);
 
-  const enemiesData: EnemiesData = currentHeroData?.enemies || [];
+  const enemiesData: EnemiesData = currentHeroData?.enemies.enemiesList || [];
   const heroColor = heroColors[id as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
 
@@ -66,7 +68,7 @@ const Enemies: React.FC = () => {
           <Header.Divider isLeaving={isLeaving} />
         </Header>
         <EnemiesView
-          heroLogoPath={currentHeroData?.colorLogoPath || ''}
+          heroLogoPath={currentHeroData?.meta.colorLogoPath || ''}
           color={heroColor}
           semiTransparentColor={heroSemiTransparentColor}
           enemiesData={enemiesData}

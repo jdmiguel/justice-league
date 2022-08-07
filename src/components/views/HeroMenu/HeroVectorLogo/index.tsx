@@ -169,8 +169,8 @@ const HeroVectorLogo: React.FC<Props> = ({
   return (
     <>
       {heroes.map((hero, index) => (
-        <StyledHeroVectorLogo key={hero.id} ref={heroRefs[index]}>
-          {getLogo(hero.id)}
+        <StyledHeroVectorLogo key={hero.heroId} ref={heroRefs[index]}>
+          {getLogo(hero.heroId)}
         </StyledHeroVectorLogo>
       ))}
     </>

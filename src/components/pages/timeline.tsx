@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
 import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
-import { HeroId, PageId, TimelineEventsData } from '@/helpers/types';
+import { HeroId, PageId, EventsData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
@@ -34,15 +34,17 @@ const Timeline: React.FC = () => {
   }, [isIntroVisible, updateLocked]);
 
   /* It will be replaced with a GET request*/
-  const currentHeroData = heroesData.find((hero) => hero.id === id);
+  const currentHeroData = heroesData.find((hero) => hero.meta.heroId === id);
 
-  const eventImages = currentHeroData?.timelineEvents.map((event) => event.imagePath) as string[];
+  const eventImages = currentHeroData?.events.eventsList.map(
+    (event) => event.imagePath,
+  ) as string[];
   const { imagesPreloaded } = useImagePreloader([
-    currentHeroData?.colorLogoPath as string,
+    currentHeroData?.meta.colorLogoPath as string,
     ...eventImages,
   ]);
 
-  const eventsData: TimelineEventsData = currentHeroData?.timelineEvents || [];
+  const eventsData: EventsData = currentHeroData?.events.eventsList || [];
   const heroColor = heroColors[id as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
 
@@ -66,7 +68,7 @@ const Timeline: React.FC = () => {
           <Header.Divider isLeaving={isLeaving} />
         </Header>
         <TimelineView
-          heroLogoPath={currentHeroData?.colorLogoPath || ''}
+          heroLogoPath={currentHeroData?.meta.colorLogoPath || ''}
           color={heroColor}
           semiTransparentColor={heroSemiTransparentColor}
           eventsData={eventsData}
