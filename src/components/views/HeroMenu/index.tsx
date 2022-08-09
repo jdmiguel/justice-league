@@ -2,11 +2,13 @@ import { createUseGesture, dragAction, wheelAction } from '@use-gesture/react';
 import { Lethargy } from 'lethargy';
 import { HeroId } from '@/helpers/types';
 import { useHero } from '@/contexts/HeroContext';
+import { useHeroMeta } from '@/contexts/HeroMetasContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
 import HeroVectorLogo from '@/components/views/HeroMenu/HeroVectorLogo';
 import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
+import Loader from '@/components/ui/Loader';
 import { StyledHeroMenu, StyledGrainedBg } from '@/components/views/HeroMenu/styles';
 
 const lethargy = new Lethargy();
@@ -20,11 +22,11 @@ type Props = {
 
 const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
   const { hero } = useHero();
+  const { isLoadingHeroMetas, heroMetas } = useHeroMeta();
   const {
     heroes,
     activeHeroIndex,
     prevActiveHeroIndex,
-    lastHeroIndex,
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
@@ -40,7 +42,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     dimHero,
     isLeavingMenu,
     leaveMenu,
-  } = useHeroMenu(hero as HeroId);
+  } = useHeroMenu(hero as HeroId, heroMetas);
 
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {
@@ -94,6 +96,10 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     initLeave(heroes[activeHeroIndex].heroId);
   };
 
+  if (isLoadingHeroMetas) {
+    return <Loader />;
+  }
+
   return (
     <StyledHeroMenu isFaded={isLeaving} {...bind()}>
       <HeroBg heroes={heroes} isDarkened={isHeroHighlighted} />
@@ -102,7 +108,6 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
         heroes={heroes}
         activeHeroIndex={activeHeroIndex}
         prevActiveHeroIndex={prevActiveHeroIndex}
-        lastHeroIndex={lastHeroIndex}
         isHighlighted={isHeroHighlighted}
         isFaded={isLeaving}
       />
@@ -110,7 +115,6 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
         heroes={heroes}
         activeHeroIndex={activeHeroIndex}
         prevActiveHeroIndex={prevActiveHeroIndex}
-        lastHeroIndex={lastHeroIndex}
         onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
         onEndIntroChars={enableHeroChange}
         onDistanceChars={onHeadingDistanceChars}

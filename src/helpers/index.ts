@@ -38,5 +38,8 @@ export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   return split(target);
 };
 
-export const defaultHeroId = 'superman';
-export const getHero = (heroData: HeroData, id: HeroId): string => heroData[id || defaultHeroId];
+export const TOTAL_HEROES = 7;
+export const LAST_HERO_INDEX = TOTAL_HEROES - 1;
+export const DEFAULT_HERO_ID = 'superman';
+
+export const getHero = (heroData: HeroData, id: HeroId): string => heroData[id || DEFAULT_HERO_ID];

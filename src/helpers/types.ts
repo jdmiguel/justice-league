@@ -10,6 +10,14 @@ export type HeroData = {
 
 export type HeroId = keyof HeroData;
 
+export type HeroMeta = {
+  heroId: string;
+  name: string;
+  menuBgImagePath: string;
+  whiteLogoPath: string;
+  colorLogoPath: string;
+};
+
 export type HeroMenuData = {
   heroId: HeroId;
   name: string;
