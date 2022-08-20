@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "start": "netlify dev",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
