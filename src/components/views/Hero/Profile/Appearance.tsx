@@ -1,6 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
-import { HeroId, ProfileAppearanceData } from '@/helpers/types';
-import { useHero } from '@/contexts/HeroContext';
+import { useRef } from 'react';
+import { ProfileAppearanceData } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Card from '@/components/views/Hero/Profile/Card';
 import {
@@ -11,11 +10,11 @@ import {
 
 type Props = {
   color: string;
+  appearanceData: ProfileAppearanceData | null;
+  powers: string[];
 };
 
-const Appearance: React.FC<Props> = ({ color }) => {
-  const [appearanceData, setAppearanceData] = useState<ProfileAppearanceData | null>(null);
-  const [powers, setPowers] = useState<string[]>([]);
+const Appearance: React.FC<Props> = ({ color, appearanceData, powers }) => {
   const appearanceRef = useRef<HTMLDivElement>(null);
 
   const entry = useIntersectionObserver(appearanceRef, {
@@ -25,33 +24,6 @@ const Appearance: React.FC<Props> = ({ color }) => {
     freezeOnceVisible: true,
   });
   const isVisible = !!entry?.isIntersecting;
-  const { hero: currentHeroId } = useHero();
-
-  useEffect(() => {
-    const getAppearance = async (heroId: HeroId) => {
-      try {
-        const res = await fetch(`/.netlify/functions/getAppearance/${heroId}`);
-        const [formattedResponse] = await res.json();
-        setAppearanceData(formattedResponse.appearance);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    getAppearance(currentHeroId as HeroId);
-
-    const getPowers = async (heroId: HeroId) => {
-      try {
-        const res = await fetch(`/.netlify/functions/getPowers/${heroId}`);
-        const [formattedResponse] = await res.json();
-        setPowers(formattedResponse.powers);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    getPowers(currentHeroId as HeroId);
-  }, [currentHeroId]);
 
   return (
     <StyledAppearance ref={appearanceRef}>

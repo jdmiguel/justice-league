@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
 import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
@@ -6,6 +6,7 @@ import {
   HeroId,
   ProfileIntroData,
   ProfileDetailsData,
+  ProfileAppearanceData,
   ProfileStatsData,
   PageId,
 } from '@/helpers/types';
@@ -21,15 +22,46 @@ import Header from '@/components/layouts/Header';
 import Loader from '@/components/ui/Loader';
 
 const Profile: React.FC = () => {
-  const { id } = useParams<Params>();
+  const [isLoading, setIsLoading] = useState(true);
+  const [appearanceData, setAppearanceData] = useState<ProfileAppearanceData | null>(null);
+  const [powers, setPowers] = useState<string[]>([]);
+
+  const { id: currentHeroId } = useParams<Params>();
   const { isIntroVisible } = useIntro();
   const { updateHero } = useHero();
   const { nextPagePath, isNavigating, initNavigation, endNavigation } = useHeroNavigation();
   const { updateLocked } = useLockedBody();
 
   useEffect(() => {
-    updateHero(id as HeroId);
-  }, [id, updateHero]);
+    const getAppearance = async (heroId: HeroId) => {
+      try {
+        const res = await fetch(`/.netlify/functions/getAppearance/${heroId}`);
+        const fetchedAppearanceData = await res.json();
+        setAppearanceData(fetchedAppearanceData);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    const getPowers = async (heroId: HeroId) => {
+      try {
+        const res = await fetch(`/.netlify/functions/getPowers/${heroId}`);
+        const fetchedPowers = await res.json();
+        setPowers(fetchedPowers);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    Promise.all([
+      getAppearance(currentHeroId as HeroId),
+      getPowers(currentHeroId as HeroId),
+    ]).finally(() => setIsLoading(false));
+  }, [currentHeroId]);
+
+  useEffect(() => {
+    updateHero(currentHeroId as HeroId);
+  }, [currentHeroId, updateHero]);
 
   useEffect(() => {
     if (isIntroVisible) {
@@ -40,7 +72,7 @@ const Profile: React.FC = () => {
   }, [isIntroVisible, updateLocked]);
 
   /* It will be replaced with a GET request*/
-  const currentHeroData = heroesData.find((hero) => hero.meta.heroId === id);
+  const currentHeroData = heroesData.find((hero) => hero.meta.heroId === currentHeroId);
 
   const { imagesPreloaded } = useImagePreloader([
     currentHeroData?.meta.colorLogoPath as string,
@@ -49,8 +81,8 @@ const Profile: React.FC = () => {
     currentHeroData?.profile.appearance.imagePath as string,
   ]);
 
-  const heroColor = heroColors[id as HeroId];
-  const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
+  const heroColor = heroColors[currentHeroId as HeroId];
+  const heroSemiTransparentColor = heroSemiTransparentColors[currentHeroId as HeroId];
 
   const introData: ProfileIntroData = {
     semiTransparentColor: heroSemiTransparentColor,
@@ -76,19 +108,21 @@ const Profile: React.FC = () => {
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
-  if (!imagesPreloaded) {
+  if (isLoading || !imagesPreloaded) {
     return <Loader />;
   }
 
   return (
     <>
-      {isIntroVisible && <Intro idParam={id} />}
+      {isIntroVisible && <Intro idParam={currentHeroId} />}
       <Layout>
         <Header isSticky>
           <Header.Logo onClick={() => initNavigation({ heroId: null, pageId: 'root' })} />
           <Header.Navigation
             pageId="profile"
-            onClick={(pageId: PageId) => initNavigation({ heroId: id as HeroId, pageId })}
+            onClick={(pageId: PageId) =>
+              initNavigation({ heroId: currentHeroId as HeroId, pageId })
+            }
             isLeaving={isLeaving}
           />
           <Header.Divider isLeaving={isLeaving} />
@@ -98,6 +132,8 @@ const Profile: React.FC = () => {
           heroColor={heroColor}
           introData={introData}
           detailsData={detailsData}
+          appearanceData={appearanceData}
+          powers={powers}
           statsData={statsData}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}

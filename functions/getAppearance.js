@@ -9,7 +9,7 @@ exports.handler = async (event) => {
   const heroId = event.path.slice(heroIdPathIndex, event.path.length);
   try {
     const res = await sendQuery(GET_APPEARANCE(heroId));
-    const data = res.profileByHeroId.data;
+    const data = res.profileByHeroId.data[0].appearance;
     return formatResponse(200, data);
   } catch (err) {
     console.error(err);
