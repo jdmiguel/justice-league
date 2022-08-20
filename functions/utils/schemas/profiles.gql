@@ -1,5 +1,6 @@
 type Profile {
   heroId: String!
+  name: String!
   alias: String!
   description: String!
   imagePath: String!

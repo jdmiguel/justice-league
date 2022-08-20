@@ -16,7 +16,8 @@ import { StyledProfileWrapper, StyledProfile } from '@/components/views/Hero/Pro
 type Props = {
   heroLogoPath: string;
   heroColor: string;
-  introData: ProfileIntroData;
+  heroSemiTransparentColor: string;
+  introData: ProfileIntroData | null;
   detailsData: ProfileDetailsData;
   appearanceData: ProfileAppearanceData | null;
   powers: string[];
@@ -28,6 +29,7 @@ type Props = {
 const Profile: React.FC<Props> = ({
   heroLogoPath,
   heroColor,
+  heroSemiTransparentColor,
   introData,
   detailsData,
   appearanceData,
@@ -62,7 +64,7 @@ const Profile: React.FC<Props> = ({
   return (
     <StyledProfileWrapper heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
       <StyledProfile ref={profileRef}>
-        <Intro data={introData} />
+        <Intro data={introData} semiTransparentColor={heroSemiTransparentColor} />
         <Details data={detailsData} />
         <Appearance appearanceData={appearanceData} powers={powers} color={heroColor} />
         <Stats data={statsData} />

@@ -23,6 +23,7 @@ import Loader from '@/components/ui/Loader';
 
 const Profile: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [introData, setIntroData] = useState<ProfileIntroData | null>(null);
   const [appearanceData, setAppearanceData] = useState<ProfileAppearanceData | null>(null);
   const [powers, setPowers] = useState<string[]>([]);
 
@@ -33,6 +34,16 @@ const Profile: React.FC = () => {
   const { updateLocked } = useLockedBody();
 
   useEffect(() => {
+    const getProfile = async (heroId: HeroId) => {
+      try {
+        const res = await fetch(`/.netlify/functions/getProfile/${heroId}`);
+        const fetchedIntroData = await res.json();
+        setIntroData(fetchedIntroData);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
     const getAppearance = async (heroId: HeroId) => {
       try {
         const res = await fetch(`/.netlify/functions/getAppearance/${heroId}`);
@@ -54,6 +65,7 @@ const Profile: React.FC = () => {
     };
 
     Promise.all([
+      getProfile(currentHeroId as HeroId),
       getAppearance(currentHeroId as HeroId),
       getPowers(currentHeroId as HeroId),
     ]).finally(() => setIsLoading(false));
@@ -83,14 +95,6 @@ const Profile: React.FC = () => {
 
   const heroColor = heroColors[currentHeroId as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[currentHeroId as HeroId];
-
-  const introData: ProfileIntroData = {
-    semiTransparentColor: heroSemiTransparentColor,
-    imgPath: currentHeroData?.profile.imagePath as string,
-    title: currentHeroData?.meta.name || '',
-    subtitle: currentHeroData?.profile.alias || '',
-    description: currentHeroData?.profile.description || '',
-  };
   const detailsData: ProfileDetailsData = {
     color: heroColor,
     semiTransparentColor: heroSemiTransparentColor,
@@ -130,6 +134,7 @@ const Profile: React.FC = () => {
         <ProfileView
           heroLogoPath={currentHeroData?.meta.colorLogoPath || ''}
           heroColor={heroColor}
+          heroSemiTransparentColor={heroSemiTransparentColor}
           introData={introData}
           detailsData={detailsData}
           appearanceData={appearanceData}

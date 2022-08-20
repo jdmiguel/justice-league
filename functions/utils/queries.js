@@ -11,6 +11,19 @@ const GET_METAS = `
   }
 `;
 
+const GET_PROFILE = (id) => `
+  query findProfile {
+    profileByHeroId(heroId: "${id}"){
+      data {
+        name
+        alias
+        description
+        imagePath
+      }
+    }
+  }
+`;
+
 const GET_APPEARANCE = (id) => `
   query findAppearance {
     profileByHeroId(heroId: "${id}"){
@@ -40,6 +53,7 @@ const GET_POWERS = (id) => `
 
 module.exports = {
   GET_METAS,
+  GET_PROFILE,
   GET_APPEARANCE,
   GET_POWERS,
 };

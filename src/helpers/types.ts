@@ -29,11 +29,10 @@ export type HeroMenuData = {
 export type PageId = 'root' | 'profile' | 'enemies' | 'timeline';
 
 export type ProfileIntroData = {
-  semiTransparentColor: string;
-  imgPath: string;
-  title: string;
-  subtitle: string;
+  name: string;
+  alias: string;
   description: string;
+  imagePath: string;
 };
 
 export type ProfileDetailsData = {
