@@ -6,7 +6,6 @@ import {
   HeroId,
   ProfileIntroData,
   ProfileDetailsData,
-  ProfileAppearanceData,
   ProfileStatsData,
   PageId,
 } from '@/helpers/types';
@@ -70,16 +69,6 @@ const Profile: React.FC = () => {
     base: currentHeroData?.profile.details.base || '',
     firstAppearance: currentHeroData?.profile.details.firstAppearance || '',
   };
-  const appearanceData: ProfileAppearanceData = {
-    color: heroColor,
-    imgPath: currentHeroData?.profile.appearance.imagePath as string,
-    race: currentHeroData?.profile.appearance.race || '',
-    height: currentHeroData?.profile.appearance.height || '',
-    weight: currentHeroData?.profile.appearance.weight || '',
-    eyeColor: currentHeroData?.profile.appearance.eyeColor || '',
-    hairColor: currentHeroData?.profile.appearance.hairColor || '',
-    powers: currentHeroData?.profile.powers || [],
-  };
   const statsData: ProfileStatsData = {
     color: heroColor,
     skills: currentHeroData?.profile.skills || [],
@@ -106,9 +95,9 @@ const Profile: React.FC = () => {
         </Header>
         <ProfileView
           heroLogoPath={currentHeroData?.meta.colorLogoPath || ''}
+          heroColor={heroColor}
           introData={introData}
           detailsData={detailsData}
-          appearanceData={appearanceData}
           statsData={statsData}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}

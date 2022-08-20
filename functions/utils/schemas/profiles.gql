@@ -35,4 +35,5 @@ type Skill @embedded {
 
 type Query {
   allProfiles: [Profile!]
+  profileByHeroId(heroId: String!): [Profile!]!
 }

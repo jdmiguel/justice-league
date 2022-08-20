@@ -57,14 +57,12 @@ export type ProfileDetailsCard = {
 };
 
 export type ProfileAppearanceData = {
-  color: string;
-  imgPath: string;
   race: string;
   height: string;
   weight: string;
   eyeColor: string;
   hairColor: string;
-  powers: string[];
+  imagePath: string;
 };
 
 export type ProfileAppearanceCard = {

@@ -1,12 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
-import {
-  ProfileIntroData,
-  ProfileDetailsData,
-  ProfileAppearanceData,
-  ProfileStatsData,
-} from '@/helpers/types';
+import { ProfileIntroData, ProfileDetailsData, ProfileStatsData } from '@/helpers/types';
 import Intro from '@/components/views/Hero/Profile/Intro';
 import Details from '@/components/views/Hero/Profile/Details';
 import Appearance from '@/components/views/Hero/Profile/Appearance';
@@ -15,9 +10,9 @@ import { StyledProfileWrapper, StyledProfile } from '@/components/views/Hero/Pro
 
 type Props = {
   heroLogoPath: string;
+  heroColor: string;
   introData: ProfileIntroData;
   detailsData: ProfileDetailsData;
-  appearanceData: ProfileAppearanceData;
   statsData: ProfileStatsData;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
@@ -25,9 +20,9 @@ type Props = {
 
 const Profile: React.FC<Props> = ({
   heroLogoPath,
+  heroColor,
   introData,
   detailsData,
-  appearanceData,
   statsData,
   isLeaving,
   onEndFadeAnimation,
@@ -60,7 +55,7 @@ const Profile: React.FC<Props> = ({
       <StyledProfile ref={profileRef}>
         <Intro data={introData} />
         <Details data={detailsData} />
-        <Appearance data={appearanceData} />
+        <Appearance color={heroColor} />
         <Stats data={statsData} />
       </StyledProfile>
     </StyledProfileWrapper>
