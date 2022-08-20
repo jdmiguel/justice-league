@@ -16,8 +16,10 @@ const useHeroMenu = (heroId: HeroId, heroMetas: HeroMeta[]) => {
   const [isHeroHighlighted, setIsHeroHighlighted] = useState(false);
   const [isChangingHero, setIsChangingHero] = useState(false);
   const [isLeavingMenu, setIsLeavingMenu] = useState(false);
-  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
-  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(0);
+
+  const initialHeroIndex = heroMetas.findIndex((meta) => meta.heroId === heroId);
+  const [activeHeroIndex, setActiveHeroIndex] = useState(() => initialHeroIndex);
+  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(() => initialHeroIndex);
 
   useEffect(() => {
     if (heroes.length === 0) {
