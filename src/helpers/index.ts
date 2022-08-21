@@ -42,9 +42,9 @@ export const TOTAL_HEROES = 7;
 export const LAST_HERO_INDEX = TOTAL_HEROES - 1;
 export const DEFAULT_HERO_ID = 'superman';
 export const DEFAULT_PROFILE: ProfileData = {
-  bgLogoPath: '',
+  colorLogoPath: '',
+  name: '',
   intro: {
-    name: '',
     alias: '',
     description: '',
     imagePath: '',

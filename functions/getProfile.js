@@ -9,7 +9,7 @@ exports.handler = async (event) => {
   const heroId = event.path.slice(heroIdPathIndex, event.path.length);
   try {
     const res = await sendQuery(GET_PROFILE(heroId));
-    const data = res.profileByHeroId.data[0];
+    const data = { ...res.metaByHeroId.data[0], ...res.profileByHeroId.data[0] };
     return formatResponse(200, data);
   } catch (err) {
     console.error(err);

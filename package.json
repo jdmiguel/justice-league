@@ -6,7 +6,7 @@
     "start": "netlify dev",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "yarn start && vite preview"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@use-gesture/react": "^10.2.11",

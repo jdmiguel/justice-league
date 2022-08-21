@@ -12,12 +12,16 @@ const GET_METAS = `
 `;
 
 const GET_PROFILE = (id) => `
-  query findProfile {
+  query {
+    metaByHeroId(heroId: "${id}"){
+      data {
+        name
+        colorLogoPath
+      }
+    }
     profileByHeroId(heroId: "${id}"){
       data {
-        bgLogoPath
         intro {
-          name
           alias
           description
           imagePath

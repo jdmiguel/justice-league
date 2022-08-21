@@ -27,7 +27,8 @@ const Profile: React.FC<Props> = ({
   const profileRef = useRef<HTMLDivElement>(null);
 
   const {
-    bgLogoPath,
+    name,
+    colorLogoPath,
     intro: introData,
     detail: detailData,
     appearance: appearanceData,
@@ -56,9 +57,9 @@ const Profile: React.FC<Props> = ({
   }, [isLeaving, onEndFadeAnimation]);
 
   return (
-    <StyledProfileWrapper bgLogoPath={bgLogoPath} isLeaving={isLeaving}>
+    <StyledProfileWrapper bgLogoPath={colorLogoPath} isLeaving={isLeaving}>
       <StyledProfile ref={profileRef}>
-        <Intro data={introData} semiTransparentColor={heroSemiTransparentColor} />
+        <Intro heroName={name} data={introData} semiTransparentColor={heroSemiTransparentColor} />
         <Detail
           data={detailData}
           color={heroColor}

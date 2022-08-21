@@ -9,12 +9,14 @@ import {
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
+  heroName: string;
   data: ProfileIntro;
   semiTransparentColor: string;
 };
 
 const Intro: React.FC<Props> = ({
-  data: { name, alias, description, imagePath },
+  heroName: name,
+  data: { alias, description, imagePath },
   semiTransparentColor,
 }) => (
   <StyledIntro>

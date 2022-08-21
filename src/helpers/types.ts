@@ -31,7 +31,6 @@ export type PageId = 'root' | 'profile' | 'enemies' | 'timeline';
 export type RequestStatus = 'LOADING' | 'SUCCESS' | 'FAILURE';
 
 export type ProfileIntro = {
-  name: string;
   alias: string;
   description: string;
   imagePath: string;
@@ -63,7 +62,8 @@ type Skill = {
 export type ProfileSkills = Skill[];
 
 export type ProfileData = {
-  bgLogoPath: string;
+  name: string;
+  colorLogoPath: string;
   intro: ProfileIntro;
   appearance: ProfileAppearance;
   powers: string[];

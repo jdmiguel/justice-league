@@ -8,4 +8,5 @@ type Meta {
 
 type Query {
   allMetas: [Meta!]
+  metaByHeroId(heroId: String!): [Meta!]!
 }
