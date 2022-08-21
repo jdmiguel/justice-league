@@ -16,9 +16,7 @@ const useHeroMenu = (heroId: HeroId, heroMetas: HeroMeta[]) => {
   const [isHeroHighlighted, setIsHeroHighlighted] = useState(false);
   const [isChangingHero, setIsChangingHero] = useState(false);
   const [isLeavingMenu, setIsLeavingMenu] = useState(false);
-
-  const matchedHeroIndex = heroMetas.findIndex((meta) => meta.heroId === heroId);
-  const initialHeroIndex = matchedHeroIndex < 0 ? 0 : matchedHeroIndex;
+  const initialHeroIndex = heroMetas.findIndex((meta) => meta.heroId === heroId);
   const [activeHeroIndex, setActiveHeroIndex] = useState(() => initialHeroIndex);
   const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(() => initialHeroIndex);
 

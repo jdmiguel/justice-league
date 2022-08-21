@@ -1,28 +1,26 @@
 import { createUseGesture, dragAction, wheelAction } from '@use-gesture/react';
 import { Lethargy } from 'lethargy';
-import { HeroId } from '@/helpers/types';
+import { HeroMeta, HeroId } from '@/helpers/types';
 import { useHero } from '@/contexts/HeroContext';
-import { useHeroMeta } from '@/contexts/HeroMetasContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
 import HeroVectorLogo from '@/components/views/HeroMenu/HeroVectorLogo';
 import HeroHeading from '@/components/views/HeroMenu/HeroHeading';
-import Loader from '@/components/ui/Loader';
 import { StyledHeroMenu, StyledGrainedBg } from '@/components/views/HeroMenu/styles';
 
 const lethargy = new Lethargy();
 const useGesture = createUseGesture([dragAction, wheelAction]);
 
 type Props = {
+  heroMetas: HeroMeta[];
   isLeaving: boolean;
   initLeave: (_: HeroId) => void;
   endLeave: () => void;
 };
 
-const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
+const HeroMenu: React.FC<Props> = ({ heroMetas, isLeaving, initLeave, endLeave }) => {
   const { hero } = useHero();
-  const { isLoadingHeroMetas, heroMetas } = useHeroMeta();
   const {
     heroes,
     activeHeroIndex,
@@ -95,10 +93,6 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     leaveMenu();
     initLeave(heroes[activeHeroIndex].heroId);
   };
-
-  if (isLoadingHeroMetas) {
-    return <Loader />;
-  }
 
   return (
     <StyledHeroMenu isFaded={isLeaving} {...bind()}>
