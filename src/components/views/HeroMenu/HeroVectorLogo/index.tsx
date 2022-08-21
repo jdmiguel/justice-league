@@ -61,9 +61,12 @@ const HeroVectorLogo: React.FC<Props> = ({
   }, []);
 
   useEffect(() => {
-    if (!heroRefs.every((heroRef) => heroRef) || activeHeroIndex === undefined) {
+    if (!heroRefs.every((heroRef) => heroRef)) {
       return;
     }
+
+    console.log({ heroRefs });
+    console.log({ activeHeroIndex });
 
     if (isIntroVisible) {
       tweenRef.current = gsap
