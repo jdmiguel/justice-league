@@ -5,10 +5,11 @@ type Enemies {
 
 type Enemy @embedded {
   name: String!
-  imagePath: String!
   description: String!
+  imagePath: String!
 }
 
 type Query {
   allEnemies: [Enemies!]
+  enemiesByHeroId(heroId: String!): [Enemies!]!
 }

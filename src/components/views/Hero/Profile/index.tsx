@@ -26,16 +26,6 @@ const Profile: React.FC<Props> = ({
   const tweenRef = useRef<GSAPTween>();
   const profileRef = useRef<HTMLDivElement>(null);
 
-  const {
-    name,
-    colorLogoPath,
-    intro: introData,
-    detail: detailData,
-    appearance: appearanceData,
-    powers,
-    skills,
-  } = profileData;
-
   useEffect(() => {
     return () => {
       tweenRef.current?.kill();
@@ -55,6 +45,16 @@ const Profile: React.FC<Props> = ({
 
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
+
+  const {
+    name,
+    colorLogoPath,
+    intro: introData,
+    detail: detailData,
+    appearance: appearanceData,
+    powers,
+    skills,
+  } = profileData;
 
   return (
     <StyledProfileWrapper bgLogoPath={colorLogoPath} isLeaving={isLeaving}>

@@ -1,4 +1,4 @@
-import { HeroData, HeroId, ProfileData } from '@/helpers/types';
+import { HeroData, HeroId, ProfileData, EnemiesData } from '@/helpers/types';
 
 export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   if (!target) {
@@ -67,6 +67,16 @@ export const DEFAULT_PROFILE: ProfileData = {
   },
   powers: [],
   skills: [],
+};
+export const DEFAULT_ENEMIES: EnemiesData = {
+  colorLogoPath: '',
+  enemiesList: [
+    {
+      name: '',
+      description: '',
+      imagePath: '',
+    },
+  ],
 };
 
 export const getHero = (heroData: HeroData, id: HeroId): string => heroData[id || DEFAULT_HERO_ID];

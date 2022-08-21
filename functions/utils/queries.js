@@ -53,7 +53,27 @@ const GET_PROFILE = (id) => `
   }
 `;
 
+const GET_ENEMIES = (id) => `
+  query {
+    metaByHeroId(heroId: "${id}"){
+      data {
+        colorLogoPath
+      }
+    }
+    enemiesByHeroId(heroId: "${id}"){
+      data {
+        enemiesList {
+          name
+          description
+          imagePath
+        }
+      }
+    }
+  }
+`;
+
 module.exports = {
   GET_METAS,
   GET_PROFILE,
+  GET_ENEMIES,
 };

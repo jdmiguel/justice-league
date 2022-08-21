@@ -100,6 +100,16 @@ export type ProfileStatsPercentData = {
 };
 export type ProfileStatsPercentsData = ProfileStatsPercentData[];
 
+type EnemyData = {
+  name: string;
+  imagePath: string;
+  description: string;
+};
+export type EnemiesData = {
+  colorLogoPath: string;
+  enemiesList: EnemyData[];
+};
+
 type EventData = {
   year: string;
   imagePath: string;
@@ -107,10 +117,3 @@ type EventData = {
   description: string;
 };
 export type EventsData = EventData[];
-
-type EnemyData = {
-  name: string;
-  imagePath: string;
-  description: string;
-};
-export type EnemiesData = EnemyData[];
