@@ -15,6 +15,7 @@ const GET_PROFILE = (id) => `
   query findProfile {
     profileByHeroId(heroId: "${id}"){
       data {
+        bgLogoPath
         intro {
           name
           alias

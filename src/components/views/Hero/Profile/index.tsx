@@ -9,19 +9,17 @@ import Stats from '@/components/views/Hero/Profile/Stats';
 import { StyledProfileWrapper, StyledProfile } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  heroLogoPath: string;
+  profileData: ProfileData;
   heroColor: string;
   heroSemiTransparentColor: string;
-  profileData: ProfileData;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
 
 const Profile: React.FC<Props> = ({
-  heroLogoPath,
+  profileData,
   heroColor,
   heroSemiTransparentColor,
-  profileData,
   isLeaving,
   onEndFadeAnimation,
 }) => {
@@ -29,6 +27,7 @@ const Profile: React.FC<Props> = ({
   const profileRef = useRef<HTMLDivElement>(null);
 
   const {
+    bgLogoPath,
     intro: introData,
     detail: detailData,
     appearance: appearanceData,
@@ -57,7 +56,7 @@ const Profile: React.FC<Props> = ({
   }, [isLeaving, onEndFadeAnimation]);
 
   return (
-    <StyledProfileWrapper heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
+    <StyledProfileWrapper bgLogoPath={bgLogoPath} isLeaving={isLeaving}>
       <StyledProfile ref={profileRef}>
         <Intro data={introData} semiTransparentColor={heroSemiTransparentColor} />
         <Detail

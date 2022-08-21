@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { animation, ease } from '@/helpers/theme';
 
-export const StyledProfileWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
+export const StyledProfileWrapper = styled.main<{ bgLogoPath: string; isLeaving?: boolean }>`
   position: relative;
   &:before {
     animation: ${animation.minFadeIn} 0.5s;
-    background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
+    background-image: ${({ bgLogoPath }) => `url(${bgLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

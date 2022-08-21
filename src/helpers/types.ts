@@ -63,6 +63,7 @@ type Skill = {
 export type ProfileSkills = Skill[];
 
 export type ProfileData = {
+  bgLogoPath: string;
   intro: ProfileIntro;
   appearance: ProfileAppearance;
   powers: string[];
