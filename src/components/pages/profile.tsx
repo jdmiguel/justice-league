@@ -1,15 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import heroesData from '@/assets/heroes.json';
+import { DEFAULT_PROFILE } from '@/helpers';
 import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
-import {
-  HeroId,
-  ProfileIntroData,
-  ProfileDetailsData,
-  ProfileAppearanceData,
-  ProfileStatsData,
-  PageId,
-} from '@/helpers/types';
+import { RequestStatus, HeroId, ProfileData, PageId } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
@@ -22,11 +16,8 @@ import Header from '@/components/layouts/Header';
 import Loader from '@/components/ui/Loader';
 
 const Profile: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [introData, setIntroData] = useState<ProfileIntroData | null>(null);
-  const [appearanceData, setAppearanceData] = useState<ProfileAppearanceData | null>(null);
-  const [powers, setPowers] = useState<string[]>([]);
-
+  const [requestStatus, setRequestStatus] = useState<RequestStatus>('LOADING');
+  const [profileData, setProfileData] = useState<ProfileData>(DEFAULT_PROFILE);
   const { id: currentHeroId } = useParams<Params>();
   const { isIntroVisible } = useIntro();
   const { updateHero } = useHero();
@@ -37,38 +28,16 @@ const Profile: React.FC = () => {
     const getProfile = async (heroId: HeroId) => {
       try {
         const res = await fetch(`/.netlify/functions/getProfile/${heroId}`);
-        const fetchedIntroData = await res.json();
-        setIntroData(fetchedIntroData);
+        const fetchedProfileData = await res.json();
+        setProfileData(fetchedProfileData);
+        setRequestStatus('SUCCESS');
       } catch (err) {
         console.error(err);
+        setRequestStatus('FAILURE');
       }
     };
 
-    const getAppearance = async (heroId: HeroId) => {
-      try {
-        const res = await fetch(`/.netlify/functions/getAppearance/${heroId}`);
-        const fetchedAppearanceData = await res.json();
-        setAppearanceData(fetchedAppearanceData);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    const getPowers = async (heroId: HeroId) => {
-      try {
-        const res = await fetch(`/.netlify/functions/getPowers/${heroId}`);
-        const fetchedPowers = await res.json();
-        setPowers(fetchedPowers);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    Promise.all([
-      getProfile(currentHeroId as HeroId),
-      getAppearance(currentHeroId as HeroId),
-      getPowers(currentHeroId as HeroId),
-    ]).finally(() => setIsLoading(false));
+    getProfile(currentHeroId as HeroId);
   }, [currentHeroId]);
 
   useEffect(() => {
@@ -83,7 +52,6 @@ const Profile: React.FC = () => {
     updateLocked(false);
   }, [isIntroVisible, updateLocked]);
 
-  /* It will be replaced with a GET request*/
   const currentHeroData = heroesData.find((hero) => hero.meta.heroId === currentHeroId);
 
   const { imagesPreloaded } = useImagePreloader([
@@ -95,24 +63,10 @@ const Profile: React.FC = () => {
 
   const heroColor = heroColors[currentHeroId as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[currentHeroId as HeroId];
-  const detailsData: ProfileDetailsData = {
-    color: heroColor,
-    semiTransparentColor: heroSemiTransparentColor,
-    imgPath: currentHeroData?.profile.details.imagePath as string,
-    fullName: currentHeroData?.profile.details.fullName || '',
-    birthPlace: currentHeroData?.profile.details.birthPlace || '',
-    occupation: currentHeroData?.profile.details.occupation || '',
-    base: currentHeroData?.profile.details.base || '',
-    firstAppearance: currentHeroData?.profile.details.firstAppearance || '',
-  };
-  const statsData: ProfileStatsData = {
-    color: heroColor,
-    skills: currentHeroData?.profile.skills || [],
-  };
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
-  if (isLoading || !imagesPreloaded) {
+  if (requestStatus === 'LOADING' || !imagesPreloaded) {
     return <Loader />;
   }
 
@@ -135,11 +89,7 @@ const Profile: React.FC = () => {
           heroLogoPath={currentHeroData?.meta.colorLogoPath || ''}
           heroColor={heroColor}
           heroSemiTransparentColor={heroSemiTransparentColor}
-          introData={introData}
-          detailsData={detailsData}
-          appearanceData={appearanceData}
-          powers={powers}
-          statsData={statsData}
+          profileData={profileData}
           isLeaving={isNavigating}
           onEndFadeAnimation={endNavigation}
         />

@@ -1,13 +1,17 @@
 type Profile {
   heroId: String!
+  intro: Intro!
+  appearance: Appearance!
+  powers: [String!]
+  detail: Detail!
+  skills: [Skill!]
+}
+
+type Intro @embedded {
   name: String!
   alias: String!
   description: String!
   imagePath: String!
-  details: Detail!
-  appearance: Appearance!
-  powers: [String!]
-  skills: [Skill!]
 }
 
 type Detail @embedded {

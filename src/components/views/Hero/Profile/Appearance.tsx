@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { ProfileAppearanceData } from '@/helpers/types';
+import { ProfileAppearance } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Card from '@/components/views/Hero/Profile/Card';
 import {
@@ -9,12 +9,16 @@ import {
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  color: string;
-  appearanceData: ProfileAppearanceData | null;
+  data: ProfileAppearance;
   powers: string[];
+  color: string;
 };
 
-const Appearance: React.FC<Props> = ({ color, appearanceData, powers }) => {
+const Appearance: React.FC<Props> = ({
+  data: { race, height, weight, eyeColor, hairColor, imagePath },
+  powers,
+  color,
+}) => {
   const appearanceRef = useRef<HTMLDivElement>(null);
 
   const entry = useIntersectionObserver(appearanceRef, {
@@ -30,23 +34,23 @@ const Appearance: React.FC<Props> = ({ color, appearanceData, powers }) => {
       <Card title="Appearance" color={color} isVisible={isVisible}>
         <StyledCardList>
           <li>
-            race: <strong>{appearanceData?.race}</strong>
+            race: <strong>{race}</strong>
           </li>
           <li>
-            height: <strong>{appearanceData?.height}</strong>
+            height: <strong>{height}</strong>
           </li>
           <li>
-            weight: <strong>{appearanceData?.weight}</strong>
+            weight: <strong>{weight}</strong>
           </li>
           <li>
-            eye color: <strong>{appearanceData?.eyeColor}</strong>
+            eye color: <strong>{eyeColor}</strong>
           </li>
           <li>
-            hair color: <strong>{appearanceData?.hairColor}</strong>
+            hair color: <strong>{hairColor}</strong>
           </li>
         </StyledCardList>
       </Card>
-      <StyledAppearanceImage src={appearanceData?.imagePath} isVisible={isVisible} alt="hero" />
+      <StyledAppearanceImage src={imagePath} isVisible={isVisible} alt="hero" />
       <Card title="Powers" color={color} isVisible={isVisible} xOrigin="right">
         <ul>
           {powers.map((power) => (

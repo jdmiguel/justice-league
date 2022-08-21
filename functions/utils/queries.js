@@ -15,19 +15,12 @@ const GET_PROFILE = (id) => `
   query findProfile {
     profileByHeroId(heroId: "${id}"){
       data {
-        name
-        alias
-        description
-        imagePath
-      }
-    }
-  }
-`;
-
-const GET_APPEARANCE = (id) => `
-  query findAppearance {
-    profileByHeroId(heroId: "${id}"){
-      data {
+        intro {
+          name
+          alias
+          description
+          imagePath
+        }
         appearance {
           race
           height
@@ -36,16 +29,20 @@ const GET_APPEARANCE = (id) => `
           hairColor
           imagePath
         }
-      }
-    }
-  }
-`;
-
-const GET_POWERS = (id) => `
-  query findPowers {
-    profileByHeroId(heroId: "${id}"){
-      data {
         powers
+        detail {
+          fullName
+          birthPlace
+          occupation
+          base
+          firstAppearance
+          imagePath
+        }
+        skills {
+          name
+          namePosX
+          value
+        }
       }
     }
   }
@@ -54,6 +51,4 @@ const GET_POWERS = (id) => `
 module.exports = {
   GET_METAS,
   GET_PROFILE,
-  GET_APPEARANCE,
-  GET_POWERS,
 };

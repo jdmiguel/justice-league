@@ -1,4 +1,4 @@
-import { HeroData, HeroId } from '@/helpers/types';
+import { HeroData, HeroId, ProfileData } from '@/helpers/types';
 
 export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   if (!target) {
@@ -41,5 +41,31 @@ export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
 export const TOTAL_HEROES = 7;
 export const LAST_HERO_INDEX = TOTAL_HEROES - 1;
 export const DEFAULT_HERO_ID = 'superman';
+export const DEFAULT_PROFILE: ProfileData = {
+  intro: {
+    name: '',
+    alias: '',
+    description: '',
+    imagePath: '',
+  },
+  detail: {
+    fullName: '',
+    birthPlace: '',
+    occupation: '',
+    base: '',
+    firstAppearance: '',
+    imagePath: '',
+  },
+  appearance: {
+    race: '',
+    height: '',
+    weight: '',
+    eyeColor: '',
+    hairColor: '',
+    imagePath: '',
+  },
+  powers: [],
+  skills: [],
+};
 
 export const getHero = (heroData: HeroData, id: HeroId): string => heroData[id || DEFAULT_HERO_ID];

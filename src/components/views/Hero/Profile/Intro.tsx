@@ -1,5 +1,4 @@
-import { ProfileIntroData } from '@/helpers/types';
-import { useHeroMeta } from '@/contexts/HeroMetasContext';
+import { ProfileIntro } from '@/helpers/types';
 import {
   StyledIntro,
   StyledIntroImage,
@@ -10,27 +9,21 @@ import {
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
+  data: ProfileIntro;
   semiTransparentColor: string;
-  data: ProfileIntroData | null;
 };
 
-const Intro: React.FC<Props> = ({ semiTransparentColor, data }) => {
-  const { heroMetas } = useHeroMeta();
-
-  return (
-    <StyledIntro>
-      <StyledIntroImage
-        src={data?.imagePath}
-        semiTransparentColor={semiTransparentColor}
-        alt={data?.name}
-      />
-      <StyledIntroTextWrapper>
-        <StyledIntroTitle>{data?.name}</StyledIntroTitle>
-        <StyledIntroSubtitle>{data?.alias}</StyledIntroSubtitle>
-        <StyledIntroDescription>{data?.description}</StyledIntroDescription>
-      </StyledIntroTextWrapper>
-    </StyledIntro>
-  );
-};
-
+const Intro: React.FC<Props> = ({
+  data: { name, alias, description, imagePath },
+  semiTransparentColor,
+}) => (
+  <StyledIntro>
+    <StyledIntroImage src={imagePath} semiTransparentColor={semiTransparentColor} alt={name} />
+    <StyledIntroTextWrapper>
+      <StyledIntroTitle>{name}</StyledIntroTitle>
+      <StyledIntroSubtitle>{alias}</StyledIntroSubtitle>
+      <StyledIntroDescription>{description}</StyledIntroDescription>
+    </StyledIntroTextWrapper>
+  </StyledIntro>
+);
 export default Intro;

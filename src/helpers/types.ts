@@ -28,54 +28,31 @@ export type HeroMenuData = {
 
 export type PageId = 'root' | 'profile' | 'enemies' | 'timeline';
 
-export type ProfileIntroData = {
+export type RequestStatus = 'LOADING' | 'SUCCESS' | 'FAILURE';
+
+export type ProfileIntro = {
   name: string;
   alias: string;
   description: string;
   imagePath: string;
 };
 
-export type ProfileDetailsData = {
-  color: string;
-  semiTransparentColor: string;
-  imgPath: string;
+export type ProfileDetail = {
   fullName: string;
   birthPlace: string;
   occupation: string;
   base: string;
   firstAppearance: string;
+  imagePath: string;
 };
 
-export type ProfileDetailsCard = {
-  color: string;
-  fullName: string;
-  birthPlace: string;
-  occupation: string;
-  base: string;
-  firstAppearance: string;
-};
-
-export type ProfileAppearanceData = {
+export type ProfileAppearance = {
   race: string;
   height: string;
   weight: string;
   eyeColor: string;
   hairColor: string;
   imagePath: string;
-};
-
-export type ProfileAppearanceCard = {
-  color: string;
-  race: string;
-  height: string;
-  weight: string;
-  eyeColor: string;
-  hairColor: string;
-};
-
-export type ProfilePowersCard = {
-  color: string;
-  powers: string[];
 };
 
 type Skill = {
@@ -83,8 +60,13 @@ type Skill = {
   namePosX: number;
   value: number;
 };
-export type ProfileStatsData = {
-  color: string;
+export type ProfileSkills = Skill[];
+
+export type ProfileData = {
+  intro: ProfileIntro;
+  appearance: ProfileAppearance;
+  powers: string[];
+  detail: ProfileDetail;
   skills: Skill[];
 };
 
