@@ -52,10 +52,10 @@ const Profile: React.FC = () => {
   }, [isIntroVisible, updateLocked]);
 
   const { imagesPreloaded } = useImagePreloader([
-    profileData?.colorLogoPath as string,
-    profileData?.intro.imagePath as string,
-    profileData?.detail.imagePath as string,
-    profileData?.appearance.imagePath as string,
+    profileData.colorLogoPath as string,
+    profileData.intro.imagePath as string,
+    profileData.detail.imagePath as string,
+    profileData.appearance.imagePath as string,
   ]);
 
   const heroColor = heroColors[currentHeroId as HeroId];
