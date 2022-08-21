@@ -65,9 +65,9 @@ export type ProfileData = {
   name: string;
   colorLogoPath: string;
   intro: ProfileIntro;
+  detail: ProfileDetail;
   appearance: ProfileAppearance;
   powers: string[];
-  detail: ProfileDetail;
   skills: Skill[];
 };
 

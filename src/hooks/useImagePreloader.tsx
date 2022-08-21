@@ -13,6 +13,10 @@ const useImagePreloader = (imageList: string[]) => {
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
 
   useEffect(() => {
+    if (!imageList.every((image) => image)) {
+      return;
+    }
+
     let isCancelled = false;
 
     const preloadImages = async () => {

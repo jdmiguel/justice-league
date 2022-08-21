@@ -7,6 +7,7 @@ import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
 import useLockedBody from '@/hooks/useLockedBody';
+import useImagePreloader from '@/hooks/useImagePreloader';
 import Intro from '@/components/views/Intro';
 import ProfileView from '@/components/views/Hero/Profile';
 import Layout from '@/components/layouts/Layout';
@@ -50,12 +51,19 @@ const Profile: React.FC = () => {
     updateLocked(false);
   }, [isIntroVisible, updateLocked]);
 
+  const { imagesPreloaded } = useImagePreloader([
+    profileData?.colorLogoPath as string,
+    profileData?.intro.imagePath as string,
+    profileData?.detail.imagePath as string,
+    profileData?.appearance.imagePath as string,
+  ]);
+
   const heroColor = heroColors[currentHeroId as HeroId];
   const heroSemiTransparentColor = heroSemiTransparentColors[currentHeroId as HeroId];
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
-  if (requestStatus === 'LOADING') {
+  if (requestStatus === 'LOADING' || !imagesPreloaded) {
     return <Loader />;
   }
 
