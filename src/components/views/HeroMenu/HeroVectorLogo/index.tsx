@@ -61,7 +61,7 @@ const HeroVectorLogo: React.FC<Props> = ({
   }, []);
 
   useEffect(() => {
-    if (!heroRefs.every((heroRef) => heroRef)) {
+    if (!heroRefs.every((heroRef) => heroRef) || activeHeroIndex === undefined) {
       return;
     }
 
