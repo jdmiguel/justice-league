@@ -36,7 +36,7 @@ const Root: React.FC = () => {
   }, []);
 
   if (requestStatus === 'LOADING') {
-    return <Loader />;
+    return <Loader withLightBg={!!isIntroVisible} />;
   }
 
   return (

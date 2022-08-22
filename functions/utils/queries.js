@@ -72,8 +72,29 @@ const GET_ENEMIES = (id) => `
   }
 `;
 
+const GET_EVENTS = (id) => `
+  query {
+    metaByHeroId(heroId: "${id}"){
+      data {
+        colorLogoPath
+      }
+    }
+    eventsByHeroId(heroId: "${id}"){
+      data {
+        eventsList {
+          year
+          title
+          description
+          imagePath
+        }
+      }
+    }
+  }
+`;
+
 module.exports = {
   GET_METAS,
   GET_PROFILE,
   GET_ENEMIES,
+  GET_EVENTS,
 };

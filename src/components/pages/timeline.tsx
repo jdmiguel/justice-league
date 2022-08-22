@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
-import heroesData from '@/assets/heroes.json';
+import { DEFAULT_EVENTS } from '@/helpers';
 import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
-import { HeroId, PageId, EventsData } from '@/helpers/types';
+import { RequestStatus, HeroId, PageId, EventsData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroNavigation from '@/hooks/useHeroNavigation';
@@ -15,15 +15,33 @@ import Header from '@/components/layouts/Header';
 import Loader from '@/components/ui/Loader';
 
 const Timeline: React.FC = () => {
-  const { id } = useParams<Params>();
+  const [requestStatus, setRequestStatus] = useState<RequestStatus>('LOADING');
+  const [eventsData, setEventsData] = useState<EventsData>(DEFAULT_EVENTS);
+  const { id: currentHeroId } = useParams<Params>();
   const { updateHero } = useHero();
   const { isIntroVisible } = useIntro();
   const { nextPagePath, isNavigating, initNavigation, endNavigation } = useHeroNavigation();
   const { updateLocked } = useLockedBody();
 
   useEffect(() => {
-    updateHero(id as HeroId);
-  }, [id, updateHero]);
+    const getProfile = async (heroId: HeroId) => {
+      try {
+        const res = await fetch(`/.netlify/functions/getEvents/${heroId}`);
+        const fetchedEnemiesData = await res.json();
+        setEventsData(fetchedEnemiesData);
+        setRequestStatus('SUCCESS');
+      } catch (err) {
+        console.error(err);
+        setRequestStatus('FAILURE');
+      }
+    };
+
+    getProfile(currentHeroId as HeroId);
+  }, [currentHeroId]);
+
+  useEffect(() => {
+    updateHero(currentHeroId as HeroId);
+  }, [currentHeroId, updateHero]);
 
   useEffect(() => {
     if (isIntroVisible) {
@@ -33,42 +51,37 @@ const Timeline: React.FC = () => {
     updateLocked(false);
   }, [isIntroVisible, updateLocked]);
 
-  /* It will be replaced with a GET request*/
-  const currentHeroData = heroesData.find((hero) => hero.meta.heroId === id);
-
-  const eventImages = currentHeroData?.events.eventsList.map(
-    (event) => event.imagePath,
-  ) as string[];
+  const eventImages = eventsData.eventsList.map((event) => event.imagePath) as string[];
   const { imagesPreloaded } = useImagePreloader([
-    currentHeroData?.meta.colorLogoPath as string,
+    eventsData.colorLogoPath as string,
     ...eventImages,
   ]);
 
-  const eventsData: EventsData = currentHeroData?.events.eventsList || [];
-  const heroColor = heroColors[id as HeroId];
-  const heroSemiTransparentColor = heroSemiTransparentColors[id as HeroId];
+  const heroColor = heroColors[currentHeroId as HeroId];
+  const heroSemiTransparentColor = heroSemiTransparentColors[currentHeroId as HeroId];
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
-  if (!imagesPreloaded) {
+  if (requestStatus === 'LOADING' || !imagesPreloaded) {
     return <Loader />;
   }
 
   return (
     <>
-      {isIntroVisible && <Intro idParam={id} />}
+      {isIntroVisible && <Intro idParam={currentHeroId} />}
       <Layout>
         <Header isSticky>
           <Header.Logo onClick={() => initNavigation({ heroId: null, pageId: 'root' })} />
           <Header.Navigation
             pageId="timeline"
-            onClick={(pageId: PageId) => initNavigation({ heroId: id as HeroId, pageId })}
+            onClick={(pageId: PageId) =>
+              initNavigation({ heroId: currentHeroId as HeroId, pageId })
+            }
             isLeaving={isLeaving}
           />
           <Header.Divider isLeaving={isLeaving} />
         </Header>
         <TimelineView
-          heroLogoPath={currentHeroData?.meta.colorLogoPath || ''}
           color={heroColor}
           semiTransparentColor={heroSemiTransparentColor}
           eventsData={eventsData}

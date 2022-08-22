@@ -5,11 +5,12 @@ type Events {
 
 type Event @embedded {
   year: String!
-  imagePath: String!
   title: String!
   description: String!
+  imagePath: String!
 }
 
 type Query {
   allEvents: [Events!]
+  eventsByHeroId(heroId: String!): [Events!]!
 }

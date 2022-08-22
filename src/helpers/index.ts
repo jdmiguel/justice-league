@@ -1,4 +1,4 @@
-import { HeroData, HeroId, ProfileData, EnemiesData } from '@/helpers/types';
+import { HeroData, HeroId, ProfileData, EnemiesData, EventsData } from '@/helpers/types';
 
 export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   if (!target) {
@@ -73,6 +73,17 @@ export const DEFAULT_ENEMIES: EnemiesData = {
   enemiesList: [
     {
       name: '',
+      description: '',
+      imagePath: '',
+    },
+  ],
+};
+export const DEFAULT_EVENTS: EventsData = {
+  colorLogoPath: '',
+  eventsList: [
+    {
+      year: '',
+      title: '',
       description: '',
       imagePath: '',
     },

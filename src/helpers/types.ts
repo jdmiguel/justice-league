@@ -100,20 +100,20 @@ export type ProfileStatsPercentData = {
 };
 export type ProfileStatsPercentsData = ProfileStatsPercentData[];
 
-type EnemyData = {
+type Enemy = {
   name: string;
   imagePath: string;
   description: string;
 };
 export type EnemiesData = {
   colorLogoPath: string;
-  enemiesList: EnemyData[];
+  enemiesList: Enemy[];
 };
 
-type EventData = {
+type Event = {
   year: string;
   imagePath: string;
   title: string;
   description: string;
 };
-export type EventsData = EventData[];
+export type EventsData = { colorLogoPath: string; eventsList: Event[] };
