@@ -88,7 +88,7 @@ type ProfileStatsLegendData = {
 };
 export type ProfileStatsLegendsData = ProfileStatsLegendData[];
 
-export type ProfileStatsPercentData = {
+type ProfileStatsPercentData = {
   id: string;
   value: number;
   posX: number;

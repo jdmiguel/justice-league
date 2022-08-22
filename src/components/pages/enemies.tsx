@@ -62,10 +62,6 @@ const Enemies: React.FC = () => {
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
-  if (requestStatus === 'LOADING' || !imagesPreloaded) {
-    return <Loader />;
-  }
-
   return (
     <>
       {isIntroVisible && <Intro idParam={currentHeroId} />}
@@ -81,13 +77,17 @@ const Enemies: React.FC = () => {
           />
           <Header.Divider isLeaving={isLeaving} />
         </Header>
-        <EnemiesView
-          color={heroColor}
-          semiTransparentColor={heroSemiTransparentColor}
-          enemiesData={enemiesData}
-          isLeaving={isNavigating}
-          onEndFadeAnimation={endNavigation}
-        />
+        {requestStatus === 'LOADING' || !imagesPreloaded ? (
+          <Loader shouldFitWithHeaderPage />
+        ) : (
+          <EnemiesView
+            color={heroColor}
+            semiTransparentColor={heroSemiTransparentColor}
+            enemiesData={enemiesData}
+            isLeaving={isNavigating}
+            onEndFadeAnimation={endNavigation}
+          />
+        )}
       </Layout>
     </>
   );

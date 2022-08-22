@@ -126,6 +126,7 @@ export const StyledFooter = styled.footer<{ isLeaving?: boolean }>`
 
 export const StyledFooterLink = styled.a`
   position: relative;
+  margin-left: 4px;
   &:after {
     background-color: ${({ theme }) => theme.light};
     bottom: 0;

@@ -10,13 +10,12 @@ export const StyledLoaderWrapper = styled.div<{ withLightBg: boolean }>`
   height: 100vh;
 `;
 
-export const StyledLoader = styled.div`
+export const StyledLoader = styled.div<{ withMarginBottom: boolean }>`
   align-items: center;
   display: flex;
   gap: 2px;
-  height: 100px;
   justify-content: center;
-  width: 100px;
+  margin-bottom: ${({ withMarginBottom }) => withMarginBottom && '85px'};
 
   span {
     animation: ${animation.wave} 1s linear infinite;

@@ -8,7 +8,7 @@ type Props = {
 const Footer: React.FC<Props> = ({ isLeaving }) => (
   <StyledFooter isLeaving={isLeaving}>
     <div>
-      Created by{' '}
+      Created by
       <StyledFooterLink
         href="https://jdmiguel.netlify.app"
         target="_blank"

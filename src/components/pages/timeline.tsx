@@ -62,10 +62,6 @@ const Timeline: React.FC = () => {
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
-  if (requestStatus === 'LOADING' || !imagesPreloaded) {
-    return <Loader />;
-  }
-
   return (
     <>
       {isIntroVisible && <Intro idParam={currentHeroId} />}
@@ -81,13 +77,17 @@ const Timeline: React.FC = () => {
           />
           <Header.Divider isLeaving={isLeaving} />
         </Header>
-        <TimelineView
-          color={heroColor}
-          semiTransparentColor={heroSemiTransparentColor}
-          eventsData={eventsData}
-          isLeaving={isNavigating}
-          onEndFadeAnimation={endNavigation}
-        />
+        {requestStatus === 'LOADING' || !imagesPreloaded ? (
+          <Loader shouldFitWithHeaderPage />
+        ) : (
+          <TimelineView
+            color={heroColor}
+            semiTransparentColor={heroSemiTransparentColor}
+            eventsData={eventsData}
+            isLeaving={isNavigating}
+            onEndFadeAnimation={endNavigation}
+          />
+        )}
       </Layout>
     </>
   );

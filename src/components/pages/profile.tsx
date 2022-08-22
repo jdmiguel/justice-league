@@ -63,10 +63,6 @@ const Profile: React.FC = () => {
 
   const isLeaving = isNavigating && nextPagePath === '/';
 
-  if (requestStatus === 'LOADING' || !imagesPreloaded) {
-    return <Loader />;
-  }
-
   return (
     <>
       {isIntroVisible && <Intro idParam={currentHeroId} />}
@@ -82,13 +78,17 @@ const Profile: React.FC = () => {
           />
           <Header.Divider isLeaving={isLeaving} />
         </Header>
-        <ProfileView
-          profileData={profileData}
-          heroColor={heroColor}
-          heroSemiTransparentColor={heroSemiTransparentColor}
-          isLeaving={isNavigating}
-          onEndFadeAnimation={endNavigation}
-        />
+        {requestStatus === 'LOADING' || !imagesPreloaded ? (
+          <Loader shouldFitWithHeaderPage />
+        ) : (
+          <ProfileView
+            profileData={profileData}
+            heroColor={heroColor}
+            heroSemiTransparentColor={heroSemiTransparentColor}
+            isLeaving={isNavigating}
+            onEndFadeAnimation={endNavigation}
+          />
+        )}
       </Layout>
     </>
   );
