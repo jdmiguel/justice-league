@@ -1,5 +1,6 @@
 import { useRef, useMemo, useEffect } from 'react';
 import { gsap } from 'gsap';
+import { LAST_HERO_INDEX } from '@/helpers';
 import { ease } from '@/helpers/theme';
 import { HeroMenuData as Hero } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
@@ -16,7 +17,6 @@ type Props = {
   heroes: Hero[];
   activeHeroIndex: number;
   prevActiveHeroIndex: number;
-  lastHeroIndex: number;
   isHighlighted: boolean;
   isFaded: boolean;
 };
@@ -25,7 +25,6 @@ const HeroVectorLogo: React.FC<Props> = ({
   heroes,
   activeHeroIndex,
   prevActiveHeroIndex,
-  lastHeroIndex,
   isHighlighted,
   isFaded,
 }) => {
@@ -109,8 +108,8 @@ const HeroVectorLogo: React.FC<Props> = ({
 
     const isNextHeroDirection =
       (activeHeroIndex > prevActiveHeroIndex &&
-        !(activeHeroIndex === lastHeroIndex && prevActiveHeroIndex === 0)) ||
-      (activeHeroIndex === 0 && prevActiveHeroIndex === lastHeroIndex);
+        !(activeHeroIndex === LAST_HERO_INDEX && prevActiveHeroIndex === 0)) ||
+      (activeHeroIndex === 0 && prevActiveHeroIndex === LAST_HERO_INDEX);
 
     const preActiveLogo = heroRefs[prevActiveHeroIndex].current;
     tweenRef.current = gsap.fromTo(
@@ -144,7 +143,7 @@ const HeroVectorLogo: React.FC<Props> = ({
         ease: ease.smooth,
       },
     );
-  }, [prevActiveHeroIndex, activeHeroIndex, lastHeroIndex, heroRefs]);
+  }, [prevActiveHeroIndex, activeHeroIndex, heroRefs]);
 
   const getLogo = (id: string) => {
     switch (id) {
@@ -169,8 +168,8 @@ const HeroVectorLogo: React.FC<Props> = ({
   return (
     <>
       {heroes.map((hero, index) => (
-        <StyledHeroVectorLogo key={hero.id} ref={heroRefs[index]}>
-          {getLogo(hero.id)}
+        <StyledHeroVectorLogo key={hero.heroId} ref={heroRefs[index]}>
+          {getLogo(hero.heroId)}
         </StyledHeroVectorLogo>
       ))}
     </>

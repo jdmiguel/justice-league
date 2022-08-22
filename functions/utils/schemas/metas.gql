@@ -1,0 +1,12 @@
+type Meta {
+  heroId: String!
+  name: String!
+  menuBgImagePath: String!
+  whiteLogoPath: String!
+  colorLogoPath: String!
+}
+
+type Query {
+  allMetas: [Meta!]
+  metaByHeroId(heroId: String!): [Meta!]!
+}

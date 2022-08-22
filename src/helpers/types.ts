@@ -10,8 +10,16 @@ export type HeroData = {
 
 export type HeroId = keyof HeroData;
 
+export type HeroMeta = {
+  heroId: string;
+  name: string;
+  menuBgImagePath: string;
+  whiteLogoPath: string;
+  colorLogoPath: string;
+};
+
 export type HeroMenuData = {
-  id: HeroId;
+  heroId: HeroId;
   name: string;
   bgImagePath: string;
   whiteLogoPath: string;
@@ -20,57 +28,30 @@ export type HeroMenuData = {
 
 export type PageId = 'root' | 'profile' | 'enemies' | 'timeline';
 
-export type ProfileIntroData = {
-  semiTransparentColor: string;
-  imgPath: string;
-  title: string;
-  subtitle: string;
+export type RequestStatus = 'LOADING' | 'SUCCESS' | 'FAILURE';
+
+export type ProfileIntro = {
+  alias: string;
   description: string;
+  imagePath: string;
 };
 
-export type ProfileDetailsData = {
-  color: string;
-  semiTransparentColor: string;
-  imgPath: string;
+export type ProfileDetail = {
   fullName: string;
   birthPlace: string;
   occupation: string;
   base: string;
   firstAppearance: string;
+  imagePath: string;
 };
 
-export type ProfileDetailsCard = {
-  color: string;
-  fullName: string;
-  birthPlace: string;
-  occupation: string;
-  base: string;
-  firstAppearance: string;
-};
-
-export type ProfileAppearanceData = {
-  color: string;
-  imgPath: string;
+export type ProfileAppearance = {
   race: string;
   height: string;
   weight: string;
   eyeColor: string;
   hairColor: string;
-  powers: string[];
-};
-
-export type ProfileAppearanceCard = {
-  color: string;
-  race: string;
-  height: string;
-  weight: string;
-  eyeColor: string;
-  hairColor: string;
-};
-
-export type ProfilePowersCard = {
-  color: string;
-  powers: string[];
+  imagePath: string;
 };
 
 type Skill = {
@@ -78,8 +59,15 @@ type Skill = {
   namePosX: number;
   value: number;
 };
-export type ProfileStatsData = {
-  color: string;
+export type ProfileSkills = Skill[];
+
+export type ProfileData = {
+  name: string;
+  colorLogoPath: string;
+  intro: ProfileIntro;
+  detail: ProfileDetail;
+  appearance: ProfileAppearance;
+  powers: string[];
   skills: Skill[];
 };
 
@@ -112,17 +100,20 @@ export type ProfileStatsPercentData = {
 };
 export type ProfileStatsPercentsData = ProfileStatsPercentData[];
 
-type TimelineEventData = {
+type Enemy = {
+  name: string;
+  imagePath: string;
+  description: string;
+};
+export type EnemiesData = {
+  colorLogoPath: string;
+  enemiesList: Enemy[];
+};
+
+type Event = {
   year: string;
   imagePath: string;
   title: string;
   description: string;
 };
-export type TimelineEventsData = TimelineEventData[];
-
-type EnemyData = {
-  name: string;
-  imagePath: string;
-  description: string;
-};
-export type EnemiesData = EnemyData[];
+export type EventsData = { colorLogoPath: string; eventsList: Event[] };

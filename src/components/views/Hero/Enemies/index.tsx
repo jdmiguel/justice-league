@@ -6,7 +6,6 @@ import Card from '@/components/views/Hero/Enemies/Card';
 import { StyledEnemiesWrapper, StyledEnemies } from '@/components/views/Hero/Enemies/styles';
 
 type Props = {
-  heroLogoPath: string;
   color: string;
   semiTransparentColor: string;
   enemiesData: EnemiesData;
@@ -15,7 +14,6 @@ type Props = {
 };
 
 const Enemies: React.FC<Props> = ({
-  heroLogoPath,
   color,
   semiTransparentColor,
   enemiesData,
@@ -45,10 +43,12 @@ const Enemies: React.FC<Props> = ({
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
+  const { colorLogoPath, enemiesList } = enemiesData;
+
   return (
-    <StyledEnemiesWrapper ref={mediaRef} heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
+    <StyledEnemiesWrapper ref={mediaRef} heroLogoPath={colorLogoPath} isLeaving={isLeaving}>
       <StyledEnemies>
-        {enemiesData.map((enemy, index) => (
+        {enemiesList.map((enemy, index) => (
           <Card
             key={enemy.name}
             color={color}

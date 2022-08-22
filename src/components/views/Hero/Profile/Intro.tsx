@@ -1,4 +1,4 @@
-import { ProfileIntroData } from '@/helpers/types';
+import { ProfileIntro } from '@/helpers/types';
 import {
   StyledIntro,
   StyledIntroImage,
@@ -9,20 +9,23 @@ import {
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  data: ProfileIntroData;
+  heroName: string;
+  data: ProfileIntro;
+  semiTransparentColor: string;
 };
 
 const Intro: React.FC<Props> = ({
-  data: { semiTransparentColor, imgPath, title, subtitle, description },
+  heroName: name,
+  data: { alias, description, imagePath },
+  semiTransparentColor,
 }) => (
   <StyledIntro>
-    <StyledIntroImage src={imgPath} semiTransparentColor={semiTransparentColor} alt={title} />
+    <StyledIntroImage src={imagePath} semiTransparentColor={semiTransparentColor} alt={name} />
     <StyledIntroTextWrapper>
-      <StyledIntroTitle>{title}</StyledIntroTitle>
-      <StyledIntroSubtitle>{subtitle}</StyledIntroSubtitle>
+      <StyledIntroTitle>{name}</StyledIntroTitle>
+      <StyledIntroSubtitle>{alias}</StyledIntroSubtitle>
       <StyledIntroDescription>{description}</StyledIntroDescription>
     </StyledIntroTextWrapper>
   </StyledIntro>
 );
-
 export default Intro;

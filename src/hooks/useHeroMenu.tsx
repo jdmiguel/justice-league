@@ -1,29 +1,30 @@
 import { useState, useEffect, useCallback } from 'react';
-import heroesData from '@/assets/heroes.json';
-import { HeroId, HeroMenuData as Hero } from '@/helpers/types';
+import { LAST_HERO_INDEX } from '@/helpers';
+import { HeroId, HeroMenuData as Hero, HeroMeta } from '@/helpers/types';
 
-const lastHeroIndex = heroesData.length - 1;
-
-const useHeroMenu = (heroId: HeroId) => {
-  const fetchedHeroes: Hero[] = heroesData.map((hero) => ({
-    id: hero.id as HeroId,
-    name: hero.name,
-    bgImagePath: hero.menuBgImagePath,
-    whiteLogoPath: hero.whiteLogoPath,
-    active: hero.id === heroId,
-  }));
-
-  const defaultActiveHeroIndex = fetchedHeroes.findIndex((hero) => hero.active);
-
-  const [heroes, setHeroes] = useState(fetchedHeroes);
+const useHeroMenu = (heroId: HeroId, heroMetas: HeroMeta[]) => {
+  const [heroes, setHeroes] = useState<Hero[]>(() =>
+    heroMetas.map((meta: HeroMeta) => ({
+      heroId: meta.heroId as HeroId,
+      name: meta.name,
+      bgImagePath: meta.menuBgImagePath,
+      whiteLogoPath: meta.whiteLogoPath,
+      active: meta.heroId === heroId,
+    })),
+  );
   const [isHeroChangeEnabled, setIsHeroChangeEnabled] = useState(false);
   const [isHeroHighlighted, setIsHeroHighlighted] = useState(false);
   const [isChangingHero, setIsChangingHero] = useState(false);
   const [isLeavingMenu, setIsLeavingMenu] = useState(false);
-  const [activeHeroIndex, setActiveHeroIndex] = useState(defaultActiveHeroIndex);
-  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(defaultActiveHeroIndex);
+  const initialHeroIndex = heroMetas.findIndex((meta) => meta.heroId === heroId);
+  const [activeHeroIndex, setActiveHeroIndex] = useState(() => initialHeroIndex);
+  const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(() => initialHeroIndex);
 
   useEffect(() => {
+    if (heroes.length === 0) {
+      return;
+    }
+
     setActiveHeroIndex(heroes.findIndex((hero) => hero.active));
   }, [heroes]);
 
@@ -36,7 +37,7 @@ const useHeroMenu = (heroId: HeroId) => {
       setHeroes((prevHeroes) =>
         prevHeroes.map((hero) => ({
           ...hero,
-          active: id === hero.id,
+          active: id === hero.heroId,
         })),
       );
     },
@@ -49,7 +50,7 @@ const useHeroMenu = (heroId: HeroId) => {
     }
 
     const prevActiveHeroId =
-      activeHeroIndex > 0 ? heroes[activeHeroIndex - 1].id : heroes[lastHeroIndex].id;
+      activeHeroIndex > 0 ? heroes[activeHeroIndex - 1].heroId : heroes[LAST_HERO_INDEX].heroId;
 
     setActiveHero(prevActiveHeroId);
   }, [
@@ -67,7 +68,7 @@ const useHeroMenu = (heroId: HeroId) => {
     }
 
     const nextActiveHeroId =
-      activeHeroIndex < lastHeroIndex ? heroes[activeHeroIndex + 1].id : heroes[0].id;
+      activeHeroIndex < LAST_HERO_INDEX ? heroes[activeHeroIndex + 1].heroId : heroes[0].heroId;
 
     setActiveHero(nextActiveHeroId);
   }, [
@@ -96,7 +97,6 @@ const useHeroMenu = (heroId: HeroId) => {
     heroes,
     activeHeroIndex,
     prevActiveHeroIndex,
-    lastHeroIndex,
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,

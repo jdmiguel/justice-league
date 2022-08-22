@@ -24,8 +24,8 @@ const Sidedrawer: React.FC<Props> = ({ heroes, isChangingHero, onClick }) => {
     <StyledSidedrawer>
       <StyledSidedrawerList>
         {heroes.map((hero) => (
-          <StyledSidedrawerListItem key={hero.id} isActive={hero.active}>
-            <button onClick={() => onClickItem(hero.id)}>
+          <StyledSidedrawerListItem key={hero.heroId} isActive={hero.active}>
+            <button onClick={() => onClickItem(hero.heroId)}>
               <div>
                 <img src={hero.whiteLogoPath} alt={`${hero.name} icon`} />
               </div>

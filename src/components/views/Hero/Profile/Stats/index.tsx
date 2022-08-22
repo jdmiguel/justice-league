@@ -1,5 +1,5 @@
 import { useMemo, useRef } from 'react';
-import { ProfileStatsData } from '@/helpers/types';
+import { ProfileSkills } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Chart from '@/components/views/Hero/Profile/Stats/Chart';
 import ChartGrid from '@/components/views/Hero/Profile/Stats/ChartGrid';
@@ -15,10 +15,11 @@ import {
 import { StyledStats, StyledStatsTitle } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  data: ProfileStatsData;
+  skills: ProfileSkills;
+  color: string;
 };
 
-const Stats: React.FC<Props> = ({ data }) => {
+const Stats: React.FC<Props> = ({ skills, color }) => {
   const statsRef = useRef<HTMLDivElement>(null);
 
   const entry = useIntersectionObserver(statsRef, {
@@ -28,8 +29,6 @@ const Stats: React.FC<Props> = ({ data }) => {
     freezeOnceVisible: true,
   });
   const isVisible = !!entry?.isIntersecting;
-
-  const { color, skills } = data;
   const totalBars = skills.length;
 
   const chartWidth = useMemo(() => totalBars * (BarDetails.width + BarDetails.margin), [totalBars]);

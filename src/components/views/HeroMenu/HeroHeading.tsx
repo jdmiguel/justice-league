@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
-import { splitHeadingIntoChars } from '@/helpers';
+import { splitHeadingIntoChars, LAST_HERO_INDEX } from '@/helpers';
 import { ease } from '@/helpers/theme';
 import { HeroMenuData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
@@ -23,7 +23,6 @@ type Props = {
   heroes: HeroMenuData[];
   activeHeroIndex: number;
   prevActiveHeroIndex: number;
-  lastHeroIndex: number;
   onUpdatePrevActiveHeroIndex: () => void;
   isHeroChangeEnabled: boolean;
   onEndIntroChars: () => void;
@@ -41,7 +40,6 @@ const HeroHeading: React.FC<Props> = ({
   heroes,
   activeHeroIndex,
   prevActiveHeroIndex,
-  lastHeroIndex,
   onUpdatePrevActiveHeroIndex,
   isHeroChangeEnabled,
   onEndIntroChars,
@@ -83,8 +81,8 @@ const HeroHeading: React.FC<Props> = ({
 
   const isNextHeroDirection =
     (activeHeroIndex > prevActiveHeroIndex &&
-      !(activeHeroIndex === lastHeroIndex && prevActiveHeroIndex === 0)) ||
-    (activeHeroIndex === 0 && prevActiveHeroIndex === lastHeroIndex);
+      !(activeHeroIndex === LAST_HERO_INDEX && prevActiveHeroIndex === 0)) ||
+    (activeHeroIndex === 0 && prevActiveHeroIndex === LAST_HERO_INDEX);
 
   useEffect(() => {
     return () => {
@@ -260,7 +258,7 @@ const HeroHeading: React.FC<Props> = ({
     <StyledHeroHeading>
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
-          <StyledHeroHeadingListItem key={hero.id}>
+          <StyledHeroHeadingListItem key={hero.heroId}>
             <StyledHeroHeadingListItemButton
               onClick={clickHeading}
               onMouseOver={onOverHeading}

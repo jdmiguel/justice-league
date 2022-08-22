@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { animation, ease } from '@/helpers/theme';
 
-export const StyledProfileWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
+export const StyledProfileWrapper = styled.main<{ bgLogoPath: string; isLeaving?: boolean }>`
   position: relative;
   &:before {
     animation: ${animation.minFadeIn} 0.5s;
-    background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
+    background-image: ${({ bgLogoPath }) => `url(${bgLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -97,7 +97,7 @@ export const StyledIntroDescription = styled.p`
   }
 `;
 
-export const StyledDetails = styled.div`
+export const StyledDetail = styled.div`
   align-items: center;
   display: flex;
   gap: 60px;
@@ -109,7 +109,7 @@ export const StyledDetails = styled.div`
   }
 `;
 
-export const StyledDetailsImage = styled.img<{ semiTransparentColor: string; isVisible: boolean }>`
+export const StyledDetailImage = styled.img<{ semiTransparentColor: string; isVisible: boolean }>`
   border-radius: 8px;
   box-shadow: ${({ semiTransparentColor }) => `0px 0px 16px 4px ${semiTransparentColor}`};
   display: none;

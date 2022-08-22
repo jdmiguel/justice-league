@@ -1,21 +1,19 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
-import { TimelineEventsData } from '@/helpers/types';
+import { EventsData } from '@/helpers/types';
 import Event from '@/components/views/Hero/Timeline/Event';
 import { StyledTimelineWrapper, StyledTimeline } from '@/components/views/Hero/Timeline/styles';
 
 type Props = {
-  heroLogoPath: string;
   color: string;
   semiTransparentColor: string;
-  eventsData: TimelineEventsData;
+  eventsData: EventsData;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
 
 const Timeline: React.FC<Props> = ({
-  heroLogoPath,
   color,
   semiTransparentColor,
   eventsData,
@@ -45,10 +43,12 @@ const Timeline: React.FC<Props> = ({
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
+  const { colorLogoPath, eventsList } = eventsData;
+
   return (
-    <StyledTimelineWrapper ref={timelineRef} heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
+    <StyledTimelineWrapper ref={timelineRef} heroLogoPath={colorLogoPath} isLeaving={isLeaving}>
       <StyledTimeline>
-        {eventsData.map((event, index) => (
+        {eventsList.map((event, index) => (
           <Event
             key={event.year}
             xOrigin={(index + 1) % 2 === 0 ? 'right' : 'left'}

@@ -1,34 +1,25 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/theme';
-import {
-  ProfileIntroData,
-  ProfileDetailsData,
-  ProfileAppearanceData,
-  ProfileStatsData,
-} from '@/helpers/types';
+import { ProfileData } from '@/helpers/types';
 import Intro from '@/components/views/Hero/Profile/Intro';
-import Details from '@/components/views/Hero/Profile/Details';
+import Detail from '@/components/views/Hero/Profile/Detail';
 import Appearance from '@/components/views/Hero/Profile/Appearance';
 import Stats from '@/components/views/Hero/Profile/Stats';
 import { StyledProfileWrapper, StyledProfile } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  heroLogoPath: string;
-  introData: ProfileIntroData;
-  detailsData: ProfileDetailsData;
-  appearanceData: ProfileAppearanceData;
-  statsData: ProfileStatsData;
+  profileData: ProfileData;
+  heroColor: string;
+  heroSemiTransparentColor: string;
   isLeaving: boolean;
   onEndFadeAnimation: () => void;
 };
 
 const Profile: React.FC<Props> = ({
-  heroLogoPath,
-  introData,
-  detailsData,
-  appearanceData,
-  statsData,
+  profileData,
+  heroColor,
+  heroSemiTransparentColor,
   isLeaving,
   onEndFadeAnimation,
 }) => {
@@ -55,13 +46,27 @@ const Profile: React.FC<Props> = ({
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
+  const {
+    name,
+    colorLogoPath,
+    intro: introData,
+    detail: detailData,
+    appearance: appearanceData,
+    powers,
+    skills,
+  } = profileData;
+
   return (
-    <StyledProfileWrapper heroLogoPath={heroLogoPath} isLeaving={isLeaving}>
+    <StyledProfileWrapper bgLogoPath={colorLogoPath} isLeaving={isLeaving}>
       <StyledProfile ref={profileRef}>
-        <Intro data={introData} />
-        <Details data={detailsData} />
-        <Appearance data={appearanceData} />
-        <Stats data={statsData} />
+        <Intro heroName={name} data={introData} semiTransparentColor={heroSemiTransparentColor} />
+        <Detail
+          data={detailData}
+          color={heroColor}
+          semiTransparentColor={heroSemiTransparentColor}
+        />
+        <Appearance data={appearanceData} powers={powers} color={heroColor} />
+        <Stats skills={skills} color={heroColor} />
       </StyledProfile>
     </StyledProfileWrapper>
   );

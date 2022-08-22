@@ -1,6 +1,6 @@
 import { createUseGesture, dragAction, wheelAction } from '@use-gesture/react';
 import { Lethargy } from 'lethargy';
-import { HeroId } from '@/helpers/types';
+import { HeroMeta, HeroId } from '@/helpers/types';
 import { useHero } from '@/contexts/HeroContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
@@ -13,18 +13,18 @@ const lethargy = new Lethargy();
 const useGesture = createUseGesture([dragAction, wheelAction]);
 
 type Props = {
+  heroMetas: HeroMeta[];
   isLeaving: boolean;
   initLeave: (_: HeroId) => void;
   endLeave: () => void;
 };
 
-const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
+const HeroMenu: React.FC<Props> = ({ heroMetas, isLeaving, initLeave, endLeave }) => {
   const { hero } = useHero();
   const {
     heroes,
     activeHeroIndex,
     prevActiveHeroIndex,
-    lastHeroIndex,
     setActiveHero,
     setActivePrevHero,
     setActiveNextHero,
@@ -40,7 +40,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     dimHero,
     isLeavingMenu,
     leaveMenu,
-  } = useHeroMenu(hero as HeroId);
+  } = useHeroMenu(hero as HeroId, heroMetas);
 
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {
@@ -91,7 +91,7 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
     }
 
     leaveMenu();
-    initLeave(heroes[activeHeroIndex].id as HeroId);
+    initLeave(heroes[activeHeroIndex].heroId);
   };
 
   return (
@@ -102,7 +102,6 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
         heroes={heroes}
         activeHeroIndex={activeHeroIndex}
         prevActiveHeroIndex={prevActiveHeroIndex}
-        lastHeroIndex={lastHeroIndex}
         isHighlighted={isHeroHighlighted}
         isFaded={isLeaving}
       />
@@ -110,7 +109,6 @@ const HeroMenu: React.FC<Props> = ({ isLeaving, initLeave, endLeave }) => {
         heroes={heroes}
         activeHeroIndex={activeHeroIndex}
         prevActiveHeroIndex={prevActiveHeroIndex}
-        lastHeroIndex={lastHeroIndex}
         onUpdatePrevActiveHeroIndex={updatePrevActiveHeroIndex}
         onEndIntroChars={enableHeroChange}
         onDistanceChars={onHeadingDistanceChars}

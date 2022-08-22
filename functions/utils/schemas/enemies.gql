@@ -1,0 +1,15 @@
+type Enemies {
+  heroId: String!
+  enemiesList: [Enemy!]
+}
+
+type Enemy @embedded {
+  name: String!
+  description: String!
+  imagePath: String!
+}
+
+type Query {
+  allEnemies: [Enemies!]
+  enemiesByHeroId(heroId: String!): [Enemies!]!
+}

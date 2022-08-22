@@ -1,36 +1,31 @@
 import { useRef } from 'react';
-import { ProfileDetailsData } from '@/helpers/types';
+import { ProfileDetail } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Card from '@/components/views/Hero/Profile/Card';
 import {
-  StyledDetails,
-  StyledDetailsImage,
+  StyledDetail,
+  StyledDetailImage,
   StyledCardList,
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
-  data: ProfileDetailsData;
+  data: ProfileDetail;
+  color: string;
+  semiTransparentColor: string;
 };
 
-const Details: React.FC<Props> = ({
-  data: {
-    semiTransparentColor,
-    color,
-    imgPath,
-    fullName,
-    birthPlace,
-    occupation,
-    base,
-    firstAppearance,
-  },
+const Detail: React.FC<Props> = ({
+  data: { fullName, birthPlace, occupation, base, firstAppearance, imagePath },
+  color,
+  semiTransparentColor,
 }) => {
-  const detailsRef = useRef<HTMLDivElement>(null);
+  const detailRef = useRef<HTMLDivElement>(null);
 
-  const entry = useIntersectionObserver(detailsRef);
+  const entry = useIntersectionObserver(detailRef);
   const isVisible = !!entry?.isIntersecting;
 
   return (
-    <StyledDetails ref={detailsRef}>
+    <StyledDetail ref={detailRef}>
       <Card title="Details" color={color} isVisible={isVisible}>
         <StyledCardList>
           <li>
@@ -50,14 +45,14 @@ const Details: React.FC<Props> = ({
           </li>
         </StyledCardList>
       </Card>
-      <StyledDetailsImage
-        src={imgPath}
+      <StyledDetailImage
+        src={imagePath}
         semiTransparentColor={semiTransparentColor}
         isVisible={isVisible}
         alt={fullName}
       />
-    </StyledDetails>
+    </StyledDetail>
   );
 };
 
-export default Details;
+export default Detail;
