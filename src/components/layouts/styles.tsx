@@ -24,9 +24,12 @@ export const StyledHeader = styled.header<{ isSticky?: boolean }>`
   }
 `;
 
-export const StyledHeaderLogo = styled.h1`
+export const StyledHeaderLogo = styled.h1<{ isLeaving?: boolean }>`
+  animation: ${animation.down} 0.5s ${ease.medium};
   align-items: center;
   display: flex;
+  transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
+  transition: transform 0.5s ${ease.medium};
   img {
     @media only screen and (max-width: 767px) {
       width: 140px;
@@ -48,6 +51,7 @@ export const StyledHeaderNavigation = styled.nav<{ isLeaving?: boolean }>`
 `;
 
 export const StyledHeaderNavigationList = styled.ul`
+  animation: ${animation.down} 0.5s ${ease.medium};
   align-items: center;
   display: flex;
   gap: 26px;
@@ -95,6 +99,7 @@ export const StyledHeaderCorner = styled.a<{ isLeaving?: boolean }>`
 `;
 
 export const StyledHeaderDivider = styled.span<{ isLeaving?: boolean }>`
+  animation: ${animation.fadeIn} 0.5s ${ease.medium};
   background-color: ${({ theme }) => theme.neutral};
   bottom: 0;
   display: block;

@@ -2,10 +2,11 @@ import { StyledHeaderLogo } from '@/components/layouts/styles';
 
 type Props = {
   onClick?: () => void;
+  isLeaving?: boolean;
 };
 
-const Logo: React.FC<Props> = ({ onClick }) => (
-  <StyledHeaderLogo>
+const Logo: React.FC<Props> = ({ onClick, isLeaving }) => (
+  <StyledHeaderLogo isLeaving={isLeaving}>
     <button onClick={onClick}>
       <img src="/justice-league-white-logo.svg" alt="justice league logo" height={40} width={200} />
     </button>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { RequestStatus, HeroMeta } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
-import useHeroNavigation from '@/hooks/useHeroNavigation';
+import { useCustomNavigation } from '@/contexts/CustomNavigationContext';
 import useLockedBody from '@/hooks/useLockedBody';
 import Intro from '@/components/views/Intro';
 import HeroMenu from '@/components/views/HeroMenu';
@@ -13,7 +13,7 @@ import Loader from '@/components/ui/Loader';
 const Root: React.FC = () => {
   const [requestStatus, setRequestStatus] = useState<RequestStatus>('LOADING');
   const [heroMetas, setHeroMetas] = useState<HeroMeta[]>([]);
-  const { isNavigating, initNavigation, endNavigation } = useHeroNavigation();
+  const { isNavigating, initNavigation, endNavigation, updateActivePageId } = useCustomNavigation();
   const { isIntroVisible } = useIntro();
 
   useLockedBody();
@@ -35,6 +35,10 @@ const Root: React.FC = () => {
     getMetas();
   }, []);
 
+  useEffect(() => {
+    updateActivePageId('root');
+  }, [updateActivePageId]);
+
   if (requestStatus === 'LOADING') {
     return <Loader withLightBg={!!isIntroVisible} />;
   }
@@ -44,7 +48,7 @@ const Root: React.FC = () => {
       {isIntroVisible && <Intro />}
       <Layout>
         <Header>
-          <Header.Logo />
+          <Header.Logo isLeaving={isNavigating} />
           <Header.Corner isLeaving={isNavigating} />
         </Header>
         <HeroMenu

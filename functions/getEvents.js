@@ -5,10 +5,11 @@ const sendQuery = require('./utils/sendQuery');
 const formatResponse = require('./utils/formatResponse');
 
 exports.handler = async (event) => {
-  const heroIdPathIndex = event.path.lastIndexOf('/') + 1;
-  const heroId = event.path.slice(heroIdPathIndex, event.path.length);
+  const { path: pagePath } = event;
+  const heroIdIndexInPagePath = pagePath.lastIndexOf('/') + 1;
+  const heroIdFromPagePath = pagePath.slice(heroIdIndexInPagePath, pagePath.length);
   try {
-    const res = await sendQuery(GET_EVENTS(heroId));
+    const res = await sendQuery(GET_EVENTS(heroIdFromPagePath));
     const data = { ...res.metaByHeroId.data[0], ...res.eventsByHeroId.data[0] };
     return formatResponse(200, data);
   } catch (err) {

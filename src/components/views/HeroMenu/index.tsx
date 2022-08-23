@@ -1,7 +1,7 @@
 import { createUseGesture, dragAction, wheelAction } from '@use-gesture/react';
 import { Lethargy } from 'lethargy';
 import { HeroMeta, HeroId } from '@/helpers/types';
-import { useHero } from '@/contexts/HeroContext';
+import { useCustomNavigation } from '@/contexts/CustomNavigationContext';
 import useHeroMenu from '@/hooks/useHeroMenu';
 import HeroBg from '@/components/views/HeroMenu/HeroBg';
 import Sidedrawer from '@/components/views/HeroMenu/Sidedrawer';
@@ -20,7 +20,7 @@ type Props = {
 };
 
 const HeroMenu: React.FC<Props> = ({ heroMetas, isLeaving, initLeave, endLeave }) => {
-  const { hero } = useHero();
+  const { activeHeroId } = useCustomNavigation();
   const {
     heroes,
     activeHeroIndex,
@@ -40,7 +40,7 @@ const HeroMenu: React.FC<Props> = ({ heroMetas, isLeaving, initLeave, endLeave }
     dimHero,
     isLeavingMenu,
     leaveMenu,
-  } = useHeroMenu(hero as HeroId, heroMetas);
+  } = useHeroMenu(activeHeroId as HeroId, heroMetas);
 
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {
