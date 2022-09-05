@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ease } from '@/helpers/theme';
+import { ease } from '@/helpers/animations';
 import { EnemiesData } from '@/helpers/types';
 import Card from '@/components/views/Hero/Enemies/Card';
 import { StyledEnemiesWrapper, StyledEnemies } from '@/components/views/Hero/Enemies/styles';

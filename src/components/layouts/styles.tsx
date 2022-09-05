@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { animation, ease } from '@/helpers/theme';
+import { animation, ease } from '@/helpers/animations';
 
 export const StyledLayout = styled.div`
   background-color: ${({ theme }) => theme.dark};
@@ -25,7 +25,7 @@ export const StyledHeader = styled.header<{ isSticky?: boolean }>`
 `;
 
 export const StyledHeaderLogo = styled.h1<{ isLeaving?: boolean }>`
-  animation: ${animation.down} 0.5s ${ease.medium};
+  animation: ${animation.entryFromTop} 0.5s ${ease.medium};
   align-items: center;
   display: flex;
   transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
@@ -51,7 +51,7 @@ export const StyledHeaderNavigation = styled.nav<{ isLeaving?: boolean }>`
 `;
 
 export const StyledHeaderNavigationList = styled.ul`
-  animation: ${animation.down} 0.5s ${ease.medium};
+  animation: ${animation.entryFromTop} 0.5s ${ease.medium};
   align-items: center;
   display: flex;
   gap: 26px;
@@ -68,7 +68,7 @@ export const StyledHeaderNavigationListItem = styled.li<{ isActive?: boolean }>`
 `;
 
 export const StyledHeaderCorner = styled.a<{ isLeaving?: boolean }>`
-  animation: ${animation.down} 0.5s ${ease.medium};
+  animation: ${animation.entryFromTop} 0.5s ${ease.medium};
   transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
   transition: transform 0.5s ${ease.medium};
   svg {
@@ -92,7 +92,7 @@ export const StyledHeaderCorner = styled.a<{ isLeaving?: boolean }>`
     }
     path {
       &:nth-of-type(2) {
-        animation: ${animation.greet} 560ms ease-in-out;
+        animation: ${animation.optopusGreet} 560ms ease-in-out;
       }
     }
   }
@@ -116,7 +116,7 @@ export const StyledFooter = styled.footer<{ isLeaving?: boolean }>`
   display: none;
   @media only screen and (min-width: 1200px) {
     align-items: flex-end;
-    animation: ${animation.up} 0.5s ${ease.medium};
+    animation: ${animation.entryFromBottom} 0.5s ${ease.medium};
     bottom: 0;
     display: flex;
     justify-content: space-between;

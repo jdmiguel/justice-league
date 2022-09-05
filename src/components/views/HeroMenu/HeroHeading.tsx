@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { splitHeadingIntoChars, LAST_HERO_INDEX } from '@/helpers';
-import { ease } from '@/helpers/theme';
+import { ease } from '@/helpers/animations';
 import { HeroMenuData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import {

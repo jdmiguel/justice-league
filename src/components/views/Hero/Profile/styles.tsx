@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { animation, ease } from '@/helpers/theme';
+import { animation, ease } from '@/helpers/animations';
 
 export const StyledProfileWrapper = styled.main<{ bgLogoPath: string; isLeaving?: boolean }>`
   position: relative;
   &:before {
-    animation: ${animation.minFadeIn} 0.5s;
+    animation: ${animation.smoothFadeIn} 0.5s;
     background-image: ${({ bgLogoPath }) => `url(${bgLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
@@ -47,7 +47,7 @@ export const StyledIntro = styled.div`
 `;
 
 export const StyledIntroImage = styled.img<{ semiTransparentColor: string }>`
-  animation: ${animation.leftFadeIn} 0.5s forwards;
+  animation: ${animation.fadeInFromLeft} 0.5s forwards;
   border-radius: 50%;
   box-shadow: ${({ semiTransparentColor }) => `0px 0px 16px 4px ${semiTransparentColor}`};
   display: none;
@@ -61,7 +61,7 @@ export const StyledIntroImage = styled.img<{ semiTransparentColor: string }>`
 `;
 
 export const StyledIntroTextWrapper = styled.div`
-  animation: ${animation.rightFadeIn} 0.5s forwards;
+  animation: ${animation.fadeInFromRight} 0.5s forwards;
   display: flex;
   flex-direction: column;
   opacity: 0;

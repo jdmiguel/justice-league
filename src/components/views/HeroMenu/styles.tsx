@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { animation, ease } from '@/helpers/theme';
+import { animation, ease } from '@/helpers/animations';
 
 export const StyledHeroMenu = styled.main<{ isFaded: boolean }>`
   animation: ${animation.fadeIn} 1s;
@@ -9,7 +9,7 @@ export const StyledHeroMenu = styled.main<{ isFaded: boolean }>`
 `;
 
 export const StyledGrainedBg = styled.div`
-  animation: ${animation.noise} 5s infinite;
+  animation: ${animation.backgroundNoise} 5s infinite;
   animation-timing-function: steps(10);
   backface-visibility: hidden;
   background-image: url('/noise-texture.png');

@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ease } from '@/helpers/theme';
+import { ease } from '@/helpers/animations';
 import { EventsData } from '@/helpers/types';
 import Event from '@/components/views/Hero/Timeline/Event';
 import { StyledTimelineWrapper, StyledTimeline } from '@/components/views/Hero/Timeline/styles';
@@ -50,7 +50,7 @@ const Timeline: React.FC<Props> = ({
       <StyledTimeline>
         {eventsList.map((event, index) => (
           <Event
-            key={event.year}
+            key={event.title}
             xOrigin={(index + 1) % 2 === 0 ? 'right' : 'left'}
             color={color}
             semiTransparentColor={semiTransparentColor}

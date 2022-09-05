@@ -1,7 +1,7 @@
 import { useRef, useMemo, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { LAST_HERO_INDEX } from '@/helpers';
-import { ease } from '@/helpers/theme';
+import { ease } from '@/helpers/animations';
 import { HeroMenuData as Hero } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import SupermanLogo from '@/components/views/HeroMenu/HeroVectorLogo/SupermanLogo';

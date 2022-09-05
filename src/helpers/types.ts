@@ -1,3 +1,20 @@
+import { Keyframes } from 'styled-components';
+
+export type CustomAnimation = {
+  optopusGreet: Keyframes;
+  backgroundNoise: Keyframes;
+  entryFromTop: Keyframes;
+  entryFromBottom: Keyframes;
+  loaderBar: Keyframes;
+  fadeIn: Keyframes;
+  fadeInFromBottom: Keyframes;
+  fadeInFromLeft: Keyframes;
+  fadeInFromRight: Keyframes;
+  fadeInFromTop: Keyframes;
+  scaleIn: Keyframes;
+  smoothFadeIn: Keyframes;
+};
+
 export type HeroData = {
   superman: string;
   batman: string;

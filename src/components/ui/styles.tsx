@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { animation } from '@/helpers/theme';
+import { animation } from '@/helpers/animations';
 
 export const StyledLoaderWrapper = styled.div<{ withLightBg: boolean }>`
   align-items: center;
@@ -18,7 +18,7 @@ export const StyledLoader = styled.div<{ withMarginBottom: boolean }>`
   margin-bottom: ${({ withMarginBottom }) => withMarginBottom && '85px'};
 
   span {
-    animation: ${animation.wave} 1s linear infinite;
+    animation: ${animation.loaderBar} 1s linear infinite;
     background: ${({ theme }) => theme.light};
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;

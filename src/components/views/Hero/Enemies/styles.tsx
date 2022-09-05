@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { animation, ease } from '@/helpers/theme';
+import { animation, ease } from '@/helpers/animations';
 
 export const StyledEnemiesWrapper = styled.main<{ heroLogoPath: string; isLeaving?: boolean }>`
   position: relative;
   min-height: calc(100vh - 85px);
   &:before {
-    animation: ${animation.minFadeIn} 0.5s;
+    animation: ${animation.smoothFadeIn} 0.5s;
     background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;

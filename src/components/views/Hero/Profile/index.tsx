@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ease } from '@/helpers/theme';
+import { ease } from '@/helpers/animations';
 import { ProfileData } from '@/helpers/types';
 import Intro from '@/components/views/Hero/Profile/Intro';
 import Detail from '@/components/views/Hero/Profile/Detail';
