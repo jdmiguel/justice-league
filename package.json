@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@use-gesture/react": "^10.2.11",
+    "@use-gesture/react": "^10.2.19",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "gsap": "^3.10.3",
