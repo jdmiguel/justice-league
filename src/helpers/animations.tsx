@@ -1,7 +1,5 @@
-import { css } from 'styled-components';
 import { keyframes } from 'styled-components';
 import { theme } from './theme';
-import { CustomAnimation } from './types';
 
 export const ease = {
   medium: 'cubic-bezier(0.215, 0.61, 0.355, 1)',

@@ -1,3 +1,4 @@
+import { gsap } from 'gsap';
 import { HeroData, HeroId, ProfileData, EnemiesData, EventsData } from '@/helpers/types';
 
 export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
@@ -36,6 +37,51 @@ export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   };
 
   return split(target);
+};
+
+export const cyclesByHeroId = {
+  superman: {
+    distanceX: gsap.utils.wrap([-24, -16, -8, 0, 8, 16, 24, 30]),
+    duplicatedDistanceX: gsap.utils.wrap([-48, -32, -16, 0, 16, 32, 48, 60]),
+    leftX: gsap.utils.wrap([-160, -140, -120, -100, -80, -60, -40, -20]),
+    rightX: gsap.utils.wrap([20, 40, 60, 80, 100, 120, 140, 160]),
+  },
+  batman: {
+    distanceX: gsap.utils.wrap([-16, -8, 0, 8, 16, 24]),
+    duplicatedDistanceX: gsap.utils.wrap([-44, -16, 0, 16, 32, 44]),
+    leftX: gsap.utils.wrap([-120, -100, -80, -60, -40, -20]),
+    rightX: gsap.utils.wrap([20, 40, 60, 80, 100, 120]),
+  },
+  wonderwoman: {
+    distanceX: gsap.utils.wrap([-40, -32, -24, -16, -8, 0, 8, 16, 24, 32, 40]),
+    duplicatedDistanceX: gsap.utils.wrap([-80, -64, -48, -32, -16, 0, 16, 32, 48, 64, 80]),
+    leftX: gsap.utils.wrap([-220, -200, -180, -160, -140, -120, -100, -80, -60, -40, -20]),
+    rightX: gsap.utils.wrap([20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220]),
+  },
+  flash: {
+    distanceX: gsap.utils.wrap([-12, -6, 0, 6, 12]),
+    duplicatedDistanceX: gsap.utils.wrap([-24, -8, 0, 8, 24]),
+    leftX: gsap.utils.wrap([-120, -100, -80, -60, -40]),
+    rightX: gsap.utils.wrap([40, 60, 80, 100, 120]),
+  },
+  greenlantern: {
+    distanceX: gsap.utils.wrap([-40, -32, -24, -16, -8, 0, 8, 16, 24, 32, 40, 48]),
+    duplicatedDistanceX: gsap.utils.wrap([-80, -62, -48, -32, -16, 0, 16, 48, 28, 62, 80, 96]),
+    leftX: gsap.utils.wrap([-240, -220, -200, -180, -160, -140, -120, -100, -80, -60, -40, -20]),
+    rightX: gsap.utils.wrap([20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240]),
+  },
+  aquaman: {
+    distanceX: gsap.utils.wrap([-24, -16, -8, 0, 8, 16, 24]),
+    duplicatedDistanceX: gsap.utils.wrap([-48, -32, -16, 0, 16, 32, 48]),
+    leftX: gsap.utils.wrap([-140, -120, -100, -80, -60, -40, -20]),
+    rightX: gsap.utils.wrap([20, 40, 60, 80, 100, 120, 140]),
+  },
+  cyborg: {
+    distanceX: gsap.utils.wrap([-16, -8, 0, 8, 16, 24]),
+    duplicatedDistanceX: gsap.utils.wrap([-44, -16, 0, 16, 32, 44]),
+    leftX: gsap.utils.wrap([-120, -100, -80, -60, -40, -20]),
+    rightX: gsap.utils.wrap([20, 40, 60, 80, 100, 120]),
+  },
 };
 
 export const TOTAL_HEROES = 7;

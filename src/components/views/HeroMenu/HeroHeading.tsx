@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
-import { splitHeadingIntoChars, LAST_HERO_INDEX } from '@/helpers';
+import { splitHeadingIntoChars, LAST_HERO_INDEX, cyclesByHeroId } from '@/helpers';
 import { ease } from '@/helpers/animations';
 import { HeroMenuData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
@@ -11,13 +11,6 @@ import {
   StyledHeroHeadingListItemButton,
   StyledHeroHeadingListItemText,
 } from '@/components/views/HeroMenu/styles';
-
-const cycles = {
-  distanceX: gsap.utils.wrap([-15, -10, -7, -5, 0, 5, 7, 10, 15, 22, 30, 40]),
-  duplicatedDistanceX: gsap.utils.wrap([-60, -40, -30, -20, 0, 20, 30, 40, 60, 80, 120, 160]),
-  leftX: gsap.utils.wrap([-320, -280, -240, -210, -170, -135, -115, -90, -70, -50, -35, -20]),
-  rightX: gsap.utils.wrap([20, 35, 50, 70, 90, 115, 135, 170, 210, 240, 280, 320]),
-};
 
 type Props = {
   heroes: HeroMenuData[];
@@ -84,6 +77,14 @@ const HeroHeading: React.FC<Props> = ({
       !(activeHeroIndex === LAST_HERO_INDEX && prevActiveHeroIndex === 0)) ||
     (activeHeroIndex === 0 && prevActiveHeroIndex === LAST_HERO_INDEX);
 
+  const getCyclesByHeroIndex = useCallback(
+    (heroIndex: number) => {
+      const currentHeroId = heroes[heroIndex].heroId;
+      return cyclesByHeroId[currentHeroId];
+    },
+    [heroes],
+  );
+
   useEffect(() => {
     return () => {
       tweenRef.current?.kill();
@@ -128,11 +129,13 @@ const HeroHeading: React.FC<Props> = ({
       return;
     }
 
+    const currentCycles = getCyclesByHeroIndex(activeHeroIndex);
+
     tweenRef.current = gsap.fromTo(
       charsRef.current[activeHeroIndex],
       {
         opacity: 0,
-        x: cycles.duplicatedDistanceX,
+        x: currentCycles.duplicatedDistanceX,
       },
       {
         duration: 0.75,
@@ -146,6 +149,8 @@ const HeroHeading: React.FC<Props> = ({
   }, [withSplittedHeadings]);
 
   const leaveHeading = useCallback(() => {
+    const currentCycles = getCyclesByHeroIndex(prevActiveHeroIndex);
+
     onInitChange();
 
     const prevActiveHeroChars = charsRef.current[prevActiveHeroIndex];
@@ -158,20 +163,22 @@ const HeroHeading: React.FC<Props> = ({
       {
         duration: 0.5,
         opacity: 0,
-        x: isNextHeroDirection ? cycles.rightX : cycles.leftX,
+        x: isNextHeroDirection ? currentCycles.rightX : currentCycles.leftX,
         ease: ease.smooth,
         stagger: 0.015,
       },
     );
-  }, [isNextHeroDirection, onInitChange, prevActiveHeroIndex]);
+  }, [getCyclesByHeroIndex, isNextHeroDirection, onInitChange, prevActiveHeroIndex]);
 
   const enterHeading = useCallback(() => {
+    const currentCycles = getCyclesByHeroIndex(activeHeroIndex);
+
     const activeHeroChars = charsRef.current[activeHeroIndex];
     tweenRef.current = gsap.fromTo(
       activeHeroChars,
       {
         opacity: 0,
-        x: isNextHeroDirection ? cycles.leftX : cycles.rightX,
+        x: isNextHeroDirection ? currentCycles.leftX : currentCycles.rightX,
       },
       {
         duration: 0.5,
@@ -187,7 +194,13 @@ const HeroHeading: React.FC<Props> = ({
       onEndChange();
       onUpdatePrevActiveHeroIndex();
     });
-  }, [activeHeroIndex, isNextHeroDirection, onEndChange, onUpdatePrevActiveHeroIndex]);
+  }, [
+    activeHeroIndex,
+    getCyclesByHeroIndex,
+    isNextHeroDirection,
+    onEndChange,
+    onUpdatePrevActiveHeroIndex,
+  ]);
 
   useEffect(() => {
     if (activeHeroIndex === prevActiveHeroIndex || isChangingHero || !isHeroChangeEnabled) {
@@ -210,11 +223,13 @@ const HeroHeading: React.FC<Props> = ({
   ) => {
     onDistanceChars({ isLeaving: isLeavingMenu });
 
+    const currentCycles = getCyclesByHeroIndex(activeHeroIndex);
+
     const activeHeroChars = charsRef.current[activeHeroIndex];
     tweenRef.current = gsap.to(activeHeroChars, {
       duration: 1,
       opacity: isLeavingMenu ? 0 : 1,
-      x: isLeavingMenu ? cycles.duplicatedDistanceX : cycles.distanceX,
+      x: isLeavingMenu ? currentCycles.duplicatedDistanceX : currentCycles.distanceX,
       ease: ease.smooth,
     });
 
