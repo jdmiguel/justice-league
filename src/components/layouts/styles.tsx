@@ -25,6 +25,7 @@ export const StyledHeader = styled.header<{ isSticky?: boolean }>`
 `;
 
 export const StyledHeaderLogo = styled.h1<{ isLeaving?: boolean }>`
+  animation: ${animation.entryFromTop} 0.5s ${ease.medium};
   align-items: center;
   display: flex;
   transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
@@ -50,6 +51,7 @@ export const StyledHeaderNavigation = styled.nav<{ isLeaving?: boolean }>`
 `;
 
 export const StyledHeaderNavigationList = styled.ul`
+  animation: ${animation.entryFromTop} 0.5s ${ease.medium};
   align-items: center;
   display: flex;
   gap: 26px;
