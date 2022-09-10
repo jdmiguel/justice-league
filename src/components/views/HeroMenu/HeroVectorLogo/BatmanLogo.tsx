@@ -11,6 +11,7 @@ type Props = {
 
 const BatmanLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
   <StyledHeroVectorLogoSvg
+    data-testid="batman-vector-logo"
     x="0px"
     y="0px"
     stroke={theme.grey}

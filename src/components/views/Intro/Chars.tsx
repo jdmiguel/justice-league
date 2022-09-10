@@ -85,6 +85,7 @@ const Chars: React.FC = () => {
 
   return (
     <StyledChars
+      data-testid="intro-chars"
       width="700"
       height="563.287"
       viewBox="0 0 700 563.287"

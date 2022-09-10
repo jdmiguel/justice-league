@@ -20,6 +20,7 @@ const CyborgLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
     xmlSpace="preserve"
     isHighlighted={isHighlighted}
     isFaded={isFaded}
+    data-testid="cyborg-vector-logo"
   >
     <StyledHeroVectorLogoPath
       stroke={theme.silver}
