@@ -1,7 +1,9 @@
 [[plugins]]
   package = "netlify-plugin-cypress"
-   [plugins.inputs]
-    record = true
+    [plugins.inputs]
+    skip = true
+    [plugins.inputs.onSuccess]
+    enable = true
 
 [build]
   command = "yarn build"
