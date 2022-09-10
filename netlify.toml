@@ -1,7 +1,5 @@
 [[plugins]]
   package = "netlify-plugin-cypress"
-    [plugins.inputs]
-    skip = true
     [plugins.inputs.onSuccess]
     enable = true
 
