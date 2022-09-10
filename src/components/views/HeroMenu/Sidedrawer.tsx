@@ -21,7 +21,7 @@ const Sidedrawer: React.FC<Props> = ({ heroes, isChangingHero, onClick }) => {
   };
 
   return (
-    <StyledSidedrawer>
+    <StyledSidedrawer data-testid="sidedrawer">
       <StyledSidedrawerList>
         {heroes.map((hero) => (
           <StyledSidedrawerListItem key={hero.heroId} isActive={hero.active}>

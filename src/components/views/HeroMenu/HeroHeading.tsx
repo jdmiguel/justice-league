@@ -270,7 +270,7 @@ const HeroHeading: React.FC<Props> = ({
   const clickHeading = () => distanceChars({ isLeavingMenu: true });
 
   return (
-    <StyledHeroHeading>
+    <StyledHeroHeading data-testid="hero-heading">
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
           <StyledHeroHeadingListItem key={hero.heroId}>
