@@ -4,6 +4,16 @@ describe('heroMenu - initial state', () => {
     cy.wait(6000);
   });
 
+  it('displays the header corner with the correct link', () => {
+    cy.get('header')
+      .find('a')
+      .should('have.attr', 'href', 'https://github.com/jdmiguel/justice-league');
+  });
+
+  it('displays the header corner with the correct link', () => {
+    cy.get('footer').find('a').should('have.attr', 'href', 'https://jdmiguel.netlify.app');
+  });
+
   it('shows the active bg', () => {
     cy.get('[data-testid=hero-menu-bg]')
       .first()
@@ -41,7 +51,6 @@ describe('heroMenu - initial state', () => {
       .should('be.visible')
       .parent()
       .next()
-      .should('have.text', 'Superman')
       .should('be.visible');
   });
 
