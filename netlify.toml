@@ -22,3 +22,7 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
+  [plugins.inputs]
+    record = true
+  [plugins.inputs.preBuild]
+    enable = true  

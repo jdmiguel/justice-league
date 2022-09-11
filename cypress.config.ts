@@ -6,6 +6,7 @@ export default defineConfig({
     baseUrl: 'http://localhost:8888',
   },
   fixturesFolder: false,
+  projectId: '6owrko',
   screenshotOnRunFailure: false,
   scrollBehavior: 'nearest',
   video: false,
