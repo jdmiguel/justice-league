@@ -50,6 +50,6 @@ describe('heroMenu - interactions', () => {
   it('navigates to hero page when the hero heading is clicked', () => {
     cy.get('@supermanHeadingBtn').realClick();
     cy.wait(1500);
-    cy.url().should('equal', 'http://localhost:8888/superman/profile');
+    cy.location('pathname').should('equal', '/superman/profile');
   });
 });
