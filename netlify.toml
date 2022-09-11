@@ -24,16 +24,5 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
-  [plugins.inputs.preBuild]
-    enable = true  
-    start = "yarn start"
-    wait-on = "http://localhost:8888"
-    wait-on-timeout = "30"
-    record = true
-    group = '1: testing develop site'
-  [plugins.inputs.postBuild]
-    enable = true
-    record = true
-    group = '2: testing built site'  
   [plugins.inputs]
-    enable = false
+    record = true
