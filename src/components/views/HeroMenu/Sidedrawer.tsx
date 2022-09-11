@@ -20,6 +20,8 @@ const Sidedrawer: React.FC<Props> = ({ heroes, isChangingHero, onClick }) => {
     onClick(heroId);
   };
 
+  console.log('test');
+
   return (
     <StyledSidedrawer data-testid="sidedrawer">
       <StyledSidedrawerList>
