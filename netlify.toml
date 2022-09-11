@@ -9,6 +9,8 @@
     CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
     # set TERM variable for terminal output
     TERM = "xterm"
+    # prevent progress messages
+    CI = "1"
 
 [[redirects]]
   from = "api/*"
@@ -24,9 +26,14 @@
   package = "netlify-plugin-cypress"
   [plugins.inputs.preBuild]
     enable = true  
-    record = true
     start = "yarn start"
     wait-on = "http://localhost:8888"
     wait-on-timeout = "30"
+    record = true
+    group = '1: testing develop site'
+  [plugins.inputs.postBuild]
+    enable = true
+    record = true
+    group = '2: testing built site'  
   [plugins.inputs]
     enable = false
