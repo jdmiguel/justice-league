@@ -22,7 +22,11 @@
 
 [[plugins]]
   package = "netlify-plugin-cypress"
-  [plugins.inputs]
-    record = true
   [plugins.inputs.preBuild]
     enable = true  
+    record = true
+    start = "yarn start"
+    wait-on = "http://localhost:8888"
+    wait-on-timeout = "30"
+  [plugins.inputs]
+    enable = false
