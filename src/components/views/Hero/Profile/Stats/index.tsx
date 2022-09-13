@@ -86,7 +86,7 @@ const Stats: React.FC<Props> = ({ skills, color }) => {
   );
 
   return (
-    <StyledStats ref={statsRef} isVisible={isVisible}>
+    <StyledStats data-testid="profile-stats" ref={statsRef} isVisible={isVisible}>
       <StyledStatsTitle color={color}>Ranked stats</StyledStatsTitle>
       <Chart width={chartWidth} height={ChartDetails.height}>
         <ChartGrid

@@ -25,7 +25,7 @@ const Detail: React.FC<Props> = ({
   const isVisible = !!entry?.isIntersecting;
 
   return (
-    <StyledDetail ref={detailRef}>
+    <StyledDetail data-testid="profile-detail" ref={detailRef}>
       <Card title="Details" color={color} isVisible={isVisible}>
         <StyledCardList>
           <li>
@@ -47,9 +47,9 @@ const Detail: React.FC<Props> = ({
       </Card>
       <StyledDetailImage
         src={imagePath}
+        alt="hero details"
         semiTransparentColor={semiTransparentColor}
         isVisible={isVisible}
-        alt={fullName}
       />
     </StyledDetail>
   );

@@ -30,7 +30,7 @@ const Appearance: React.FC<Props> = ({
   const isVisible = !!entry?.isIntersecting;
 
   return (
-    <StyledAppearance ref={appearanceRef}>
+    <StyledAppearance data-testid="profile-appearance" ref={appearanceRef}>
       <Card title="Appearance" color={color} isVisible={isVisible}>
         <StyledCardList>
           <li>
@@ -50,7 +50,7 @@ const Appearance: React.FC<Props> = ({
           </li>
         </StyledCardList>
       </Card>
-      <StyledAppearanceImage src={imagePath} isVisible={isVisible} alt="hero" />
+      <StyledAppearanceImage src={imagePath} isVisible={isVisible} alt="hero appearance" />
       <Card title="Powers" color={color} isVisible={isVisible} xOrigin="right">
         <ul>
           {powers.map((power) => (
