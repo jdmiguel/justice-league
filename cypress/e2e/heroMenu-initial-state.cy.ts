@@ -4,14 +4,38 @@ describe('heroMenu - initial state', () => {
     cy.wait(6000);
   });
 
-  it('displays the header corner with the correct link', () => {
+  it('displays the header elements', () => {
+    // Header elements
     cy.get('header')
+      .find('h1')
+      .find('img')
+      .should('have.attr', 'alt', 'justice league logo')
+      .and('have.attr', 'src', '/justice-league-white-logo.svg')
+      .parent()
+      .parent()
+      .parent()
       .find('a')
       .should('have.attr', 'href', 'https://github.com/jdmiguel/justice-league');
   });
 
-  it('displays the header corner with the correct link', () => {
-    cy.get('footer').find('a').should('have.attr', 'href', 'https://jdmiguel.netlify.app');
+  it('displays the footer elements', () => {
+    cy.get('footer')
+      .find('div')
+      .first()
+      .should('include.text', 'Created by')
+      .find('a')
+      .should('have.text', 'jdmiguel')
+      .and('have.attr', 'href', 'https://jdmiguel.netlify.app')
+      .parent()
+      .next()
+      .find('h4')
+      .should('have.text', 'To navigate the menu:')
+      .next()
+      .find('li')
+      .first()
+      .should('have.text', 'use the mouse wheel')
+      .next()
+      .should('have.text', 'click on the side menu');
   });
 
   it('shows the active bg', () => {
