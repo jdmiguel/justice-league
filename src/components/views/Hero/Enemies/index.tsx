@@ -46,7 +46,12 @@ const Enemies: React.FC<Props> = ({
   const { colorLogoPath, enemiesList } = enemiesData;
 
   return (
-    <StyledEnemiesWrapper ref={mediaRef} heroLogoPath={colorLogoPath} isLeaving={isLeaving}>
+    <StyledEnemiesWrapper
+      data-testid="enemies"
+      ref={mediaRef}
+      heroLogoPath={colorLogoPath}
+      isLeaving={isLeaving}
+    >
       <StyledEnemies>
         {enemiesList.map((enemy, index) => (
           <Card

@@ -17,6 +17,7 @@ describe('hero-profile', () => {
   });
 
   it('shows the profile content', () => {
+    // hero logo as background image
     cy.window().then((win) => {
       cy.get('[data-testid=profile]').then(($el: JQuery<HTMLDivElement>) => {
         const before = win.getComputedStyle($el[0], '::before');
