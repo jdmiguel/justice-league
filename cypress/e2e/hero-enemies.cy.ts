@@ -69,6 +69,7 @@ describe('hero-enemies', () => {
       .should('have.attr', 'src', '/captain-cold-enemies.jpg')
       .next()
       .should('include.text', 'This dangerous criminal is');
+    // shows the next enemies by scrolling
     cy.scrollTo(0, 1000).wait(1000);
     // fifth enemy content
     cy.get('[data-testid=enemies]')

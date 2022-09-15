@@ -46,7 +46,12 @@ const Timeline: React.FC<Props> = ({
   const { colorLogoPath, eventsList } = eventsData;
 
   return (
-    <StyledTimelineWrapper ref={timelineRef} heroLogoPath={colorLogoPath} isLeaving={isLeaving}>
+    <StyledTimelineWrapper
+      data-testid="timeline"
+      ref={timelineRef}
+      heroLogoPath={colorLogoPath}
+      isLeaving={isLeaving}
+    >
       <StyledTimeline>
         {eventsList.map((event, index) => (
           <Event
