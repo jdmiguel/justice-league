@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ease } from '@/helpers/animations';
 import { EnemiesData } from '@/helpers/types';
-import Card from '@/components/views/Hero/Enemies/Card';
+import Enemy from '@/components/views/Hero/Enemies/Enemy';
 import { StyledEnemiesWrapper, StyledEnemies } from '@/components/views/Hero/Enemies/styles';
 
 type Props = {
@@ -54,7 +54,7 @@ const Enemies: React.FC<Props> = ({
     >
       <StyledEnemies>
         {enemiesList.map((enemy, index) => (
-          <Card
+          <Enemy
             key={enemy.name}
             color={color}
             semiTransparentColor={semiTransparentColor}

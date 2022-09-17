@@ -1,11 +1,12 @@
 import { useRef } from 'react';
 import { ProfileAppearance } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-import Card from '@/components/views/Hero/Profile/Card';
+import { ProfileCard } from '@/components/ui/Card';
 import {
   StyledAppearance,
+  StyledAppearanceText,
   StyledAppearanceImage,
-  StyledCardList,
+  StyledList,
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
@@ -31,35 +32,39 @@ const Appearance: React.FC<Props> = ({
 
   return (
     <StyledAppearance data-testid="profile-appearance" ref={appearanceRef}>
-      <Card title="Appearance" color={color} isVisible={isVisible}>
-        <StyledCardList>
-          <li>
-            race: <strong>{race}</strong>
-          </li>
-          <li>
-            height: <strong>{height}</strong>
-          </li>
-          <li>
-            weight: <strong>{weight}</strong>
-          </li>
-          <li>
-            eye color: <strong>{eyeColor}</strong>
-          </li>
-          <li>
-            hair color: <strong>{hairColor}</strong>
-          </li>
-        </StyledCardList>
-      </Card>
-      <StyledAppearanceImage src={imagePath} isVisible={isVisible} alt="hero appearance" />
-      <Card title="Powers" color={color} isVisible={isVisible} xOrigin="right">
-        <ul>
-          {powers.map((power) => (
-            <li key={power}>
-              <strong>{power}</strong>
+      <StyledAppearanceText isVisible={isVisible} xOrigin="left">
+        <ProfileCard title="Appearance" color={color}>
+          <StyledList>
+            <li>
+              race: <strong>{race}</strong>
             </li>
-          ))}
-        </ul>
-      </Card>
+            <li>
+              height: <strong>{height}</strong>
+            </li>
+            <li>
+              weight: <strong>{weight}</strong>
+            </li>
+            <li>
+              eye color: <strong>{eyeColor}</strong>
+            </li>
+            <li>
+              hair color: <strong>{hairColor}</strong>
+            </li>
+          </StyledList>
+        </ProfileCard>
+      </StyledAppearanceText>
+      <StyledAppearanceImage src={imagePath} isVisible={isVisible} alt="hero appearance" />
+      <StyledAppearanceText isVisible={isVisible} xOrigin="right">
+        <ProfileCard title="Powers" color={color}>
+          <StyledList>
+            {powers.map((power) => (
+              <li key={power}>
+                <strong>{power}</strong>
+              </li>
+            ))}
+          </StyledList>
+        </ProfileCard>
+      </StyledAppearanceText>
     </StyledAppearance>
   );
 };

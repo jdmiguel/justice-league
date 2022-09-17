@@ -66,7 +66,7 @@ export const cyclesByHeroId = {
   },
   greenlantern: {
     distanceX: gsap.utils.wrap([-40, -32, -24, -16, -8, 0, 8, 16, 24, 32, 40, 48]),
-    duplicatedDistanceX: gsap.utils.wrap([-80, -62, -48, -32, -16, 0, 16, 48, 28, 62, 80, 96]),
+    duplicatedDistanceX: gsap.utils.wrap([-80, -64, -48, -32, -16, 0, 16, 28, 48, 64, 80, 96]),
     leftX: gsap.utils.wrap([-240, -220, -200, -180, -160, -140, -120, -100, -80, -60, -40, -20]),
     rightX: gsap.utils.wrap([20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240]),
   },

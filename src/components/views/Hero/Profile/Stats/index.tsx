@@ -1,6 +1,7 @@
 import { useMemo, useRef } from 'react';
 import { ProfileSkills } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+import Title from '@/components/ui/Title';
 import Chart from '@/components/views/Hero/Profile/Stats/Chart';
 import ChartGrid from '@/components/views/Hero/Profile/Stats/ChartGrid';
 import ChartBars from '@/components/views/Hero/Profile/Stats/ChartBars';
@@ -12,7 +13,7 @@ import {
   BarDetails,
   PercentDetails,
 } from '@/components/views/Hero/Profile/Stats/utils';
-import { StyledStats, StyledStatsTitle } from '@/components/views/Hero/Profile/styles';
+import { StyledStats } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
   skills: ProfileSkills;
@@ -87,7 +88,7 @@ const Stats: React.FC<Props> = ({ skills, color }) => {
 
   return (
     <StyledStats data-testid="profile-stats" ref={statsRef} isVisible={isVisible}>
-      <StyledStatsTitle color={color}>Ranked stats</StyledStatsTitle>
+      <Title text="Ranked stats" color={color} />
       <Chart width={chartWidth} height={ChartDetails.height}>
         <ChartGrid
           width={chartWidth}

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-import Card from '@/components/views/Hero/Timeline/Card';
+import { TimelineCard } from '@/components/ui/Card';
 import YearBubble from '@/components/views/Hero/Timeline/YearBubble';
 import { StyledEvent } from '@/components/views/Hero/Timeline/styles';
 
@@ -36,7 +36,7 @@ const Event: React.FC<Props> = ({
 
   return (
     <StyledEvent ref={eventRef} isVisible={isVisible}>
-      <Card
+      <TimelineCard
         key={title}
         color={color}
         semiTransparentColor={semiTransparentColor}

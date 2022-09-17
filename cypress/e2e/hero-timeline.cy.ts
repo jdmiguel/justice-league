@@ -49,6 +49,7 @@ describe('hero-timeline', () => {
       .should('include.text', 'Flash was created by Gardner')
       .parent()
       .parent()
+      .parent()
       .next()
       .should('have.text', '1940');
     // second timeline event
@@ -62,6 +63,7 @@ describe('hero-timeline', () => {
       .should('have.text', 'justice league anexation')
       .next()
       .should('include.text', 'Founder of the Justice League')
+      .parent()
       .parent()
       .parent()
       .next()
@@ -79,6 +81,7 @@ describe('hero-timeline', () => {
       .should('include.text', 'Starred by John W.Shipp')
       .parent()
       .parent()
+      .parent()
       .next()
       .should('have.text', '1990');
     // fourth timeline event
@@ -94,6 +97,7 @@ describe('hero-timeline', () => {
       .should('include.text', 'Perhaps the most iconic')
       .parent()
       .parent()
+      .parent()
       .next()
       .should('have.text', '2011');
     // fifth timeline event
@@ -107,6 +111,7 @@ describe('hero-timeline', () => {
       .should('have.text', 'the flash - the series')
       .next()
       .should('include.text', 'This tv series had 8')
+      .parent()
       .parent()
       .parent()
       .next()
@@ -127,6 +132,7 @@ describe('hero-timeline', () => {
       .should('have.text', 'justice league - the movie')
       .next()
       .should('include.text', 'Directed by Zach Snyder')
+      .parent()
       .parent()
       .parent()
       .next()
