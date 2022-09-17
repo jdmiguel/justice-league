@@ -51,6 +51,8 @@ describe('hero-profile', () => {
       .should('have.text', '1st appearance: Flash Comics #1')
       .parent()
       .parent()
+      .parent()
+      .parent()
       .next()
       .should('have.attr', 'alt', 'hero details')
       .should('have.attr', 'src', '/flash-profile-details.jpg');
@@ -84,6 +86,8 @@ describe('hero-profile', () => {
       .should('have.text', 'eye color: Blue')
       .next()
       .should('have.text', 'hair color: Blond')
+      .parent()
+      .parent()
       .parent()
       .parent()
       .next()
