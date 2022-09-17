@@ -25,6 +25,17 @@ describe('hero-enemies', () => {
         expect(bg).to.contain('/flash-color-logo.svg');
       });
     });
+    // Shows the first 4 enemies and hides the next 4
+    cy.get('[data-testid=enemies]')
+      .find('> div')
+      .each((enemy, index) => {
+        if (index < 4) {
+          cy.wrap(enemy).should('be.visible');
+          return;
+        }
+        cy.wrap(enemy).should('be.hidden');
+        return;
+      });
     // first enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
@@ -69,8 +80,15 @@ describe('hero-enemies', () => {
       .should('have.attr', 'src', '/captain-cold-enemies.jpg')
       .next()
       .should('include.text', 'This dangerous criminal is');
-    // shows the next enemies by scrolling
     cy.scrollTo(0, 1000).wait(1000);
+    // Shows the last 4 enemies by scrolling
+    cy.get('[data-testid=enemies]')
+      .find('> div')
+      .each((enemy, index) => {
+        if (index > 3) {
+          cy.wrap(enemy).should('be.visible');
+        }
+      });
     // fifth enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')

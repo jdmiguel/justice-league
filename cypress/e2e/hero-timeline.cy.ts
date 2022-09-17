@@ -25,6 +25,17 @@ describe('hero-timeline', () => {
         expect(bg).to.contain('/flash-color-logo.svg');
       });
     });
+    // Shows the first 5 timeline events and hides the next 1
+    cy.get('[data-testid=timeline]')
+      .find('> div')
+      .each((event, index) => {
+        if (index < 5) {
+          cy.wrap(event).should('be.visible');
+          return;
+        }
+        cy.wrap(event).should('be.hidden');
+        return;
+      });
     // first timeline event
     cy.get('[data-testid=timeline]')
       .find('img')
@@ -104,6 +115,9 @@ describe('hero-timeline', () => {
     cy.scrollTo(0, 500).wait(1000);
     // sixth timeline event
     cy.get('[data-testid=timeline]')
+      .find('> div')
+      .last()
+      .should('be.visible')
       .find('img')
       .last()
       .should('have.attr', 'alt', 'justice league - the movie')

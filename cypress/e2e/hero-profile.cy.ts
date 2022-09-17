@@ -63,6 +63,7 @@ describe('hero-profile', () => {
       .should('be.hidden')
       .next()
       .should('be.hidden');
+    // shows appearance by scrolling
     cy.scrollTo(0, 800)
       .wait(1000)
       .get('[data-testid=profile-appearance]')
@@ -86,10 +87,12 @@ describe('hero-profile', () => {
       .parent()
       .parent()
       .next()
+      .should('be.visible')
       .should('have.attr', 'alt', 'hero appearance')
       .should('have.attr', 'src', '/flash-profile-appearance.png')
       .parent()
       .find('h4')
+      .should('be.visible')
       .last()
       .should('have.text', 'Powers')
       .parent()
@@ -105,9 +108,12 @@ describe('hero-profile', () => {
       .next()
       .should('have.text', 'Enhanced senses');
     // stats content
+    cy.get('[data-testid=profile-stats]').should('be.hidden');
+    // shows stats by scrolling
     cy.scrollTo(0, 1800)
       .wait(1000)
       .get('[data-testid=profile-stats]')
+      .should('be.visible')
       .find('h4')
       .should('have.text', 'Ranked stats')
       .next()
