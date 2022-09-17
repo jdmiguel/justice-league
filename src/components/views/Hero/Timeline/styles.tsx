@@ -65,47 +65,6 @@ export const StyledEvent = styled.div<{ isVisible: boolean }>`
   }
 `;
 
-export const StyledCard = styled.div<{ color: string }>`
-  align-items: center;
-  border: ${({ color }) => `4px solid ${color}`};
-  border-radius: 16px;
-  display: flex;
-  gap: 26px;
-  max-width: 100%;
-  padding: 20px;
-  width: 480px;
-  @media only screen and (min-width: 1200px) {
-    font-size: inherit;
-    padding: 24px;
-  }
-`;
-
-export const StyledCardImage = styled.img<{ semiTransparentColor: string }>`
-  border-radius: 4px;
-  box-shadow: ${({ semiTransparentColor }) => `0px 0px 12px 2px ${semiTransparentColor}`};
-  height: 90px;
-`;
-
-export const StyledCardText = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-`;
-
-export const StyledCardTitle = styled.h4<{ color: string }>`
-  color: ${({ color }) => color};
-  font-size: 21px;
-  font-weight: 700;
-  @media only screen and (min-width: 1200px) {
-    font-size: 22px;
-  }
-`;
-
-export const StyledCardDescription = styled.p`
-  font-size: 18px;
-  line-height: 23px;
-`;
-
 export const StyledYearBubble = styled.div<{
   color: string;
   cardXPosition: 'left' | 'right';
@@ -149,9 +108,13 @@ export const StyledYearBubble = styled.div<{
       height: 58px;
       top: -61px;
     }
+    @media only screen and (min-width: 992px) {
+      visibility: hidden;
+    }
     @media only screen and (min-width: 1200px) {
       height: 104px;
       top: -104px;
+      visibility: visible;
     }
   }
 `;

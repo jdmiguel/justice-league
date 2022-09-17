@@ -1,11 +1,12 @@
 import { useRef } from 'react';
 import { ProfileDetail } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-import Card from '@/components/views/Hero/Profile/Card';
+import { ProfileCard } from '@/components/ui/Card';
 import {
   StyledDetail,
+  StyledDetailText,
   StyledDetailImage,
-  StyledCardList,
+  StyledList,
 } from '@/components/views/Hero/Profile/styles';
 
 type Props = {
@@ -26,25 +27,27 @@ const Detail: React.FC<Props> = ({
 
   return (
     <StyledDetail data-testid="profile-detail" ref={detailRef}>
-      <Card title="Details" color={color} isVisible={isVisible}>
-        <StyledCardList>
-          <li>
-            full name: <strong>{fullName}</strong>
-          </li>
-          <li>
-            place of birth: <strong>{birthPlace}</strong>
-          </li>
-          <li>
-            occupation: <strong>{occupation}</strong>
-          </li>
-          <li>
-            base: <strong>{base}</strong>
-          </li>
-          <li>
-            1st appearance: <strong>{firstAppearance}</strong>
-          </li>
-        </StyledCardList>
-      </Card>
+      <StyledDetailText isVisible={isVisible}>
+        <ProfileCard title="Details" color={color}>
+          <StyledList>
+            <li>
+              full name: <strong>{fullName}</strong>
+            </li>
+            <li>
+              place of birth: <strong>{birthPlace}</strong>
+            </li>
+            <li>
+              occupation: <strong>{occupation}</strong>
+            </li>
+            <li>
+              base: <strong>{base}</strong>
+            </li>
+            <li>
+              1st appearance: <strong>{firstAppearance}</strong>
+            </li>
+          </StyledList>
+        </ProfileCard>
+      </StyledDetailText>
       <StyledDetailImage
         src={imagePath}
         alt="hero details"

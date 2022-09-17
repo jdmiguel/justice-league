@@ -126,3 +126,65 @@ export const StyledRotateDevice = styled.div`
     }
   }
 `;
+
+export const StyledCard = styled.div<{ color: string; width?: number }>`
+  border: ${({ color }) => `4px solid ${color}`};
+  border-radius: 16px;
+  padding: 24px;
+  width: ${({ width }) => (width ? `${width}px` : 'unset')};
+`;
+
+export const StyledCardVerticalWrapper = styled.div`
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+`;
+
+export const StyledCardVerticalContent = styled.div<{ gap: number }>`
+  display: flex;
+  gap: ${({ gap }) => `${gap}px`};
+  flex-direction: column;
+`;
+
+export const StyledCardHorizontalContent = styled.div`
+  align-items: center;
+  display: flex;
+  gap: 26px;
+`;
+
+export const StyledCardText = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  gap: 4px;
+`;
+
+export const StyledCardImage = styled.img<{ semiTransparentColor: string }>`
+  border-radius: 4px;
+  box-shadow: ${({ semiTransparentColor }) => `0px 0px 12px 2px ${semiTransparentColor}`};
+`;
+
+export const StyledCardImageThumb = styled(StyledCardImage)`
+  height: 90px;
+`;
+
+export const StyledCardDescription = styled.p<{ withCenteredAlignment?: boolean }>`
+  font-size: 17px;
+  line-height: 20px;
+  text-align: ${({ withCenteredAlignment }) => (withCenteredAlignment ? 'center' : 'unset')};
+  @media only screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 23px;
+  }
+`;
+
+export const StyledTitle = styled.h4<{
+  color: string;
+  textSize: number;
+  withCenteredAlignment: boolean;
+}>`
+  color: ${({ color }) => color};
+  font-size: ${({ textSize }) => `${textSize}px`};
+  font-weight: 700;
+  text-align: ${({ withCenteredAlignment }) => (withCenteredAlignment ? 'center' : 'unset')};
+`;

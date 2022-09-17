@@ -72,7 +72,7 @@ export const StyledIntroTextWrapper = styled.div`
 `;
 
 export const StyledIntroTitle = styled.h2`
-  font-size: 74px;
+  font-size: 64px;
   font-weight: 900;
   line-height: 1;
   @media only screen and (min-width: 768px) {
@@ -81,7 +81,7 @@ export const StyledIntroTitle = styled.h2`
 `;
 
 export const StyledIntroSubtitle = styled.h3`
-  font-size: 35px;
+  font-size: 30px;
   line-height: 1;
   margin-bottom: 24px;
   @media only screen and (min-width: 768px) {
@@ -107,6 +107,12 @@ export const StyledDetail = styled.div`
     justify-content: space-between;
     margin-bottom: 80px;
   }
+`;
+
+export const StyledDetailText = styled.div<{ isVisible: boolean }>`
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(-120px)')};
+  transition: all 0.5s ${ease.smooth};
 `;
 
 export const StyledDetailImage = styled.img<{ semiTransparentColor: string; isVisible: boolean }>`
@@ -139,6 +145,13 @@ export const StyledAppearance = styled.div`
   }
 `;
 
+export const StyledAppearanceText = styled.div<{ isVisible: boolean; xOrigin: 'left' | 'right' }>`
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transform: ${({ isVisible, xOrigin }) =>
+    isVisible ? 'translateX(0)' : xOrigin === 'left' ? 'translateX(-120px)' : 'translateX(120px)'};
+  transition: all 0.5s ${ease.smooth};
+`;
+
 export const StyledAppearanceImage = styled.img<{ isVisible: boolean }>`
   display: none;
   max-width: 100%;
@@ -154,57 +167,17 @@ export const StyledAppearanceImage = styled.img<{ isVisible: boolean }>`
   }
 `;
 
-export const StyledCard = styled.div<{ color: string; isVisible: boolean }>`
-  border: ${({ color }) => `4px solid ${color}`};
-  border-radius: 16px;
-  font-size: 18px;
-  padding: 20px;
-  opacity: 0;
-  @media only screen and (max-width: 991px) {
-    height: 230px;
-  }
-  @media only screen and (min-width: 1200px) {
-    font-size: inherit;
-    padding: 24px;
-  }
-`;
-
-export const StyledLeftCard = styled(StyledCard)<{ isVisible: boolean }>`
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(-120px)')};
-  transition: all 0.5s ${ease.smooth};
-`;
-
-export const StyledRightCard = styled(StyledLeftCard)<{ isVisible: boolean }>`
-  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(120px)')};
-`;
-
-export const StyledCardTitle = styled.h4<{ color: string }>`
-  color: ${({ color }) => color};
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  @media only screen and (min-width: 1200px) {
-    font-size: 26px;
-    margin-bottom: 12px;
-  }
-`;
-
-export const StyledCardList = styled.ul`
-  line-height: 28px;
-  @media only screen and (min-width: 1200px) {
-    line-height: 32px;
-  }
+export const StyledList = styled.ul`
+  line-height: 32px;
 `;
 
 export const StyledStats = styled.div<{ isVisible: boolean }>`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transition: opacity 0.5s ${ease.smooth};
   width: 100%;
-`;
-
-export const StyledStatsTitle = styled(StyledCardTitle)`
-  margin-bottom: 24px;
 `;
 
 export const StyledBars = styled.g`
