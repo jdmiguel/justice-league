@@ -6,7 +6,7 @@ type Props = {
 
 const Corner: React.FC<Props> = ({ isLeaving }) => (
   <StyledHeaderCorner
-    href="https://github.com/jdmiguel/foodublin"
+    href="https://github.com/jdmiguel/justice-league"
     rel="noopener noreferrer"
     aria-label="View source on GitHub"
     isLeaving={isLeaving}

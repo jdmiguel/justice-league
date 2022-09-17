@@ -57,7 +57,7 @@ const Profile: React.FC<Props> = ({
   } = profileData;
 
   return (
-    <StyledProfileWrapper bgLogoPath={colorLogoPath} isLeaving={isLeaving}>
+    <StyledProfileWrapper data-testid="profile" bgLogoPath={colorLogoPath} isLeaving={isLeaving}>
       <StyledProfile ref={profileRef}>
         <Intro heroName={name} data={introData} semiTransparentColor={heroSemiTransparentColor} />
         <Detail

@@ -11,6 +11,7 @@ type Props = {
 
 const WonderWomanLogo: React.FC<Props> = ({ isHighlighted, isFaded }) => (
   <StyledHeroVectorLogoSvg
+    data-testid="wonderwoman-vector-logo"
     x="0px"
     y="0px"
     width="500px"

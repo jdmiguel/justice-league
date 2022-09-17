@@ -13,7 +13,7 @@ const Footer: React.FC<Props> = ({ isLeaving }) => (
         href="https://jdmiguel.netlify.app"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="View source on GitHub"
+        aria-label="View jdmiguel portfolio"
       >
         jdmiguel
       </StyledFooterLink>

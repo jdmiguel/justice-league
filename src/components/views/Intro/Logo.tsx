@@ -39,6 +39,7 @@ const Logo: React.FC = () => {
 
   return (
     <StyledLogo
+      data-testid="intro-logo"
       ref={logoRef}
       width="900"
       height="900"
