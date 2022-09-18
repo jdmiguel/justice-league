@@ -27,6 +27,7 @@ const Profile: React.FC<Props> = ({
   const profileRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     return () => {
       tweenRef.current?.kill();
     };

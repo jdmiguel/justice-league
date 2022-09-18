@@ -24,6 +24,7 @@ const Timeline: React.FC<Props> = ({
   const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     return () => {
       tweenRef.current?.kill();
     };

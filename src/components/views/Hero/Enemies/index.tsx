@@ -24,6 +24,7 @@ const Enemies: React.FC<Props> = ({
   const mediaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     return () => {
       tweenRef.current?.kill();
     };
