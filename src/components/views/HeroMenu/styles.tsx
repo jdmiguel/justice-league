@@ -43,7 +43,7 @@ export const StyledHeroVectorLogoSvg = styled.svg<{ isHighlighted: boolean; isFa
   transition: all 0.9s ${ease.smooth};
   transform: ${({ isHighlighted, isFaded }) =>
     isHighlighted ? (isFaded ? 'scale(1.5)' : 'scale(1.15)') : 'scale(1)'};
-  width: 200px;
+  width: 150px;
   will-change: transform, opacity;
   @media only screen and (min-width: 768px) {
     width: 320px;
@@ -68,7 +68,6 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   background-image: ${({ bgPath }) => `url(${bgPath})`};
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   height: 100%;
   opacity: ${({ isActive, isDarkened }) => (isActive ? (isDarkened ? 0.3 : 1) : 0)};
   position: absolute;
@@ -80,10 +79,13 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   width: 100%;
   will-change: transform, opacity;
   z-index: 1;
+  @media only screen and (min-width: 768px) {
+    background-size: cover;
+  }
 `;
 
 export const StyledHeroHeading = styled.nav`
-  font-size: 5.2rem;
+  font-size: 4rem;
   font-weight: 700;
   height: 100%;
   position: absolute;

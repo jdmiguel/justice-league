@@ -9,7 +9,6 @@ export const StyledEnemiesWrapper = styled.main<{ heroLogoPath: string; isLeavin
     background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
     background-attachment: fixed;
     content: '';
     display: block;
@@ -19,6 +18,9 @@ export const StyledEnemiesWrapper = styled.main<{ heroLogoPath: string; isLeavin
     transition: opacity 0.5s ${ease.smooth};
     width: 100%;
     z-index: 1;
+    @media only screen and (min-width: 768px) {
+      background-size: cover;
+    }
   }
 `;
 
@@ -30,10 +32,27 @@ export const StyledEnemies = styled.div`
   height: 100%;
   margin: 0 auto;
   max-width: 100%;
-  padding: 40px 30px;
-  row-gap: 40px;
+  padding: 30px;
+  row-gap: 26px;
+  > div {
+    > :nth-child(1) {
+      display: none;
+    }
+    > :nth-child(2) {
+      display: block;
+    }
+  }
   @media only screen and (min-width: 768px) {
     padding: 100px 30px 80px;
+    row-gap: 40px;
+    > div {
+      > :nth-child(1) {
+        display: block;
+      }
+      > :nth-child(2) {
+        display: none;
+      }
+    }
   }
   @media only screen and (min-width: 1200px) {
     grid-template-columns: 1fr 1fr;

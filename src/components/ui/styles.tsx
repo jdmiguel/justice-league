@@ -130,8 +130,11 @@ export const StyledRotateDevice = styled.div`
 export const StyledCard = styled.div<{ color: string; width?: number }>`
   border: ${({ color }) => `4px solid ${color}`};
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
   width: ${({ width }) => (width ? `${width}px` : 'unset')};
+  @media only screen and (min-width: 768px) {
+    padding: 24px;
+  }
 `;
 
 export const StyledCardVerticalWrapper = styled.div`
@@ -149,13 +152,16 @@ export const StyledCardVerticalContent = styled.div<{ gap: number }>`
 export const StyledCardHorizontalContent = styled.div`
   align-items: center;
   display: flex;
-  gap: 26px;
+  gap: 24px;
+  @media only screen and (min-width: 768px) {
+    gap: 26px;
+  }
 `;
 
 export const StyledCardText = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 1.3rem;
   gap: 4px;
 `;
 
@@ -165,15 +171,18 @@ export const StyledCardImage = styled.img<{ semiTransparentColor: string }>`
 `;
 
 export const StyledCardImageThumb = styled(StyledCardImage)`
-  height: 90px;
+  height: 104px;
+  @media only screen and (min-width: 768px) {
+    height: 90px;
+  }
 `;
 
 export const StyledCardDescription = styled.p<{ withCenteredAlignment?: boolean }>`
-  font-size: 17px;
+  font-size: 1.1rem;
   line-height: 20px;
   text-align: ${({ withCenteredAlignment }) => (withCenteredAlignment ? 'center' : 'unset')};
   @media only screen and (min-width: 768px) {
-    font-size: 18px;
+    font-size: 1.3rem;
     line-height: 23px;
   }
 `;

@@ -64,6 +64,28 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
   </StyledCardVerticalWrapper>
 );
 
+const MobileEnemyCard: React.FC<EnemyCardProps> = ({
+  title,
+  color,
+  semiTransparentColor,
+  imagePath,
+  description,
+}) => (
+  <Card color={color}>
+    <StyledCardHorizontalContent>
+      <StyledCardImageThumb
+        src={imagePath}
+        semiTransparentColor={semiTransparentColor}
+        alt={title}
+      />
+      <StyledCardText>
+        <Title text={title} color={color} textSize={22} />
+        <StyledCardDescription>{description}</StyledCardDescription>
+      </StyledCardText>
+    </StyledCardHorizontalContent>
+  </Card>
+);
+
 type TimelineCardProps = EnemyCardProps;
 
 const TimelineCard: React.FC<TimelineCardProps> = ({
@@ -88,4 +110,4 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
   </Card>
 );
 
-export { ProfileCard, EnemyCard, TimelineCard };
+export { ProfileCard, EnemyCard, MobileEnemyCard, TimelineCard };

@@ -8,7 +8,6 @@ export const StyledProfileWrapper = styled.main<{ bgLogoPath: string; isLeaving?
     background-image: ${({ bgLogoPath }) => `url(${bgLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
     background-attachment: fixed;
     content: '';
     display: block;
@@ -18,16 +17,19 @@ export const StyledProfileWrapper = styled.main<{ bgLogoPath: string; isLeaving?
     transition: opacity 0.5s ${ease.smooth};
     width: 100%;
     z-index: 1;
+    @media only screen and (min-width: 768px) {
+      background-size: cover;
+    }
   }
 `;
 
 export const StyledProfile = styled.div`
-  font-size: 20px;
+  font-size: 1.44rem;
   height: 100%;
   line-height: 30px;
   margin: 0 auto;
   max-width: 100%;
-  padding: 40px 30px;
+  padding: 30px;
   @media only screen and (min-width: 768px) {
     padding: 100px 30px 80px;
   }
@@ -40,7 +42,10 @@ export const StyledIntro = styled.div`
   align-items: center;
   display: flex;
   gap: 100px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
   @media only screen and (min-width: 992px) {
     margin-bottom: 100px;
   }
@@ -72,7 +77,7 @@ export const StyledIntroTextWrapper = styled.div`
 `;
 
 export const StyledIntroTitle = styled.h2`
-  font-size: 64px;
+  font-size: 60px;
   font-weight: 900;
   line-height: 1;
   @media only screen and (min-width: 768px) {
@@ -81,7 +86,7 @@ export const StyledIntroTitle = styled.h2`
 `;
 
 export const StyledIntroSubtitle = styled.h3`
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1;
   margin-bottom: 24px;
   @media only screen and (min-width: 768px) {
@@ -92,8 +97,8 @@ export const StyledIntroSubtitle = styled.h3`
 export const StyledIntroDescription = styled.p`
   white-space: break-spaces;
   @media only screen and (max-width: 767px) {
-    line-height: 1.5;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 20px;
   }
 `;
 
@@ -102,7 +107,10 @@ export const StyledDetail = styled.div`
   display: flex;
   gap: 60px;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
   @media only screen and (min-width: 1200px) {
     justify-content: space-between;
     margin-bottom: 80px;
@@ -137,7 +145,10 @@ export const StyledAppearance = styled.div`
   display: flex;
   gap: 60px;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
   @media only screen and (min-width: 992px) {
     gap: 0;
     justify-content: space-between;
@@ -168,7 +179,12 @@ export const StyledAppearanceImage = styled.img<{ isVisible: boolean }>`
 `;
 
 export const StyledList = styled.ul`
-  line-height: 32px;
+  font-size: 1.1rem;
+  line-height: 23px;
+  @media only screen and (min-width: 768px) {
+    font-size: 1.5rem;
+    line-height: 32px;
+  }
 `;
 
 export const StyledStats = styled.div<{ isVisible: boolean }>`

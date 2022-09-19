@@ -9,7 +9,6 @@ export const StyledTimelineWrapper = styled.main<{ heroLogoPath: string; isLeavi
     background-image: ${({ heroLogoPath }) => `url(${heroLogoPath})`};
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
     background-attachment: fixed;
     content: '';
     display: block;
@@ -19,6 +18,9 @@ export const StyledTimelineWrapper = styled.main<{ heroLogoPath: string; isLeavi
     transition: opacity 0.5s ${ease.smooth};
     width: 100%;
     z-index: 1;
+    @media only screen and (min-width: 768px) {
+      background-size: cover;
+    }
   }
 `;
 
@@ -29,7 +31,7 @@ export const StyledTimeline = styled.div`
   height: 100%;
   margin: 0 auto;
   max-width: 100%;
-  padding: 40px 30px;
+  padding: 30px;
   @media only screen and (min-width: 768px) {
     padding: 100px 30px 80px;
   }
@@ -63,6 +65,11 @@ export const StyledEvent = styled.div<{ isVisible: boolean }>`
       }
     }
   }
+  > :nth-child(odd) {
+    @media only screen and (max-width: 767px) {
+      order: 2;
+    }
+  }
 `;
 
 export const StyledYearBubble = styled.div<{
@@ -75,7 +82,7 @@ export const StyledYearBubble = styled.div<{
   border: ${({ color }) => `4px solid ${color}`};
   border-radius: 50%;
   display: flex;
-  font-size: 18px;
+  font-size: 1.3rem;
   height: 80px;
   justify-content: center;
   position: relative;
@@ -84,7 +91,7 @@ export const StyledYearBubble = styled.div<{
     background-color: ${({ color }) => color};
     content: '';
     height: 4px;
-    left: -56px;
+    left: 76px;
     position: absolute;
     width: 54px;
     @media only screen and (min-width: 768px) {
@@ -96,14 +103,14 @@ export const StyledYearBubble = styled.div<{
     background-color: ${({ color }) => color};
     content: '';
     display: ${({ isFirst }) => isFirst && 'none'};
-    height: 94px;
+    height: 88px;
     position: absolute;
     opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
     transform: ${({ isVisible }) => (isVisible ? 'scaleY(1)' : 'scaleY(0)')};
     transform-origin: top;
     transition: all 0.5s ${ease.medium} 0.4s;
     width: 4px;
-    top: -94px;
+    top: -88px;
     @media only screen and (min-width: 768px) {
       height: 58px;
       top: -61px;
