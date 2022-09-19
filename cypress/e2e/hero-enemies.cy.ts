@@ -39,7 +39,7 @@ describe('hero-enemies', () => {
     // first enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
-      .first()
+      .eq(0)
       .should('have.text', 'Reverse Flash')
       .next()
       .find('img')
@@ -50,7 +50,7 @@ describe('hero-enemies', () => {
     // second enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
-      .eq(1)
+      .eq(2)
       .should('have.text', 'Grood')
       .next()
       .find('img')
@@ -61,7 +61,7 @@ describe('hero-enemies', () => {
     // third enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
-      .eq(2)
+      .eq(4)
       .should('have.text', 'Savitar')
       .next()
       .find('img')
@@ -72,7 +72,7 @@ describe('hero-enemies', () => {
     // fourth enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
-      .eq(3)
+      .eq(6)
       .should('have.text', 'Captain Cold')
       .next()
       .find('img')
@@ -92,7 +92,7 @@ describe('hero-enemies', () => {
     // fifth enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
-      .eq(4)
+      .eq(8)
       .should('have.text', 'The Thinker')
       .next()
       .find('img')
@@ -103,7 +103,7 @@ describe('hero-enemies', () => {
     // sixth enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
-      .eq(5)
+      .eq(10)
       .should('have.text', 'Mirror Master')
       .next()
       .find('img')
@@ -114,7 +114,7 @@ describe('hero-enemies', () => {
     // seventh enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
-      .eq(6)
+      .eq(12)
       .should('have.text', 'Heatwave')
       .next()
       .find('img')
@@ -125,7 +125,7 @@ describe('hero-enemies', () => {
     // eighth enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
-      .last()
+      .eq(14)
       .should('have.text', 'Captain Boomerang')
       .next()
       .find('img')
