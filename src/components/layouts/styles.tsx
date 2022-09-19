@@ -14,7 +14,7 @@ export const StyledHeader = styled.header<{ isSticky?: boolean }>`
   background-color: ${({ theme, isSticky }) => isSticky && theme.dark};
   display: flex;
   justify-content: space-between;
-  min-height: 60px;
+  min-height: 50px;
   position: ${({ isSticky }) => (isSticky ? 'sticky' : 'absolute')};
   top: 0;
   width: 100%;
@@ -32,7 +32,7 @@ export const StyledHeaderLogo = styled.h1<{ isLeaving?: boolean }>`
   transition: transform 0.5s ${ease.medium};
   img {
     @media only screen and (max-width: 767px) {
-      width: 140px;
+      width: 124px;
     }
   }
 `;
@@ -40,6 +40,7 @@ export const StyledHeaderLogo = styled.h1<{ isLeaving?: boolean }>`
 export const StyledHeaderNavigation = styled.nav<{ isLeaving?: boolean }>`
   align-items: center;
   display: flex;
+  font-size: 0.9rem;
   font-weight: 700;
   margin-right: 30px;
   transform: ${({ isLeaving }) => isLeaving && 'translateY(-120px)'};
@@ -76,8 +77,8 @@ export const StyledHeaderCorner = styled.a<{ isLeaving?: boolean }>`
     color: transparent;
     fill: ${({ theme }) => theme.neutral};
     @media only screen and (max-width: 767px) {
-      height: 60px;
-      width: 60px;
+      height: 50px;
+      width: 50px;
     }
   }
   path {

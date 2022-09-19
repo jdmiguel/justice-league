@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-import { EnemyCard } from '@/components/ui/Card';
+import { EnemyCard, MobileEnemyCard } from '@/components/ui/Card';
 import { StyledEnemy } from '@/components/views/Hero/Enemies/styles';
 
 type Props = {
@@ -25,6 +25,7 @@ const Enemy: React.FC<Props> = (props) => {
   return (
     <StyledEnemy ref={enemyRef} isVisible={isVisible} xOrigin={props.xOrigin}>
       <EnemyCard {...props} />
+      <MobileEnemyCard {...props} />
     </StyledEnemy>
   );
 };
