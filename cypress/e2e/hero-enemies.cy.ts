@@ -46,7 +46,7 @@ describe('hero-enemies', () => {
       .should('have.attr', 'alt', 'Reverse Flash')
       .should('have.attr', 'src', '/reverse-flash-enemies.jpg')
       .next()
-      .should('include.text', 'Shaping a dark mirror');
+      .should('include.text', 'As a dark mirror of the character');
     // second enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')
@@ -68,7 +68,7 @@ describe('hero-enemies', () => {
       .should('have.attr', 'alt', 'Savitar')
       .should('have.attr', 'src', '/savitar-enemies.jpg')
       .next()
-      .should('include.text', 'Taking his name from the Hindu');
+      .should('include.text', 'Named as the Hindu');
     // fourth enemy content
     cy.get('[data-testid=enemies]')
       .find('h4')

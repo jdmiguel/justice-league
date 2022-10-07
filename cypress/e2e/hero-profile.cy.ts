@@ -48,7 +48,7 @@ describe('hero-profile', () => {
       .next()
       .should('have.text', 'base: Central City')
       .next()
-      .should('have.text', '1st appearance: Flash Comics #1')
+      .should('have.text', '1st appearance: Flash Comics 1')
       .parent()
       .parent()
       .parent()
