@@ -68,6 +68,7 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   background-image: ${({ bgPath }) => `url(${bgPath})`};
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
   opacity: ${({ isActive, isDarkened }) => (isActive ? (isDarkened ? 0.3 : 1) : 0)};
   position: absolute;
@@ -79,9 +80,6 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
   width: 100%;
   will-change: transform, opacity;
   z-index: 1;
-  @media only screen and (min-width: 768px) {
-    background-size: cover;
-  }
 `;
 
 export const StyledHeroHeading = styled.nav`

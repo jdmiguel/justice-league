@@ -103,14 +103,14 @@ export const StyledYearBubble = styled.div<{
     background-color: ${({ color }) => color};
     content: '';
     display: ${({ isFirst }) => isFirst && 'none'};
-    height: 96px;
+    height: 90px;
     position: absolute;
     opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
     transform: ${({ isVisible }) => (isVisible ? 'scaleY(1)' : 'scaleY(0)')};
     transform-origin: top;
     transition: all 0.5s ${ease.medium} 0.4s;
     width: 4px;
-    top: -96px;
+    top: -90px;
     @media only screen and (min-width: 768px) {
       height: 58px;
       top: -61px;

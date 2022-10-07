@@ -97,8 +97,8 @@ export const StyledIntroSubtitle = styled.h3`
 export const StyledIntroDescription = styled.p`
   white-space: break-spaces;
   @media only screen and (max-width: 767px) {
-    font-size: 1.1rem;
-    line-height: 20px;
+    font-size: 1.2rem;
+    line-height: 22px;
   }
 `;
 

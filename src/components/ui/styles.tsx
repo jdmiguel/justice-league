@@ -168,22 +168,24 @@ export const StyledCardText = styled.div`
 export const StyledCardImage = styled.img<{ semiTransparentColor: string }>`
   border-radius: 4px;
   box-shadow: ${({ semiTransparentColor }) => `0px 0px 12px 2px ${semiTransparentColor}`};
-`;
-
-export const StyledCardImageThumb = styled(StyledCardImage)`
-  height: 104px;
-  @media only screen and (min-width: 768px) {
-    height: 90px;
+  @media only screen and (max-width: 767px) {
+    height: 138px;
   }
 `;
 
-export const StyledCardDescription = styled.p<{ withCenteredAlignment?: boolean }>`
-  font-size: 1.1rem;
-  line-height: 20px;
+export const StyledCardImageThumb = styled(StyledCardImage)`
+  height: 90px;
+`;
+
+export const StyledCardDescription = styled.p<{
+  withCenteredAlignment?: boolean;
+  textSize: number;
+}>`
+  font-size: ${({ textSize }) => `${textSize}px`};
+  line-height: 23px;
   text-align: ${({ withCenteredAlignment }) => (withCenteredAlignment ? 'center' : 'unset')};
-  @media only screen and (min-width: 768px) {
-    font-size: 1.3rem;
-    line-height: 23px;
+  @media only screen and (max-width: 767px) {
+    line-height: 21px;
   }
 `;
 

@@ -58,7 +58,9 @@ const EnemyCard: React.FC<EnemyCardProps> = ({
     <Card color={color}>
       <StyledCardVerticalContent gap={30}>
         <StyledCardImage src={imagePath} semiTransparentColor={semiTransparentColor} alt={title} />
-        <StyledCardDescription withCenteredAlignment>{description}</StyledCardDescription>
+        <StyledCardDescription textSize={18} withCenteredAlignment>
+          {description}
+        </StyledCardDescription>
       </StyledCardVerticalContent>
     </Card>
   </StyledCardVerticalWrapper>
@@ -73,14 +75,10 @@ const MobileEnemyCard: React.FC<EnemyCardProps> = ({
 }) => (
   <Card color={color}>
     <StyledCardHorizontalContent>
-      <StyledCardImageThumb
-        src={imagePath}
-        semiTransparentColor={semiTransparentColor}
-        alt={title}
-      />
+      <StyledCardImage src={imagePath} semiTransparentColor={semiTransparentColor} alt={title} />
       <StyledCardText>
         <Title text={title} color={color} textSize={22} />
-        <StyledCardDescription>{description}</StyledCardDescription>
+        <StyledCardDescription textSize={16}>{description}</StyledCardDescription>
       </StyledCardText>
     </StyledCardHorizontalContent>
   </Card>
@@ -103,8 +101,8 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
         alt={title}
       />
       <StyledCardText>
-        <Title text={title} color={color} textSize={22} />
-        <StyledCardDescription>{description}</StyledCardDescription>
+        <Title text={title} color={color} textSize={21} />
+        <StyledCardDescription textSize={16}>{description}</StyledCardDescription>
       </StyledCardText>
     </StyledCardHorizontalContent>
   </Card>
