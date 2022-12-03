@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { RequestStatus, HeroMeta } from '@/helpers/types';
+import { useEffect } from 'react';
 import { useIntro } from '@/contexts/IntroContext';
 import { useCustomNavigation } from '@/contexts/CustomNavigationContext';
 import useLockedBody from '@/hooks/useLockedBody';
+import useHeroMetas from '@/hooks/useHeroMetas';
 import Intro from '@/components/views/Intro';
 import HeroMenu from '@/components/views/HeroMenu';
 import Layout from '@/components/layouts/Layout';
@@ -11,35 +11,17 @@ import Footer from '@/components/layouts/Footer';
 import Loader from '@/components/ui/Loader';
 
 const Root: React.FC = () => {
-  const [requestStatus, setRequestStatus] = useState<RequestStatus>('LOADING');
-  const [heroMetas, setHeroMetas] = useState<HeroMeta[]>([]);
+  const { heroMetas, requestStatus: requestStatusHeroMetas } = useHeroMetas();
   const { isNavigating, initNavigation, endNavigation, updateActivePageId } = useCustomNavigation();
   const { isIntroVisible } = useIntro();
 
   useLockedBody();
 
   useEffect(() => {
-    const getMetas = async () => {
-      try {
-        const res = await fetch('/.netlify/functions/getMetas');
-        const metas = await res.json();
-
-        setRequestStatus('SUCCESS');
-        setHeroMetas(metas);
-      } catch (err) {
-        console.error(err);
-        setRequestStatus('FAILURE');
-      }
-    };
-
-    getMetas();
-  }, []);
-
-  useEffect(() => {
     updateActivePageId('root');
   }, [updateActivePageId]);
 
-  if (requestStatus === 'LOADING') {
+  if (requestStatusHeroMetas === 'LOADING') {
     return <Loader withLightBg={!!isIntroVisible} />;
   }
 

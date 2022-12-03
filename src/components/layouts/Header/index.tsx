@@ -10,7 +10,7 @@ type Props = {
   isSticky?: boolean;
 };
 
-const Header = ({ children, isSticky }: Props) => (
+const Header = ({ children, isSticky = false }: Props) => (
   <StyledHeader isSticky={isSticky}>{children}</StyledHeader>
 );
 
