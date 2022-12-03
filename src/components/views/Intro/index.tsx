@@ -2,7 +2,7 @@ import { useRef, useEffect, useContext, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { getHero } from '@/helpers';
 import { HeroId } from '@/helpers/types';
-import { heroColors, getRandomHeroColor, theme } from '@/helpers/theme';
+import { heroSquadColors, getRandomHeroColor, theme } from '@/helpers/theme';
 import IntroContext from '@/contexts/IntroContext';
 import Logo from '@/components/views/Intro/Logo';
 import Chars from '@/components/views/Intro/Chars';
@@ -18,7 +18,7 @@ const Intro: React.FC<Props> = ({ idParam }) => {
 
   const { hideIntro } = useContext(IntroContext);
   const getMemoizedHeroColor = useCallback(
-    (idParam: string) => getHero(heroColors, idParam as HeroId),
+    (idParam: string) => getHero(heroSquadColors, idParam as HeroId),
     [],
   );
   const getMemoizedRandomHeroColor = useCallback(() => getRandomHeroColor(), []);

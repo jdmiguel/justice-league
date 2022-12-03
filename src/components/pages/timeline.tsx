@@ -1,34 +1,22 @@
-import { useState, useEffect } from 'react';
 import { useParams, Params } from 'react-router-dom';
 import { DEFAULT_EVENTS } from '@/helpers';
-import { heroColors, heroSemiTransparentColors } from '@/helpers/theme';
-import { RequestStatus, HeroId, EventsData } from '@/helpers/types';
+import { heroSquadColors, heroSquadSemiTransparentColors } from '@/helpers/theme';
+import { HeroId, EventsData } from '@/helpers/types';
 import { useCustomNavigation } from '@/contexts/CustomNavigationContext';
+import useFetchHeroData from '@/hooks/useFetchHeroData';
 import useImagePreloader from '@/hooks/useImagePreloader';
 import TimelineView from '@/components/views/Hero/Timeline';
 import Loader from '@/components/ui/Loader';
 
 const Timeline: React.FC = () => {
-  const [requestStatus, setRequestStatus] = useState<RequestStatus>('LOADING');
-  const [eventsData, setEventsData] = useState<EventsData>(DEFAULT_EVENTS);
   const { id: currentHeroId } = useParams<Params>();
+
   const { isNavigating, endNavigation } = useCustomNavigation();
 
-  useEffect(() => {
-    const getProfile = async (heroId: HeroId) => {
-      try {
-        const res = await fetch(`/.netlify/functions/getEvents/${heroId}`);
-        const fetchedEnemiesData = await res.json();
-        setEventsData(fetchedEnemiesData);
-        setRequestStatus('SUCCESS');
-      } catch (err) {
-        console.error(err);
-        setRequestStatus('FAILURE');
-      }
-    };
-
-    getProfile(currentHeroId as HeroId);
-  }, [currentHeroId]);
+  const { heroData: eventsData, requestStatus } = useFetchHeroData<EventsData>(
+    DEFAULT_EVENTS,
+    `/.netlify/functions/getEvents/${currentHeroId}`,
+  );
 
   const eventImages = eventsData.eventsList.map((event) => event.imagePath) as string[];
   const { imagesPreloaded } = useImagePreloader([
@@ -36,8 +24,8 @@ const Timeline: React.FC = () => {
     ...eventImages,
   ]);
 
-  const heroColor = heroColors[currentHeroId as HeroId];
-  const heroSemiTransparentColor = heroSemiTransparentColors[currentHeroId as HeroId];
+  const heroColor = heroSquadColors[currentHeroId as HeroId];
+  const heroSemiTransparentColor = heroSquadSemiTransparentColors[currentHeroId as HeroId];
 
   return (
     <>
