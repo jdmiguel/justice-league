@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { HeroData, HeroId, ProfileData, EnemiesData, EventsData } from '@/helpers/types';
+import { HeroSquad, HeroId, HeroMeta, ProfileData, EnemiesData, EventsData } from '@/helpers/types';
 
 export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   if (!target) {
@@ -88,6 +88,15 @@ export const TOTAL_HEROES = 7;
 export const LAST_HERO_INDEX = TOTAL_HEROES - 1;
 export const DEFAULT_ACTIVE_HERO_ID = 'superman';
 export const DEFAULT_ACTIVE_PAGE_ID = 'root';
+export const DEFAULT_HERO_METAS: HeroMeta[] = [
+  {
+    heroId: '',
+    name: '',
+    menuBgImagePath: '',
+    whiteLogoPath: '',
+    colorLogoPath: '',
+  },
+];
 export const DEFAULT_PROFILE: ProfileData = {
   colorLogoPath: '',
   name: '',
@@ -137,5 +146,5 @@ export const DEFAULT_EVENTS: EventsData = {
   ],
 };
 
-export const getHero = (heroData: HeroData, id: HeroId): string =>
-  heroData[id || DEFAULT_ACTIVE_HERO_ID];
+export const getHero = (heroSquad: HeroSquad, id: HeroId): string =>
+  heroSquad[id || DEFAULT_ACTIVE_HERO_ID];

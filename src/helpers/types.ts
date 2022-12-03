@@ -15,7 +15,7 @@ export type CustomAnimation = {
   smoothFadeIn: Keyframes;
 };
 
-export type HeroData = {
+export type HeroSquad = {
   superman: string;
   batman: string;
   wonderwoman: string;
@@ -25,7 +25,7 @@ export type HeroData = {
   cyborg: string;
 };
 
-export type HeroId = keyof HeroData;
+export type HeroId = keyof HeroSquad;
 
 export type HeroMeta = {
   heroId: string;
@@ -134,3 +134,5 @@ type Event = {
   description: string;
 };
 export type EventsData = { colorLogoPath: string; eventsList: Event[] };
+
+export type HeroData = HeroMeta[] | ProfileData | EnemiesData | EventsData;

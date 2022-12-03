@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { HeroData } from '@/helpers/types';
+import { HeroSquad } from '@/helpers/types';
 
 export const GlobalStyles = createGlobalStyle`
   html {
@@ -107,7 +107,7 @@ export const theme = {
   ...semiTransparentColorTheme,
 };
 
-export const heroColors: HeroData = {
+export const heroSquadColors: HeroSquad = {
   superman: theme.blue,
   batman: theme.grey,
   wonderwoman: theme.orange,
@@ -117,7 +117,7 @@ export const heroColors: HeroData = {
   cyborg: theme.silver,
 };
 
-export const heroSemiTransparentColors: HeroData = {
+export const heroSquadSemiTransparentColors: HeroSquad = {
   superman: theme.semiTransparentBlue,
   batman: theme.semiTransparentGrey,
   wonderwoman: theme.semiTransparentOrange,
