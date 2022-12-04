@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useRef } from 'react';
 import { ProfileSkills } from '@/helpers/types';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Title from '@/components/ui/Title';
@@ -8,10 +8,14 @@ import ChartBars from '@/components/views/Hero/Profile/Stats/ChartBars';
 import ChartLegends from '@/components/views/Hero/Profile/Stats/ChartLegends';
 import ChartPercents from '@/components/views/Hero/Profile/Stats/ChartPercents';
 import {
-  ChartDetails,
-  GridDetails,
-  BarDetails,
-  PercentDetails,
+  chartDimensions,
+  chartOffset,
+  gridDimensions,
+  barWidth,
+  barWidthWithMargin,
+  getBarHeight,
+  percentFontSize,
+  percentOffsets,
 } from '@/components/views/Hero/Profile/Stats/utils';
 import { StyledStats } from '@/components/views/Hero/Profile/styles';
 
@@ -30,58 +34,42 @@ const Stats: React.FC<Props> = ({ skills, color }) => {
     freezeOnceVisible: true,
   });
   const isVisible = !!entry?.isIntersecting;
-  const barsData = useMemo(
-    () =>
-      skills.map((skill, index) => {
-        const barHeight = (skill.value * GridDetails.height) / ChartDetails.heightFactor;
 
-        return {
-          id: skill.name,
-          posX: index * (BarDetails.width + BarDetails.margin) + ChartDetails.padding / 2,
-          posY: ChartDetails.height - barHeight,
-          width: BarDetails.width as number,
-          height: barHeight,
-          color,
-        };
-      }),
-    [color, skills],
-  );
-  const legendsData = useMemo(
-    () =>
-      skills.map((skill, index) => ({
-        name: skill.name,
-        posX:
-          (BarDetails.width + BarDetails.margin) * index +
-          skill.namePosX +
-          ChartDetails.padding / 2,
-        posY: ChartDetails.height,
-      })),
-    [skills],
-  );
-  const percentsData = useMemo(
-    () =>
-      skills.map((skill, index) => {
-        const barHeight =
-          (skill.value * ChartDetails.height) / ChartDetails.heightFactor - ChartDetails.padding;
-        const posX =
-          (BarDetails.width + BarDetails.margin) * index +
-          PercentDetails.offsetX +
-          ChartDetails.padding / 2;
-        const posY = GridDetails.height - barHeight / 2 + PercentDetails.offsetY;
+  const barsData = skills.map((skill, index) => {
+    const barHeight = getBarHeight(skill.value);
 
-        return {
-          id: skill.name,
-          value: skill.value,
-          posX,
-          posY,
-          valueTextFontSize: PercentDetails.valueTextFontSize as string,
-          percentTextFontSize: PercentDetails.percentTextFontSize as string,
-          percentTextPosX: (posX + PercentDetails.percentTextOffsetX) as number,
-          percentTextPosY: (posY - PercentDetails.percentTextOffsetY) as number,
-        };
-      }),
-    [skills],
-  );
+    return {
+      id: skill.name,
+      posX: index * barWidthWithMargin + chartOffset / 2,
+      posY: chartDimensions.height - barHeight,
+      width: barWidth,
+      height: barHeight,
+      color,
+    };
+  });
+
+  const legendsData = skills.map((skill, index) => ({
+    name: skill.name,
+    posX: index * barWidthWithMargin + skill.namePosX + chartOffset / 2,
+    posY: chartDimensions.height,
+  }));
+
+  const percentsData = skills.map((skill, index) => {
+    const barHeight = getBarHeight(skill.value);
+    const posX = index * barWidthWithMargin + percentOffsets.valueOffsetX + chartOffset / 2;
+    const posY = gridDimensions.height - (barHeight - chartOffset) / 2;
+
+    return {
+      id: skill.name,
+      value: skill.value,
+      posX,
+      posY,
+      valueTextFontSize: percentFontSize.value,
+      percentTextFontSize: percentFontSize.percent,
+      percentTextPosX: posX + percentOffsets.percentOffsetX,
+      percentTextPosY: posY - percentOffsets.percentOffsetY,
+    };
+  });
 
   return (
     <StyledStats data-testid="profile-stats" ref={statsRef} isVisible={isVisible}>

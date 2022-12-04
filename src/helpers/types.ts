@@ -88,6 +88,19 @@ export type ProfileData = {
   skills: Skill[];
 };
 
+export type ProfileStatsDimensions = {
+  width: number;
+  height: number;
+};
+
+export type ProfileStatsGridLineCoordinates = {
+  id: string;
+  initPosX: number;
+  endPosX: number;
+  initPosY: number;
+  endPosY: number;
+};
+
 type ProfileStatsBarData = {
   id: string;
   posX: number;
@@ -116,6 +129,15 @@ type ProfileStatsPercentData = {
   percentTextPosY: number;
 };
 export type ProfileStatsPercentsData = ProfileStatsPercentData[];
+export type ProfileStatsPercentFontSize = {
+  value: string;
+  percent: string;
+};
+export type ProfileStatsPercentOffsets = {
+  valueOffsetX: number;
+  percentOffsetX: number;
+  percentOffsetY: number;
+};
 
 type Enemy = {
   name: string;
