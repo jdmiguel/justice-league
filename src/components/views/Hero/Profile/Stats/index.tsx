@@ -30,9 +30,6 @@ const Stats: React.FC<Props> = ({ skills, color }) => {
     freezeOnceVisible: true,
   });
   const isVisible = !!entry?.isIntersecting;
-  const totalBars = skills.length;
-
-  const chartWidth = useMemo(() => totalBars * (BarDetails.width + BarDetails.margin), [totalBars]);
   const barsData = useMemo(
     () =>
       skills.map((skill, index) => {
@@ -89,12 +86,8 @@ const Stats: React.FC<Props> = ({ skills, color }) => {
   return (
     <StyledStats data-testid="profile-stats" ref={statsRef} isVisible={isVisible}>
       <Title text="Ranked stats" color={color} />
-      <Chart width={chartWidth} height={ChartDetails.height}>
-        <ChartGrid
-          width={chartWidth}
-          height={GridDetails.height}
-          lineVerticalMargin={GridDetails.lineMargin}
-        />
+      <Chart>
+        <ChartGrid />
         <ChartBars isVisible={isVisible} data={barsData} />
         <ChartPercents isVisible={isVisible} data={percentsData} />
         <ChartLegends data={legendsData} />
