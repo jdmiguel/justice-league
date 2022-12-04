@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { GridDetails } from '@/components/views/Hero/Profile/Stats/utils';
+import { ChartDetails } from '@/components/views/Hero/Profile/Stats/utils';
 
 type Props = {
   children: ReactNode;
@@ -7,7 +7,7 @@ type Props = {
 
 const Chart: React.FC<Props> = ({ children }) => (
   <svg
-    viewBox={`0 0 ${GridDetails.width} ${GridDetails.height}`}
+    viewBox={`0 0 ${ChartDetails.width} ${ChartDetails.height}`}
     width="100%"
     height="100%"
     preserveAspectRatio="xMidYMax meet"

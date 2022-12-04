@@ -3,6 +3,7 @@ export enum ChartDetails {
   heightFactor = 100,
   padding = 24,
   totalBars = 5,
+  width = 1140,
 }
 
 export enum GridDetails {
