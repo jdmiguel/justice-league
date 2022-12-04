@@ -122,7 +122,7 @@ describe('hero-profile', () => {
       .should('have.text', 'Ranked stats')
       .next()
       .find('g')
-      .eq(3)
+      .eq(2)
       .find('text')
       .should('have.text', '75%40%98%70%54%')
       .parent()
