@@ -22,16 +22,15 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
-  "plugins": [
-    "html"
-  ],
+  "plugins": ["html"],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-unused-vars": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
     "react/react-in-jsx-scope": "off"
@@ -41,4 +40,4 @@
       "version": "detect"
     }
   }
-}  
+}

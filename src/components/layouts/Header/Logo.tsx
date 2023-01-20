@@ -1,7 +1,8 @@
+import { MouseEventHandler } from 'react';
 import { StyledHeaderLogo } from '@/components/layouts/styles';
 
 type Props = {
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   isLeaving?: boolean;
 };
 
