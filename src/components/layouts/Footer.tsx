@@ -10,7 +10,7 @@ const Footer: React.FC<Props> = ({ isLeaving }) => (
     <div>
       Created by
       <StyledFooterLink
-        href="https://jdmiguel.netlify.app"
+        href="https://jdmiguel.com"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View jdmiguel portfolio"
