@@ -26,3 +26,5 @@ tsconfig.tsbuildinfo
 
 # misc
 .env
+# Local Netlify folder
+.netlify
