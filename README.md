@@ -13,5 +13,5 @@ Animated microsite based on the Justice League from DC universe. The project is 
 - **USE-GESTURE**
 - **STYLED COMPONENTS**
 - **NETLIFY FUNCTIONS**
-- **FAUNA DB**
+- **SUPABASE**
 - **CYPRESS**

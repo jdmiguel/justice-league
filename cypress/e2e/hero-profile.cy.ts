@@ -34,7 +34,7 @@ describe('hero-profile', () => {
     cy.get('[data-testid=profile-intro]').find('h3').should('have.text', 'The fastest man alive');
     cy.get('[data-testid=profile-intro]')
       .find('p')
-      .should('include.text', 'Having discovered his mother');
+      .should('include.text', 'After being doused in chemicals');
     // details content
     cy.get('[data-testid=profile-detail]').find('h4').should('have.text', 'Details');
     cy.get('[data-testid=profile-detail]')
