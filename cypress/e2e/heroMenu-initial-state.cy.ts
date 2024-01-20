@@ -25,7 +25,7 @@ describe('heroMenu - initial state', () => {
       .should('include.text', 'Created by')
       .find('a')
       .should('have.text', 'jdmiguel')
-      .and('have.attr', 'href', 'https://jdmiguel.netlify.app')
+      .and('have.attr', 'href', 'https://jdmiguel.com')
       .parent()
       .next()
       .find('h4')
