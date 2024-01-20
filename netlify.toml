@@ -3,7 +3,7 @@
   publish = "dist"
   functions = "functions"
   [build.environment]
-    NODE_VERSION = "16.13.0"
+    NODE_VERSION = "18.17.1"
     # cache Cypress binary in local "node_modules" folder
     # so Netlify caches it
     CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
