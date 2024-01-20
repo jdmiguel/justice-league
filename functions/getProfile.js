@@ -1,5 +1,3 @@
-const axios = require('axios');
-require('dotenv').config();
 const { GET_PROFILE } = require('./utils/queries');
 const sendQuery = require('./utils/sendQuery');
 const getHeroIdFromPathName = require('./utils/getHeroIdFromPathName');

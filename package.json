@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@use-gesture/react": "^10.2.19",
-    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "gsap": "^3.10.3",
     "lethargy": "^1.0.9",
@@ -39,6 +38,7 @@
     "eslint-plugin-react-hooks": "^4.4.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.8",
+    "netlify-cli": "^17.15.1",
     "netlify-plugin-cypress": "^2.2.0",
     "path": "^0.12.7",
     "prettier": "^2.6.2",

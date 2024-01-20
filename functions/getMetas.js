@@ -1,5 +1,3 @@
-const axios = require('axios');
-require('dotenv').config();
 const { GET_METAS } = require('./utils/queries');
 const sendQuery = require('./utils/sendQuery');
 const formatResponse = require('./utils/formatResponse');
