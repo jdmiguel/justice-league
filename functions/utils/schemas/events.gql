@@ -1,6 +1,6 @@
 type Events {
   heroId: String!
-  eventsList: [Event!]
+  events: [Event!]
 }
 
 type Event @embedded {
@@ -11,6 +11,5 @@ type Event @embedded {
 }
 
 type Query {
-  allEvents: [Events!]
-  eventsByHeroId(heroId: String!): [Events!]!
+  eventsCollection: [Events!]
 }

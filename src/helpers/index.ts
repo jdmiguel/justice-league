@@ -90,7 +90,8 @@ export const DEFAULT_ACTIVE_HERO_ID = 'superman';
 export const DEFAULT_ACTIVE_PAGE_ID = 'root';
 export const DEFAULT_HERO_METAS: HeroMeta[] = [
   {
-    heroId: '',
+    id: 0,
+    heroId: DEFAULT_ACTIVE_HERO_ID,
     name: '',
     menuBgImagePath: '',
     whiteLogoPath: '',
@@ -126,7 +127,7 @@ export const DEFAULT_PROFILE: ProfileData = {
 };
 export const DEFAULT_ENEMIES: EnemiesData = {
   colorLogoPath: '',
-  enemiesList: [
+  enemies: [
     {
       name: '',
       description: '',
@@ -136,7 +137,7 @@ export const DEFAULT_ENEMIES: EnemiesData = {
 };
 export const DEFAULT_EVENTS: EventsData = {
   colorLogoPath: '',
-  eventsList: [
+  events: [
     {
       year: '',
       title: '',

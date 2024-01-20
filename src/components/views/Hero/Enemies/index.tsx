@@ -44,7 +44,7 @@ const Enemies: React.FC<Props> = ({
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
-  const { colorLogoPath, enemiesList } = enemiesData;
+  const { colorLogoPath, enemies } = enemiesData;
 
   return (
     <StyledEnemiesWrapper
@@ -54,7 +54,7 @@ const Enemies: React.FC<Props> = ({
       isLeaving={isLeaving}
     >
       <StyledEnemies>
-        {enemiesList.map((enemy, index) => (
+        {enemies.map((enemy, index) => (
           <Enemy
             key={enemy.name}
             color={color}

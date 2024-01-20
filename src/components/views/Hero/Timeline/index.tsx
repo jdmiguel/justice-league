@@ -44,7 +44,7 @@ const Timeline: React.FC<Props> = ({
     tweenRef.current.then(onEndFadeAnimation);
   }, [isLeaving, onEndFadeAnimation]);
 
-  const { colorLogoPath, eventsList } = eventsData;
+  const { colorLogoPath, events } = eventsData;
 
   return (
     <StyledTimelineWrapper
@@ -54,7 +54,7 @@ const Timeline: React.FC<Props> = ({
       isLeaving={isLeaving}
     >
       <StyledTimeline>
-        {eventsList.map((event, index) => (
+        {events.map((event, index) => (
           <Event
             key={event.title}
             xOrigin={(index + 1) % 2 === 0 ? 'right' : 'left'}

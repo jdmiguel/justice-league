@@ -28,18 +28,15 @@ export type HeroSquad = {
 export type HeroId = keyof HeroSquad;
 
 export type HeroMeta = {
-  heroId: string;
+  id: number;
+  heroId: HeroId;
   name: string;
   menuBgImagePath: string;
   whiteLogoPath: string;
   colorLogoPath: string;
 };
 
-export type HeroMenuData = {
-  heroId: HeroId;
-  name: string;
-  bgImagePath: string;
-  whiteLogoPath: string;
+export type HeroMenuData = HeroMeta & {
   active: boolean;
 };
 
@@ -146,7 +143,7 @@ type Enemy = {
 };
 export type EnemiesData = {
   colorLogoPath: string;
-  enemiesList: Enemy[];
+  enemies: Enemy[];
 };
 
 type Event = {
@@ -155,6 +152,6 @@ type Event = {
   title: string;
   description: string;
 };
-export type EventsData = { colorLogoPath: string; eventsList: Event[] };
+export type EventsData = { colorLogoPath: string; events: Event[] };
 
 export type HeroData = HeroMeta[] | ProfileData | EnemiesData | EventsData;

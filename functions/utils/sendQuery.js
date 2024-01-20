@@ -5,10 +5,12 @@ module.exports = async (query, variables) => {
   const {
     data: { data, errors },
   } = await axios({
-    url: 'https://graphql.eu.fauna.com/graphql',
+    url: 'https://uyvrezmrknaqosbfuqzd.supabase.co/graphql/v1',
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.FAUNA_SECRET_KEY}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      apiKey: process.env.SUPABASE_API_KEY,
     },
     data: {
       query,

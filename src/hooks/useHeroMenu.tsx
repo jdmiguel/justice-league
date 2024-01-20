@@ -5,10 +5,7 @@ import { HeroId, HeroMenuData as Hero, HeroMeta } from '@/helpers/types';
 const useHeroMenu = (heroId: HeroId, heroMetas: HeroMeta[]) => {
   const [heroes, setHeroes] = useState<Hero[]>(() =>
     heroMetas.map((meta: HeroMeta) => ({
-      heroId: meta.heroId as HeroId,
-      name: meta.name,
-      bgImagePath: meta.menuBgImagePath,
-      whiteLogoPath: meta.whiteLogoPath,
+      ...meta,
       active: meta.heroId === heroId,
     })),
   );

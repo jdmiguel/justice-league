@@ -12,7 +12,7 @@ const HeroBg: React.FC<Props> = ({ heroes, isDarkened }) => (
       <StyledHeroBg
         data-testid="hero-menu-bg"
         key={hero.heroId}
-        bgPath={hero.bgImagePath}
+        bgPath={hero.menuBgImagePath}
         isActive={hero.active}
         isDarkened={isDarkened}
       />

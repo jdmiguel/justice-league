@@ -2,15 +2,18 @@ const axios = require('axios');
 require('dotenv').config();
 const { GET_EVENTS } = require('./utils/queries');
 const sendQuery = require('./utils/sendQuery');
+const getHeroIdFromPathName = require('./utils/getHeroIdFromPathName');
 const formatResponse = require('./utils/formatResponse');
 
-exports.handler = async (event) => {
-  const { path: pagePath } = event;
-  const heroIdIndexInPagePath = pagePath.lastIndexOf('/') + 1;
-  const heroIdFromPagePath = pagePath.slice(heroIdIndexInPagePath, pagePath.length);
+exports.handler = async ({ path }) => {
+  const heroId = getHeroIdFromPathName(path);
+
   try {
-    const res = await sendQuery(GET_EVENTS(heroIdFromPagePath));
-    const data = { ...res.metaByHeroId.data[0], ...res.eventsByHeroId.data[0] };
+    const res = await sendQuery(GET_EVENTS(heroId));
+    const data = {
+      colorLogoPath: res.metaCollection.edges[0].hero.colorLogoPath,
+      events: res.eventsCollection.edges[0].hero.events,
+    };
     return formatResponse(200, data);
   } catch (err) {
     console.error(err);

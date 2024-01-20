@@ -80,6 +80,7 @@ const HeroHeading: React.FC<Props> = ({
   const getCyclesByHeroIndex = useCallback(
     (heroIndex: number) => {
       const currentHeroId = heroes[heroIndex].heroId;
+      console.log({ currentHeroId });
       return cyclesByHeroId[currentHeroId];
     },
     [heroes],
@@ -172,6 +173,7 @@ const HeroHeading: React.FC<Props> = ({
 
   const enterHeading = useCallback(() => {
     const currentCycles = getCyclesByHeroIndex(activeHeroIndex);
+    console.log({ currentCycles });
 
     const activeHeroChars = charsRef.current[activeHeroIndex];
     tweenRef.current = gsap.fromTo(

@@ -1,6 +1,5 @@
 type Profile {
   heroId: String!
-  bgLogoPath: String!
   intro: Intro!
   appearance: Appearance!
   powers: [String!]
@@ -40,6 +39,5 @@ type Skill @embedded {
 }
 
 type Query {
-  allProfiles: [Profile!]
-  profileByHeroId(heroId: String!): [Profile!]!
+  profileCollection: [Profile!]
 }

@@ -1,91 +1,76 @@
 const GET_METAS = `
   query {
-    allMetas {
-      data {
-        heroId
-        name
-        menuBgImagePath
-        whiteLogoPath
-      }
-    }
-  }
-`;
-
-const GET_PROFILE = (id) => `
-  query {
-    metaByHeroId(heroId: "${id}"){
-      data {
-        name
-        colorLogoPath
-      }
-    }
-    profileByHeroId(heroId: "${id}"){
-      data {
-        intro {
-          alias
-          description
-          imagePath
-        }
-        appearance {
-          race
-          height
-          weight
-          eyeColor
-          hairColor
-          imagePath
-        }
-        powers
-        detail {
-          fullName
-          birthPlace
-          occupation
-          base
-          firstAppearance
-          imagePath
-        }
-        skills {
+    metaCollection {
+      edges {
+        hero:node {
+          id
+          heroId
           name
-          namePosX
-          value
+          menuBgImagePath
+          whiteLogoPath
         }
       }
     }
   }
 `;
 
-const GET_ENEMIES = (id) => `
+const GET_PROFILE = (heroId) => `
   query {
-    metaByHeroId(heroId: "${id}"){
-      data {
-        colorLogoPath
-      }
-    }
-    enemiesByHeroId(heroId: "${id}"){
-      data {
-        enemiesList {
+    metaCollection(filter: {heroId: {eq: "${heroId}"}}) {
+      edges {
+        hero:node {
           name
-          description
-          imagePath
+          colorLogoPath
+        }
+      }
+    }
+    profileCollection(filter: {heroId: {eq: "${heroId}"}}) {
+      edges {
+        hero:node {
+          intro
+          detail
+          appearance
+          powers
+          skills
         }
       }
     }
   }
 `;
 
-const GET_EVENTS = (id) => `
+const GET_ENEMIES = (heroId) => `
   query {
-    metaByHeroId(heroId: "${id}"){
-      data {
-        colorLogoPath
+    metaCollection(filter: {heroId: {eq: "${heroId}"}}) {
+      edges {
+        hero:node {
+          name
+          colorLogoPath
+        }
       }
     }
-    eventsByHeroId(heroId: "${id}"){
-      data {
-        eventsList {
-          year
-          title
-          description
-          imagePath
+    enemiesCollection(filter: {heroId: {eq: "${heroId}"}}) {
+      edges {
+        hero:node {
+          enemies
+        }
+      }
+    }
+  }
+`;
+
+const GET_EVENTS = (heroId) => `
+  query {
+    metaCollection(filter: {heroId: {eq: "${heroId}"}}) {
+      edges {
+        hero:node {
+          colorLogoPath
+        }
+      }
+    }
+    eventsCollection(filter: {heroId: {eq: "${heroId}"}}) {
+      edges {
+        hero:node {
+          events
         }
       }
     }

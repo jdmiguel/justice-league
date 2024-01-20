@@ -18,7 +18,7 @@ const Enemies: React.FC = () => {
     `/.netlify/functions/getEnemies/${currentHeroId}`,
   );
 
-  const enemiesImages = enemiesData.enemiesList.map((enemy) => enemy.imagePath) as string[];
+  const enemiesImages = enemiesData.enemies.map((enemy) => enemy.imagePath) as string[];
   const { imagesPreloaded } = useImagePreloader([
     enemiesData.colorLogoPath as string,
     ...enemiesImages,

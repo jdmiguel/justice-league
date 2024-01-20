@@ -18,7 +18,7 @@ const Timeline: React.FC = () => {
     `/.netlify/functions/getEvents/${currentHeroId}`,
   );
 
-  const eventImages = eventsData.eventsList.map((event) => event.imagePath) as string[];
+  const eventImages = eventsData.events.map((event) => event.imagePath) as string[];
   const { imagesPreloaded } = useImagePreloader([
     eventsData.colorLogoPath as string,
     ...eventImages,

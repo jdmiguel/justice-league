@@ -7,7 +7,7 @@ const formatResponse = require('./utils/formatResponse');
 exports.handler = async (event) => {
   try {
     const res = await sendQuery(GET_METAS);
-    const data = res.allMetas.data;
+    const data = res.metaCollection.edges.map((edge) => edge.hero);
     return formatResponse(200, data);
   } catch (err) {
     console.error(err);
