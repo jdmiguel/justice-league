@@ -6,6 +6,10 @@ export const StyledHeroMenu = styled.main<{ isFaded: boolean }>`
   opacity: ${({ isFaded }) => isFaded && 0};
   transition: opacity 1s ${ease.smooth} 0.2s;
   touch-action: none;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 `;
 
 export const StyledGrainedBg = styled.div`
