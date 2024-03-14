@@ -1,6 +1,7 @@
 const { GET_EVENTS } = require('./utils/queries');
 const sendQuery = require('./utils/sendQuery');
 const getHeroIdFromPathName = require('./utils/getHeroIdFromPathName');
+const parseStringifiedObjects = require('./utils/parseStringifiedObjects');
 const formatResponse = require('./utils/formatResponse');
 
 exports.handler = async ({ path }) => {
@@ -8,9 +9,10 @@ exports.handler = async ({ path }) => {
 
   try {
     const res = await sendQuery(GET_EVENTS(heroId));
+    const parsedEventsResponse = parseStringifiedObjects(res.eventsCollection.edges[0].hero.events);
     const data = {
       colorLogoPath: res.metaCollection.edges[0].hero.colorLogoPath,
-      events: res.eventsCollection.edges[0].hero.events,
+      events: parsedEventsResponse,
     };
     return formatResponse(200, data);
   } catch (err) {
