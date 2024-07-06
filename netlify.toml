@@ -4,13 +4,6 @@
   functions = "functions"
   [build.environment]
     NODE_VERSION = "18.17.1"
-    # cache Cypress binary in local "node_modules" folder
-    # so Netlify caches it
-    CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
-    # set TERM variable for terminal output
-    TERM = "xterm"
-    # prevent progress messages
-    CI = "1"
 
 [dev]
   targetPort = 3000
@@ -24,8 +17,3 @@
   from = '/*'
   to = '/index.html'
   status = 200
-
-[[plugins]]
-  package = "netlify-plugin-cypress"
-  [plugins.inputs]
-    record = true
