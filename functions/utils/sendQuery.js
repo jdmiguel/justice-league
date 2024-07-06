@@ -2,12 +2,12 @@ require('dotenv').config();
 
 module.exports = async (query, variables) => {
   try {
-    const response = await fetch('https://uyvrezmrknaqosbfuqzd.supabase.co/graphql/v1', {
+    const response = await fetch(process.env.SUPABASE_URL, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        apiKey: process.env.SUPABASE_API_KEY,
+        apiKey: process.env.SUPABASE_KEY,
       },
       body: JSON.stringify({ query, variables }),
     });
