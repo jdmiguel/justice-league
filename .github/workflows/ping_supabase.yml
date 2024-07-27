@@ -1,6 +1,7 @@
 name: Ping Supabase
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 */2 * *' # Runs every 2 days at midnight UTC
 
