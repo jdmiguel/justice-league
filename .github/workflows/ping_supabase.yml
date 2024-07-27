@@ -40,19 +40,21 @@ jobs:
                   'Content-Type': 'application/json',
               }
               query = {
-                query {
-                  metaCollection {
-                    edges {
-                      hero:node {
-                        id
-                        heroId
-                        name
-                        menuBgImagePath
-                        whiteLogoPath
+                'query': '''
+                  query {
+                    metaCollection {
+                      edges {
+                        hero: node {
+                          id
+                          heroId
+                          name
+                          menuBgImagePath
+                          whiteLogoPath
+                        }
                       }
                     }
                   }
-                }
+                '''
               }
               response = requests.post(SUPABASE_URL, json=query, headers=headers)
               if response.status_code == 200:
