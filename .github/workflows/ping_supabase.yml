@@ -2,7 +2,7 @@ name: Ping Supabase
 
 on:
   schedule:
-    - cron: '0 0 */5 * *' # Runs every 5 days at midnight UTC
+    - cron: '0 0 */2 * *' # Runs every 2 days at midnight UTC
 
 jobs:
   ping:
@@ -36,8 +36,24 @@ jobs:
               headers = {
                   'apikey': SUPABASE_KEY,
                   'Authorization': f'Bearer {SUPABASE_KEY}',
+                  'Content-Type': 'application/json',
               }
-              response = requests.get(f'{SUPABASE_URL}/rest/v1/your_table?limit=1', headers=headers)
+              query = {
+                query {
+                  metaCollection {
+                    edges {
+                      hero:node {
+                        id
+                        heroId
+                        name
+                        menuBgImagePath
+                        whiteLogoPath
+                      }
+                    }
+                  }
+                }
+              }
+              response = requests.post(SUPABASE_URL, json=query, headers=headers)
               if response.status_code == 200:
                   print('Ping successful')
               else:
