@@ -1,12 +1,12 @@
-import { HeroDB, HeroData } from '@/helpers/types';
+import { HeroData } from '@/helpers/types';
 
 export interface FetchHeroDataParams {
-  db: HeroDB;
+  db: HeroData[];
   heroId?: string;
 }
 
 const fetchHeroData = <T extends HeroData>({ db, heroId }: FetchHeroDataParams) => {
-  const heroData = db.find((hero) => hero.id === heroId);
+  const heroData = db.find((hero: HeroData) => hero.id === heroId);
 
   if (!heroData) {
     throw Error("hero data doesn't exist");

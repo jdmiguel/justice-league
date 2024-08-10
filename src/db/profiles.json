@@ -1,6 +1,7 @@
 [
   {
     "id": "superman",
+    "name": "Superman",
     "colorLogoPath": "/superman-color-logo.svg",
     "intro": {
       "alias": "The man of steel",
@@ -54,6 +55,7 @@
   },
   {
     "id": "batman",
+    "name": "Batman",
     "colorLogoPath": "/batman-color-logo.svg",
     "intro": {
       "alias": "The dark night",
@@ -107,6 +109,7 @@
   },
   {
     "id": "wonderwoman",
+    "name": "WonderWoman",
     "colorLogoPath": "/wonderwoman-color-logo.svg",
     "intro": {
       "alias": "Princess of the amazons",
@@ -160,6 +163,7 @@
   },
   {
     "id": "flash",
+    "name": "Flash",
     "colorLogoPath": "/flash-color-logo.svg",
     "intro": {
       "alias": "The fastest man alive",
@@ -213,6 +217,7 @@
   },
   {
     "id": "greenlantern",
+    "name": "GreenLantern",
     "colorLogoPath": "/greenlantern-color-logo.svg",
     "intro": {
       "alias": "God of light",
@@ -266,6 +271,7 @@
   },
   {
     "id": "aquaman",
+    "name": "Aquaman",
     "colorLogoPath": "/aquaman-color-logo.svg",
     "intro": {
       "alias": "The king of the seven seas",
@@ -325,6 +331,7 @@
   },
   {
     "id": "cyborg",
+    "name": "Cyborg",
     "colorLogoPath": "/cyborg-color-logo.svg",
     "intro": {
       "alias": "Cyberion Technis",

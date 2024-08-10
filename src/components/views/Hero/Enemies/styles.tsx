@@ -54,7 +54,7 @@ export const StyledEnemies = styled.div`
     }
   }
   @media only screen and (min-width: 1200px) {
-    padding: 100px 30px 80px;
+    padding: 80px 30px;
     grid-template-columns: 1fr 1fr;
     column-gap: 80px;
     max-width: 1200px;

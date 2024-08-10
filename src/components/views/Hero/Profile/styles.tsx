@@ -34,7 +34,7 @@ export const StyledProfile = styled.div`
     padding: 50px 30px;
   }
   @media only screen and (min-width: 1200px) {
-    padding: 100px 30px 80px;
+    padding: 80px 30px;
     max-width: 1200px;
   }
 `;

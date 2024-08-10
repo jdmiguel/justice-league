@@ -74,6 +74,7 @@ export type ProfileSkills = Skill[];
 
 export type ProfileData = {
   id: string;
+  name: string;
   colorLogoPath: string;
   intro: ProfileIntro;
   detail: ProfileDetail;
@@ -153,4 +154,3 @@ type Event = {
 export type EventsData = { id: string; colorLogoPath: string; events: Event[] };
 
 export type HeroData = ProfileData | EnemiesData | EventsData;
-export type HeroDB = ProfileData[] | EnemiesData[] | EventsData[];
