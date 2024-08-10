@@ -1,0 +1,44 @@
+[
+  {
+    "id": "superman",
+    "name": "Superman",
+    "menuBgImagePath": "/superman-hero-menu-bg.jpg",
+    "whiteLogoPath": "/superman-white-logo.svg"
+  },
+  {
+    "id": "batman",
+    "name": "Batman",
+    "menuBgImagePath": "/batman-hero-menu-bg.jpg",
+    "whiteLogoPath": "/batman-white-logo.svg"
+  },
+  {
+    "id": "wonderwoman",
+    "name": "WonderWoman",
+    "menuBgImagePath": "/wonderwoman-hero-menu-bg.jpg",
+    "whiteLogoPath": "/wonderwoman-white-logo.svg"
+  },
+  {
+    "id": "flash",
+    "name": "Flash",
+    "menuBgImagePath": "/flash-hero-menu-bg.jpg",
+    "whiteLogoPath": "/flash-white-logo.svg"
+  },
+  {
+    "id": "greenlantern",
+    "name": "GreenLantern",
+    "menuBgImagePath": "/greenlantern-hero-menu-bg.jpg",
+    "whiteLogoPath": "/greenlantern-white-logo.svg"
+  },
+  {
+    "id": "aquaman",
+    "name": "Aquaman",
+    "menuBgImagePath": "/aquaman-hero-menu-bg.jpg",
+    "whiteLogoPath": "/aquaman-white-logo.svg"
+  },
+  {
+    "id": "cyborg",
+    "name": "Cyborg",
+    "menuBgImagePath": "/cyborg-hero-menu-bg.jpg",
+    "whiteLogoPath": "/cyborg-white-logo.svg"
+  }
+]

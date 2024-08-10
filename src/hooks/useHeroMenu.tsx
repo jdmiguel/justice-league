@@ -6,14 +6,14 @@ const useHeroMenu = (heroId: HeroId, heroMetas: HeroMeta[]) => {
   const [heroes, setHeroes] = useState<Hero[]>(() =>
     heroMetas.map((meta: HeroMeta) => ({
       ...meta,
-      active: meta.heroId === heroId,
+      active: meta.id === heroId,
     })),
   );
   const [isHeroChangeEnabled, setIsHeroChangeEnabled] = useState(false);
   const [isHeroHighlighted, setIsHeroHighlighted] = useState(false);
   const [isChangingHero, setIsChangingHero] = useState(false);
   const [isLeavingMenu, setIsLeavingMenu] = useState(false);
-  const initialHeroIndex = heroMetas.findIndex((meta) => meta.heroId === heroId);
+  const initialHeroIndex = heroMetas.findIndex((meta) => meta.id === heroId);
   const [activeHeroIndex, setActiveHeroIndex] = useState(() => initialHeroIndex);
   const [prevActiveHeroIndex, setPrevActiveHeroIndex] = useState(() => initialHeroIndex);
 
@@ -34,7 +34,7 @@ const useHeroMenu = (heroId: HeroId, heroMetas: HeroMeta[]) => {
       setHeroes((prevHeroes) =>
         prevHeroes.map((hero) => ({
           ...hero,
-          active: id === hero.heroId,
+          active: id === hero.id,
         })),
       );
     },
@@ -47,9 +47,9 @@ const useHeroMenu = (heroId: HeroId, heroMetas: HeroMeta[]) => {
     }
 
     const prevActiveHeroId =
-      activeHeroIndex > 0 ? heroes[activeHeroIndex - 1].heroId : heroes[LAST_HERO_INDEX].heroId;
+      activeHeroIndex > 0 ? heroes[activeHeroIndex - 1].id : heroes[LAST_HERO_INDEX].id;
 
-    setActiveHero(prevActiveHeroId);
+    setActiveHero(prevActiveHeroId as HeroId);
   }, [
     activeHeroIndex,
     heroes,
@@ -65,9 +65,9 @@ const useHeroMenu = (heroId: HeroId, heroMetas: HeroMeta[]) => {
     }
 
     const nextActiveHeroId =
-      activeHeroIndex < LAST_HERO_INDEX ? heroes[activeHeroIndex + 1].heroId : heroes[0].heroId;
+      activeHeroIndex < LAST_HERO_INDEX ? heroes[activeHeroIndex + 1].id : heroes[0].id;
 
-    setActiveHero(nextActiveHeroId);
+    setActiveHero(nextActiveHeroId as HeroId);
   }, [
     activeHeroIndex,
     heroes,

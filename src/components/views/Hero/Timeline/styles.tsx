@@ -33,9 +33,10 @@ export const StyledTimeline = styled.div`
   max-width: 100%;
   padding: 30px;
   @media only screen and (min-width: 768px) {
-    padding: 100px 30px 80px;
+    padding: 50px 30px;
   }
   @media only screen and (min-width: 1200px) {
+    padding: 100px 30px 80px;
     max-width: 1200px;
   }
 `;

@@ -1,17 +1,11 @@
 [build]
   command = "yarn build"
   publish = "dist"
-  functions = "functions"
   [build.environment]
     NODE_VERSION = "18.17.1"
 
 [dev]
   targetPort = 3000
-
-[[redirects]]
-  from = "api/*"
-  to = ".netlify/functions/:splat"
-  status = 200
 
 [[redirects]]
   from = '/*'

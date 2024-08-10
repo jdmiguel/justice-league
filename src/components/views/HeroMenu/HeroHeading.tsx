@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { splitHeadingIntoChars, LAST_HERO_INDEX, cyclesByHeroId } from '@/helpers';
 import { ease } from '@/helpers/animations';
-import { HeroMenuData } from '@/helpers/types';
+import { HeroId, HeroMenuData } from '@/helpers/types';
 import { useIntro } from '@/contexts/IntroContext';
 import {
   StyledHeroHeading,
@@ -79,7 +79,7 @@ const HeroHeading: React.FC<Props> = ({
 
   const getCyclesByHeroIndex = useCallback(
     (heroIndex: number) => {
-      const currentHeroId = heroes[heroIndex].heroId;
+      const currentHeroId = heroes[heroIndex].id as HeroId;
       return cyclesByHeroId[currentHeroId];
     },
     [heroes],
@@ -273,7 +273,7 @@ const HeroHeading: React.FC<Props> = ({
     <StyledHeroHeading data-testid="hero-heading">
       <StyledHeroHeadingList>
         {heroes.map((hero, index) => (
-          <StyledHeroHeadingListItem key={hero.heroId}>
+          <StyledHeroHeadingListItem key={hero.id}>
             <StyledHeroHeadingListItemButton
               onClick={clickHeading}
               onMouseOver={onOverHeading}

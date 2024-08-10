@@ -1,5 +1,4 @@
 import { keyframes } from 'styled-components';
-import { theme } from './theme';
 
 export const ease = {
   medium: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
@@ -41,20 +40,6 @@ export const animation = {
       transform: translateY(0);
     }
  `,
-  loaderBar: keyframes`
-    0% {
-      background: transparent;
-      transform: scaleY(0.1);
-    }
-    50% {
-      background: ${theme.neutral};
-      transform: scaleY(1);
-    }
-    100% {
-      background: transparent;
-      transform: scaleY(0.1);
-    }
-  `,
   fadeIn: keyframes`
     0% {
       opacity: 0;

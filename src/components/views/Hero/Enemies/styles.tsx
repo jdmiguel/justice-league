@@ -28,7 +28,6 @@ export const StyledEnemies = styled.div`
   display: grid;
   column-gap: 60px;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  padding: 100px 30px 80px;
   height: 100%;
   margin: 0 auto;
   max-width: 100%;
@@ -43,7 +42,7 @@ export const StyledEnemies = styled.div`
     }
   }
   @media only screen and (min-width: 768px) {
-    padding: 100px 30px 80px;
+    padding: 50px 30px;
     row-gap: 40px;
     > div {
       > :nth-child(1) {
@@ -55,6 +54,7 @@ export const StyledEnemies = styled.div`
     }
   }
   @media only screen and (min-width: 1200px) {
+    padding: 100px 30px 80px;
     grid-template-columns: 1fr 1fr;
     column-gap: 80px;
     max-width: 1200px;

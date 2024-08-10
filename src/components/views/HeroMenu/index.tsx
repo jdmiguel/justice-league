@@ -21,6 +21,7 @@ type Props = {
 
 const HeroMenu: React.FC<Props> = ({ heroMetas, isLeaving, initLeave, endLeave }) => {
   const { activeHeroId } = useCustomNavigation();
+  console.log({ activeHeroId });
   const {
     heroes,
     activeHeroIndex,
@@ -91,7 +92,7 @@ const HeroMenu: React.FC<Props> = ({ heroMetas, isLeaving, initLeave, endLeave }
     }
 
     leaveMenu();
-    initLeave(heroes[activeHeroIndex].heroId);
+    initLeave(heroes[activeHeroIndex].id as HeroId);
   };
 
   return (

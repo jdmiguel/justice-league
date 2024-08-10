@@ -65,7 +65,10 @@ const HeroVectorLogo: React.FC<Props> = ({
       return;
     }
 
-    if (isIntroVisible) {
+    console.log({ activeHeroIndex });
+    console.log(heroRefs[0].current);
+
+    if (isIntroVisible && heroRefs[activeHeroIndex].current) {
       tweenRef.current = gsap
         .fromTo(
           heroRefs[activeHeroIndex].current,
@@ -167,9 +170,9 @@ const HeroVectorLogo: React.FC<Props> = ({
 
   return (
     <>
-      {heroes.map((hero, index) => (
-        <StyledHeroVectorLogo key={hero.heroId} ref={heroRefs[index]}>
-          {getLogo(hero.heroId)}
+      {heroes.map(({ id }, index) => (
+        <StyledHeroVectorLogo key={id} ref={heroRefs[index]}>
+          {getLogo(id)}
         </StyledHeroVectorLogo>
       ))}
     </>

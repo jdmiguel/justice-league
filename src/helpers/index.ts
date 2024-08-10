@@ -88,64 +88,6 @@ export const TOTAL_HEROES = 7;
 export const LAST_HERO_INDEX = TOTAL_HEROES - 1;
 export const DEFAULT_ACTIVE_HERO_ID = 'superman';
 export const DEFAULT_ACTIVE_PAGE_ID = 'root';
-export const DEFAULT_HERO_METAS: HeroMeta[] = [
-  {
-    id: 0,
-    heroId: DEFAULT_ACTIVE_HERO_ID,
-    name: '',
-    menuBgImagePath: '',
-    whiteLogoPath: '',
-    colorLogoPath: '',
-  },
-];
-export const DEFAULT_PROFILE: ProfileData = {
-  colorLogoPath: '',
-  name: '',
-  intro: {
-    alias: '',
-    description: '',
-    imagePath: '',
-  },
-  detail: {
-    fullName: '',
-    birthPlace: '',
-    occupation: '',
-    base: '',
-    firstAppearance: '',
-    imagePath: '',
-  },
-  appearance: {
-    race: '',
-    height: '',
-    weight: '',
-    eyeColor: '',
-    hairColor: '',
-    imagePath: '',
-  },
-  powers: [],
-  skills: [],
-};
-export const DEFAULT_ENEMIES: EnemiesData = {
-  colorLogoPath: '',
-  enemies: [
-    {
-      name: '',
-      description: '',
-      imagePath: '',
-    },
-  ],
-};
-export const DEFAULT_EVENTS: EventsData = {
-  colorLogoPath: '',
-  events: [
-    {
-      year: '',
-      title: '',
-      description: '',
-      imagePath: '',
-    },
-  ],
-};
 
 export const getHero = (heroSquad: HeroSquad, id: HeroId): string =>
   heroSquad[id || DEFAULT_ACTIVE_HERO_ID];

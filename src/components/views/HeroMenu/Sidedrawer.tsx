@@ -23,13 +23,13 @@ const Sidedrawer: React.FC<Props> = ({ heroes, isChangingHero, onClick }) => {
   return (
     <StyledSidedrawer data-testid="sidedrawer">
       <StyledSidedrawerList>
-        {heroes.map((hero) => (
-          <StyledSidedrawerListItem key={hero.heroId} isActive={hero.active}>
-            <button onClick={() => onClickItem(hero.heroId)}>
+        {heroes.map(({ id, name, active, whiteLogoPath }) => (
+          <StyledSidedrawerListItem key={id} isActive={active}>
+            <button onClick={() => onClickItem(id as HeroId)}>
               <div>
-                <img src={hero.whiteLogoPath} alt={`${hero.name} icon`} />
+                <img src={whiteLogoPath} alt={`${name} icon`} />
               </div>
-              <span>{hero.name}</span>
+              <span>{name}</span>
             </button>
           </StyledSidedrawerListItem>
         ))}

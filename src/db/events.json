@@ -1,0 +1,296 @@
+[
+  {
+    "id": "superman",
+    "colorLogoPath": "/superman-color-logo.svg",
+    "events": [
+      {
+        "year": "1938",
+        "title": "character creation",
+        "imagePath": "/superman-timeline-creation.jpg",
+        "description": "Superman was created by Jerry Siegel and Joe Shuster. First appearance in Action Comics #1"
+      },
+      {
+        "year": "1960",
+        "title": "justice league anexation",
+        "imagePath": "/justice-league-timeline-comic.jpg",
+        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+      },
+      {
+        "year": "1978",
+        "title": "superman - the film",
+        "imagePath": "/superman-timeline-first-movie.jpg",
+        "description": "Directed by Richard Donner, it is considered the first super hero blockbuster of history"
+      },
+      {
+        "year": "1988",
+        "title": "the arcade game",
+        "imagePath": "/superman-timeline-video-game.jpg",
+        "description": "Released by Taito, this arcade beat ’em up/shoot ’em up was incredible successful at its time"
+      },
+      {
+        "year": "1993",
+        "title": "the death of superman",
+        "imagePath": "/superman-timeline-death-superman-comic.jpg",
+        "description": "Crossover story which contains one of the most relevant events across all the character history"
+      },
+      {
+        "year": "2013",
+        "title": "man of steel - the movie",
+        "imagePath": "/superman-timeline-new-movie.jpg",
+        "description": "Directed by Zack Snyder, it was the highest-grossing solo Superman movie of all time"
+      }
+    ]
+  },
+  {
+    "id": "batman",
+    "colorLogoPath": "/batman-color-logo.svg",
+    "events": [
+      {
+        "year": "1939",
+        "title": "character creation",
+        "imagePath": "/batman-timeline-creation.jpg",
+        "description": "Batman was created by Bob Kane y Bill Finger. First appearance in Detective Comics #27"
+      },
+      {
+        "year": "1940",
+        "title": "robin creation",
+        "imagePath": "/robin-timeline-creation.jpg",
+        "description": "Robin was introduced as a junior crime-fighting partner for Batman in Detective Comics #38"
+      },
+      {
+        "year": "1960",
+        "title": "justice league anexation",
+        "imagePath": "/justice-league-timeline-comic.jpg",
+        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+      },
+      {
+        "year": "1986",
+        "title": "the dark night returns",
+        "imagePath": "/batman-timeline-dark-knight-comic.jpg",
+        "description": "It is widely considered one of the greatest and most influential Batman stories ever made"
+      },
+      {
+        "year": "1989",
+        "title": "batman - the film",
+        "imagePath": "/batman-timeline-first-movie.jpg",
+        "description": "Directed by Tim Burton and starred by Michael Keaton, it was a really successful blockbuster"
+      },
+      {
+        "year": "2009",
+        "title": "arkham asylum - the game",
+        "imagePath": "/batman-timeline-video-game.jpg",
+        "description": "The beginning of a relevant franchise, it was one of the best superhero games of history"
+      }
+    ]
+  },
+  {
+    "id": "wonderwoman",
+    "colorLogoPath": "/wonderwoman-color-logo.svg",
+    "events": [
+      {
+        "year": "1941",
+        "title": "character creation",
+        "imagePath": "/wonderwoman-timeline-creation.jpg",
+        "description": "Wonderwoman was created by W. M. Marston and H. G. Peter. First appearance in A.A Comics #8"
+      },
+      {
+        "year": "1960",
+        "title": "justice league anexation",
+        "imagePath": "/justice-league-timeline-comic.jpg",
+        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+      },
+      {
+        "year": "1976",
+        "title": "wonder woman - the series",
+        "imagePath": "/wonderwoman-timeline-tv-series.jpg",
+        "description": "Starred by Kinda Carter, this portrayal of the character strongly influenced comics"
+      },
+      {
+        "year": "1987",
+        "title": "gods and mortals",
+        "imagePath": "/wonderwoman-timeline-comic.jpg",
+        "description": "Run by George Perez, it is considered the greatest run of the hero in comic book history"
+      },
+      {
+        "year": "2017",
+        "title": "wonder woman - the movie",
+        "imagePath": "/wonderwoman-timeline-first-movie.jpg",
+        "description": "Directed by Patty Jenkins and starred by Gal Gadot, it received a positive response from critics"
+      },
+      {
+        "year": "2023",
+        "title": "the official game",
+        "imagePath": "/wonderwoman-timeline-video-game.jpg",
+        "description": "A single-player open-world action game, it is the first one starred by Amazonian warrior"
+      }
+    ]
+  },
+  {
+    "id": "flash",
+    "colorLogoPath": "/flash-color-logo.svg",
+    "events": [
+      {
+        "year": "1940",
+        "title": "character creation",
+        "imagePath": "/flash-timeline-creation.jpg",
+        "description": "Flash was created by Gardner Fox and Harry Lampert. First appearance in Flash Comics #1"
+      },
+      {
+        "year": "1960",
+        "title": "justice league anexation",
+        "imagePath": "/justice-league-timeline-comic.jpg",
+        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+      },
+      {
+        "year": "1990",
+        "title": "the flash - nineties series",
+        "imagePath": "/flash-timeline-nineties-tv-series.jpg",
+        "description": "Starred by John W.Shipp, this series was plenty of weird sci-fi villains and special effects"
+      },
+      {
+        "year": "2011",
+        "title": "flashpoint",
+        "imagePath": "/flash-timeline-flashpoint-comic.jpg",
+        "description": "Perhaps the most iconic of all modern timelines involving the Flash, it was a reboot of the hero"
+      },
+      {
+        "year": "2014",
+        "title": "the flash - the series",
+        "imagePath": "/flash-timeline-tv-series.jpg",
+        "description": "This tv series had 8 seasons developed within the fictional universe known the Arrowverse"
+      },
+      {
+        "year": "2017",
+        "title": "justice league - the movie",
+        "imagePath": "/justice-league-timeline-movie.jpg",
+        "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
+      }
+    ]
+  },
+  {
+    "id": "greenlantern",
+    "colorLogoPath": "/greenlantern-color-logo.svg",
+    "events": [
+      {
+        "year": "1940",
+        "title": "character creation",
+        "imagePath": "/greenlantern-timeline-creation.jpg",
+        "description": "Greenlantern was created by M. Nodell and Bill Finger. First appearance in A.A Comics #16"
+      },
+      {
+        "year": "1960",
+        "title": "justice league anexation",
+        "imagePath": "/justice-league-timeline-comic.jpg",
+        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+      },
+      {
+        "year": "1994",
+        "title": "Emerald Twilight",
+        "imagePath": "/greenlantern-timeline-emerald-twilight-comic.jpg",
+        "description": "This iconic storyline changed the super hero forever by shaking up the status quo for the hero"
+      },
+      {
+        "year": "2007",
+        "title": "Sinestro Corps War",
+        "imagePath": "/greenlantern-timeline-sinestro-war-comic.jpg",
+        "description": "Ranked among the top comic books of the year, the reception of this story was highly positive"
+      },
+      {
+        "year": "2011",
+        "title": "green lantern - the movie",
+        "imagePath": "/greenlantern-timeline-movie.jpg",
+        "description": "Directed by Martin Campbell and starred by Ryan Reynolds, the film receive negative reviews"
+      },
+      {
+        "year": "2011",
+        "title": "green lantern - the game",
+        "imagePath": "/greenlantern-timeline-video-game.jpg",
+        "description": "Green Lantern: Rise of the Manhunters is a quite enjoyable beat-'em-up action video game"
+      }
+    ]
+  },
+  {
+    "id": "aquaman",
+    "colorLogoPath": "/aquaman-color-logo.svg",
+    "events": [
+      {
+        "year": "1941",
+        "title": "character creation",
+        "imagePath": "/aquaman-timeline-creation.jpg",
+        "description": "Aquaman was created by Paul Norris and Mort Weisinger. First appearance in M.F Comics #73"
+      },
+      {
+        "year": "1960",
+        "title": "justice league anexation",
+        "imagePath": "/justice-league-timeline-comic.jpg",
+        "description": "Founder of the Justice League whose first appearing was in The Brave and the Bold #28"
+      },
+      {
+        "year": "1967",
+        "title": "aquaman - the series",
+        "imagePath": "/aquaman-timeline-series.jpg",
+        "description": "This tv series was comprised of adventures featuring Aquaman and his sidekick Aqualad"
+      },
+      {
+        "year": "2011",
+        "title": "aquaman - the trench",
+        "imagePath": "/aquaman-timeline-comic.jpg",
+        "description": "One of the most relevant storylines of the character, it was a strong rebirth for the hero"
+      },
+      {
+        "year": "2017",
+        "title": "justice league - the movie",
+        "imagePath": "/justice-league-timeline-movie.jpg",
+        "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
+      },
+      {
+        "year": "2018",
+        "title": "aquaman - the movie",
+        "imagePath": "/aquaman-timeline-movie.jpg",
+        "description": "Directed by J.Wan and starred by Jason Momoa, it became in one of the most successful dc movies"
+      }
+    ]
+  },
+  {
+    "id": "cyborg",
+    "colorLogoPath": "/cyborg-color-logo.svg",
+    "events": [
+      {
+        "year": "1980",
+        "title": "character creation",
+        "imagePath": "/cyborg-timeline-creation.jpg",
+        "description": "Cyborg was created by Marv Wolfman and George Pérez. First appearance in DC C.P #26"
+      },
+      {
+        "year": "1980",
+        "title": "the flash - nineties series",
+        "imagePath": "/new-teen-titans-timeline-comic.jpg",
+        "description": "One of the founders of new teen titans, he was an outstanding member of the mentioned squad"
+      },
+      {
+        "year": "2006",
+        "title": "smallville",
+        "imagePath": "/smallville-timeline.jpg",
+        "description": "Being a secondary role, it supposed the first live-action portrayal of the superhero"
+      },
+      {
+        "year": "2011",
+        "title": "justice league anexation",
+        "imagePath": "/justice-league-timeline-rebirth-comic.jpg",
+        "description": "Cyberion technis was established as a founding member of the Justice League in DC's 2011 reboot"
+      },
+      {
+        "year": "2016",
+        "title": "the imitation of life",
+        "imagePath": "/cyborg-timeline-comic.jpg",
+        "description": "Composed of 10 separated blocks, this relevant storyline was the rebirth of the character"
+      },
+      {
+        "year": "2017",
+        "title": "justice league - the movie",
+        "imagePath": "/justice-league-timeline-movie.jpg",
+        "description": "Directed by Zach Snyder, this film supposed the first appearance of the character in the big screens"
+      }
+    ]
+  }
+]

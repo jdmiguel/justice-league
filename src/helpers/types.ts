@@ -5,7 +5,6 @@ export type CustomAnimation = {
   backgroundNoise: Keyframes;
   entryFromTop: Keyframes;
   entryFromBottom: Keyframes;
-  loaderBar: Keyframes;
   fadeIn: Keyframes;
   fadeInFromBottom: Keyframes;
   fadeInFromLeft: Keyframes;
@@ -28,12 +27,10 @@ export type HeroSquad = {
 export type HeroId = keyof HeroSquad;
 
 export type HeroMeta = {
-  id: number;
-  heroId: HeroId;
+  id: string;
   name: string;
   menuBgImagePath: string;
   whiteLogoPath: string;
-  colorLogoPath: string;
 };
 
 export type HeroMenuData = HeroMeta & {
@@ -76,7 +73,7 @@ type Skill = {
 export type ProfileSkills = Skill[];
 
 export type ProfileData = {
-  name: string;
+  id: string;
   colorLogoPath: string;
   intro: ProfileIntro;
   detail: ProfileDetail;
@@ -142,6 +139,7 @@ type Enemy = {
   description: string;
 };
 export type EnemiesData = {
+  id: string;
   colorLogoPath: string;
   enemies: Enemy[];
 };
@@ -152,6 +150,7 @@ type Event = {
   title: string;
   description: string;
 };
-export type EventsData = { colorLogoPath: string; events: Event[] };
+export type EventsData = { id: string; colorLogoPath: string; events: Event[] };
 
-export type HeroData = HeroMeta[] | ProfileData | EnemiesData | EventsData;
+export type HeroData = ProfileData | EnemiesData | EventsData;
+export type HeroDB = ProfileData[] | EnemiesData[] | EventsData[];
