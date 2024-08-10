@@ -1,4 +1,54 @@
 import styled from 'styled-components';
+import { animation } from '@/helpers/animations';
+
+export const StyledLoaderWrapper = styled.div`
+  align-items: center;
+  background-color: ${({ theme }) => theme.dark};
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+`;
+
+export const StyledLoader = styled.div`
+  align-items: center;
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  margin-bottom: 85px;
+
+  span {
+    animation: ${animation.loaderBar} 1s linear infinite;
+    background: ${({ theme }) => theme.light};
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: inline-block;
+    height: 30px;
+    transform-origin: bottom center;
+    transform: scaleY(0);
+    width: 5px;
+
+    &:nth-of-type(1) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-of-type(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: 0.3s;
+    }
+
+    &:nth-of-type(4) {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-of-type(5) {
+      animation-delay: 0.5s;
+    }
+  }
+`;
 
 export const StyledNavigationDemo = styled.div`
   display: flex;

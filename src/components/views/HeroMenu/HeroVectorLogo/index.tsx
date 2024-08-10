@@ -65,9 +65,6 @@ const HeroVectorLogo: React.FC<Props> = ({
       return;
     }
 
-    console.log({ activeHeroIndex });
-    console.log(heroRefs[0].current);
-
     if (isIntroVisible && heroRefs[activeHeroIndex].current) {
       tweenRef.current = gsap
         .fromTo(

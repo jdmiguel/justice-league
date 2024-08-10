@@ -193,7 +193,6 @@ export const StyledSidedrawerListItem = styled.li<{ isActive: boolean }>`
   }
   span {
     display: none;
-    margin-left: 8px;
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
     transform: ${({ isActive }) => (isActive ? 'translateX(0px)' : 'translateX(15px)')};
     transition: all 0.4s ${ease.medium};
