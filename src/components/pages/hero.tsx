@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
       return;
     }
 
-    //updateLocked(false);
+    updateLocked(false);
   }, [isIntroVisible, updateLocked]);
 
   const updatedActivePageId = pageIdFromPagePath === activeHeroId ? 'profile' : activePageId;

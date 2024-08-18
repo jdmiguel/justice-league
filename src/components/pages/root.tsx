@@ -16,7 +16,7 @@ const Root: React.FC = () => {
 
   const heroMetasData = metasDB;
 
-  //useLockedBody();
+  useLockedBody();
 
   useEffect(() => {
     updateActivePageId('root');
