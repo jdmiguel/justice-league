@@ -31,11 +31,11 @@ export const StyledGrainedBg = styled.div`
 export const StyledHeroVectorLogo = styled.div`
   align-items: center;
   display: flex;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
   opacity: 0;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 4;
 `;
@@ -89,8 +89,8 @@ export const StyledHeroBg = styled.div<{ bgPath: string; isActive: boolean; isDa
 export const StyledHeroHeading = styled.nav`
   font-size: 4rem;
   font-weight: 700;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   width: 100%;
   z-index: 4;
   @media only screen and (min-width: 768px) {
@@ -137,7 +137,7 @@ export const StyledSidedrawer = styled.nav`
   font-size: 1.2rem;
   font-weight: 700;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 5;
   @media only screen and (min-width: 768px) {
