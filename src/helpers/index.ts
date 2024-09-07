@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { HeroSquad, HeroId, HeroMeta, ProfileData, EnemiesData, EventsData } from '@/helpers/types';
+import { HeroSquad, HeroId } from '@/helpers/types';
 
 export const splitHeadingIntoChars = (target: HTMLHeadingElement | null) => {
   if (!target) {
